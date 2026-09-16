@@ -133,9 +133,22 @@ against each record's title, abstract and author keywords. Matching is case-inse
 treats a hyphen and a space as equivalent, as PubMed does, and requires whole-token boundaries
 so that `spin` does not match `spinal`.
 
+Two vocabularies are involved and conflating them caused the one error this project has so far
+published. The **search** vocabulary is tuned for precision against all of PubMed, where a
+phrase as broad as `"peer review"` retrieves every paper that mentions having been peer
+reviewed. The **labelling** vocabulary applies inside a corpus that is already meta-research,
+where that same narrowness only hides topics: the search phrases labelled peer review on 11
+records while 159 of them mention it, and generative AI on 1 while 66 mention a language model.
+A conclusion drawn from those counts, that the field does not study its own quality control,
+was published on the landscape page and was false.
+
+Broad labelling phrases now live in `LABEL_EXTRA` in `build/lit/describe.py`, applied only to
+records already retrieved and never to a query. The corrected counts are on
+[the landscape](landscape.qmd), which also states what the earlier version claimed.
+
 A label means the record uses a topic's vocabulary. It does not mean a human, or a model,
 judged the record to be about that topic. No model has read any record in this corpus. Records
-can carry several labels; 1815 of 1830 carry at least one and 15 carry none.
+can carry several labels; 1819 of 1830 carry at least one and 11 carry none.
 
 ## What this corpus is not
 

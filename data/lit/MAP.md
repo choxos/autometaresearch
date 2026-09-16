@@ -1,6 +1,6 @@
 # The meta-research corpus, described
 
-1830 unique records. 1716 carry an abstract, 1315 carry MeSH indexing. 1815 match at least one topic phrase; 15 match none.
+1830 unique records. 1716 carry an abstract, 1315 carry MeSH indexing. 1819 match at least one topic phrase; 11 match none.
 
 
 ## Growth
@@ -27,43 +27,44 @@ A record can carry several labels, so the column sums past the corpus size.
 | topic | records |
 |---|---|
 | metares | 1812 |
-| report | 204 |
-| reg | 156 |
-| repro | 95 |
-| datashare | 79 |
-| retract | 75 |
-| biblio | 64 |
-| oa | 45 |
-| waste | 44 |
-| stats | 39 |
-| coi | 20 |
-| peerrev | 11 |
-| aitext | 1 |
+| report | 277 |
+| reg | 268 |
+| repro | 268 |
+| biblio | 163 |
+| stats | 114 |
+| datashare | 84 |
+| retract | 83 |
+| oa | 81 |
+| peerrev | 76 |
+| coi | 64 |
+| waste | 46 |
+| aitext | 33 |
+| equity | 21 |
 
 ## Topic pairs
 
 | pair | records |
 |---|---|
-| reg + report | 28 |
-| biblio + report | 17 |
-| datashare + repro | 14 |
-| datashare + report | 12 |
-| datashare + oa | 11 |
-| report + retract | 10 |
-| reg + stats | 10 |
-| repro + stats | 10 |
-| retract + stats | 9 |
-| report + waste | 9 |
-| reg + retract | 8 |
-| reg + repro | 8 |
-| reg + waste | 7 |
-| biblio + datashare | 7 |
-| biblio + reg | 7 |
-| datashare + reg | 7 |
-| oa + report | 7 |
-| report + stats | 6 |
-| biblio + oa | 6 |
-| retract + waste | 6 |
+| reg + report | 59 |
+| report + repro | 46 |
+| datashare + repro | 40 |
+| reg + repro | 40 |
+| biblio + report | 31 |
+| reg + stats | 30 |
+| repro + stats | 28 |
+| datashare + reg | 19 |
+| datashare + oa | 19 |
+| biblio + reg | 18 |
+| peerrev + report | 18 |
+| biblio + oa | 17 |
+| coi + reg | 17 |
+| biblio + datashare | 16 |
+| biblio + retract | 16 |
+| oa + report | 16 |
+| repro + retract | 15 |
+| reg + retract | 15 |
+| report + retract | 15 |
+| report + stats | 15 |
 
 ## Journals
 

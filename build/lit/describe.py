@@ -49,7 +49,46 @@ def matcher(phrase):
     return re.compile(rf"(?<![\w-]){body}(?![\w-])", re.IGNORECASE)
 
 
-VOCAB = {block: [(p, matcher(p)) for p in phrases]
+# Broad phrases used for labelling and never for searching.
+#
+# The search vocabulary is tuned for precision against all of PubMed, where "peer review"
+# retrieves every paper that mentions having been peer reviewed. Reused as a labelling
+# vocabulary inside a corpus that already only contains meta-research, that same precision
+# becomes a defect: `peerrev` labelled 11 records while 159 of them mention peer review, and
+# `aitext` labelled 1 while 66 mention a language model. A conclusion drawn from those counts,
+# that the field does not study its own quality control, was false and was published for the
+# length of one commit.
+#
+# Adding any of these to the search blocks would reintroduce exactly the contamination the
+# protocol exists to avoid. They live here, applied only to records already retrieved.
+LABEL_EXTRA = {
+    "peerrev": ["peer review", "peer reviewer", "peer reviewers", "referee report",
+                "editorial decision", "reviewer report", "reviewer reports"],
+    "aitext": ["ChatGPT", "large language model", "large language models", "generative AI",
+               "GPT-4", "GPT-3", "LLM", "LLMs", "AI-generated", "AI chatbot"],
+    "retract": ["retraction", "retractions", "retracted"],
+    "coi": ["conflict of interest", "conflicts of interest", "financial disclosure",
+            "financial disclosures", "competing interests"],
+    "datashare": ["data availability", "data accessibility", "shared data", "raw data sharing"],
+    "repro": ["reproducibility", "replicability", "replication", "reproduce the results"],
+    "report": ["CONSORT", "PRISMA", "STROBE", "ARRIVE", "TRIPOD", "SPIRIT", "STARD",
+               "reporting completeness", "reporting checklist", "reporting standards"],
+    "oa": ["open access", "paywalled", "publication fee", "publication fees"],
+    "biblio": ["authorship", "bibliometric", "bibliometrics", "citation analysis",
+               "research metrics", "h-index"],
+    "stats": ["questionable research practice", "statistical significance",
+              "multiple comparisons", "statistical reporting", "underpowered"],
+    # "trial registration" is barred from the reg SEARCH block because it is a structured
+    # abstract label carried by every registered trial in PubMed. Inside a corpus that is
+    # already meta-research, that objection does not apply and the phrase is informative.
+    "reg": ["trial registration", "trial registry", "ClinicalTrials.gov", "preregistration",
+            "pre-registration", "registered trials"],
+    "waste": ["research waste", "research prioritisation", "wasteful research"],
+    "equity": ["gender bias", "gender disparities", "gender differences in authorship",
+               "underrepresentation", "diversity of authors", "low-income countries"],
+}
+
+VOCAB = {block: [(p, matcher(p)) for p in phrases + LABEL_EXTRA.get(block, [])]
          for block, phrases in {**TIER_A, **TIER_B}.items()}
 
 

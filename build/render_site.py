@@ -80,16 +80,24 @@ words, not that a human judged the record to be about that topic.
              f"{100 * n / m['n_records']:.1f}%"] for b, n in counts.items()]
     w(table(["topic", "code", "records", "share"], rows))
 
-    w("\n## Where the attention is not\n")
+    w("\n## Where the vocabulary is thin\n")
     thin = [(b, n) for b, n in counts.items() if b != "metares" and n < 50]
-    w("These topics are named in the corpus fewer than fifty times each.\n")
-    w(table(["topic", "records"],
-            [[BLOCK_TITLES.get(b, b), n] for b, n in thin]))
-    w(f"\nPeer review is named in {counts.get('peerrev', 0)} of these records. Generative AI in "
-      f"research writing is named in {counts.get('aitext', 0)}. Whatever the true size of those "
-      "literatures elsewhere, the papers that call themselves meta-research are not where they "
-      "live, and a field that names itself the study of research is not currently studying "
-      "either its own quality control or the technology now writing the papers it examines.\n")
+    w("Blocks carry different numbers of phrases and phrases of different breadth, so a count "
+      "here measures how much of a topic's vocabulary this corpus uses and not how much "
+      "attention the topic receives. The counts are not comparable across blocks and a small "
+      "one is not evidence of a gap.\n")
+    if thin:
+        w(table(["topic", "records"],
+                [[BLOCK_TITLES.get(b, b), n] for b, n in thin]))
+    else:
+        w("Every block is named in at least fifty records.\n")
+    w("\nAn earlier version of this page read a field-level conclusion off this table, that "
+      "meta-research does not study peer review or generative AI. It was wrong, and it was "
+      "wrong because the labelling vocabulary had been borrowed from the search vocabulary, "
+      "where narrowness is a virtue. Broad phrases for labelling now live separately in "
+      "`build/lit/describe.py` and the counts above are the corrected ones. The episode is "
+      "left on the page rather than quietly fixed, because a project about research "
+      "transparency that silently corrects its own record is arguing against itself.\n")
 
     w("\n## Topics studied together\n")
     w("Pairs of topic labels on the same record, most frequent first. The pairs are what a "
@@ -126,7 +134,9 @@ words, not that a human judged the record to be about that topic.
     w(table(["type", "records"],
             [[e["name"], e["n"]] for e in m["study_types"][:15]]))
     w("\nReviews, meta-analyses and systematic reviews together outnumber every other declared "
-      "type. The field describes literature far more often than it experiments on it.\n")
+      "type. Many of the records typed as meta-analysis are meta-epidemiological studies, "
+      "which PubMed has no separate type for, so this table separates declared types and not "
+      "study designs.\n")
 
     open(os.path.join(ROOT, "landscape.qmd"), "w", encoding="utf8").write("\n".join(L) + "\n")
 

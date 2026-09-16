@@ -34,38 +34,36 @@ The earliest records are scattered and mostly editorial. The shape changes aroun
 
 ## What it studies
 
-A record can carry several labels, so the column sums past the corpus size. 15 records match no topic phrase at all.
+A record can carry several labels, so the column sums past the corpus size. 11 records match no topic phrase at all.
 
 | topic | code | records | share |
 |---|---|---|---|
 | Names itself meta-research | `metares` | 1812 | 99.0% |
-| Reporting quality and guideline adherence | `report` | 204 | 11.1% |
-| Registration, outcome switching and publication bias | `reg` | 156 | 8.5% |
-| Reproducibility and replication | `repro` | 95 | 5.2% |
-| Data and code sharing, FAIR | `datashare` | 79 | 4.3% |
-| Retraction, misconduct and integrity | `retract` | 75 | 4.1% |
-| Authorship, citation and metrics | `biblio` | 64 | 3.5% |
-| Open access, preprints and predatory publishing | `oa` | 45 | 2.5% |
-| Research waste and prioritization | `waste` | 44 | 2.4% |
-| Statistical practice, spin and p-hacking | `stats` | 39 | 2.1% |
-| Conflicts of interest and funding | `coi` | 20 | 1.1% |
-| Peer review | `peerrev` | 11 | 0.6% |
-| Generative AI in research writing and review | `aitext` | 1 | 0.1% |
+| Reporting quality and guideline adherence | `report` | 277 | 15.1% |
+| Registration, outcome switching and publication bias | `reg` | 268 | 14.6% |
+| Reproducibility and replication | `repro` | 268 | 14.6% |
+| Authorship, citation and metrics | `biblio` | 163 | 8.9% |
+| Statistical practice, spin and p-hacking | `stats` | 114 | 6.2% |
+| Data and code sharing, FAIR | `datashare` | 84 | 4.6% |
+| Retraction, misconduct and integrity | `retract` | 83 | 4.5% |
+| Open access, preprints and predatory publishing | `oa` | 81 | 4.4% |
+| Peer review | `peerrev` | 76 | 4.2% |
+| Conflicts of interest and funding | `coi` | 64 | 3.5% |
+| Research waste and prioritization | `waste` | 46 | 2.5% |
+| Generative AI in research writing and review | `aitext` | 33 | 1.8% |
+| Equity and representation | `equity` | 21 | 1.1% |
 
-## Where the attention is not
+## Where the vocabulary is thin
 
-These topics are named in the corpus fewer than fifty times each.
+Blocks carry different numbers of phrases and phrases of different breadth, so a count here measures how much of a topic's vocabulary this corpus uses and not how much attention the topic receives. The counts are not comparable across blocks and a small one is not evidence of a gap.
 
 | topic | records |
 |---|---|
-| Open access, preprints and predatory publishing | 45 |
-| Research waste and prioritization | 44 |
-| Statistical practice, spin and p-hacking | 39 |
-| Conflicts of interest and funding | 20 |
-| Peer review | 11 |
-| Generative AI in research writing and review | 1 |
+| Research waste and prioritization | 46 |
+| Generative AI in research writing and review | 33 |
+| Equity and representation | 21 |
 
-Peer review is named in 11 of these records. Generative AI in research writing is named in 1. Whatever the true size of those literatures elsewhere, the papers that call themselves meta-research are not where they live, and a field that names itself the study of research is not currently studying either its own quality control or the technology now writing the papers it examines.
+An earlier version of this page read a field-level conclusion off this table, that meta-research does not study peer review or generative AI. It was wrong, and it was wrong because the labelling vocabulary had been borrowed from the search vocabulary, where narrowness is a virtue. Broad phrases for labelling now live separately in `build/lit/describe.py` and the counts above are the corrected ones. The episode is left on the page rather than quietly fixed, because a project about research transparency that silently corrects its own record is arguing against itself.
 
 
 ## Topics studied together
@@ -74,26 +72,26 @@ Pairs of topic labels on the same record, most frequent first. The pairs are wha
 
 | pair | records |
 |---|---|
-| reg and report | 28 |
-| biblio and report | 17 |
-| datashare and repro | 14 |
-| datashare and report | 12 |
-| datashare and oa | 11 |
-| report and retract | 10 |
-| reg and stats | 10 |
-| repro and stats | 10 |
-| retract and stats | 9 |
-| report and waste | 9 |
-| reg and retract | 8 |
-| reg and repro | 8 |
-| reg and waste | 7 |
-| biblio and datashare | 7 |
-| biblio and reg | 7 |
-| datashare and reg | 7 |
-| oa and report | 7 |
-| report and stats | 6 |
-| biblio and oa | 6 |
-| retract and waste | 6 |
+| reg and report | 59 |
+| report and repro | 46 |
+| datashare and repro | 40 |
+| reg and repro | 40 |
+| biblio and report | 31 |
+| reg and stats | 30 |
+| repro and stats | 28 |
+| datashare and reg | 19 |
+| datashare and oa | 19 |
+| biblio and reg | 18 |
+| peerrev and report | 18 |
+| biblio and oa | 17 |
+| coi and reg | 17 |
+| biblio and datashare | 16 |
+| biblio and retract | 16 |
+| oa and report | 16 |
+| repro and retract | 15 |
+| reg and retract | 15 |
+| report and retract | 15 |
+| report and stats | 15 |
 
 ## Topics over time
 
@@ -101,18 +99,19 @@ Records per half decade, from 2015. A topic that flattens while the corpus grows
 
 | topic | 2015-2019 | 2020-2024 | 2025-2029 |
 |---|---|---|---|
-| Reporting quality and guideline adherence | 32 | 107 | 62 |
-| Registration, outcome switching and publication bias | 24 | 80 | 43 |
-| Reproducibility and replication | 23 | 52 | 18 |
-| Data and code sharing, FAIR | 6 | 53 | 19 |
-| Retraction, misconduct and integrity | 8 | 26 | 34 |
-| Authorship, citation and metrics | 7 | 36 | 21 |
-| Open access, preprints and predatory publishing | 3 | 30 | 12 |
-| Research waste and prioritization | 11 | 23 | 10 |
-| Statistical practice, spin and p-hacking | 9 | 17 | 11 |
-| Conflicts of interest and funding | 5 | 10 | 5 |
-| Peer review | 1 | 6 | 4 |
-| Generative AI in research writing and review | 0 | 0 | 1 |
+| Reporting quality and guideline adherence | 39 | 138 | 96 |
+| Registration, outcome switching and publication bias | 37 | 144 | 77 |
+| Reproducibility and replication | 52 | 141 | 72 |
+| Authorship, citation and metrics | 24 | 83 | 53 |
+| Statistical practice, spin and p-hacking | 25 | 53 | 32 |
+| Data and code sharing, FAIR | 8 | 55 | 20 |
+| Retraction, misconduct and integrity | 9 | 28 | 39 |
+| Open access, preprints and predatory publishing | 7 | 51 | 23 |
+| Peer review | 12 | 37 | 26 |
+| Conflicts of interest and funding | 12 | 34 | 16 |
+| Research waste and prioritization | 11 | 25 | 10 |
+| Generative AI in research writing and review | 0 | 4 | 29 |
+| Equity and representation | 1 | 14 | 6 |
 
 ## Where it is published
 
@@ -196,5 +195,5 @@ Publication types, with the container types that describe every journal article 
 | Biography | 7 |
 | Network Meta-Analysis | 6 |
 
-Reviews, meta-analyses and systematic reviews together outnumber every other declared type. The field describes literature far more often than it experiments on it.
+Reviews, meta-analyses and systematic reviews together outnumber every other declared type. Many of the records typed as meta-analysis are meta-epidemiological studies, which PubMed has no separate type for, so this table separates declared types and not study designs.
 
