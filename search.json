@@ -1,0 +1,170 @@
+[
+  {
+    "objectID": "methods.html",
+    "href": "methods.html",
+    "title": "How this was done",
+    "section": "",
+    "text": "This project studies transparency in research. It would be indefensible for the project itself to be opaque, so every query, every count and every scope decision is recorded here, including the ones that went wrong."
+  },
+  {
+    "objectID": "methods.html#databases-and-dates",
+    "href": "methods.html#databases-and-dates",
+    "title": "How this was done",
+    "section": "Databases and dates",
+    "text": "Databases and dates\nPubMed and PMC, through the NCBI E-utilities. PMC is searched as well as PubMed because PMC carries records PubMed does not index: author manuscripts, some non-MEDLINE journals, and deposited preprints. Searches were run on 2026-09-16. No language, date or article-type limit was applied.\nThe harvester is build/lit/search.py. It is the only route by which a record enters the corpus, and it writes a machine-readable log of every query it issued to data/lit/search-log.json."
+  },
+  {
+    "objectID": "methods.html#the-two-tiers",
+    "href": "methods.html#the-two-tiers",
+    "title": "How this was done",
+    "section": "The two tiers",
+    "text": "The two tiers\nThe field can be searched two ways and they retrieve different things.\nTier A is the field naming itself: a paper that describes its own work as meta-research, metascience, research on research, or a meta-epidemiological study. Precision is close to total, because no other kind of paper uses those words about itself.\nTier B is the field by subject matter: reporting quality, data sharing, retraction, registration, peer review, and the rest. Tier B retrieves two populations that no boolean query separates. A search for \"data sharing\" returns surveys of how often trials share data alongside trials that happened to share theirs, and only the first kind is meta-research.\nOnly tier A has been harvested. Tier B has been sized and the counts are published below, but nothing from it is in the corpus. That decision is revisited once the tier A map has been read."
+  },
+  {
+    "objectID": "methods.html#tier-a-the-query",
+    "href": "methods.html#tier-a-the-query",
+    "title": "How this was done",
+    "section": "Tier A: the query",
+    "text": "Tier A: the query\nEach phrase is searched in title, abstract and author keyword fields, and the phrases are combined with OR.\n\"meta-research\"      \"metaresearch\"           \"meta research\"\n\"metascience\"        \"meta-science\"           \"research on research\"\n\"science of science\" \"meta-epidemiological\"   \"meta-epidemiology\"\n\n\n\ndatabase\nhits\nrecords retrieved\n\n\n\n\nPubMed\n1805\n1805\n\n\nPMC\n694\n694\n\n\n\nDeduplicated on PMID, then DOI, then PMCID, then normalized title: 1830 unique records. The overlap is large, as expected; 669 PMC records were already present from PubMed and 25 were new."
+  },
+  {
+    "objectID": "methods.html#tier-b-the-counts-and-why-they-are-not-the-corpus",
+    "href": "methods.html#tier-b-the-counts-and-why-they-are-not-the-corpus",
+    "title": "How this was done",
+    "section": "Tier B: the counts, and why they are not the corpus",
+    "text": "Tier B: the counts, and why they are not the corpus\nMeasured 2026-09-16 in PubMed. The third column is the same block ANDed with a study-of-literature qualifier described below.\n\n\n\n\n\n\n\n\n\nblock\nphrases cover\nraw hits\nqualified\n\n\n\n\nreg\nregistration, outcome switching, publication bias\n189588\n8205\n\n\nbiblio\nauthorship, citation, metrics\n17419\n16265\n\n\nreport\nreporting quality, guideline adherence\n16657\n2395\n\n\ndatashare\ndata and code sharing, FAIR\n15418\n767\n\n\nretract\nretraction, misconduct, integrity\n11128\n637\n\n\nrepro\nreproducibility, replication\n6421\n241\n\n\noa\nopen access, preprints, predatory publishing\n4475\n1050\n\n\npeerrev\npeer review\n2910\n325\n\n\ncoi\nconflicts of interest, funding\n1387\nnot measured\n\n\nwaste\nresearch waste, prioritization\n1061\nnot measured\n\n\nstats\np-hacking, spin, questionable practices\n545\nnot measured\n\n\nequity\nequity and representation\n326\nnot measured\n\n\naitext\ngenerative AI in research writing\n106\nnot measured\n\n\n\n\nThe 189588\nThe reg block first returned 189588 records, five sixths of everything tier B retrieved, from the single phrase \"trial registration\". The obvious explanation was wrong. The phrase was not being broken into words and ANDed by PubMed; it is phrase-indexed, and the quoted form returns fewer records than trial AND registration does. The real cause is that Trial registration is the label of a section in a structured abstract, so every registered trial in PubMed carries the phrase verbatim. It identifies trials that were registered and never studies of registration.\nThe phrase has been removed from the block. build/lit/search.py records why, next to the block it was removed from, so it is not reintroduced by someone who only sees that the block looks thin.\n\"registered report\" was removed for a related reason: the singular returns 5806 records and the plural 192, because the singular also matches any sentence about a report that was registered. Only the plural is kept.\n\n\nThe qualifier\nFor the contaminated blocks, ANDing the topic with a set of phrases that name the object of study separates a study of the literature from a study of patients. A study of data sharing examines published articles; a trial that shared its data examines people.\n\"published articles\"  \"published studies\"    \"published trials\"\n\"journal articles\"    \"publications\"         \"sample of articles\"\n\"cross-sectional study of\"                   \"sample of trials\"\n\"we searched PubMed\"  \"we searched MEDLINE\"  \"we searched Embase\"\n\"research articles\"   \"abstracts of\"         \"meta-epidemiological\"\nIt is effective and it is lossy. A meta-research paper that describes its sample as “we examined 300 trials” carries none of these phrases and would be lost. Both numbers are therefore recorded, so any qualified corpus is reported against the raw count it was drawn from rather than presented as the whole field."
+  },
+  {
+    "objectID": "methods.html#retrieval-limits-and-why-nothing-was-silently-truncated",
+    "href": "methods.html#retrieval-limits-and-why-nothing-was-silently-truncated",
+    "title": "How this was done",
+    "section": "Retrieval limits, and why nothing was silently truncated",
+    "text": "Retrieval limits, and why nothing was silently truncated\nNCBI returns at most 9999 identifiers for one query. The sibling project this harvester is adapted from partitions an oversized query by year and then by month and stops there, so a single month above the ceiling truncates without saying so. Meta-research blocks are large and concentrated in recent years, which is where that would happen.\nThe partitioner here bisects the publication-date range recursively until every part is under the ceiling. When even a single day exceeds it, the day is recorded in gaps in the search log and printed as TRUNCATED, rather than passed off as complete. The tier A harvest needed no partitioning: both queries were under the ceiling."
+  },
+  {
+    "objectID": "methods.html#labelling",
+    "href": "methods.html#labelling",
+    "title": "How this was done",
+    "section": "Labelling",
+    "text": "Labelling\nTopic labels are assigned in build/lit/describe.py by matching the tier B phrase vocabulary against each record’s title, abstract and author keywords. Matching is case-insensitive, treats a hyphen and a space as equivalent, as PubMed does, and requires whole-token boundaries so that spin does not match spinal.\nTwo vocabularies are involved and conflating them caused the one error this project has so far published. The search vocabulary is tuned for precision against all of PubMed, where a phrase as broad as \"peer review\" retrieves every paper that mentions having been peer reviewed. The labelling vocabulary applies inside a corpus that is already meta-research, where that same narrowness only hides topics: the search phrases labelled peer review on 11 records while 159 of them mention it, and generative AI on 1 while 66 mention a language model. A conclusion drawn from those counts, that the field does not study its own quality control, was published on the landscape page and was false.\nBroad labelling phrases now live in LABEL_EXTRA in build/lit/describe.py, applied only to records already retrieved and never to a query. The corrected counts are on the landscape, which also states what the earlier version claimed.\nA label means the record uses a topic’s vocabulary. It does not mean a human, or a model, judged the record to be about that topic. No model has read any record in this corpus. Records can carry several labels; 1819 of 1830 carry at least one and 11 carry none."
+  },
+  {
+    "objectID": "methods.html#what-this-corpus-is-not",
+    "href": "methods.html#what-this-corpus-is-not",
+    "title": "How this was done",
+    "section": "What this corpus is not",
+    "text": "What this corpus is not\n\nIt is not the meta-research literature. It is the part of it that names itself. Work published before roughly 2015, when the vocabulary settled, largely does not appear even when it is unmistakably meta-research by subject.\nIt is not screened. Every record retrieved by the tier A query is in, including editorials, comments and letters. Publication types are reported on the landscape page so a reader can see how much of the corpus that is.\nIt carries no preprints beyond what PMC deposits. Europe PMC indexes preprint servers under a source PubMed has no equivalent for. Adding that supplement is a known gap, not an oversight.\nNothing here has been peer reviewed yet. The review process is described in the pipeline and has not run."
+  },
+  {
+    "objectID": "methods.html#reproducing-it",
+    "href": "methods.html#reproducing-it",
+    "title": "How this was done",
+    "section": "Reproducing it",
+    "text": "Reproducing it\npython3 build/lit/search.py --check          # assert the parser still works\npython3 build/lit/search.py --counts         # size every block, download nothing\npython3 build/lit/search.py --tier A         # harvest, resumable, cached\npython3 build/lit/describe.py                # derive the map\npython3 build/render_site.py                 # write landscape.qmd and corpus.qmd\nquarto render                                # -&gt; docs/\ndata/lit/records.jsonl is tracked, so the corpus can be re-described without re-harvesting. The XML cache is not tracked; it is 101 MB and re-fetchable."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Automated meta-research",
+    "section": "",
+    "text": "Meta-research is the study of research itself: how transparently it is reported, whether its data can be found and reused, whether its results survive replication, what happens to it when it is retracted. This project asks whether that work can be done end to end by language models, under conditions strict enough that the result is worth reading.\nNothing is hidden. The search that found the literature, the map derived from it, the studies proposed against that map, the code that runs them, the reviews written by independent models, and the disagreements between those reviews are all published here, in the order they happened."
+  },
+  {
+    "objectID": "index.html#where-this-currently-stands",
+    "href": "index.html#where-this-currently-stands",
+    "title": "Automated meta-research",
+    "section": "Where this currently stands",
+    "text": "Where this currently stands\nThe literature has been harvested and described. No study has been proposed, run or reviewed yet.\n\n\n\nstage\nstate\n\n\n\n\nSearch the literature\ndone, tier A only. 1830 records\n\n\nMap what the field studies\ndone. The landscape\n\n\nPropose studies against the gaps\nnot started\n\n\nRun them in R\nnot started\n\n\nIndependent review by two models\nnot started\n\n\nPublish results with the reviews\nnot started"
+  },
+  {
+    "objectID": "index.html#the-pipeline",
+    "href": "index.html#the-pipeline",
+    "title": "Automated meta-research",
+    "section": "The pipeline",
+    "text": "The pipeline\n1. Search. PubMed and PMC, through a harvester that logs every query it issues and cannot truncate a result set without saying so. The protocol, including the queries that turned out to be wrong and why, is in how this was done.\n2. Map. Every record is labelled by vocabulary match against a topic list, and the counts are derived by a script rather than read by a model. This is deliberately the dumbest possible method: a claim on the landscape can be checked by rerunning one file.\n3. Propose. Studies are proposed against the map, and a proposal has to say what is already known, which records establish it, and what specifically would be new. A proposal that cannot name the work it would extend does not get written up.\n4. Run. Analyses are written and executed in R. Each study carries its data, its code and its output in the repository, so a reader can rerun it rather than trust it.\n5. Review. Each study is reviewed independently by models from different providers, given the study and instructed to refute it. Reviews are published whole, including the ones that find nothing and the ones that disagree with each other. Where reviewers disagree, the disagreement is shown rather than resolved silently."
+  },
+  {
+    "objectID": "index.html#what-the-models-did-and-did-not-do",
+    "href": "index.html#what-the-models-did-and-did-not-do",
+    "title": "Automated meta-research",
+    "section": "What the models did and did not do",
+    "text": "What the models did and did not do\nThe searching, the analysis code, the drafting and the reviewing are done by language models. The research questions, the scope decisions, the judgment about what is worth publishing, and the responsibility for everything on this site are the author’s. Where a model produced something, the page says which model and when.\nThis distinction matters more here than in most projects, because the subject is research quality. A site about transparency that was vague about its own provenance would be evidence against its own argument."
+  },
+  {
+    "objectID": "index.html#source",
+    "href": "index.html#source",
+    "title": "Automated meta-research",
+    "section": "Source",
+    "text": "Source\nEverything, including the harvested corpus and the search log, is at github.com/choxos/autometaresearch."
+  },
+  {
+    "objectID": "corpus.html",
+    "href": "corpus.html",
+    "title": "The corpus",
+    "section": "",
+    "text": "1830 records, newest first. Type to filter on title, journal, year or topic code. The topic codes are defined on the landscape page; a record with no code matched no topic phrase."
+  },
+  {
+    "objectID": "landscape.html",
+    "href": "landscape.html",
+    "title": "The landscape",
+    "section": "",
+    "text": "Every number on this page is derived from the corpus by a rule written in build/lit/describe.py and reproduced by running it. Nothing here was read by a model or chosen by hand. The labels are vocabulary matches, so a label means the record uses a topic’s words, not that a human judged the record to be about that topic."
+  },
+  {
+    "objectID": "landscape.html#the-field-is-young-and-it-is-accelerating",
+    "href": "landscape.html#the-field-is-young-and-it-is-accelerating",
+    "title": "The landscape",
+    "section": "The field is young and it is accelerating",
+    "text": "The field is young and it is accelerating\nThe corpus holds 1830 records. 1396 of them, 76 percent, were published in 2020 or later.\n\n\n\nperiod\nrecords\n\n\n\n\n1965-1969\n2\n\n\n1970-1974\n2\n\n\n1975-1979\n1\n\n\n1985-1989\n4\n\n\n1990-1994\n6\n\n\n1995-1999\n8\n\n\n2000-2004\n8\n\n\n2005-2009\n21\n\n\n2010-2014\n68\n\n\n2015-2019\n314\n\n\n2020-2024\n906\n\n\n2025-2029\n490\n\n\n\nThe earliest records are scattered and mostly editorial. The shape changes around 2015, which is when the vocabulary itself settles: a paper published before then that does this kind of work rarely calls it meta-research, so this corpus does not contain it. That is a limitation of a tier A search and it is stated again in the protocol."
+  },
+  {
+    "objectID": "landscape.html#what-it-studies",
+    "href": "landscape.html#what-it-studies",
+    "title": "The landscape",
+    "section": "What it studies",
+    "text": "What it studies\nA record can carry several labels, so the column sums past the corpus size. 11 records match no topic phrase at all.\n\n\n\n\n\n\n\n\n\ntopic\ncode\nrecords\nshare\n\n\n\n\nNames itself meta-research\nmetares\n1812\n99.0%\n\n\nReporting quality and guideline adherence\nreport\n277\n15.1%\n\n\nRegistration, outcome switching and publication bias\nreg\n268\n14.6%\n\n\nReproducibility and replication\nrepro\n268\n14.6%\n\n\nAuthorship, citation and metrics\nbiblio\n163\n8.9%\n\n\nStatistical practice, spin and p-hacking\nstats\n114\n6.2%\n\n\nData and code sharing, FAIR\ndatashare\n84\n4.6%\n\n\nRetraction, misconduct and integrity\nretract\n83\n4.5%\n\n\nOpen access, preprints and predatory publishing\noa\n81\n4.4%\n\n\nPeer review\npeerrev\n76\n4.2%\n\n\nConflicts of interest and funding\ncoi\n64\n3.5%\n\n\nResearch waste and prioritization\nwaste\n46\n2.5%\n\n\nGenerative AI in research writing and review\naitext\n33\n1.8%\n\n\nEquity and representation\nequity\n21\n1.1%"
+  },
+  {
+    "objectID": "landscape.html#where-the-vocabulary-is-thin",
+    "href": "landscape.html#where-the-vocabulary-is-thin",
+    "title": "The landscape",
+    "section": "Where the vocabulary is thin",
+    "text": "Where the vocabulary is thin\nBlocks carry different numbers of phrases and phrases of different breadth, so a count here measures how much of a topic’s vocabulary this corpus uses and not how much attention the topic receives. The counts are not comparable across blocks and a small one is not evidence of a gap.\n\n\n\ntopic\nrecords\n\n\n\n\nResearch waste and prioritization\n46\n\n\nGenerative AI in research writing and review\n33\n\n\nEquity and representation\n21\n\n\n\nAn earlier version of this page read a field-level conclusion off this table, that meta-research does not study peer review or generative AI. It was wrong, and it was wrong because the labelling vocabulary had been borrowed from the search vocabulary, where narrowness is a virtue. Broad phrases for labelling now live separately in build/lit/describe.py and the counts above are the corrected ones. The episode is left on the page rather than quietly fixed, because a project about research transparency that silently corrects its own record is arguing against itself."
+  },
+  {
+    "objectID": "landscape.html#topics-studied-together",
+    "href": "landscape.html#topics-studied-together",
+    "title": "The landscape",
+    "section": "Topics studied together",
+    "text": "Topics studied together\nPairs of topic labels on the same record, most frequent first. The pairs are what a new study would have to be novel against.\n\n\n\npair\nrecords\n\n\n\n\nreg and report\n59\n\n\nreport and repro\n46\n\n\ndatashare and repro\n40\n\n\nreg and repro\n40\n\n\nbiblio and report\n31\n\n\nreg and stats\n30\n\n\nrepro and stats\n28\n\n\ndatashare and reg\n19\n\n\ndatashare and oa\n19\n\n\nbiblio and reg\n18\n\n\npeerrev and report\n18\n\n\nbiblio and oa\n17\n\n\ncoi and reg\n17\n\n\nbiblio and datashare\n16\n\n\nbiblio and retract\n16\n\n\noa and report\n16\n\n\nrepro and retract\n15\n\n\nreg and retract\n15\n\n\nreport and retract\n15\n\n\nreport and stats\n15"
+  },
+  {
+    "objectID": "landscape.html#topics-over-time",
+    "href": "landscape.html#topics-over-time",
+    "title": "The landscape",
+    "section": "Topics over time",
+    "text": "Topics over time\nRecords per half decade, from 2015. A topic that flattens while the corpus grows is losing share of the field’s attention, not gaining it.\n\n\n\ntopic\n2015-2019\n2020-2024\n2025-2029\n\n\n\n\nReporting quality and guideline adherence\n39\n138\n96\n\n\nRegistration, outcome switching and publication bias\n37\n144\n77\n\n\nReproducibility and replication\n52\n141\n72\n\n\nAuthorship, citation and metrics\n24\n83\n53\n\n\nStatistical practice, spin and p-hacking\n25\n53\n32\n\n\nData and code sharing, FAIR\n8\n55\n20\n\n\nRetraction, misconduct and integrity\n9\n28\n39\n\n\nOpen access, preprints and predatory publishing\n7\n51\n23\n\n\nPeer review\n12\n37\n26\n\n\nConflicts of interest and funding\n12\n34\n16\n\n\nResearch waste and prioritization\n11\n25\n10\n\n\nGenerative AI in research writing and review\n0\n4\n29\n\n\nEquity and representation\n1\n14\n6"
+  },
+  {
+    "objectID": "landscape.html#where-it-is-published",
+    "href": "landscape.html#where-it-is-published",
+    "title": "The landscape",
+    "section": "Where it is published",
+    "text": "Where it is published\n\n\n\n\n\n\n\njournal\nrecords\n\n\n\n\nJournal of clinical epidemiology\n207\n\n\neLife\n74\n\n\nProceedings of the National Academy of Sciences of the United States of America\n57\n\n\nBMJ open\n48\n\n\nPloS one\n46\n\n\nBMC medical research methodology\n44\n\n\nRoyal Society open science\n44\n\n\nBMJ (Clinical research ed.)\n31\n\n\nPerspectives on psychological science : a journal of the Association for Psychological Science\n24\n\n\nSystematic reviews\n24\n\n\nResearch synthesis methods\n22\n\n\nBMC medicine\n20\n\n\nResearch integrity and peer review\n18\n\n\nBMJ evidence-based medicine\n17\n\n\nF1000Research\n16\n\n\nTrials\n15\n\n\nCochrane evidence synthesis and methods\n14\n\n\nPLoS biology\n14\n\n\nFrontiers in psychology\n13\n\n\nJournal of dentistry\n12\n\n\n\nOne journal carries more than a tenth of the corpus. A field concentrated in a single venue inherits that venue’s editorial priorities, which is itself a meta-research question and one this corpus does not answer."
+  },
+  {
+    "objectID": "landscape.html#how-it-is-indexed",
+    "href": "landscape.html#how-it-is-indexed",
+    "title": "The landscape",
+    "section": "How it is indexed",
+    "text": "How it is indexed\nMeSH descriptors on the 1315 records that carry MeSH indexing.\n\n\n\ndescriptor\nrecords\n\n\n\n\nHumans\n1181\n\n\nResearch Design\n322\n\n\nRandomized Controlled Trials as Topic\n305\n\n\nEpidemiologic Studies\n243\n\n\nSystematic Reviews as Topic\n178\n\n\nMeta-Analysis as Topic\n155\n\n\nBias\n136\n\n\nReproducibility of Results\n125\n\n\nFemale\n113\n\n\nPeriodicals as Topic\n110\n\n\nBiomedical Research\n98\n\n\nMale\n97\n\n\nResearch Personnel\n80\n\n\nTreatment Outcome\n74\n\n\nClinical Trials as Topic\n70\n\n\nCross-Sectional Studies\n68\n\n\nUnited States\n61\n\n\nPublishing\n61\n\n\nAdult\n58\n\n\nResearch Report\n53\n\n\nPublication Bias\n53\n\n\nResearch\n52\n\n\nAnimals\n52\n\n\nPublications\n52\n\n\nOutcome Assessment, Health Care\n48"
+  },
+  {
+    "objectID": "landscape.html#what-kind-of-studies-these-are",
+    "href": "landscape.html#what-kind-of-studies-these-are",
+    "title": "The landscape",
+    "section": "What kind of studies these are",
+    "text": "What kind of studies these are\nPublication types, with the container types that describe every journal article removed.\n\n\n\ntype\nrecords\n\n\n\n\nReview\n242\n\n\nMeta-Analysis\n191\n\n\nSystematic Review\n161\n\n\nComment\n47\n\n\nEditorial\n37\n\n\nLetter\n36\n\n\nComparative Study\n32\n\n\nabstract\n21\n\n\nScoping Review\n17\n\n\nPublished Erratum\n17\n\n\nHistorical Article\n15\n\n\nObservational Study\n12\n\n\nPreprint\n8\n\n\nBiography\n7\n\n\nNetwork Meta-Analysis\n6\n\n\n\nReviews, meta-analyses and systematic reviews together outnumber every other declared type. Many of the records typed as meta-analysis are meta-epidemiological studies, which PubMed has no separate type for, so this table separates declared types and not study designs."
+  }
+]
