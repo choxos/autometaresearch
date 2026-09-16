@@ -1,0 +1,113 @@
+---
+title: "Does meta-research cite retracted work?"
+description: "Whether the field that studies research integrity is better than average at not citing retracted papers."
+id: P02
+status: proposed
+proposed_by: "Claude Opus 5"
+date: 2026-09-16
+reviewed: none
+unit: "References in meta-research articles, matched against Retraction Watch"
+data_source: "PMC reference lists; Retraction Watch database via Crossref Labs"
+categories: [runnable, retract, reflexive]
+---
+
+::: {.callout-note appearance="simple"}
+Proposed by Claude Opus 5 on 2026-09-16. Not yet reviewed. This page is a protocol and no
+analysis has been run.
+:::
+
+## The question
+
+Citing a retracted paper as though it stands is a known failure of the literature, and
+meta-research is the field that documents it. Retracted randomized trials have been shown to
+go on being cited uncorrected in systematic reviews and clinical guidelines (PMID 35779825),
+and clinical practice guidelines for low back pain have been shown to cite retracted and
+predatory work (PMID 40156953).
+
+Nobody has turned that instrument on meta-research itself. If a field that studies citation of
+retracted work does it at the same rate as everyone else, that is a finding about how far
+knowing a problem gets you toward avoiding it.
+
+## Hypothesis
+
+Meta-research articles cite retracted work at a lower rate than a matched comparison of
+articles published in the same journals and years.
+
+The direction is stated because the alternative is the interesting one. A field with domain
+expertise in this exact failure, finding no advantage from that expertise, says something the
+descriptive literature does not.
+
+**What would falsify it.** A rate ratio at or above 1 against the matched comparison. Given the
+low base rate of citing retracted work, the study is powered by the number of references, not
+the number of articles, and the power calculation is done before the run and reported whatever
+it says.
+
+## Unit of analysis
+
+One reference. The 1088 corpus records with PMC full text yield an estimated 60000 to 90000
+references, of which roughly 62 percent carry a DOI in the JATS markup, measured on a pilot of
+three articles. References without a DOI are not matchable and are excluded; the exclusion rate
+is reported per article, since an article whose references are mostly unmatchable contributes
+little and a systematic difference in DOI coverage between the corpus and the comparison would
+be a confounder in its own right.
+
+## Comparison group
+
+Articles from the same journals and the same publication years that are not in the corpus,
+sampled to match the corpus distribution of journal and year, and restricted to those with PMC
+full text so that reference extraction is identical for both arms. Matching on journal is not
+optional: the corpus is concentrated in a small number of methods journals whose reference
+practices are not those of the literature at large.
+
+## Measurement
+
+Retraction Watch is retrieved as an open CSV through Crossref Labs; it carries 72577 records
+with `OriginalPaperDOI`, `RetractionDate` and `Reason`. A cited DOI counts as a citation of
+retracted work when it appears in that column.
+
+The critical refinement, and the reason a naive version of this study would be wrong: a
+reference is only a failure if the retraction preceded the citing article. A paper published
+before its source was retracted could not have known. Every match is therefore classified:
+
+| class | meaning |
+|---|---|
+| post-retraction citation | retraction date precedes the citing article's publication date |
+| pre-retraction citation | the citing article came first |
+| discussed as retracted | the citing article is about retraction and cites the paper as an example |
+
+The third class is not a small correction here; it is the dominant confounder. Meta-research
+about retraction cites retracted papers on purpose, and a study that counted those as failures
+would produce exactly the opposite of the truth. Classification uses the `retract` topic label
+and the citation context extracted from the surrounding sentence in the JATS body, and every
+article carrying the `retract` label is additionally reported separately so the primary estimate
+can be read with and without them.
+
+## Analysis
+
+In R. The outcome is a count of post-retraction citations per article with the article's total
+matchable references as the offset.
+
+```r
+glm.nb(n_post_retraction ~ arm + year_c + offset(log(n_matchable_refs)),
+       data = d)
+```
+
+Negative binomial rather than Poisson because reference counts of this kind are overdispersed,
+with the dispersion parameter reported rather than assumed. A sensitivity analysis excludes
+every article carrying the `retract` label from both arms.
+
+## What it costs
+
+1088 PMC full-text fetches, shared with P01 and served from the same cache. One 72577-row CSV.
+The comparison arm needs its own PubMed query and PMC fetch, of comparable size. No paid
+service.
+
+## Known threats to the result
+
+- **62 percent DOI coverage in reference lists.** If coverage differs between arms the offset is
+  biased. Measured and reported per arm before the model is fitted.
+- **Retraction Watch is not complete and its dates are not always the publisher's.** A missing
+  retraction biases both arms toward the null equally; a systematically late date misclassifies
+  post-retraction citations as pre-retraction, again in both arms.
+- **The matched comparison is matched on journal and year and nothing else.** Article type,
+  length and reference count differ, and the offset handles only the last.

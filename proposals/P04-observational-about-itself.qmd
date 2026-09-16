@@ -1,0 +1,73 @@
+---
+title: "The field is observational about itself"
+description: "Four of 1830 meta-research articles are themselves experiments. An agenda item, not a runnable study."
+id: P04
+status: agenda
+proposed_by: "Claude Opus 5"
+date: 2026-09-16
+reviewed: none
+unit: "Not applicable"
+data_source: "Requires a journal or funder partner"
+categories: [agenda, peerrev, not-runnable]
+---
+
+::: {.callout-important appearance="simple"}
+This is an agenda item and not a proposal. It states a gap that is measured and real, and then
+says why the study it implies cannot be run from public data. It is published so that the gap
+is on the record rather than quietly skipped because it is inconvenient.
+:::
+
+## The measurement
+
+Of the 1830 articles in the corpus, four carry a publication type of randomized controlled
+trial, controlled clinical trial or clinical trial:
+
+| PMID | year | article |
+|---|---|---|
+| 36995753 | 2023 | Using normative language when describing scientific findings: randomized controlled trial |
+| 35838202 | 2022 | Selective outcome reporting in paediatric dentistry restorative treatment randomized clinical trials |
+| 34118367 | 2021 | The impact of gender on researchers' assessment: a randomized controlled trial |
+| 29886846 | 2018 | Avoidable waste of research related to outcome planning and reporting in clinical trials |
+
+Of those four, two are experiments on the research process itself: the normative language trial
+and the gender assessment trial. The other two carry the type because the object they studied
+was a trial, not because they ran one.
+
+Two experiments in 1830 articles. The corpus is 549 meta-epidemiological studies, 680 that
+examine systematic reviews, and almost no manipulation of anything.
+
+## Why this matters rather than merely being true
+
+Meta-research grades other fields on their evidence hierarchy. It tells clinical researchers
+that an observational association is weaker than a randomized comparison, and it is right. Its
+own output is almost entirely observational association.
+
+Some of that is unavoidable. You cannot randomize whether a paper was preregistered. But the
+questions the field most wants answered are causal and several of them are randomizable: whether
+a reporting checklist at submission improves reporting, whether blinding reviewers changes what
+gets accepted, whether a data availability mandate produces available data or only statements.
+Each of those is an intervention on a process someone controls.
+
+## Why it cannot be run here
+
+Every such experiment requires randomizing something inside a journal, a funder or an ethics
+committee: which manuscripts get an intervention, which reviewers see what, which applicants
+receive which instruction. None of that is reachable from public data, and no amount of
+harvesting substitutes for the permission.
+
+The honest statement is that this project can measure the gap and cannot fill it. Recording
+that is more useful than inventing an observational proxy and calling it an answer, which is
+precisely the substitution the field is criticized for elsewhere.
+
+## What would make it runnable
+
+A partner willing to randomize one thing: a journal, a preprint server, a funder, or a
+conference with a submission process. The design is not the obstacle and would be short. The
+access is the obstacle.
+
+## The one caveat on the measurement
+
+Publication type is assigned by NLM indexing and an experiment can be missed. 515 of the corpus
+records carry no MeSH indexing at all, mostly the most recent, and an unindexed experiment would
+not appear in the count above. The number is a floor, not a point estimate, and the floor is
+four.

@@ -15,17 +15,20 @@ and the disagreements between those reviews are all published here, in the order
 
 ## Where this currently stands
 
-The literature has been harvested and described. No study has been proposed, run or reviewed
-yet.
+The literature has been harvested and described, and four studies have been proposed against
+the map. Nothing has been run or reviewed.
 
 | stage | state |
 |---|---|
 | Search the literature | done, tier A only. [1830 records](corpus.qmd) |
 | Map what the field studies | done. [The landscape](landscape.qmd) |
-| Propose studies against the gaps | not started |
+| Propose studies against the gaps | done. [Four protocols](agenda.qmd), three runnable |
+| Independent review by two models | waiting. One reviewer is quota-blocked until 2026-09-20 |
 | Run them in R | not started |
-| Independent review by two models | not started |
 | Publish results with the reviews | not started |
+
+The review row sits above the run row on purpose. A protocol is published and reviewed before
+the analysis is run, not after, so that the reviewers see a design rather than a finding.
 
 ## The pipeline
 

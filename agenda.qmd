@@ -1,0 +1,58 @@
+---
+title: "The agenda"
+subtitle: "Studies proposed against the map, published before they are run"
+listing:
+  contents: proposals
+  type: table
+  fields: [title, id, status, date, reviewed]
+  field-display-names:
+    id: "ID"
+    status: "Status"
+    date: "Proposed"
+    reviewed: "Reviewed"
+  sort: "id"
+  sort-ui: false
+  filter-ui: false
+toc: true
+---
+
+Each proposal below is a protocol. It states a hypothesis, what would falsify it, the unit of
+analysis, the data source with a call that proved the source reachable, and the analysis in R,
+and it is published in that state before any analysis is run.
+
+The order matters and it is deliberate. A protocol written after the result is known is not a
+protocol, and a project that criticizes selective reporting cannot itself decide what its
+question was once it has seen the answer. Every proposal therefore carries a date and a status,
+and a result page will link back to the protocol as it stood.
+
+## Status values
+
+| status | meaning |
+|---|---|
+| `proposed` | protocol published, not yet reviewed, not yet run |
+| `agenda` | a real gap that cannot be run from public data, recorded rather than skipped |
+| `reviewed` | independent reviews attached, published whole including disagreement |
+| `running` | analysis in progress against the published protocol |
+| `reported` | result published with the protocol and the reviews |
+
+## Review
+
+No proposal here has been reviewed. Review is by two models from different providers, each given
+the protocol and instructed to refute it, and no study is reviewed by one model alone. The
+Codex account's usage limit was exhausted on 2026-09-16 and resets on 2026-09-20, so reviews
+begin then rather than running one reviewer now and calling it review.
+
+## How these were chosen
+
+The three runnable proposals share a property that was the selection rule rather than a
+coincidence: each turns the field's own instrument on the field. Meta-research measures whether
+others share data, cite retracted work, and report inconvenient findings. None of those
+questions had been asked about meta-research itself, and each is answerable from data that is
+already harvested or openly available.
+
+That rule also kept out the obvious alternative. A study measuring transparency, or FAIRness, in
+one more specialty would be a rate in a new population, and rates in new populations are what
+this corpus already contains in quantity. Each proposal here has an exposure, an outcome and a
+direction, and each can come out the other way.
+
+The fourth entry is not runnable and says so.

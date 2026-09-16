@@ -1,0 +1,112 @@
+---
+title: "Does advocating transparency predict practicing it?"
+description: "Whether a meta-research paper's own topic predicts whether it shares its own data."
+id: P01
+status: proposed
+proposed_by: "Claude Opus 5"
+date: 2026-09-16
+reviewed: none
+unit: "Meta-research articles with PMC full text"
+data_source: "PMC JATS full text; the project corpus"
+categories: [runnable, datashare, reflexive]
+---
+
+::: {.callout-note appearance="simple"}
+Proposed by Claude Opus 5 on 2026-09-16. Not yet reviewed. No result exists; this page is a
+protocol, published before the analysis is run so that the reviewers see the design and not
+the finding.
+:::
+
+## The question
+
+Meta-research tells other fields to share their data. It is a field defined by holding other
+research to a standard. The question is whether the papers doing that holding meet the standard
+themselves, and more precisely whether the ones arguing hardest for it are the ones most likely
+to meet it.
+
+## Hypothesis
+
+A meta-research article whose own subject is data sharing, code sharing or research
+transparency carries a data availability statement, and a substantive one, more often than a
+meta-research article on any other subject.
+
+The hypothesis is directional and it is the interesting direction. The null is that subject
+matter has no relationship with practice, which would mean advocacy and behavior are
+independent inside the one field where they should not be.
+
+**What would falsify it.** An odds ratio whose confidence interval includes or falls below 1
+for the transparency-topic coefficient, with the sample large enough to exclude an effect worth
+caring about. That result is publishable and would be the more striking of the two.
+
+## Unit of analysis
+
+One meta-research article. 1088 of the 1830 records in the corpus carry a PMCID and therefore
+have retrievable full text. The remaining 742 are excluded and the exclusion is reported,
+because open-access availability is itself correlated with transparency practice and this
+biases the sample toward the transparent. That bias works against the null and has to be stated
+as a limitation rather than adjusted away.
+
+## Exposure and outcome
+
+**Exposure.** The `datashare` topic label already derived for every record in
+`build/lit/describe.py`, which matches data sharing, code availability, FAIR and data
+reuse vocabulary against title, abstract and keywords. 84 records carry it.
+
+**Outcome.** Presence and content of a data availability statement in the full text, taken from
+the JATS `<sec sec-type="data-availability">` element. A pilot on three records found the
+element present in all three, so the extraction is not hypothetical. Statements are then graded
+on a three-level scale, because "data are available on request" and a repository accession are
+not the same claim:
+
+| level | meaning |
+|---|---|
+| none | no statement |
+| declarative | a statement that shares nothing: on request, within the article, not applicable |
+| actionable | a repository name, accession, DOI or URL that resolves |
+
+Grading the middle and top levels is done by rule on the statement text, and a random 100
+statements are graded by hand to measure where the rule disagrees. The rule is not adjusted
+after seeing the outcome.
+
+## Analysis
+
+In R. Logistic regression of an actionable statement on the transparency topic label, adjusted
+for publication year, journal and article type, with journal as a random effect because a
+journal's own policy is the dominant driver of whether any statement appears at all and a fixed
+effect on 400 journals will not estimate.
+
+```r
+glmer(actionable ~ topic_datashare + year_c + pubtype +
+        (1 | journal), family = binomial, data = d)
+```
+
+An ordinal model on the three-level outcome is fitted alongside as the preregistered secondary,
+not as a fallback if the binary result disappoints.
+
+## Novelty
+
+This is not a transparency-of-X study with X swapped, and the distinction is the reason the
+proposal exists. Sofi-Mahmudi and colleagues measured the transparency of COVID-19 research
+(PMID 37494359) and the FAIRness of its data (PMID 39556553); both estimate a rate in a
+population. A 2026 study measured data availability statements in dentistry journals
+(PMID 41955959) and is again a rate.
+
+This asks whether one measurable property of a paper predicts another property of the same
+paper. It has an exposure, an outcome and a direction, and it can come out the other way.
+
+## What it costs
+
+1088 PMC full-text fetches at the NCBI throttle, roughly twelve minutes, cached. The corpus is
+already harvested. No paid service and no API key.
+
+## Known threats to the result
+
+- **Journal policy confounds everything.** A journal that mandates a statement produces one
+  regardless of the author's convictions. The random effect absorbs the average journal, not an
+  interaction between journal policy and topic, and the estimate is within-journal only where a
+  journal publishes both kinds of paper.
+- **The exposure is a vocabulary match, not a judgment.** A paper labelled `datashare` may
+  mention data sharing once in passing. Misclassification here is non-differential with respect
+  to the outcome and biases toward the null, which weakens a positive finding and strengthens a
+  negative one.
+- **60 percent PMC coverage is not random.** Stated above; not fixable within this design.

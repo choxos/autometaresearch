@@ -4,6 +4,7 @@ project:
   render:
     # A bare "*.qmd" is expanded to "**/*.qmd" by Quarto, so anchor it to root.
     - "/*.qmd"
+    - "/proposals/*.qmd"
 
 website:
   title: "Automated meta-research"
@@ -19,6 +20,8 @@ website:
     left:
       - href: index.qmd
         text: Home
+      - href: agenda.qmd
+        text: Agenda
       - href: landscape.qmd
         text: Landscape
       - href: corpus.qmd
