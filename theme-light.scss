@@ -1,0 +1,33 @@
+/*-- scss:defaults --*/
+// Light-mode variable values only. All rules live in styles.scss, which is
+// listed in BOTH theme lists: Quarto compiles the light and dark theme lists into
+// two separate stylesheets, so a rule present in only one list does not exist in
+// the other mode.
+
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  "Helvetica Neue", Arial, sans-serif !default;
+
+$body-color: #1f2328 !default;
+$body-bg: #ffffff !default;
+$link-color: #0b5ed7 !default;
+$border-color: #d0d7de !default;
+$border-radius: 6px !default;
+
+// Verdict hues. Deliberately not a red-to-green pass-fail scale: "Overstated"
+// is a refinement of a claim, not a failure, and must not read as one.
+$verdict-confirmed: #1a7f5a !default;
+$verdict-partial: #b45309 !default;
+$verdict-overstated: #7c3aed !default;
+$verdict-resolved: #0369a1 !default;
+$verdict-unsupported: #b91c1c !default;
+$verdict-unverifiable: #57606a !default;
+
+$priority-1: #b91c1c !default;
+$priority-2: #b45309 !default;
+$priority-3: #57606a !default;
+
+$surface: rgba(0, 0, 0, 0.03) !default;
+$hairline: rgba(0, 0, 0, 0.15) !default;
+
+// How far to tint a badge background toward the page background.
+$badge-tint: 88% !default;

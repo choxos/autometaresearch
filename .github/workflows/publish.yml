@@ -1,0 +1,59 @@
+name: Publish site
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: publish-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # The generated pages are rebuilt from the tracked corpus rather than trusted as
+      # committed. A landscape.qmd whose numbers no longer follow from records.jsonl fails
+      # here, which is the only guard against a hand-edited statistic reaching the site.
+      - name: Rebuild the derived pages from the tracked corpus
+        run: |
+          python3 build/lit/describe.py
+          python3 build/render_site.py
+          git diff --exit-code -- landscape.qmd corpus.qmd
+
+      - name: Set up Quarto
+        # Pinned so a Quarto release cannot silently change listing behavior.
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: 1.8.26
+
+      - name: Render site
+        uses: quarto-dev/quarto-actions/render@v2
+        with:
+          to: html
+
+      # Pull requests get the build check without deploying.
+      - name: Publish to GitHub Pages
+        if: github.event_name != 'pull_request'
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: gh-pages
+          render: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,166 @@
+---
+title: "How this was done"
+subtitle: "The search protocol, the decisions taken, and what they cost"
+toc: true
+---
+
+This project studies transparency in research. It would be indefensible for the project itself
+to be opaque, so every query, every count and every scope decision is recorded here, including
+the ones that went wrong.
+
+## Databases and dates
+
+PubMed and PMC, through the NCBI E-utilities. PMC is searched as well as PubMed because PMC
+carries records PubMed does not index: author manuscripts, some non-MEDLINE journals, and
+deposited preprints. Searches were run on 2026-09-16. No language, date or article-type limit
+was applied.
+
+The harvester is `build/lit/search.py`. It is the only route by which a record enters the
+corpus, and it writes a machine-readable log of every query it issued to
+`data/lit/search-log.json`.
+
+## The two tiers
+
+The field can be searched two ways and they retrieve different things.
+
+**Tier A** is the field naming itself: a paper that describes its own work as meta-research,
+metascience, research on research, or a meta-epidemiological study. Precision is close to
+total, because no other kind of paper uses those words about itself.
+
+**Tier B** is the field by subject matter: reporting quality, data sharing, retraction,
+registration, peer review, and the rest. Tier B retrieves two populations that no boolean query
+separates. A search for `"data sharing"` returns surveys of how often trials share data
+alongside trials that happened to share theirs, and only the first kind is meta-research.
+
+**Only tier A has been harvested.** Tier B has been sized and the counts are published below,
+but nothing from it is in the corpus. That decision is revisited once the tier A map has been
+read.
+
+## Tier A: the query
+
+Each phrase is searched in title, abstract and author keyword fields, and the phrases are
+combined with OR.
+
+```
+"meta-research"      "metaresearch"           "meta research"
+"metascience"        "meta-science"           "research on research"
+"science of science" "meta-epidemiological"   "meta-epidemiology"
+```
+
+| database | hits | records retrieved |
+|---|---|---|
+| PubMed | 1805 | 1805 |
+| PMC | 694 | 694 |
+
+Deduplicated on PMID, then DOI, then PMCID, then normalized title: **1830 unique records**.
+The overlap is large, as expected; 669 PMC records were already present from PubMed and 25 were
+new.
+
+## Tier B: the counts, and why they are not the corpus
+
+Measured 2026-09-16 in PubMed. The third column is the same block ANDed with a
+study-of-literature qualifier described below.
+
+| block | phrases cover | raw hits | qualified |
+|---|---|---|---|
+| `reg` | registration, outcome switching, publication bias | 189588 | 8205 |
+| `biblio` | authorship, citation, metrics | 17419 | 16265 |
+| `report` | reporting quality, guideline adherence | 16657 | 2395 |
+| `datashare` | data and code sharing, FAIR | 15418 | 767 |
+| `retract` | retraction, misconduct, integrity | 11128 | 637 |
+| `repro` | reproducibility, replication | 6421 | 241 |
+| `oa` | open access, preprints, predatory publishing | 4475 | 1050 |
+| `peerrev` | peer review | 2910 | 325 |
+| `coi` | conflicts of interest, funding | 1387 | not measured |
+| `waste` | research waste, prioritization | 1061 | not measured |
+| `stats` | p-hacking, spin, questionable practices | 545 | not measured |
+| `equity` | equity and representation | 326 | not measured |
+| `aitext` | generative AI in research writing | 106 | not measured |
+
+### The 189588
+
+The `reg` block first returned 189588 records, five sixths of everything tier B retrieved, from
+the single phrase `"trial registration"`. The obvious explanation was wrong. The phrase was not
+being broken into words and ANDed by PubMed; it is phrase-indexed, and the quoted form returns
+fewer records than `trial AND registration` does. The real cause is that **Trial registration**
+is the label of a section in a structured abstract, so every registered trial in PubMed carries
+the phrase verbatim. It identifies trials that were registered and never studies of
+registration.
+
+The phrase has been removed from the block. `build/lit/search.py` records why, next to the
+block it was removed from, so it is not reintroduced by someone who only sees that the block
+looks thin.
+
+`"registered report"` was removed for a related reason: the singular returns 5806 records and
+the plural 192, because the singular also matches any sentence about a report that was
+registered. Only the plural is kept.
+
+### The qualifier
+
+For the contaminated blocks, ANDing the topic with a set of phrases that name the object of
+study separates a study of the literature from a study of patients. A study of data sharing
+examines published articles; a trial that shared its data examines people.
+
+```
+"published articles"  "published studies"    "published trials"
+"journal articles"    "publications"         "sample of articles"
+"cross-sectional study of"                   "sample of trials"
+"we searched PubMed"  "we searched MEDLINE"  "we searched Embase"
+"research articles"   "abstracts of"         "meta-epidemiological"
+```
+
+It is effective and it is lossy. A meta-research paper that describes its sample as "we
+examined 300 trials" carries none of these phrases and would be lost. Both numbers are
+therefore recorded, so any qualified corpus is reported against the raw count it was drawn
+from rather than presented as the whole field.
+
+## Retrieval limits, and why nothing was silently truncated
+
+NCBI returns at most 9999 identifiers for one query. The sibling project this harvester is
+adapted from partitions an oversized query by year and then by month and stops there, so a
+single month above the ceiling truncates without saying so. Meta-research blocks are large and
+concentrated in recent years, which is where that would happen.
+
+The partitioner here bisects the publication-date range recursively until every part is under
+the ceiling. When even a single day exceeds it, the day is recorded in `gaps` in the search log
+and printed as `TRUNCATED`, rather than passed off as complete. The tier A harvest needed no
+partitioning: both queries were under the ceiling.
+
+## Labelling
+
+Topic labels are assigned in `build/lit/describe.py` by matching the tier B phrase vocabulary
+against each record's title, abstract and author keywords. Matching is case-insensitive,
+treats a hyphen and a space as equivalent, as PubMed does, and requires whole-token boundaries
+so that `spin` does not match `spinal`.
+
+A label means the record uses a topic's vocabulary. It does not mean a human, or a model,
+judged the record to be about that topic. No model has read any record in this corpus. Records
+can carry several labels; 1815 of 1830 carry at least one and 15 carry none.
+
+## What this corpus is not
+
+- **It is not the meta-research literature.** It is the part of it that names itself. Work
+  published before roughly 2015, when the vocabulary settled, largely does not appear even when
+  it is unmistakably meta-research by subject.
+- **It is not screened.** Every record retrieved by the tier A query is in, including editorials,
+  comments and letters. Publication types are reported on the landscape page so a reader can see
+  how much of the corpus that is.
+- **It carries no preprints beyond what PMC deposits.** Europe PMC indexes preprint servers
+  under a source PubMed has no equivalent for. Adding that supplement is a known gap, not an
+  oversight.
+- **Nothing here has been peer reviewed yet.** The review process is described in
+  [the pipeline](index.qmd#the-pipeline) and has not run.
+
+## Reproducing it
+
+```bash
+python3 build/lit/search.py --check          # assert the parser still works
+python3 build/lit/search.py --counts         # size every block, download nothing
+python3 build/lit/search.py --tier A         # harvest, resumable, cached
+python3 build/lit/describe.py                # derive the map
+python3 build/render_site.py                 # write landscape.qmd and corpus.qmd
+quarto render                                # -> docs/
+```
+
+`data/lit/records.jsonl` is tracked, so the corpus can be re-described without re-harvesting.
+The XML cache is not tracked; it is 101 MB and re-fetchable.

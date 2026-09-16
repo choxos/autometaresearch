@@ -1,0 +1,66 @@
+---
+title: "Automated meta-research"
+subtitle: "Designing, running and reviewing meta-research studies with language models, in the open"
+toc: true
+---
+
+Meta-research is the study of research itself: how transparently it is reported, whether its
+data can be found and reused, whether its results survive replication, what happens to it when
+it is retracted. This project asks whether that work can be done end to end by language models,
+under conditions strict enough that the result is worth reading.
+
+Nothing is hidden. The search that found the literature, the map derived from it, the studies
+proposed against that map, the code that runs them, the reviews written by independent models,
+and the disagreements between those reviews are all published here, in the order they happened.
+
+## Where this currently stands
+
+The literature has been harvested and described. No study has been proposed, run or reviewed
+yet.
+
+| stage | state |
+|---|---|
+| Search the literature | done, tier A only. [1830 records](corpus.qmd) |
+| Map what the field studies | done. [The landscape](landscape.qmd) |
+| Propose studies against the gaps | not started |
+| Run them in R | not started |
+| Independent review by two models | not started |
+| Publish results with the reviews | not started |
+
+## The pipeline
+
+**1. Search.** PubMed and PMC, through a harvester that logs every query it issues and cannot
+truncate a result set without saying so. The protocol, including the queries that turned out to
+be wrong and why, is in [how this was done](methods.qmd).
+
+**2. Map.** Every record is labelled by vocabulary match against a topic list, and the counts
+are derived by a script rather than read by a model. This is deliberately the dumbest possible
+method: a claim on [the landscape](landscape.qmd) can be checked by rerunning one file.
+
+**3. Propose.** Studies are proposed against the map, and a proposal has to say what is already
+known, which records establish it, and what specifically would be new. A proposal that cannot
+name the work it would extend does not get written up.
+
+**4. Run.** Analyses are written and executed in R. Each study carries its data, its code and
+its output in the repository, so a reader can rerun it rather than trust it.
+
+**5. Review.** Each study is reviewed independently by models from different providers, given
+the study and instructed to refute it. Reviews are published whole, including the ones that
+find nothing and the ones that disagree with each other. Where reviewers disagree, the
+disagreement is shown rather than resolved silently.
+
+## What the models did and did not do
+
+The searching, the analysis code, the drafting and the reviewing are done by language models.
+The research questions, the scope decisions, the judgment about what is worth publishing, and
+the responsibility for everything on this site are the author's. Where a model produced
+something, the page says which model and when.
+
+This distinction matters more here than in most projects, because the subject is research
+quality. A site about transparency that was vague about its own provenance would be evidence
+against its own argument.
+
+## Source
+
+Everything, including the harvested corpus and the search log, is at
+[github.com/choxos/autometaresearch](https://github.com/choxos/autometaresearch).

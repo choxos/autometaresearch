@@ -1,0 +1,28 @@
+# The XML cache. 101 MB, re-fetchable by rerunning build/lit/search.py, and keyed on the
+# content of each batch so a changed query simply misses it. The corpus it produced
+# (data/lit/records.jsonl) IS tracked, so the site can be rebuilt on a fresh clone without
+# touching NCBI.
+data/lit/_cache/
+
+# Harvest console logs. The machine-readable record of every query issued is
+# data/lit/search-log.json and that is tracked.
+data/lit/*-harvest.log
+
+.quarto/
+scratch/
+.DS_Store
+.Rproj.user/
+.Rhistory
+*.Rproj
+__pycache__/
+
+/.quarto/
+**/*.quarto_ipynb
+
+# Derived from records.jsonl by build/lit/describe.py in one pass. Tracking it would track
+# the same 4 MB twice and invite the two copies to disagree.
+data/lit/records-labelled.jsonl
+
+# Quarto build output. The published site is rendered by CI onto the gh-pages branch, so a
+# tracked docs/ would only be a second, staler copy.
+docs/

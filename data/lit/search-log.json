@@ -1,0 +1,51 @@
+[
+ {
+  "run_date": "2026-09-16",
+  "entries": [
+   {
+    "block": "metares",
+    "tier": "A",
+    "variants": [
+     "meta-research",
+     "metaresearch",
+     "meta research",
+     "metascience",
+     "meta-science",
+     "research on research",
+     "science of science",
+     "meta-epidemiological",
+     "meta-epidemiology"
+    ],
+    "db": "pubmed",
+    "qualified": false,
+    "term": "\"meta-research\"[Title/Abstract] OR \"meta-research\"[Other Term] OR \"metaresearch\"[Title/Abstract] OR \"metaresearch\"[Other Term] OR \"meta research\"[Title/Abstract] OR \"meta research\"[Other Term] OR \"metascience\"[Title/Abstract] OR \"metascience\"[Other Term] OR \"meta-science\"[Title/Abstract] OR \"meta-science\"[Other Term] OR \"research on research\"[Title/Abstract] OR \"research on research\"[Other Term] OR \"science of science\"[Title/Abstract] OR \"science of science\"[Other Term] OR \"meta-epidemiological\"[Title/Abstract] OR \"meta-epidemiological\"[Other Term] OR \"meta-epidemiology\"[Title/Abstract] OR \"meta-epidemiology\"[Other Term]",
+    "hits": 1805,
+    "ids": 1805,
+    "parsed": 1805,
+    "gaps": []
+   },
+   {
+    "block": "metares",
+    "tier": "A",
+    "variants": [
+     "meta-research",
+     "metaresearch",
+     "meta research",
+     "metascience",
+     "meta-science",
+     "research on research",
+     "science of science",
+     "meta-epidemiological",
+     "meta-epidemiology"
+    ],
+    "db": "pmc",
+    "qualified": false,
+    "term": "\"meta-research\"[Title/Abstract] OR \"metaresearch\"[Title/Abstract] OR \"meta research\"[Title/Abstract] OR \"metascience\"[Title/Abstract] OR \"meta-science\"[Title/Abstract] OR \"research on research\"[Title/Abstract] OR \"science of science\"[Title/Abstract] OR \"meta-epidemiological\"[Title/Abstract] OR \"meta-epidemiology\"[Title/Abstract]",
+    "hits": 694,
+    "ids": 694,
+    "parsed": 694,
+    "gaps": []
+   }
+  ]
+ }
+]

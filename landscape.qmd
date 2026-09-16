@@ -1,0 +1,200 @@
+---
+title: "The landscape"
+subtitle: "What the self-identified meta-research literature studies, and what it does not"
+toc: true
+---
+
+Every number on this page is derived from the corpus by a rule written in
+`build/lit/describe.py` and reproduced by running it. Nothing here was read by a model or
+chosen by hand. The labels are vocabulary matches, so a label means the record uses a topic's
+words, not that a human judged the record to be about that topic.
+
+
+## The field is young and it is accelerating
+
+The corpus holds 1830 records. 1396 of them, 76 percent, were published in 2020 or later.
+
+| period | records |
+|---|---|
+| 1965-1969 | 2 |
+| 1970-1974 | 2 |
+| 1975-1979 | 1 |
+| 1985-1989 | 4 |
+| 1990-1994 | 6 |
+| 1995-1999 | 8 |
+| 2000-2004 | 8 |
+| 2005-2009 | 21 |
+| 2010-2014 | 68 |
+| 2015-2019 | 314 |
+| 2020-2024 | 906 |
+| 2025-2029 | 490 |
+
+The earliest records are scattered and mostly editorial. The shape changes around 2015, which is when the vocabulary itself settles: a paper published before then that does this kind of work rarely calls it meta-research, so this corpus does not contain it. That is a limitation of a tier A search and it is stated again in [the protocol](methods.qmd).
+
+
+## What it studies
+
+A record can carry several labels, so the column sums past the corpus size. 15 records match no topic phrase at all.
+
+| topic | code | records | share |
+|---|---|---|---|
+| Names itself meta-research | `metares` | 1812 | 99.0% |
+| Reporting quality and guideline adherence | `report` | 204 | 11.1% |
+| Registration, outcome switching and publication bias | `reg` | 156 | 8.5% |
+| Reproducibility and replication | `repro` | 95 | 5.2% |
+| Data and code sharing, FAIR | `datashare` | 79 | 4.3% |
+| Retraction, misconduct and integrity | `retract` | 75 | 4.1% |
+| Authorship, citation and metrics | `biblio` | 64 | 3.5% |
+| Open access, preprints and predatory publishing | `oa` | 45 | 2.5% |
+| Research waste and prioritization | `waste` | 44 | 2.4% |
+| Statistical practice, spin and p-hacking | `stats` | 39 | 2.1% |
+| Conflicts of interest and funding | `coi` | 20 | 1.1% |
+| Peer review | `peerrev` | 11 | 0.6% |
+| Generative AI in research writing and review | `aitext` | 1 | 0.1% |
+
+## Where the attention is not
+
+These topics are named in the corpus fewer than fifty times each.
+
+| topic | records |
+|---|---|
+| Open access, preprints and predatory publishing | 45 |
+| Research waste and prioritization | 44 |
+| Statistical practice, spin and p-hacking | 39 |
+| Conflicts of interest and funding | 20 |
+| Peer review | 11 |
+| Generative AI in research writing and review | 1 |
+
+Peer review is named in 11 of these records. Generative AI in research writing is named in 1. Whatever the true size of those literatures elsewhere, the papers that call themselves meta-research are not where they live, and a field that names itself the study of research is not currently studying either its own quality control or the technology now writing the papers it examines.
+
+
+## Topics studied together
+
+Pairs of topic labels on the same record, most frequent first. The pairs are what a new study would have to be novel against.
+
+| pair | records |
+|---|---|
+| reg and report | 28 |
+| biblio and report | 17 |
+| datashare and repro | 14 |
+| datashare and report | 12 |
+| datashare and oa | 11 |
+| report and retract | 10 |
+| reg and stats | 10 |
+| repro and stats | 10 |
+| retract and stats | 9 |
+| report and waste | 9 |
+| reg and retract | 8 |
+| reg and repro | 8 |
+| reg and waste | 7 |
+| biblio and datashare | 7 |
+| biblio and reg | 7 |
+| datashare and reg | 7 |
+| oa and report | 7 |
+| report and stats | 6 |
+| biblio and oa | 6 |
+| retract and waste | 6 |
+
+## Topics over time
+
+Records per half decade, from 2015. A topic that flattens while the corpus grows is losing share of the field's attention, not gaining it.
+
+| topic | 2015-2019 | 2020-2024 | 2025-2029 |
+|---|---|---|---|
+| Reporting quality and guideline adherence | 32 | 107 | 62 |
+| Registration, outcome switching and publication bias | 24 | 80 | 43 |
+| Reproducibility and replication | 23 | 52 | 18 |
+| Data and code sharing, FAIR | 6 | 53 | 19 |
+| Retraction, misconduct and integrity | 8 | 26 | 34 |
+| Authorship, citation and metrics | 7 | 36 | 21 |
+| Open access, preprints and predatory publishing | 3 | 30 | 12 |
+| Research waste and prioritization | 11 | 23 | 10 |
+| Statistical practice, spin and p-hacking | 9 | 17 | 11 |
+| Conflicts of interest and funding | 5 | 10 | 5 |
+| Peer review | 1 | 6 | 4 |
+| Generative AI in research writing and review | 0 | 0 | 1 |
+
+## Where it is published
+
+| journal | records |
+|---|---|
+| Journal of clinical epidemiology | 207 |
+| eLife | 74 |
+| Proceedings of the National Academy of Sciences of the United States of America | 57 |
+| BMJ open | 48 |
+| PloS one | 46 |
+| BMC medical research methodology | 44 |
+| Royal Society open science | 44 |
+| BMJ (Clinical research ed.) | 31 |
+| Perspectives on psychological science : a journal of the Association for Psychological Science | 24 |
+| Systematic reviews | 24 |
+| Research synthesis methods | 22 |
+| BMC medicine | 20 |
+| Research integrity and peer review | 18 |
+| BMJ evidence-based medicine | 17 |
+| F1000Research | 16 |
+| Trials | 15 |
+| Cochrane evidence synthesis and methods | 14 |
+| PLoS biology | 14 |
+| Frontiers in psychology | 13 |
+| Journal of dentistry | 12 |
+
+One journal carries more than a tenth of the corpus. A field concentrated in a single venue inherits that venue's editorial priorities, which is itself a meta-research question and one this corpus does not answer.
+
+
+## How it is indexed
+
+MeSH descriptors on the 1315 records that carry MeSH indexing.
+
+| descriptor | records |
+|---|---|
+| Humans | 1181 |
+| Research Design | 322 |
+| Randomized Controlled Trials as Topic | 305 |
+| Epidemiologic Studies | 243 |
+| Systematic Reviews as Topic | 178 |
+| Meta-Analysis as Topic | 155 |
+| Bias | 136 |
+| Reproducibility of Results | 125 |
+| Female | 113 |
+| Periodicals as Topic | 110 |
+| Biomedical Research | 98 |
+| Male | 97 |
+| Research Personnel | 80 |
+| Treatment Outcome | 74 |
+| Clinical Trials as Topic | 70 |
+| Cross-Sectional Studies | 68 |
+| United States | 61 |
+| Publishing | 61 |
+| Adult | 58 |
+| Research Report | 53 |
+| Publication Bias | 53 |
+| Research | 52 |
+| Animals | 52 |
+| Publications | 52 |
+| Outcome Assessment, Health Care | 48 |
+
+## What kind of studies these are
+
+Publication types, with the container types that describe every journal article removed.
+
+| type | records |
+|---|---|
+| Review | 242 |
+| Meta-Analysis | 191 |
+| Systematic Review | 161 |
+| Comment | 47 |
+| Editorial | 37 |
+| Letter | 36 |
+| Comparative Study | 32 |
+| abstract | 21 |
+| Scoping Review | 17 |
+| Published Erratum | 17 |
+| Historical Article | 15 |
+| Observational Study | 12 |
+| Preprint | 8 |
+| Biography | 7 |
+| Network Meta-Analysis | 6 |
+
+Reviews, meta-analyses and systematic reviews together outnumber every other declared type. The field describes literature far more often than it experiments on it.
+

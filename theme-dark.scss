@@ -1,0 +1,29 @@
+/*-- scss:defaults --*/
+// Dark-mode variable values only. Same hues as theme-light.scss, lifted for
+// contrast on a dark surface so a verdict badge keeps its meaning in both modes.
+
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  "Helvetica Neue", Arial, sans-serif !default;
+
+$body-color: #e6edf3 !default;
+$body-bg: #14171c !default;
+$link-color: #6cb6ff !default;
+$border-color: #30363d !default;
+$border-radius: 6px !default;
+
+$verdict-confirmed: #4ade80 !default;
+$verdict-partial: #fbbf24 !default;
+$verdict-overstated: #c4b5fd !default;
+$verdict-resolved: #7dd3fc !default;
+$verdict-unsupported: #fca5a5 !default;
+$verdict-unverifiable: #9ca3af !default;
+
+$priority-1: #fca5a5 !default;
+$priority-2: #fbbf24 !default;
+$priority-3: #9aa4b0 !default;
+
+$surface: rgba(255, 255, 255, 0.05) !default;
+$hairline: rgba(255, 255, 255, 0.18) !default;
+
+// Tinting toward a dark background means mixing much further.
+$badge-tint: 84% !default;

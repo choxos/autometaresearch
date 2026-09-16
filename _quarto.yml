@@ -1,0 +1,54 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    # A bare "*.qmd" is expanded to "**/*.qmd" by Quarto, so anchor it to root.
+    - "/*.qmd"
+
+website:
+  title: "Automated meta-research"
+  description: "Meta-research studies designed, run and reviewed by language models, published in full."
+  site-url: https://choxos.github.io/autometaresearch/
+  repo-url: https://github.com/choxos/autometaresearch
+  repo-actions: [issue]
+  search:
+    location: navbar
+    type: overlay
+    copy-button: true
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: landscape.qmd
+        text: Landscape
+      - href: corpus.qmd
+        text: Corpus
+      - href: methods.qmd
+        text: How this was done
+    right:
+      - icon: github
+        href: https://github.com/choxos/autometaresearch
+        aria-label: GitHub repository
+  page-footer:
+    left: "Ahmad Sofi-Mahmudi"
+    center: "Every number is derived by a script. See [How this was done](/methods.qmd)."
+    right: "[Source](https://github.com/choxos/autometaresearch)"
+
+format:
+  html:
+    # styles.scss carries the rules and must appear in BOTH lists: Quarto emits one
+    # stylesheet per mode, so a rule listed only under light does not exist in dark.
+    # The theme-*.scss files carry only per-mode variable values.
+    theme:
+      light: [cosmo, theme-light.scss, styles.scss]
+      dark: [darkly, theme-dark.scss, styles.scss]
+    toc: true
+    toc-depth: 3
+    toc-expand: true
+    code-copy: true
+    code-overflow: wrap
+    callout-appearance: simple
+    anchor-sections: true
+    fig-responsive: true
+    link-external-newwindow: true
+    link-external-icon: false

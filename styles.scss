@@ -1,0 +1,232 @@
+/*-- scss:rules --*/
+// Shared rules. This file is listed in BOTH the light and dark theme lists;
+// the colours it references come from theme-light.scss / theme-dark.scss.
+
+// ---------------------------------------------------------------- verdicts
+
+// One mixin so adding a verdict is one line, not five.
+@mixin verdict-swatch($hue) {
+  color: $hue;
+  background: mix($body-bg, $hue, $badge-tint);
+  border-color: mix($body-bg, $hue, 55%);
+}
+
+.verdict {
+  display: inline-block;
+  padding: 0.15em 0.65em;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  border: 1px solid transparent;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 50%;
+    background: currentColor;
+    margin-right: 0.45em;
+    vertical-align: 0.05em;
+  }
+}
+
+.verdict-confirmed-open        { @include verdict-swatch($verdict-confirmed); }
+.verdict-partially-addressed   { @include verdict-swatch($verdict-partial); }
+.verdict-overstated            { @include verdict-swatch($verdict-overstated); }
+.verdict-resolved-since-report { @include verdict-swatch($verdict-resolved); }
+.verdict-not-supported         { @include verdict-swatch($verdict-unsupported); }
+.verdict-unverifiable          { @include verdict-swatch($verdict-unverifiable); }
+
+// ------------------------------------------------------------------- chips
+
+.chip {
+  display: inline-block;
+  padding: 0.1em 0.6em;
+  border-radius: $border-radius;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid $hairline;
+  background: $surface;
+  white-space: nowrap;
+}
+
+.chip-priority-very-high { border-color: $priority-1; color: $priority-1; font-weight: 650; }
+.chip-priority-high      { border-color: $priority-2; color: $priority-2; }
+.chip-priority-medium-high,
+.chip-priority-medium    { border-color: $priority-3; color: $priority-3; }
+
+.chip-maturity-established { border-left: 3px solid $verdict-confirmed; }
+.chip-maturity-promising   { border-left: 3px solid $verdict-resolved; }
+.chip-maturity-emerging    { border-left: 3px solid $verdict-partial; }
+.chip-maturity-speculative { border-left: 3px dashed $verdict-overstated; }
+
+// The two editorial browse axes. Deliberately quieter than the verdict strip above
+// them: these are an editor's filing decision, not an audited finding, and they must
+// not read as though they carry the same weight. Opacity rather than a fixed gray, so
+// the same rule reads correctly against both the light and the dark body color.
+.chip-axis {
+  font-weight: 400;
+  background: none;
+  border-style: dashed;
+  opacity: 0.72;
+}
+
+.problem-axes {
+  margin: -0.9rem 0 1.5rem;
+  font-size: 0.78rem;
+  opacity: 0.85;
+  line-height: 1.9;
+}
+
+// --------------------------------------------- badge strip on a problem page
+
+.problem-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.5rem;
+  align-items: center;
+  margin: 0.25rem 0 1.4rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid $border-color;
+}
+
+.problem-id {
+  font-family: var(--bs-font-monospace, ui-monospace, monospace);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  opacity: 0.75;
+}
+
+// ------------------------------------------------------------ wide tables
+
+// The corpus is full of six-column comparison tables. They scroll inside their
+// own box rather than forcing the page to scroll sideways.
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 1rem;
+
+  // Fading edges make the scroll affordance discoverable.
+  background:
+    linear-gradient(to right, $body-bg 30%, rgba(0, 0, 0, 0)) left center,
+    linear-gradient(to left, $body-bg 30%, rgba(0, 0, 0, 0)) right center,
+    radial-gradient(farthest-side at 0 50%, $hairline, rgba(0, 0, 0, 0)) left center,
+    radial-gradient(farthest-side at 100% 50%, $hairline, rgba(0, 0, 0, 0)) right center;
+  background-repeat: no-repeat;
+  background-size: 2.5rem 100%, 2.5rem 100%, 0.6rem 100%, 0.6rem 100%;
+  background-attachment: local, local, scroll, scroll;
+
+  > table {
+    // Load-bearing. Without a minimum width the table just squeezes, the
+    // container never overflows, and nothing ever scrolls.
+    min-width: 46rem;
+    margin-bottom: 0;
+  }
+}
+
+table { font-size: 0.92rem; }
+
+// -------------------------------------------------------- listing tables
+
+.quarto-listing-table {
+  font-size: 0.88rem;
+
+  th { white-space: nowrap; }
+  td { vertical-align: top; }
+
+  .listing-pid {
+    font-family: var(--bs-font-monospace, ui-monospace, monospace);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .listing-title { font-weight: 500; }
+  .listing-topic { font-size: 0.82rem; opacity: 0.8; }
+
+  // The rank columns exist only so sorting is semantic rather than alphabetical
+  // ("Very high" sorts after "High" and "Medium" as text). Never show them.
+  .listing-prank,
+  .listing-tractability { display: none; }
+}
+
+.quarto-listing .listing-actions-group {
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+// Quarto turns front-matter categories into filter links. Style them like the
+// badges so the whole vocabulary reads as one system.
+header.quarto-title-block .quarto-category {
+  border-radius: 999px;
+  border: 1px solid $hairline;
+  background: $surface;
+  text-transform: none;
+  font-size: 0.78rem;
+  padding: 0.12em 0.7em;
+}
+
+// ------------------------------------------------------ verification trail
+
+.verification-trail {
+  font-size: 0.92rem;
+  border-left: 3px solid $hairline;
+  padding: 0.35rem 0 0.35rem 1.1rem;
+  margin: 1.2rem 0;
+
+  dt { font-weight: 650; opacity: 0.8; margin-top: 0.7rem; }
+  dd { margin-left: 0; margin-bottom: 0.2rem; }
+}
+
+.source-unsourced {
+  border-left: 3px solid $verdict-unsupported;
+  padding: 0.55rem 0.95rem;
+  background: mix($body-bg, $verdict-unsupported, 92%);
+  font-size: 0.9rem;
+  border-radius: 0 $border-radius $border-radius 0;
+}
+
+// Our own simulation and case studies. Deliberately the most visually distinct
+// block on a problem page: everything else on the page reports what the
+// literature says, and this reports what happened when we tested it. A reader
+// must never mistake one for the other.
+.study-result {
+  border: 1px solid mix($body-bg, $verdict-resolved, 45%);
+  border-left: 4px solid $verdict-resolved;
+  background: mix($body-bg, $verdict-resolved, 95%);
+  border-radius: 0 $border-radius $border-radius 0;
+  padding: 1rem 1.25rem 0.6rem;
+  margin: 1.4rem 0;
+
+  > p:first-child { margin-top: 0; font-size: 1.05rem; }
+  dt { font-weight: 650; opacity: 0.8; margin-top: 0.6rem; }
+  dd { margin-left: 0; margin-bottom: 0.2rem; }
+  ul { margin-bottom: 0.6rem; }
+}
+
+.related-links { font-size: 0.92rem; }
+
+// ------------------------------------------------------------ display math
+
+mjx-container[display="true"] {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+  padding: 0.2rem 0;
+}
+
+// -------------------------------------------------------------- responsive
+
+@media (max-width: 768px) {
+  .quarto-listing-table .listing-maturity { display: none; }
+  .table-scroll > table { min-width: 34rem; }
+}
+
+@media (max-width: 576px) {
+  .problem-meta { gap: 0.35rem; }
+  table { font-size: 0.85rem; }
+  .quarto-listing-table .listing-topic { display: none; }
+}

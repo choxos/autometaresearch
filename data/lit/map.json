@@ -1,0 +1,676 @@
+{
+ "n_records": 1830,
+ "n_with_abstract": 1716,
+ "n_with_mesh": 1315,
+ "n_labelled": 1815,
+ "n_unlabelled": 15,
+ "years": {
+  "1965": 1,
+  "1967": 1,
+  "1971": 1,
+  "1973": 1,
+  "1978": 1,
+  "1986": 1,
+  "1987": 1,
+  "1989": 2,
+  "1991": 1,
+  "1992": 2,
+  "1993": 1,
+  "1994": 2,
+  "1997": 3,
+  "1998": 2,
+  "1999": 3,
+  "2001": 1,
+  "2002": 1,
+  "2003": 4,
+  "2004": 2,
+  "2005": 3,
+  "2006": 8,
+  "2007": 3,
+  "2008": 5,
+  "2009": 2,
+  "2010": 6,
+  "2011": 12,
+  "2012": 10,
+  "2013": 19,
+  "2014": 21,
+  "2015": 31,
+  "2016": 38,
+  "2017": 66,
+  "2018": 75,
+  "2019": 104,
+  "2020": 136,
+  "2021": 159,
+  "2022": 193,
+  "2023": 203,
+  "2024": 215,
+  "2025": 258,
+  "2026": 232
+ },
+ "half_decades": {
+  "1965-1969": 2,
+  "1970-1974": 2,
+  "1975-1979": 1,
+  "1985-1989": 4,
+  "1990-1994": 6,
+  "1995-1999": 8,
+  "2000-2004": 8,
+  "2005-2009": 21,
+  "2010-2014": 68,
+  "2015-2019": 314,
+  "2020-2024": 906,
+  "2025-2029": 490
+ },
+ "blocks": {
+  "metares": 1812,
+  "report": 204,
+  "reg": 156,
+  "repro": 95,
+  "datashare": 79,
+  "retract": 75,
+  "biblio": 64,
+  "oa": 45,
+  "waste": 44,
+  "stats": 39,
+  "coi": 20,
+  "peerrev": 11,
+  "aitext": 1
+ },
+ "block_by_half_decade": {
+  "metares": {
+   "1965-1969": 2,
+   "1970-1974": 2,
+   "1975-1979": 1,
+   "1985-1989": 4,
+   "1990-1994": 6,
+   "1995-1999": 8,
+   "2000-2004": 8,
+   "2005-2009": 18,
+   "2010-2014": 68,
+   "2015-2019": 311,
+   "2020-2024": 903,
+   "2025-2029": 481
+  },
+  "oa": {
+   "2015-2019": 3,
+   "2020-2024": 30,
+   "2025-2029": 12
+  },
+  "retract": {
+   "2000-2004": 1,
+   "2005-2009": 2,
+   "2010-2014": 4,
+   "2015-2019": 8,
+   "2020-2024": 26,
+   "2025-2029": 34
+  },
+  "report": {
+   "2010-2014": 3,
+   "2015-2019": 32,
+   "2020-2024": 107,
+   "2025-2029": 62
+  },
+  "reg": {
+   "2000-2004": 1,
+   "2005-2009": 1,
+   "2010-2014": 7,
+   "2015-2019": 24,
+   "2020-2024": 80,
+   "2025-2029": 43
+  },
+  "waste": {
+   "2015-2019": 11,
+   "2020-2024": 23,
+   "2025-2029": 10
+  },
+  "repro": {
+   "2010-2014": 2,
+   "2015-2019": 23,
+   "2020-2024": 52,
+   "2025-2029": 18
+  },
+  "datashare": {
+   "1990-1994": 1,
+   "2015-2019": 6,
+   "2020-2024": 53,
+   "2025-2029": 19
+  },
+  "biblio": {
+   "2015-2019": 7,
+   "2020-2024": 36,
+   "2025-2029": 21
+  },
+  "stats": {
+   "2000-2004": 1,
+   "2010-2014": 1,
+   "2015-2019": 9,
+   "2020-2024": 17,
+   "2025-2029": 11
+  },
+  "coi": {
+   "2015-2019": 5,
+   "2020-2024": 10,
+   "2025-2029": 5
+  },
+  "peerrev": {
+   "2015-2019": 1,
+   "2020-2024": 6,
+   "2025-2029": 4
+  },
+  "aitext": {
+   "2025-2029": 1
+  }
+ },
+ "phrases": {
+  "metares: meta-research": 674,
+  "metares: meta research": 674,
+  "metares: meta-epidemiological": 522,
+  "metares: metascience": 182,
+  "metares: science of science": 173,
+  "metares: research on research": 142,
+  "metares: meta-epidemiology": 113,
+  "reg: publication bias": 95,
+  "report: reporting quality": 93,
+  "metares: meta-science": 89,
+  "report: reporting guidelines": 88,
+  "metares: metaresearch": 69,
+  "retract: research integrity": 61,
+  "datashare: data sharing": 46,
+  "waste: research waste": 38,
+  "biblio: journal impact factor": 34,
+  "report: completeness of reporting": 33,
+  "report: reporting guideline": 33,
+  "datashare: open data": 28,
+  "repro: replication crisis": 26,
+  "stats: questionable research practices": 26,
+  "report: quality of reporting": 23,
+  "repro: replication study": 23,
+  "biblio: bibliometric analysis": 22,
+  "reg: selective outcome reporting": 21,
+  "repro: replication studies": 21,
+  "reg: prospective registration": 19,
+  "oa: preprints": 18,
+  "datashare: code sharing": 17,
+  "reg: prospectively registered": 16,
+  "oa: preprint": 15,
+  "repro: reproducibility crisis": 15,
+  "report: adherence to reporting": 12,
+  "retract: research misconduct": 11,
+  "coi: industry funding": 11,
+  "reg: outcome reporting bias": 10,
+  "oa: open access journals": 10,
+  "stats: p-hacking": 9,
+  "retract: scientific misconduct": 9,
+  "repro: reproducible research": 8,
+  "reg: registration status": 8,
+  "reg: registered reports": 8,
+  "report: PRISMA statement": 8,
+  "report: CONSORT statement": 7,
+  "reg: retrospectively registered": 7,
+  "peerrev: peer review process": 7,
+  "datashare: data availability statement": 6,
+  "oa: predatory journals": 6,
+  "coi: sponsorship bias": 6,
+  "biblio: citation bias": 6,
+  "oa: open access publishing": 6,
+  "retract: paper mill": 5,
+  "retract: paper mills": 5,
+  "datashare: data availability statements": 5,
+  "repro: computational reproducibility": 5,
+  "coi: industry sponsorship": 5,
+  "datashare: code availability": 5,
+  "waste: waste in research": 5,
+  "stats: spin in abstracts": 4,
+  "reg: outcome switching": 4,
+  "datashare: FAIR data": 4,
+  "repro: reproducibility of research": 4,
+  "reg: registry entry": 4,
+  "stats: HARKing": 3,
+  "reg: protocol availability": 3,
+  "datashare: FAIR principles": 3,
+  "peerrev: open peer review": 3,
+  "oa: open access articles": 3,
+  "biblio: altmetric": 3,
+  "waste: research prioritization": 2,
+  "report: ARRIVE guidelines": 2,
+  "datashare: data reuse": 2,
+  "peerrev: post-publication peer review": 2,
+  "retract: retracted publications": 2,
+  "stats: researcher degrees of freedom": 2,
+  "repro: analytic reproducibility": 2,
+  "waste: avoidable waste": 2,
+  "biblio: citation distortion": 1,
+  "biblio: authorship practices": 1,
+  "aitext: AI-generated text": 1,
+  "aitext: LLM-generated text": 1,
+  "oa: predatory journal": 1,
+  "waste: redundant research": 1,
+  "report: TRIPOD statement": 1,
+  "coi: conflicts of interest disclosure": 1,
+  "oa: article processing charges": 1,
+  "repro: analytical reproducibility": 1,
+  "coi: financial ties": 1,
+  "retract: retracted article": 1,
+  "retract: retracted articles": 1,
+  "oa: preprint server": 1,
+  "stats: multiplicity of analyses": 1
+ },
+ "pairs": {
+  "reg + report": 28,
+  "biblio + report": 17,
+  "datashare + repro": 14,
+  "datashare + report": 12,
+  "datashare + oa": 11,
+  "report + retract": 10,
+  "reg + stats": 10,
+  "repro + stats": 10,
+  "retract + stats": 9,
+  "report + waste": 9,
+  "reg + retract": 8,
+  "reg + repro": 8,
+  "reg + waste": 7,
+  "biblio + datashare": 7,
+  "biblio + reg": 7,
+  "datashare + reg": 7,
+  "oa + report": 7,
+  "report + stats": 6,
+  "biblio + oa": 6,
+  "retract + waste": 6,
+  "datashare + retract": 5,
+  "repro + retract": 5,
+  "oa + retract": 5,
+  "biblio + stats": 4,
+  "oa + reg": 4,
+  "datashare + waste": 4,
+  "report + repro": 4,
+  "datashare + stats": 3,
+  "biblio + retract": 3,
+  "coi + datashare": 3
+ },
+ "top_journals": [
+  {
+   "name": "Journal of clinical epidemiology",
+   "n": 207
+  },
+  {
+   "name": "eLife",
+   "n": 74
+  },
+  {
+   "name": "Proceedings of the National Academy of Sciences of the United States of America",
+   "n": 57
+  },
+  {
+   "name": "BMJ open",
+   "n": 48
+  },
+  {
+   "name": "PloS one",
+   "n": 46
+  },
+  {
+   "name": "BMC medical research methodology",
+   "n": 44
+  },
+  {
+   "name": "Royal Society open science",
+   "n": 44
+  },
+  {
+   "name": "BMJ (Clinical research ed.)",
+   "n": 31
+  },
+  {
+   "name": "Perspectives on psychological science : a journal of the Association for Psychological Science",
+   "n": 24
+  },
+  {
+   "name": "Systematic reviews",
+   "n": 24
+  },
+  {
+   "name": "Research synthesis methods",
+   "n": 22
+  },
+  {
+   "name": "BMC medicine",
+   "n": 20
+  },
+  {
+   "name": "Research integrity and peer review",
+   "n": 18
+  },
+  {
+   "name": "BMJ evidence-based medicine",
+   "n": 17
+  },
+  {
+   "name": "F1000Research",
+   "n": 16
+  },
+  {
+   "name": "Trials",
+   "n": 15
+  },
+  {
+   "name": "Cochrane evidence synthesis and methods",
+   "n": 14
+  },
+  {
+   "name": "PLoS biology",
+   "n": 14
+  },
+  {
+   "name": "Frontiers in psychology",
+   "n": 13
+  },
+  {
+   "name": "Journal of dentistry",
+   "n": 12
+  },
+  {
+   "name": "Frontiers in research metrics and analytics",
+   "n": 12
+  },
+  {
+   "name": "Accountability in research",
+   "n": 11
+  },
+  {
+   "name": "Journal of evaluation in clinical practice",
+   "n": 10
+  },
+  {
+   "name": "Frontiers in medicine",
+   "n": 10
+  },
+  {
+   "name": "International journal of epidemiology",
+   "n": 10
+  },
+  {
+   "name": "Journal of clinical medicine",
+   "n": 9
+  },
+  {
+   "name": "Health research policy and systems",
+   "n": 9
+  },
+  {
+   "name": "Neurosurgery",
+   "n": 8
+  },
+  {
+   "name": "PeerJ",
+   "n": 7
+  },
+  {
+   "name": "The journal of evidence-based dental practice",
+   "n": 7
+  }
+ ],
+ "top_mesh": [
+  {
+   "name": "Humans",
+   "n": 1181
+  },
+  {
+   "name": "Research Design",
+   "n": 322
+  },
+  {
+   "name": "Randomized Controlled Trials as Topic",
+   "n": 305
+  },
+  {
+   "name": "Epidemiologic Studies",
+   "n": 243
+  },
+  {
+   "name": "Systematic Reviews as Topic",
+   "n": 178
+  },
+  {
+   "name": "Meta-Analysis as Topic",
+   "n": 155
+  },
+  {
+   "name": "Bias",
+   "n": 136
+  },
+  {
+   "name": "Reproducibility of Results",
+   "n": 125
+  },
+  {
+   "name": "Female",
+   "n": 113
+  },
+  {
+   "name": "Periodicals as Topic",
+   "n": 110
+  },
+  {
+   "name": "Biomedical Research",
+   "n": 98
+  },
+  {
+   "name": "Male",
+   "n": 97
+  },
+  {
+   "name": "Research Personnel",
+   "n": 80
+  },
+  {
+   "name": "Treatment Outcome",
+   "n": 74
+  },
+  {
+   "name": "Clinical Trials as Topic",
+   "n": 70
+  },
+  {
+   "name": "Cross-Sectional Studies",
+   "n": 68
+  },
+  {
+   "name": "United States",
+   "n": 61
+  },
+  {
+   "name": "Publishing",
+   "n": 61
+  },
+  {
+   "name": "Adult",
+   "n": 58
+  },
+  {
+   "name": "Research Report",
+   "n": 53
+  },
+  {
+   "name": "Publication Bias",
+   "n": 53
+  },
+  {
+   "name": "Research",
+   "n": 52
+  },
+  {
+   "name": "Animals",
+   "n": 52
+  },
+  {
+   "name": "Publications",
+   "n": 52
+  },
+  {
+   "name": "Outcome Assessment, Health Care",
+   "n": 48
+  },
+  {
+   "name": "Bibliometrics",
+   "n": 48
+  },
+  {
+   "name": "COVID-19",
+   "n": 47
+  },
+  {
+   "name": "Sample Size",
+   "n": 45
+  },
+  {
+   "name": "Information Dissemination",
+   "n": 44
+  },
+  {
+   "name": "Journal Impact Factor",
+   "n": 42
+  },
+  {
+   "name": "Data Interpretation, Statistical",
+   "n": 42
+  },
+  {
+   "name": "Evidence-Based Medicine",
+   "n": 41
+  },
+  {
+   "name": "Science",
+   "n": 41
+  },
+  {
+   "name": "Registries",
+   "n": 40
+  },
+  {
+   "name": "Neoplasms",
+   "n": 38
+  },
+  {
+   "name": "Surveys and Questionnaires",
+   "n": 36
+  },
+  {
+   "name": "Checklist",
+   "n": 34
+  },
+  {
+   "name": "Authorship",
+   "n": 32
+  },
+  {
+   "name": "Odds Ratio",
+   "n": 32
+  },
+  {
+   "name": "Child",
+   "n": 31
+  }
+ ],
+ "study_types": [
+  {
+   "name": "Review",
+   "n": 242
+  },
+  {
+   "name": "Meta-Analysis",
+   "n": 191
+  },
+  {
+   "name": "Systematic Review",
+   "n": 161
+  },
+  {
+   "name": "Comment",
+   "n": 47
+  },
+  {
+   "name": "Editorial",
+   "n": 37
+  },
+  {
+   "name": "Letter",
+   "n": 36
+  },
+  {
+   "name": "Comparative Study",
+   "n": 32
+  },
+  {
+   "name": "abstract",
+   "n": 21
+  },
+  {
+   "name": "Scoping Review",
+   "n": 17
+  },
+  {
+   "name": "Published Erratum",
+   "n": 17
+  },
+  {
+   "name": "Historical Article",
+   "n": 15
+  },
+  {
+   "name": "Observational Study",
+   "n": 12
+  },
+  {
+   "name": "Preprint",
+   "n": 8
+  },
+  {
+   "name": "Biography",
+   "n": 7
+  },
+  {
+   "name": "Network Meta-Analysis",
+   "n": 6
+  },
+  {
+   "name": "Introductory Journal Article",
+   "n": 6
+  },
+  {
+   "name": "Clinical Trial Protocol",
+   "n": 4
+  },
+  {
+   "name": "Randomized Controlled Trial",
+   "n": 4
+  },
+  {
+   "name": "News",
+   "n": 3
+  },
+  {
+   "name": "Guideline",
+   "n": 2
+  },
+  {
+   "name": "Validation Study",
+   "n": 2
+  },
+  {
+   "name": "Consensus Statement",
+   "n": 2
+  },
+  {
+   "name": "Dataset",
+   "n": 2
+  },
+  {
+   "name": "Case Reports",
+   "n": 2
+  },
+  {
+   "name": "Multicenter Study",
+   "n": 2
+  }
+ ]
+}

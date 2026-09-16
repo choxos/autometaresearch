@@ -1,0 +1,1199 @@
+{
+ "run_date": "2026-09-16",
+ "rows": [
+  {
+   "block": "repro",
+   "tier": "B",
+   "db": "pubmed",
+   "block_hits": 6421,
+   "phrase_sum": 6638,
+   "phrases": [
+    {
+     "phrase": "reproducibility crisis",
+     "hits": 299
+    },
+    {
+     "phrase": "replication crisis",
+     "hits": 338
+    },
+    {
+     "phrase": "replication study",
+     "hits": 2679
+    },
+    {
+     "phrase": "replication studies",
+     "hits": 2063
+    },
+    {
+     "phrase": "reproducibility of research",
+     "hits": 235
+    },
+    {
+     "phrase": "computational reproducibility",
+     "hits": 87
+    },
+    {
+     "phrase": "analytic reproducibility",
+     "hits": 8
+    },
+    {
+     "phrase": "analytical reproducibility",
+     "hits": 154
+    },
+    {
+     "phrase": "reproducible research",
+     "hits": 775
+    }
+   ]
+  },
+  {
+   "block": "repro",
+   "tier": "B",
+   "db": "pmc",
+   "block_hits": 3096,
+   "phrase_sum": 3221,
+   "phrases": [
+    {
+     "phrase": "reproducibility crisis",
+     "hits": 163
+    },
+    {
+     "phrase": "replication crisis",
+     "hits": 145
+    },
+    {
+     "phrase": "replication study",
+     "hits": 1143
+    },
+    {
+     "phrase": "replication studies",
+     "hits": 1003
+    },
+    {
+     "phrase": "reproducibility of research",
+     "hits": 156
+    },
+    {
+     "phrase": "computational reproducibility",
+     "hits": 57
+    },
+    {
+     "phrase": "analytic reproducibility",
+     "hits": 4
+    },
+    {
+     "phrase": "analytical reproducibility",
+     "hits": 63
+    },
+    {
+     "phrase": "reproducible research",
+     "hits": 487
+    }
+   ]
+  },
+  {
+   "block": "report",
+   "tier": "B",
+   "db": "pubmed",
+   "block_hits": 16657,
+   "phrase_sum": 18866,
+   "phrases": [
+    {
+     "phrase": "reporting quality",
+     "hits": 3219
+    },
+    {
+     "phrase": "quality of reporting",
+     "hits": 2254
+    },
+    {
+     "phrase": "completeness of reporting",
+     "hits": 701
+    },
+    {
+     "phrase": "adherence to reporting",
+     "hits": 2
+    },
+    {
+     "phrase": "reporting guideline",
+     "hits": 1253
+    },
+    {
+     "phrase": "reporting guidelines",
+     "hits": 4330
+    },
+    {
+     "phrase": "CONSORT statement",
+     "hits": 988
+    },
+    {
+     "phrase": "PRISMA statement",
+     "hits": 4966
+    },
+    {
+     "phrase": "STROBE statement",
+     "hits": 579
+    },
+    {
+     "phrase": "ARRIVE guidelines",
+     "hits": 253
+    },
+    {
+     "phrase": "SPIRIT statement",
+     "hits": 47
+    },
+    {
+     "phrase": "TRIPOD statement",
+     "hits": 133
+    },
+    {
+     "phrase": "CHEERS statement",
+     "hits": 77
+    },
+    {
+     "phrase": "STARD statement",
+     "hits": 64
+    }
+   ]
+  },
+  {
+   "block": "report",
+   "tier": "B",
+   "db": "pmc",
+   "block_hits": 8776,
+   "phrase_sum": 9915,
+   "phrases": [
+    {
+     "phrase": "reporting quality",
+     "hits": 1709
+    },
+    {
+     "phrase": "quality of reporting",
+     "hits": 1006
+    },
+    {
+     "phrase": "completeness of reporting",
+     "hits": 338
+    },
+    {
+     "phrase": "adherence to reporting",
+     "hits": 132
+    },
+    {
+     "phrase": "reporting guideline",
+     "hits": 766
+    },
+    {
+     "phrase": "reporting guidelines",
+     "hits": 2347
+    },
+    {
+     "phrase": "CONSORT statement",
+     "hits": 429
+    },
+    {
+     "phrase": "PRISMA statement",
+     "hits": 2585
+    },
+    {
+     "phrase": "STROBE statement",
+     "hits": 271
+    },
+    {
+     "phrase": "ARRIVE guidelines",
+     "hits": 146
+    },
+    {
+     "phrase": "SPIRIT statement",
+     "hits": 40
+    },
+    {
+     "phrase": "TRIPOD statement",
+     "hits": 82
+    },
+    {
+     "phrase": "CHEERS statement",
+     "hits": 40
+    },
+    {
+     "phrase": "STARD statement",
+     "hits": 24
+    }
+   ]
+  },
+  {
+   "block": "datashare",
+   "tier": "B",
+   "db": "pubmed",
+   "block_hits": 15418,
+   "phrase_sum": 16476,
+   "phrases": [
+    {
+     "phrase": "data sharing",
+     "hits": 10216
+    },
+    {
+     "phrase": "data availability statement",
+     "hits": 123
+    },
+    {
+     "phrase": "data availability statements",
+     "hits": 39
+    },
+    {
+     "phrase": "code sharing",
+     "hits": 132
+    },
+    {
+     "phrase": "code availability",
+     "hits": 111
+    },
+    {
+     "phrase": "open data",
+     "hits": 3851
+    },
+    {
+     "phrase": "FAIR principles",
+     "hits": 692
+    },
+    {
+     "phrase": "FAIR data",
+     "hits": 675
+    },
+    {
+     "phrase": "data reuse",
+     "hits": 628
+    },
+    {
+     "phrase": "individual participant data sharing",
+     "hits": 9
+    }
+   ]
+  },
+  {
+   "block": "datashare",
+   "tier": "B",
+   "db": "pmc",
+   "block_hits": 9213,
+   "phrase_sum": 9830,
+   "phrases": [
+    {
+     "phrase": "data sharing",
+     "hits": 6473
+    },
+    {
+     "phrase": "data availability statement",
+     "hits": 49
+    },
+    {
+     "phrase": "data availability statements",
+     "hits": 29
+    },
+    {
+     "phrase": "code sharing",
+     "hits": 90
+    },
+    {
+     "phrase": "code availability",
+     "hits": 72
+    },
+    {
+     "phrase": "open data",
+     "hits": 1955
+    },
+    {
+     "phrase": "FAIR principles",
+     "hits": 437
+    },
+    {
+     "phrase": "FAIR data",
+     "hits": 382
+    },
+    {
+     "phrase": "data reuse",
+     "hits": 337
+    },
+    {
+     "phrase": "individual participant data sharing",
+     "hits": 6
+    }
+   ]
+  },
+  {
+   "block": "oa",
+   "tier": "B",
+   "db": "pubmed",
+   "block_hits": 4475,
+   "phrase_sum": 5232,
+   "phrases": [
+    {
+     "phrase": "open access publishing",
+     "hits": 489
+    },
+    {
+     "phrase": "open access articles",
+     "hits": 148
+    },
+    {
+     "phrase": "open access journals",
+     "hits": 913
+    },
+    {
+     "phrase": "preprint",
+     "hits": 1540
+    },
+    {
+     "phrase": "preprints",
+     "hits": 1107
+    },
+    {
+     "phrase": "preprint server",
+     "hits": 111
+    },
+    {
+     "phrase": "article processing charge",
+     "hits": 64
+    },
+    {
+     "phrase": "article processing charges",
+     "hits": 180
+    },
+    {
+     "phrase": "predatory journal",
+     "hits": 109
+    },
+    {
+     "phrase": "predatory journals",
+     "hits": 571
+    }
+   ]
+  },
+  {
+   "block": "oa",
+   "tier": "B",
+   "db": "pmc",
+   "block_hits": 2681,
+   "phrase_sum": 3096,
+   "phrases": [
+    {
+     "phrase": "open access publishing",
+     "hits": 255
+    },
+    {
+     "phrase": "open access articles",
+     "hits": 98
+    },
+    {
+     "phrase": "open access journals",
+     "hits": 615
+    },
+    {
+     "phrase": "preprint",
+     "hits": 970
+    },
+    {
+     "phrase": "preprints",
+     "hits": 685
+    },
+    {
+     "phrase": "preprint server",
+     "hits": 72
+    },
+    {
+     "phrase": "article processing charge",
+     "hits": 29
+    },
+    {
+     "phrase": "article processing charges",
+     "hits": 118
+    },
+    {
+     "phrase": "predatory journal",
+     "hits": 42
+    },
+    {
+     "phrase": "predatory journals",
+     "hits": 212
+    }
+   ]
+  },
+  {
+   "block": "reg",
+   "tier": "B",
+   "db": "pubmed",
+   "block_hits": 189588,
+   "phrase_sum": 193455,
+   "phrases": [
+    {
+     "phrase": "trial registration",
+     "hits": 156828
+    },
+    {
+     "phrase": "prospective registration",
+     "hits": 716
+    },
+    {
+     "phrase": "outcome switching",
+     "hits": 32
+    },
+    {
+     "phrase": "outcome reporting bias",
+     "hits": 278
+    },
+    {
+     "phrase": "selective outcome reporting",
+     "hits": 402
+    },
+    {
+     "phrase": "publication bias",
+     "hits": 29134
+    },
+    {
+     "phrase": "registered report",
+     "hits": 5806
+    },
+    {
+     "phrase": "registered reports",
+     "hits": 192
+    },
+    {
+     "phrase": "protocol availability",
+     "hits": 67
+    },
+    {
+     "phrase": "discrepancies between protocol",
+     "hits": 0
+    }
+   ]
+  },
+  {
+   "block": "reg",
+   "tier": "B",
+   "db": "pmc",
+   "block_hits": 143217,
+   "phrase_sum": 146722,
+   "phrases": [
+    {
+     "phrase": "trial registration",
+     "hits": 124113
+    },
+    {
+     "phrase": "prospective registration",
+     "hits": 293
+    },
+    {
+     "phrase": "outcome switching",
+     "hits": 19
+    },
+    {
+     "phrase": "outcome reporting bias",
+     "hits": 154
+    },
+    {
+     "phrase": "selective outcome reporting",
+     "hits": 212
+    },
+    {
+     "phrase": "publication bias",
+     "hits": 16231
+    },
+    {
+     "phrase": "registered report",
+     "hits": 5568
+    },
+    {
+     "phrase": "registered reports",
+     "hits": 98
+    },
+    {
+     "phrase": "protocol availability",
+     "hits": 33
+    },
+    {
+     "phrase": "discrepancies between protocol",
+     "hits": 1
+    }
+   ]
+  },
+  {
+   "block": "retract",
+   "tier": "B",
+   "db": "pubmed",
+   "block_hits": 11128,
+   "phrase_sum": 12112,
+   "phrases": [
+    {
+     "phrase": "retracted publication",
+     "hits": 41
+    },
+    {
+     "phrase": "retracted publications",
+     "hits": 125
+    },
+    {
+     "phrase": "retracted article",
+     "hits": 762
+    },
+    {
+     "phrase": "retracted articles",
+     "hits": 229
+    },
+    {
+     "phrase": "retraction notice",
+     "hits": 4839
+    },
+    {
+     "phrase": "research misconduct",
+     "hits": 1174
+    },
+    {
+     "phrase": "scientific misconduct",
+     "hits": 1225
+    },
+    {
+     "phrase": "paper mill",
+     "hits": 1251
+    },
+    {
+     "phrase": "paper mills",
+     "hits": 499
+    },
+    {
+     "phrase": "research integrity",
+     "hits": 1786
+    },
+    {
+     "phrase": "image duplication",
+     "hits": 177
+    },
+    {
+     "phrase": "scientific plagiarism",
+     "hits": 4
+    }
+   ]
+  },
+  {
+   "block": "retract",
+   "tier": "B",
+   "db": "pmc",
+   "block_hits": 3578,
+   "phrase_sum": 3832,
+   "phrases": [
+    {
+     "phrase": "retracted publication",
+     "hits": 6
+    },
+    {
+     "phrase": "retracted publications",
+     "hits": 59
+    },
+    {
+     "phrase": "retracted article",
+     "hits": 382
+    },
+    {
+     "phrase": "retracted articles",
+     "hits": 107
+    },
+    {
+     "phrase": "retraction notice",
+     "hits": 1355
+    },
+    {
+     "phrase": "research misconduct",
+     "hits": 515
+    },
+    {
+     "phrase": "scientific misconduct",
+     "hits": 474
+    },
+    {
+     "phrase": "paper mill",
+     "hits": 170
+    },
+    {
+     "phrase": "paper mills",
+     "hits": 103
+    },
+    {
+     "phrase": "research integrity",
+     "hits": 600
+    },
+    {
+     "phrase": "image duplication",
+     "hits": 59
+    },
+    {
+     "phrase": "scientific plagiarism",
+     "hits": 2
+    }
+   ]
+  },
+  {
+   "block": "peerrev",
+   "tier": "B",
+   "db": "pubmed",
+   "block_hits": 2910,
+   "phrase_sum": 2983,
+   "phrases": [
+    {
+     "phrase": "peer review process",
+     "hits": 2596
+    },
+    {
+     "phrase": "peer review quality",
+     "hits": 59
+    },
+    {
+     "phrase": "open peer review",
+     "hits": 148
+    },
+    {
+     "phrase": "reviewer bias",
+     "hits": 41
+    },
+    {
+     "phrase": "editorial peer review",
+     "hits": 60
+    },
+    {
+     "phrase": "post-publication peer review",
+     "hits": 77
+    },
+    {
+     "phrase": "peer reviewer agreement",
+     "hits": 2
+    }
+   ]
+  },
+  {
+   "block": "peerrev",
+   "tier": "B",
+   "db": "pmc",
+   "block_hits": 1460,
+   "phrase_sum": 1500,
+   "phrases": [
+    {
+     "phrase": "peer review process",
+     "hits": 1314
+    },
+    {
+     "phrase": "peer review quality",
+     "hits": 22
+    },
+    {
+     "phrase": "open peer review",
+     "hits": 98
+    },
+    {
+     "phrase": "reviewer bias",
+     "hits": 17
+    },
+    {
+     "phrase": "editorial peer review",
+     "hits": 12
+    },
+    {
+     "phrase": "post-publication peer review",
+     "hits": 37
+    },
+    {
+     "phrase": "peer reviewer agreement",
+     "hits": 0
+    }
+   ]
+  },
+  {
+   "block": "stats",
+   "tier": "B",
+   "db": "pubmed",
+   "block_hits": 545,
+   "phrase_sum": 600,
+   "phrases": [
+    {
+     "phrase": "p-hacking",
+     "hits": 203
+    },
+    {
+     "phrase": "questionable research practices",
+     "hits": 270
+    },
+    {
+     "phrase": "researcher degrees of freedom",
+     "hits": 68
+    },
+    {
+     "phrase": "HARKing",
+     "hits": 41
+    },
+    {
+     "phrase": "garden of forking paths",
+     "hits": 18
+    },
+    {
+     "phrase": "selective reporting of analyses",
+     "hits": 0
+    },
+    {
+     "phrase": "spin in abstracts",
+     "hits": 0
+    },
+    {
+     "phrase": "spin in reporting",
+     "hits": 0
+    },
+    {
+     "phrase": "statistical significance misuse",
+     "hits": 0
+    },
+    {
+     "phrase": "misinterpretation of p-values",
+     "hits": 0
+    },
+    {
+     "phrase": "multiplicity of analyses",
+     "hits": 0
+    }
+   ]
+  },
+  {
+   "block": "stats",
+   "tier": "B",
+   "db": "pmc",
+   "block_hits": 261,
+   "phrase_sum": 282,
+   "phrases": [
+    {
+     "phrase": "p-hacking",
+     "hits": 94
+    },
+    {
+     "phrase": "questionable research practices",
+     "hits": 119
+    },
+    {
+     "phrase": "researcher degrees of freedom",
+     "hits": 30
+    },
+    {
+     "phrase": "HARKing",
+     "hits": 14
+    },
+    {
+     "phrase": "garden of forking paths",
+     "hits": 3
+    },
+    {
+     "phrase": "selective reporting of analyses",
+     "hits": 2
+    },
+    {
+     "phrase": "spin in abstracts",
+     "hits": 9
+    },
+    {
+     "phrase": "spin in reporting",
+     "hits": 1
+    },
+    {
+     "phrase": "statistical significance misuse",
+     "hits": 0
+    },
+    {
+     "phrase": "misinterpretation of p-values",
+     "hits": 8
+    },
+    {
+     "phrase": "multiplicity of analyses",
+     "hits": 2
+    }
+   ]
+  },
+  {
+   "block": "coi",
+   "tier": "B",
+   "db": "pubmed",
+   "block_hits": 1387,
+   "phrase_sum": 1473,
+   "phrases": [
+    {
+     "phrase": "conflict of interest disclosure",
+     "hits": 143
+    },
+    {
+     "phrase": "conflicts of interest disclosure",
+     "hits": 0
+    },
+    {
+     "phrase": "undisclosed conflicts",
+     "hits": 36
+    },
+    {
+     "phrase": "industry sponsorship",
+     "hits": 371
+    },
+    {
+     "phrase": "industry funding",
+     "hits": 709
+    },
+    {
+     "phrase": "financial ties",
+     "hits": 147
+    },
+    {
+     "phrase": "funding source bias",
+     "hits": 0
+    },
+    {
+     "phrase": "sponsorship bias",
+     "hits": 67
+    }
+   ]
+  },
+  {
+   "block": "coi",
+   "tier": "B",
+   "db": "pmc",
+   "block_hits": 652,
+   "phrase_sum": 693,
+   "phrases": [
+    {
+     "phrase": "conflict of interest disclosure",
+     "hits": 57
+    },
+    {
+     "phrase": "conflicts of interest disclosure",
+     "hits": 18
+    },
+    {
+     "phrase": "undisclosed conflicts",
+     "hits": 14
+    },
+    {
+     "phrase": "industry sponsorship",
+     "hits": 160
+    },
+    {
+     "phrase": "industry funding",
+     "hits": 338
+    },
+    {
+     "phrase": "financial ties",
+     "hits": 74
+    },
+    {
+     "phrase": "funding source bias",
+     "hits": 1
+    },
+    {
+     "phrase": "sponsorship bias",
+     "hits": 31
+    }
+   ]
+  },
+  {
+   "block": "waste",
+   "tier": "B",
+   "db": "pubmed",
+   "block_hits": 1061,
+   "phrase_sum": 1078,
+   "phrases": [
+    {
+     "phrase": "research waste",
+     "hits": 573
+    },
+    {
+     "phrase": "avoidable waste",
+     "hits": 55
+    },
+    {
+     "phrase": "waste in research",
+     "hits": 50
+    },
+    {
+     "phrase": "redundant research",
+     "hits": 20
+    },
+    {
+     "phrase": "unnecessary duplication of research",
+     "hits": 0
+    },
+    {
+     "phrase": "value of information in research",
+     "hits": 0
+    },
+    {
+     "phrase": "research prioritization",
+     "hits": 380
+    }
+   ]
+  },
+  {
+   "block": "waste",
+   "tier": "B",
+   "db": "pmc",
+   "block_hits": 569,
+   "phrase_sum": 577,
+   "phrases": [
+    {
+     "phrase": "research waste",
+     "hits": 308
+    },
+    {
+     "phrase": "avoidable waste",
+     "hits": 22
+    },
+    {
+     "phrase": "waste in research",
+     "hits": 36
+    },
+    {
+     "phrase": "redundant research",
+     "hits": 10
+    },
+    {
+     "phrase": "unnecessary duplication of research",
+     "hits": 3
+    },
+    {
+     "phrase": "value of information in research",
+     "hits": 0
+    },
+    {
+     "phrase": "research prioritization",
+     "hits": 198
+    }
+   ]
+  },
+  {
+   "block": "biblio",
+   "tier": "B",
+   "db": "pubmed",
+   "block_hits": 17419,
+   "phrase_sum": 17861,
+   "phrases": [
+    {
+     "phrase": "honorary authorship",
+     "hits": 86
+    },
+    {
+     "phrase": "ghost authorship",
+     "hits": 61
+    },
+    {
+     "phrase": "gift authorship",
+     "hits": 57
+    },
+    {
+     "phrase": "authorship practices",
+     "hits": 102
+    },
+    {
+     "phrase": "citation bias",
+     "hits": 90
+    },
+    {
+     "phrase": "citation distortion",
+     "hits": 7
+    },
+    {
+     "phrase": "bibliometric analysis",
+     "hits": 15278
+    },
+    {
+     "phrase": "altmetric",
+     "hits": 669
+    },
+    {
+     "phrase": "journal impact factor",
+     "hits": 1511
+    }
+   ]
+  },
+  {
+   "block": "biblio",
+   "tier": "B",
+   "db": "pmc",
+   "block_hits": 10420,
+   "phrase_sum": 10609,
+   "phrases": [
+    {
+     "phrase": "honorary authorship",
+     "hits": 18
+    },
+    {
+     "phrase": "ghost authorship",
+     "hits": 27
+    },
+    {
+     "phrase": "gift authorship",
+     "hits": 25
+    },
+    {
+     "phrase": "authorship practices",
+     "hits": 46
+    },
+    {
+     "phrase": "citation bias",
+     "hits": 37
+    },
+    {
+     "phrase": "citation distortion",
+     "hits": 2
+    },
+    {
+     "phrase": "bibliometric analysis",
+     "hits": 9423
+    },
+    {
+     "phrase": "altmetric",
+     "hits": 338
+    },
+    {
+     "phrase": "journal impact factor",
+     "hits": 693
+    }
+   ]
+  },
+  {
+   "block": "equity",
+   "tier": "B",
+   "db": "pubmed",
+   "block_hits": 326,
+   "phrase_sum": 332,
+   "phrases": [
+    {
+     "phrase": "gender disparities in authorship",
+     "hits": 0
+    },
+    {
+     "phrase": "gender gap in authorship",
+     "hits": 0
+    },
+    {
+     "phrase": "representation in clinical trials",
+     "hits": 172
+    },
+    {
+     "phrase": "diversity in clinical trials",
+     "hits": 152
+    },
+    {
+     "phrase": "geographic representation of authors",
+     "hits": 0
+    },
+    {
+     "phrase": "authorship inequity",
+     "hits": 8
+    },
+    {
+     "phrase": "global health authorship",
+     "hits": 0
+    }
+   ]
+  },
+  {
+   "block": "equity",
+   "tier": "B",
+   "db": "pmc",
+   "block_hits": 196,
+   "phrase_sum": 201,
+   "phrases": [
+    {
+     "phrase": "gender disparities in authorship",
+     "hits": 10
+    },
+    {
+     "phrase": "gender gap in authorship",
+     "hits": 6
+    },
+    {
+     "phrase": "representation in clinical trials",
+     "hits": 96
+    },
+    {
+     "phrase": "diversity in clinical trials",
+     "hits": 81
+    },
+    {
+     "phrase": "geographic representation of authors",
+     "hits": 0
+    },
+    {
+     "phrase": "authorship inequity",
+     "hits": 6
+    },
+    {
+     "phrase": "global health authorship",
+     "hits": 2
+    }
+   ]
+  },
+  {
+   "block": "aitext",
+   "tier": "B",
+   "db": "pubmed",
+   "block_hits": 106,
+   "phrase_sum": 108,
+   "phrases": [
+    {
+     "phrase": "AI-generated text",
+     "hits": 90
+    },
+    {
+     "phrase": "ChatGPT in academic writing",
+     "hits": 0
+    },
+    {
+     "phrase": "large language models in research",
+     "hits": 0
+    },
+    {
+     "phrase": "LLM-generated text",
+     "hits": 15
+    },
+    {
+     "phrase": "AI-assisted peer review",
+     "hits": 2
+    },
+    {
+     "phrase": "generative AI in research",
+     "hits": 1
+    }
+   ]
+  },
+  {
+   "block": "aitext",
+   "tier": "B",
+   "db": "pmc",
+   "block_hits": 81,
+   "phrase_sum": 84,
+   "phrases": [
+    {
+     "phrase": "AI-generated text",
+     "hits": 59
+    },
+    {
+     "phrase": "ChatGPT in academic writing",
+     "hits": 10
+    },
+    {
+     "phrase": "large language models in research",
+     "hits": 1
+    },
+    {
+     "phrase": "LLM-generated text",
+     "hits": 9
+    },
+    {
+     "phrase": "AI-assisted peer review",
+     "hits": 3
+    },
+    {
+     "phrase": "generative AI in research",
+     "hits": 2
+    }
+   ]
+  }
+ ]
+}
