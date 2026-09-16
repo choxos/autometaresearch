@@ -1,19 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://choxos.github.io/autometaresearch/proposals/P04-observational-about-itself.html</loc>
+    <lastmod>2026-09-16T23:15:23.257Z</lastmod>
+  </url>
+  <url>
+    <loc>https://choxos.github.io/autometaresearch/proposals/P02-citing-retracted-work.html</loc>
+    <lastmod>2026-09-16T23:15:23.257Z</lastmod>
+  </url>
+  <url>
     <loc>https://choxos.github.io/autometaresearch/methods.html</loc>
-    <lastmod>2026-09-16T11:53:54.906Z</lastmod>
+    <lastmod>2026-09-16T23:15:23.256Z</lastmod>
   </url>
   <url>
     <loc>https://choxos.github.io/autometaresearch/index.html</loc>
-    <lastmod>2026-09-16T11:53:54.906Z</lastmod>
+    <lastmod>2026-09-16T23:15:23.255Z</lastmod>
+  </url>
+  <url>
+    <loc>https://choxos.github.io/autometaresearch/agenda.html</loc>
+    <lastmod>2026-09-16T23:15:23.231Z</lastmod>
   </url>
   <url>
     <loc>https://choxos.github.io/autometaresearch/corpus.html</loc>
-    <lastmod>2026-09-16T11:54:08.174Z</lastmod>
+    <lastmod>2026-09-16T23:15:39.304Z</lastmod>
   </url>
   <url>
     <loc>https://choxos.github.io/autometaresearch/landscape.html</loc>
-    <lastmod>2026-09-16T11:54:08.167Z</lastmod>
+    <lastmod>2026-09-16T23:15:39.295Z</lastmod>
+  </url>
+  <url>
+    <loc>https://choxos.github.io/autometaresearch/proposals/P01-advocacy-and-practice.html</loc>
+    <lastmod>2026-09-16T23:15:23.256Z</lastmod>
+  </url>
+  <url>
+    <loc>https://choxos.github.io/autometaresearch/proposals/P03-bad-news-citation.html</loc>
+    <lastmod>2026-09-16T23:15:23.257Z</lastmod>
   </url>
 </urlset>

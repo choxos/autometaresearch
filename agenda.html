@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>How this was done – Automated meta-research</title>
+<title>The agenda – Automated meta-research</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -65,6 +30,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -106,7 +73,65 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-id','listing-status','listing-date','listing-reviewed',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -294,7 +319,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./agenda.html"> 
+    <a class="nav-link active" href="./agenda.html" aria-current="page"> 
 <span class="menu-text">Agenda</span></a>
   </li>  
   <li class="nav-item">
@@ -306,7 +331,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Corpus</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./methods.html" aria-current="page"> 
+    <a class="nav-link" href="./methods.html"> 
 <span class="menu-text">How this was done</span></a>
   </li>  
 </ul>
@@ -333,18 +358,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#databases-and-dates" id="toc-databases-and-dates" class="nav-link active" data-scroll-target="#databases-and-dates">Databases and dates</a></li>
-  <li><a href="#the-two-tiers" id="toc-the-two-tiers" class="nav-link" data-scroll-target="#the-two-tiers">The two tiers</a></li>
-  <li><a href="#tier-a-the-query" id="toc-tier-a-the-query" class="nav-link" data-scroll-target="#tier-a-the-query">Tier A: the query</a></li>
-  <li><a href="#tier-b-the-counts-and-why-they-are-not-the-corpus" id="toc-tier-b-the-counts-and-why-they-are-not-the-corpus" class="nav-link" data-scroll-target="#tier-b-the-counts-and-why-they-are-not-the-corpus">Tier B: the counts, and why they are not the corpus</a>
-  <ul class="collapse">
-  <li><a href="#the-189588" id="toc-the-189588" class="nav-link" data-scroll-target="#the-189588">The 189588</a></li>
-  <li><a href="#the-qualifier" id="toc-the-qualifier" class="nav-link" data-scroll-target="#the-qualifier">The qualifier</a></li>
-  </ul></li>
-  <li><a href="#retrieval-limits-and-why-nothing-was-silently-truncated" id="toc-retrieval-limits-and-why-nothing-was-silently-truncated" class="nav-link" data-scroll-target="#retrieval-limits-and-why-nothing-was-silently-truncated">Retrieval limits, and why nothing was silently truncated</a></li>
-  <li><a href="#labelling" id="toc-labelling" class="nav-link" data-scroll-target="#labelling">Labelling</a></li>
-  <li><a href="#what-this-corpus-is-not" id="toc-what-this-corpus-is-not" class="nav-link" data-scroll-target="#what-this-corpus-is-not">What this corpus is not</a></li>
-  <li><a href="#reproducing-it" id="toc-reproducing-it" class="nav-link" data-scroll-target="#reproducing-it">Reproducing it</a></li>
+  <li><a href="#status-values" id="toc-status-values" class="nav-link active" data-scroll-target="#status-values">Status values</a></li>
+  <li><a href="#review" id="toc-review" class="nav-link" data-scroll-target="#review">Review</a></li>
+  <li><a href="#how-these-were-chosen" id="toc-how-these-were-chosen" class="nav-link" data-scroll-target="#how-these-were-chosen">How these were chosen</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/choxos/autometaresearch/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -354,8 +370,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">How this was done</h1>
-<p class="subtitle lead">The search protocol, the decisions taken, and what they cost</p>
+<h1 class="title">The agenda</h1>
+<p class="subtitle lead">Studies proposed against the map, published before they are run</p>
 </div>
 
 
@@ -372,199 +388,168 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>This project studies transparency in research. It would be indefensible for the project itself to be opaque, so every query, every count and every scope decision is recorded here, including the ones that went wrong.</p>
-<section id="databases-and-dates" class="level2">
-<h2 class="anchored" data-anchor-id="databases-and-dates">Databases and dates</h2>
-<p>PubMed and PMC, through the NCBI E-utilities. PMC is searched as well as PubMed because PMC carries records PubMed does not index: author manuscripts, some non-MEDLINE journals, and deposited preprints. Searches were run on 2026-09-16. No language, date or article-type limit was applied.</p>
-<p>The harvester is <code>build/lit/search.py</code>. It is the only route by which a record enters the corpus, and it writes a machine-readable log of every query it issued to <code>data/lit/search-log.json</code>.</p>
-</section>
-<section id="the-two-tiers" class="level2">
-<h2 class="anchored" data-anchor-id="the-two-tiers">The two tiers</h2>
-<p>The field can be searched two ways and they retrieve different things.</p>
-<p><strong>Tier A</strong> is the field naming itself: a paper that describes its own work as meta-research, metascience, research on research, or a meta-epidemiological study. Precision is close to total, because no other kind of paper uses those words about itself.</p>
-<p><strong>Tier B</strong> is the field by subject matter: reporting quality, data sharing, retraction, registration, peer review, and the rest. Tier B retrieves two populations that no boolean query separates. A search for <code>"data sharing"</code> returns surveys of how often trials share data alongside trials that happened to share theirs, and only the first kind is meta-research.</p>
-<p><strong>Only tier A has been harvested.</strong> Tier B has been sized and the counts are published below, but nothing from it is in the corpus. That decision is revisited once the tier A map has been read.</p>
-</section>
-<section id="tier-a-the-query" class="level2">
-<h2 class="anchored" data-anchor-id="tier-a-the-query">Tier A: the query</h2>
-<p>Each phrase is searched in title, abstract and author keyword fields, and the phrases are combined with OR.</p>
-<pre><code>"meta-research"      "metaresearch"           "meta research"
-"metascience"        "meta-science"           "research on research"
-"science of science" "meta-epidemiological"   "meta-epidemiology"</code></pre>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>database</th>
-<th>hits</th>
-<th>records retrieved</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>PubMed</td>
-<td>1805</td>
-<td>1805</td>
-</tr>
-<tr class="even">
-<td>PMC</td>
-<td>694</td>
-<td>694</td>
-</tr>
-</tbody>
-</table>
-<p>Deduplicated on PMID, then DOI, then PMCID, then normalized title: <strong>1830 unique records</strong>. The overlap is large, as expected; 669 PMC records were already present from PubMed and 25 were new.</p>
-</section>
-<section id="tier-b-the-counts-and-why-they-are-not-the-corpus" class="level2">
-<h2 class="anchored" data-anchor-id="tier-b-the-counts-and-why-they-are-not-the-corpus">Tier B: the counts, and why they are not the corpus</h2>
-<p>Measured 2026-09-16 in PubMed. The third column is the same block ANDed with a study-of-literature qualifier described below.</p>
+<p>Each proposal below is a protocol. It states a hypothesis, what would falsify it, the unit of analysis, the data source with a call that proved the source reachable, and the analysis in R, and it is published in that state before any analysis is run.</p>
+<p>The order matters and it is deliberate. A protocol written after the result is known is not a protocol, and a project that criticizes selective reporting cannot itself decide what its question was once it has seen the answer. Every proposal therefore carries a date and a status, and a result page will link back to the protocol as it stood.</p>
+<section id="status-values" class="level2">
+<h2 class="anchored" data-anchor-id="status-values">Status values</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
+<col style="width: 50%">
+<col style="width: 50%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>block</th>
-<th>phrases cover</th>
-<th>raw hits</th>
-<th>qualified</th>
+<th>status</th>
+<th>meaning</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>reg</code></td>
-<td>registration, outcome switching, publication bias</td>
-<td>189588</td>
-<td>8205</td>
+<td><code>proposed</code></td>
+<td>protocol published, not yet reviewed, not yet run</td>
 </tr>
 <tr class="even">
-<td><code>biblio</code></td>
-<td>authorship, citation, metrics</td>
-<td>17419</td>
-<td>16265</td>
+<td><code>agenda</code></td>
+<td>a real gap that cannot be run from public data, recorded rather than skipped</td>
 </tr>
 <tr class="odd">
-<td><code>report</code></td>
-<td>reporting quality, guideline adherence</td>
-<td>16657</td>
-<td>2395</td>
+<td><code>reviewed</code></td>
+<td>independent reviews attached, published whole including disagreement</td>
 </tr>
 <tr class="even">
-<td><code>datashare</code></td>
-<td>data and code sharing, FAIR</td>
-<td>15418</td>
-<td>767</td>
+<td><code>running</code></td>
+<td>analysis in progress against the published protocol</td>
 </tr>
 <tr class="odd">
-<td><code>retract</code></td>
-<td>retraction, misconduct, integrity</td>
-<td>11128</td>
-<td>637</td>
-</tr>
-<tr class="even">
-<td><code>repro</code></td>
-<td>reproducibility, replication</td>
-<td>6421</td>
-<td>241</td>
-</tr>
-<tr class="odd">
-<td><code>oa</code></td>
-<td>open access, preprints, predatory publishing</td>
-<td>4475</td>
-<td>1050</td>
-</tr>
-<tr class="even">
-<td><code>peerrev</code></td>
-<td>peer review</td>
-<td>2910</td>
-<td>325</td>
-</tr>
-<tr class="odd">
-<td><code>coi</code></td>
-<td>conflicts of interest, funding</td>
-<td>1387</td>
-<td>not measured</td>
-</tr>
-<tr class="even">
-<td><code>waste</code></td>
-<td>research waste, prioritization</td>
-<td>1061</td>
-<td>not measured</td>
-</tr>
-<tr class="odd">
-<td><code>stats</code></td>
-<td>p-hacking, spin, questionable practices</td>
-<td>545</td>
-<td>not measured</td>
-</tr>
-<tr class="even">
-<td><code>equity</code></td>
-<td>equity and representation</td>
-<td>326</td>
-<td>not measured</td>
-</tr>
-<tr class="odd">
-<td><code>aitext</code></td>
-<td>generative AI in research writing</td>
-<td>106</td>
-<td>not measured</td>
+<td><code>reported</code></td>
+<td>result published with the protocol and the reviews</td>
 </tr>
 </tbody>
 </table>
-<section id="the-189588" class="level3">
-<h3 class="anchored" data-anchor-id="the-189588">The 189588</h3>
-<p>The <code>reg</code> block first returned 189588 records, five sixths of everything tier B retrieved, from the single phrase <code>"trial registration"</code>. The obvious explanation was wrong. The phrase was not being broken into words and ANDed by PubMed; it is phrase-indexed, and the quoted form returns fewer records than <code>trial AND registration</code> does. The real cause is that <strong>Trial registration</strong> is the label of a section in a structured abstract, so every registered trial in PubMed carries the phrase verbatim. It identifies trials that were registered and never studies of registration.</p>
-<p>The phrase has been removed from the block. <code>build/lit/search.py</code> records why, next to the block it was removed from, so it is not reintroduced by someone who only sees that the block looks thin.</p>
-<p><code>"registered report"</code> was removed for a related reason: the singular returns 5806 records and the plural 192, because the singular also matches any sentence about a report that was registered. Only the plural is kept.</p>
 </section>
-<section id="the-qualifier" class="level3">
-<h3 class="anchored" data-anchor-id="the-qualifier">The qualifier</h3>
-<p>For the contaminated blocks, ANDing the topic with a set of phrases that name the object of study separates a study of the literature from a study of patients. A study of data sharing examines published articles; a trial that shared its data examines people.</p>
-<pre><code>"published articles"  "published studies"    "published trials"
-"journal articles"    "publications"         "sample of articles"
-"cross-sectional study of"                   "sample of trials"
-"we searched PubMed"  "we searched MEDLINE"  "we searched Embase"
-"research articles"   "abstracts of"         "meta-epidemiological"</code></pre>
-<p>It is effective and it is lossy. A meta-research paper that describes its sample as “we examined 300 trials” carries none of these phrases and would be lost. Both numbers are therefore recorded, so any qualified corpus is reported against the raw count it was drawn from rather than presented as the whole field.</p>
+<section id="review" class="level2">
+<h2 class="anchored" data-anchor-id="review">Review</h2>
+<p>No proposal here has been reviewed. Review is by two models from different providers, each given the protocol and instructed to refute it, and no study is reviewed by one model alone. The Codex account’s usage limit was exhausted on 2026-09-16 and resets on 2026-09-20, so reviews begin then rather than running one reviewer now and calling it review.</p>
 </section>
-</section>
-<section id="retrieval-limits-and-why-nothing-was-silently-truncated" class="level2">
-<h2 class="anchored" data-anchor-id="retrieval-limits-and-why-nothing-was-silently-truncated">Retrieval limits, and why nothing was silently truncated</h2>
-<p>NCBI returns at most 9999 identifiers for one query. The sibling project this harvester is adapted from partitions an oversized query by year and then by month and stops there, so a single month above the ceiling truncates without saying so. Meta-research blocks are large and concentrated in recent years, which is where that would happen.</p>
-<p>The partitioner here bisects the publication-date range recursively until every part is under the ceiling. When even a single day exceeds it, the day is recorded in <code>gaps</code> in the search log and printed as <code>TRUNCATED</code>, rather than passed off as complete. The tier A harvest needed no partitioning: both queries were under the ceiling.</p>
-</section>
-<section id="labelling" class="level2">
-<h2 class="anchored" data-anchor-id="labelling">Labelling</h2>
-<p>Topic labels are assigned in <code>build/lit/describe.py</code> by matching the tier B phrase vocabulary against each record’s title, abstract and author keywords. Matching is case-insensitive, treats a hyphen and a space as equivalent, as PubMed does, and requires whole-token boundaries so that <code>spin</code> does not match <code>spinal</code>.</p>
-<p>Two vocabularies are involved and conflating them caused the one error this project has so far published. The <strong>search</strong> vocabulary is tuned for precision against all of PubMed, where a phrase as broad as <code>"peer review"</code> retrieves every paper that mentions having been peer reviewed. The <strong>labelling</strong> vocabulary applies inside a corpus that is already meta-research, where that same narrowness only hides topics: the search phrases labelled peer review on 11 records while 159 of them mention it, and generative AI on 1 while 66 mention a language model. A conclusion drawn from those counts, that the field does not study its own quality control, was published on the landscape page and was false.</p>
-<p>Broad labelling phrases now live in <code>LABEL_EXTRA</code> in <code>build/lit/describe.py</code>, applied only to records already retrieved and never to a query. The corrected counts are on <a href="./landscape.html">the landscape</a>, which also states what the earlier version claimed.</p>
-<p>A label means the record uses a topic’s vocabulary. It does not mean a human, or a model, judged the record to be about that topic. No model has read any record in this corpus. Records can carry several labels; 1819 of 1830 carry at least one and 11 carry none.</p>
-</section>
-<section id="what-this-corpus-is-not" class="level2">
-<h2 class="anchored" data-anchor-id="what-this-corpus-is-not">What this corpus is not</h2>
-<ul>
-<li><strong>It is not the meta-research literature.</strong> It is the part of it that names itself. Work published before roughly 2015, when the vocabulary settled, largely does not appear even when it is unmistakably meta-research by subject.</li>
-<li><strong>It is not screened.</strong> Every record retrieved by the tier A query is in, including editorials, comments and letters. Publication types are reported on the landscape page so a reader can see how much of the corpus that is.</li>
-<li><strong>It carries no preprints beyond what PMC deposits.</strong> Europe PMC indexes preprint servers under a source PubMed has no equivalent for. Adding that supplement is a known gap, not an oversight.</li>
-<li><strong>Nothing here has been peer reviewed yet.</strong> The review process is described in <a href="./index.html#the-pipeline">the pipeline</a> and has not run.</li>
-</ul>
-</section>
-<section id="reproducing-it" class="level2">
-<h2 class="anchored" data-anchor-id="reproducing-it">Reproducing it</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> build/lit/search.py <span class="at">--check</span>          <span class="co"># assert the parser still works</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> build/lit/search.py <span class="at">--counts</span>         <span class="co"># size every block, download nothing</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> build/lit/search.py <span class="at">--tier</span> A         <span class="co"># harvest, resumable, cached</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> build/lit/describe.py                <span class="co"># derive the map</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> build/render_site.py                 <span class="co"># write landscape.qmd and corpus.qmd</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render                                <span class="co"># -&gt; docs/</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>data/lit/records.jsonl</code> is tracked, so the corpus can be re-described without re-harvesting. The XML cache is not tracked; it is 101 MB and re-fetchable.</p>
+<section id="how-these-were-chosen" class="level2">
+<h2 class="anchored" data-anchor-id="how-these-were-chosen">How these were chosen</h2>
+<p>The three runnable proposals share a property that was the selection rule rather than a coincidence: each turns the field’s own instrument on the field. Meta-research measures whether others share data, cite retracted work, and report inconvenient findings. None of those questions had been asked about meta-research itself, and each is answerable from data that is already harvested or openly available.</p>
+<p>That rule also kept out the obvious alternative. A study measuring transparency, or FAIRness, in one more specialty would be a rate in a new population, and rates in new populations are what this corpus already contains in quantity. Each proposal here has an exposure, an outcome and a direction, and each can come out the other way.</p>
+<p>The fourth entry is not runnable and says so.</p>
+
 
 
 </section>
 
-</main> <!-- /main -->
+<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
+<table class="quarto-listing-table table">
+<thead>
+<tr>
+
+<th>
+Title
+</th>
+
+<th>
+ID
+</th>
+
+<th>
+Status
+</th>
+
+<th>
+Proposed
+</th>
+
+<th>
+Reviewed
+</th>
+
+</tr>
+</thead>
+<tbody class="list">
+
+<tr data-index="0" data-categories="cnVubmFibGUlMkNkYXRhc2hhcmUlMkNyZWZsZXhpdmU=" data-listing-date-sort="1789516800000" data-listing-file-modified-sort="1789600523256" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="733" data-listing-title-sort="Does advocating transparency predict practicing it?" data-listing-filename-sort="P01-advocacy-and-practice.qmd">
+<td>
+<a href="./proposals/P01-advocacy-and-practice.html" class="title listing-title">Does advocating transparency predict practicing it?</a>
+</td>
+<td>
+<span class="listing-id">P01</span>
+</td>
+<td>
+<span class="listing-status">proposed</span>
+</td>
+<td>
+<span class="listing-date">Sep 16, 2026</span>
+</td>
+<td>
+<span class="listing-reviewed">none</span>
+</td>
+
+</tr>
+
+<tr data-index="1" data-categories="cnVubmFibGUlMkNyZXRyYWN0JTJDcmVmbGV4aXZl" data-listing-date-sort="1789516800000" data-listing-file-modified-sort="1789600523257" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="753" data-listing-title-sort="Does meta-research cite retracted work?" data-listing-filename-sort="P02-citing-retracted-work.qmd">
+<td>
+<a href="./proposals/P02-citing-retracted-work.html" class="title listing-title">Does meta-research cite retracted work?</a>
+</td>
+<td>
+<span class="listing-id">P02</span>
+</td>
+<td>
+<span class="listing-status">proposed</span>
+</td>
+<td>
+<span class="listing-date">Sep 16, 2026</span>
+</td>
+<td>
+<span class="listing-reviewed">none</span>
+</td>
+
+</tr>
+
+<tr data-index="2" data-categories="cnVubmFibGUlMkNiaWJsaW8lMkNpbmNlbnRpdmVz" data-listing-date-sort="1789516800000" data-listing-file-modified-sort="1789600523257" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="685" data-listing-title-sort="Is bad news cited more?" data-listing-filename-sort="P03-bad-news-citation.qmd">
+<td>
+<a href="./proposals/P03-bad-news-citation.html" class="title listing-title">Is bad news cited more?</a>
+</td>
+<td>
+<span class="listing-id">P03</span>
+</td>
+<td>
+<span class="listing-status">proposed</span>
+</td>
+<td>
+<span class="listing-date">Sep 16, 2026</span>
+</td>
+<td>
+<span class="listing-reviewed">none</span>
+</td>
+
+</tr>
+
+<tr data-index="3" data-categories="YWdlbmRhJTJDcGVlcnJldiUyQ25vdC1ydW5uYWJsZQ==" data-listing-date-sort="1789516800000" data-listing-file-modified-sort="1789600523257" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="477" data-listing-title-sort="The field is observational about itself" data-listing-filename-sort="P04-observational-about-itself.qmd">
+<td>
+<a href="./proposals/P04-observational-about-itself.html" class="title listing-title">The field is observational about itself</a>
+</td>
+<td>
+<span class="listing-id">P04</span>
+</td>
+<td>
+<span class="listing-status">agenda</span>
+</td>
+<td>
+<span class="listing-date">Sep 16, 2026</span>
+</td>
+<td>
+<span class="listing-reviewed">none</span>
+</td>
+
+</tr>
+
+</tbody>
+</table>
+<div class="listing-no-matching d-none">No matching items</div>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
