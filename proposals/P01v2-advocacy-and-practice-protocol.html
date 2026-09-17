@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2026-09-16">
-<meta name="description" content="Confirmatory design for P01, on a sample the exploratory analysis did not use. Not yet a protocol: the probes in section 10 have not been run.">
+<meta name="description" content="Confirmatory protocol for P01 on an independent sample. Feasibility probes computed; two validation gates need human labels; awaiting peer review.">
 
-<title>Advocacy and practice in meta-research: design – Automated meta-research</title>
+<title>Advocacy and practice in meta-research: protocol – Automated meta-research</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -355,7 +355,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading">6.2 Grading</a></li>
   <li><a href="#validation-of-the-grading-rule" id="toc-validation-of-the-grading-rule" class="nav-link" data-scroll-target="#validation-of-the-grading-rule">6.3 Validation of the grading rule</a></li>
   </ul></li>
-  <li><a href="#sample-size-and-power" id="toc-sample-size-and-power" class="nav-link" data-scroll-target="#sample-size-and-power">7. Sample size and power</a></li>
+  <li><a href="#sample-size-and-power" id="toc-sample-size-and-power" class="nav-link" data-scroll-target="#sample-size-and-power">7. Sample size and power</a>
+  <ul class="collapse">
+  <li><a href="#realized-counts" id="toc-realized-counts" class="nav-link" data-scroll-target="#realized-counts">Realized counts</a></li>
+  <li><a href="#the-probe-that-changed-the-design" id="toc-the-probe-that-changed-the-design" class="nav-link" data-scroll-target="#the-probe-that-changed-the-design">The probe that changed the design</a></li>
+  <li><a href="#the-baseline-rate-and-a-reasoning-error-the-probe-caught" id="toc-the-baseline-rate-and-a-reasoning-error-the-probe-caught" class="nav-link" data-scroll-target="#the-baseline-rate-and-a-reasoning-error-the-probe-caught">The baseline rate, and a reasoning error the probe caught</a></li>
+  <li><a href="#detectable-odds-ratio-at-80-percent-power-alpha-0.05" id="toc-detectable-odds-ratio-at-80-percent-power-alpha-0.05" class="nav-link" data-scroll-target="#detectable-odds-ratio-at-80-percent-power-alpha-0.05">Detectable odds ratio at 80 percent power, alpha 0.05</a></li>
+  </ul></li>
   <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis">8. Analysis</a></li>
   <li><a href="#threats-and-what-happened-to-each" id="toc-threats-and-what-happened-to-each" class="nav-link" data-scroll-target="#threats-and-what-happened-to-each">9. Threats, and what happened to each</a></li>
   <li><a href="#the-probes-that-must-run-before-this-is-a-protocol" id="toc-the-probes-that-must-run-before-this-is-a-protocol" class="nav-link" data-scroll-target="#the-probes-that-must-run-before-this-is-a-protocol">10. The probes that must run before this is a protocol</a></li>
@@ -371,9 +377,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Advocacy and practice in meta-research: design</h1>
+<h1 class="title">Advocacy and practice in meta-research: protocol</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">design</div>
+    <div class="quarto-category">protocol</div>
     <div class="quarto-category">datashare</div>
     <div class="quarto-category">confirmatory</div>
   </div>
@@ -381,7 +387,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div>
   <div class="description">
-    Confirmatory design for P01, on a sample the exploratory analysis did not use. Not yet a protocol: the probes in section 10 have not been run.
+    Confirmatory protocol for P01 on an independent sample. Feasibility probes computed; two validation gates need human labels; awaiting peer review.
   </div>
 </div>
 
@@ -410,12 +416,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Status: design. Not a protocol, and not yet registered.
+<span class="screen-reader-only">Important</span>Status: protocol. Feasibility computed. Two validation gates outstanding. Not registered.
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Written against the sibling project’s <code>studies/DESIGN-STANDARD.md</code>, whose governing rule is that <strong>the difference between a design and a protocol is a set of computed numbers</strong>. A design that asserts those numbers instead of computing them is a named failure mode there, and an earlier version of this page committed it: section 7 assumed a PMC rate and a screening yield and multiplied them into a sample size. Those assumptions are now section 10, as probes that must run before this becomes a protocol.</p>
-<p><strong>No data have been retrieved under this design. No analysis has been run. No review has been requested</strong>, because reviewing a design whose feasibility numbers are guesses wastes the review.</p>
+<p>Written against the sibling project’s <code>studies/DESIGN-STANDARD.md</code>, whose governing rule is that <strong>the difference between a design and a protocol is a set of computed numbers</strong>. An earlier version of this page was a design that failed that rule: section 7 assumed a PMC rate and a screening yield and multiplied them into a sample size. Probes P1 to P5 have now been run and section 7 is written from their output, not from assumptions.</p>
+<p>Two probes remain and neither can be run by a model. <strong>P6 and P7 need the author’s own labels</strong> on 200 records and 150 statements. Those files exist with empty label columns. Until they come back, screening agreement and grading agreement are unknown and the study does not run.</p>
+<p><strong>No outcome has been analyzed under this protocol.</strong> The probes measured the frame and the instruments; they did not test the hypothesis, and no exposure-by-outcome model has been fitted on this sample.</p>
+<p><strong>No review has happened.</strong> Review is by two models from different providers, each instructed to refute this document, adjudicated by the fixed rule in <code>build/audit/adjudicate.py</code>. The second reviewer is quota-blocked until 2026-09-20 and the standing rule is two reviewers or none. Sending this to review before the author labels P6 and P7 is deliberate: a reviewer who objects to the validation gates should say so before 350 items are labeled by hand.</p>
 <p>Order, which is the user’s explicit instruction: full protocol, then peer review, then conduct the study, then peer review the result.</p>
 <p>This supersedes <a href="../proposals/P01-advocacy-and-practice.html">P01</a>, a one-page proposal left unedited as the record of what was actually pre-specified for <a href="../results/R01-advocacy-and-practice.html">R01</a>.</p>
 </div>
@@ -518,12 +526,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="outcome">6. Outcome</h2>
 <section id="extraction" class="level3">
 <h3 class="anchored" data-anchor-id="extraction">6.1 Extraction</h3>
-<p>The data availability statement is taken from the JATS full text by <code>studies/P01-advocacy-and-practice/extract.py</code> <strong>as it stands at the commit this protocol is published in</strong>, unchanged. That code searches <code>&lt;front&gt;</code> and <code>&lt;back&gt;</code> only, never <code>&lt;body&gt;</code>, in this order: a section or notes block with a <code>sec-type</code> or <code>notes-type</code> naming data availability; a section or notes block whose title matches the data availability pattern; a <code>custom-meta</code> pair whose name matches it.</p>
+<p>The data availability statement is taken from the JATS full text by <code>studies/P01-advocacy-and-practice/extract.py</code> <strong>as it stands at commit <code>158164be700a596610a074533e6509ce142a6774</code></strong>, unchanged. A prose pin is not a pin; that hash is the pin, and <code>git show 158164be700a596610a074533e6509ce142a6774:studies/P01-advocacy-and-practice/extract.py</code> is how a reader checks it. That code searches <code>&lt;front&gt;</code> and <code>&lt;back&gt;</code> only, never <code>&lt;body&gt;</code>, in this order: a section or notes block with a <code>sec-type</code> or <code>notes-type</code> naming data availability; a section or notes block whose title matches the data availability pattern; a <code>custom-meta</code> pair whose name matches it.</p>
 <p>The restriction to front and back matter is not a detail. Without it, a paper <em>about</em> data availability has its own methods and results read as its disclosure, which is the artifact that contaminated 4 of 43 exposed records in R01 and is documented there.</p>
 </section>
 <section id="grading" class="level3">
 <h3 class="anchored" data-anchor-id="grading">6.2 Grading</h3>
-<p>Three ordered levels, graded by the rule in <code>R/analyze.R</code> at the same commit, reproduced here in full so that no later edit can pass unnoticed:</p>
+<p>Three ordered levels, graded by the rule in <code>studies/_shared/R/grade.R</code> at that same commit, reproduced here in full so that no later edit can pass unnoticed:</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -574,10 +582,101 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="sample-size-and-power" class="level2">
 <h2 class="anchored" data-anchor-id="sample-size-and-power">7. Sample size and power</h2>
-<p><strong>Not yet computed. This section is filled in by probes P1 to P5 in section 10 and this document does not become a protocol until it is.</strong></p>
-<p>What goes here when the probes have run: the realized exposed and unexposed counts after exclusions, the observed actionable rate in the comparison arm, and the detectable odds ratio at 80 percent power, each emitted by the probe code and asserted against this text rather than retyped into it.</p>
-<p>What is already known and did not need a probe: the frame sizes in section 4.1, measured by <code>esearch</code> on 2026-09-16, and R01’s comparison-arm actionable rate of 0.205, which is a different sample and is a planning reference rather than an assumption to carry forward.</p>
-<p>An earlier version of this section asserted “60 percent are in PMC with full text and a screening yield of 60 percent gives roughly 260 exposed”. Neither figure was measured. The first is plausible because the tier A corpus ran at 59.5 percent; the second was invented.</p>
+<p><strong>Computed by probes P1 to P5 on 2026-09-16. Every number in this section is emitted by <code>studies/P01v2-confirmatory/out/probes.json</code> and is not retyped from anywhere.</strong></p>
+<section id="realized-counts" class="level3">
+<h3 class="anchored" data-anchor-id="realized-counts">Realized counts</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>step</th>
+<th>exposed</th>
+<th>comparison</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>frame, after removing 205 tier A overlaps from 7617 records</td>
+<td>704</td>
+<td>6526</td>
+</tr>
+<tr class="even">
+<td>carrying a PMCID</td>
+<td>547</td>
+<td>3770</td>
+</tr>
+<tr class="odd">
+<td>with PMC full text, the analysis set before screening</td>
+<td><strong>520</strong></td>
+<td><strong>3435</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The exposed arm is 520, not the 260 the discarded assumption produced. The design is better powered than it was written to be.</p>
+</section>
+<section id="the-probe-that-changed-the-design" class="level3">
+<h3 class="anchored" data-anchor-id="the-probe-that-changed-the-design">The probe that changed the design</h3>
+<p><strong>PMC coverage differs sharply between arms: 77.7 percent of exposed records against 57.8 percent of comparison records.</strong> The discarded assumption was a flat 60 percent for both, close to tier A’s 59.5 percent, and it would have concealed a 20 point differential.</p>
+<p>This is not a nuisance; it is adjacent to the hypothesis. Papers about data sharing are much likelier to be openly available, which is itself a transparency behavior. The consequence for this study is that the two arms are selected differently into the analysis set, and section 9 carries it as a disclosed threat that the design cannot remove.</p>
+</section>
+<section id="the-baseline-rate-and-a-reasoning-error-the-probe-caught" class="level3">
+<h3 class="anchored" data-anchor-id="the-baseline-rate-and-a-reasoning-error-the-probe-caught">The baseline rate, and a reasoning error the probe caught</h3>
+<p>On the unscreened frame the comparison arm is 3.8 percent actionable and the exposed arm 18.3 percent.</p>
+<p>A comment in the probe code asserted that the unscreened comparison rate would be an <strong>upper</strong> bound on the screened one, because primary studies carry journal-mandated statements. That was backwards. R01’s rate among screened meta-research was 20.5 percent against 3.8 percent here, so screening removes records that deposit <em>less</em> often and <strong>raises</strong> the comparison rate. The unscreened figure is a lower bound.</p>
+<p>The power calculation therefore runs across a range of plausible screened baselines rather than at any single assumed one.</p>
+</section>
+<section id="detectable-odds-ratio-at-80-percent-power-alpha-0.05" class="level3">
+<h3 class="anchored" data-anchor-id="detectable-odds-ratio-at-80-percent-power-alpha-0.05">Detectable odds ratio at 80 percent power, alpha 0.05</h3>
+<p>Rows are the screened comparison-arm actionable rate; columns are the proportion of records surviving screening, which shrinks both arms.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>baseline rate</th>
+<th>yield 0.5</th>
+<th>yield 0.7</th>
+<th>yield 1.0</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.038</td>
+<td>2.18</td>
+<td>1.97</td>
+<td>1.79</td>
+</tr>
+<tr class="even">
+<td>0.1</td>
+<td>1.72</td>
+<td>1.6</td>
+<td>1.49</td>
+</tr>
+<tr class="odd">
+<td>0.15</td>
+<td>1.6</td>
+<td>1.5</td>
+<td>1.41</td>
+</tr>
+<tr class="even">
+<td>0.205</td>
+<td>1.53</td>
+<td>1.44</td>
+<td>1.36</td>
+</tr>
+<tr class="odd">
+<td>0.25</td>
+<td>1.5</td>
+<td>1.41</td>
+<td>1.34</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Across the whole grid the detectable odds ratio is at most 2.18.</strong> R01’s point estimate was 4.40 and section 2 states that anything between 1.5 and 3 would be consistent with it. The design detects effects across that entire band, which is the property R01 lacked: its floor was roughly 3.7, so it could only ever have seen an effect as large as the one it reported.</p>
+<p>A null result here rules something out.</p>
+</section>
 </section>
 <section id="analysis" class="level2">
 <h2 class="anchored" data-anchor-id="analysis">8. Analysis</h2>
@@ -596,6 +695,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Journal as a fixed effect, restricted to journals contributing at least 10 articles in each arm, as a within-journal estimate that does not rely on the random-effect assumption.</li>
 <li>Excluding any article authored by the author of this project.</li>
 <li>Excluding the <code>repro</code> block from the comparison arm, since reproducibility and data sharing are adjacent subjects and their separation is the weakest part of the exposure definition.</li>
+<li>Restricted to fully open-access journals, added after probe P2 found that PMC coverage differs by 20 points between arms. Within a fully open-access journal every article is in PMC, so the differential selection that P2 exposed cannot operate. This is a post-probe addition and is labeled as one.</li>
 </ol>
 <p><strong>Missing data.</strong> Year is present for every PubMed record. Journal is present for every record. No imputation is performed and no analysis drops a record for missingness; records are excluded only by section 4.2.</p>
 <p><strong>Multiplicity.</strong> There is one primary comparison. The secondary and the five sensitivity analyses are not corrected for multiplicity and are not used to claim significance; they exist to show whether the primary estimate is fragile.</p>
@@ -648,11 +748,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>Disclosed</td>
 </tr>
 <tr class="odd">
+<td><strong>PMC coverage differs by arm</strong>, 77.7 percent exposed against 57.8 percent comparison</td>
+<td>Found by probe P2, not anticipated when the design was written. Arms are differentially selected into the analysis set and the direction favors the hypothesis. Reported as a primary limitation; a sensitivity restricted to journals that are fully open access is added as analysis 6</td>
+<td>Disclosed, not removed</td>
+</tr>
+<tr class="even">
 <td>Screening depends on a model</td>
 <td>Gated on kappa against a human reference standard, with a stated fallback</td>
 <td>Disclosed</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Comparison-arm rate of 0.205 comes from R01</td>
 <td>Used for planning only; the realized rate is computed in probe P4 and is what the power calculation uses</td>
 <td>Disclosed</td>
@@ -682,49 +787,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>P1</strong></td>
+<td><strong>P1</strong> done</td>
 <td>Records retrieved by the four qualified blocks, after removing every tier A PMID</td>
 <td>4.1</td>
 <td>An available count far below 727 for <code>datashare</code> makes the confirmatory arm underpowered and the design moves to a prospective re-harvest instead</td>
 <td>~10 min, cached</td>
 </tr>
 <tr class="even">
-<td><strong>P2</strong></td>
+<td><strong>P2</strong> done</td>
 <td>Proportion of P1 records carrying a PMCID</td>
 <td>4.2, 7</td>
 <td>Below about 40 percent and the realized exposed count falls under 150, at which point this is no better powered than R01 and is not worth running</td>
 <td>minutes</td>
 </tr>
 <tr class="odd">
-<td><strong>P3</strong></td>
+<td><strong>P3</strong> done</td>
 <td>Proportion of P2 records with a <code>&lt;body&gt;</code> over 500 characters, and the extraction route distribution on this frame</td>
 <td>4.2, 6.1</td>
 <td>A route distribution unlike tier A’s means publishers differ between frames and journal adjustment is carrying more weight than assumed</td>
 <td>~20 min, cached</td>
 </tr>
 <tr class="even">
-<td><strong>P4</strong></td>
+<td><strong>P4</strong> done</td>
 <td>Grade distribution on the comparison arm under the pinned rule</td>
 <td>7</td>
 <td>An actionable rate far from R01’s 0.205 changes every power figure</td>
 <td>seconds, after P3</td>
 </tr>
 <tr class="odd">
-<td><strong>P5</strong></td>
+<td><strong>P5</strong> done</td>
 <td>Detectable odds ratio at 80 percent power from the realized counts in P1 to P4</td>
 <td>7</td>
 <td>A detectable effect above about 2.5 means the study cannot distinguish R01’s estimate from a much smaller one and the frame must be widened</td>
 <td>seconds</td>
 </tr>
 <tr class="even">
-<td><strong>P6</strong></td>
+<td><strong>P6</strong> outstanding, needs the author</td>
 <td>Screening agreement: Cohen’s kappa of each model against a 200-record human reference standard</td>
 <td>4.3</td>
 <td>Below 0.75 for every model triggers the hand-screening fallback and a smaller sample</td>
 <td>200 records to label</td>
 </tr>
 <tr class="odd">
-<td><strong>P7</strong></td>
+<td><strong>P7</strong> outstanding, needs the author</td>
 <td>Grading agreement: Cohen’s kappa of the pinned rule against 150 human-graded statements</td>
 <td>6.3</td>
 <td>Below 0.60 abandons the rule, per 6.3</td>
@@ -750,7 +855,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="availability" class="level2">
 <h2 class="anchored" data-anchor-id="availability">13. Availability</h2>
-<p>Protocol, code, extracted data and outputs are in the repository at the commit this page was published in. The analysis code that will run is already written and public; it is the code that produced R01, and section 6 pins it.</p>
+<p>Protocol, code, extracted data and outputs are in the repository at commit <code>158164be700a596610a074533e6509ce142a6774</code>. The analysis code that will run is already written and public; it is the code that produced R01, and section 6 pins it.</p>
 
 
 </section>
