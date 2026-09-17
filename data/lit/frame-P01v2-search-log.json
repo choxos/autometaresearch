@@ -1,0 +1,103 @@
+[
+ {
+  "run_date": "2026-09-16",
+  "entries": [
+   {
+    "block": "datashare",
+    "tier": "B",
+    "variants": [
+     "data sharing",
+     "data availability statement",
+     "data availability statements",
+     "code sharing",
+     "code availability",
+     "open data",
+     "FAIR principles",
+     "FAIR data",
+     "data reuse",
+     "individual participant data sharing"
+    ],
+    "db": "pubmed",
+    "qualified": true,
+    "term": "(\"data sharing\"[Title/Abstract] OR \"data sharing\"[Other Term] OR \"data availability statement\"[Title/Abstract] OR \"data availability statement\"[Other Term] OR \"data availability statements\"[Title/Abstract] OR \"data availability statements\"[Other Term] OR \"code sharing\"[Title/Abstract] OR \"code sharing\"[Other Term] OR \"code availability\"[Title/Abstract] OR \"code availability\"[Other Term] OR \"open data\"[Title/Abstract] OR \"open data\"[Other Term] OR \"FAIR principles\"[Title/Abstract] OR \"FAIR principles\"[Other Term] OR \"FAIR data\"[Title/Abstract] OR \"FAIR data\"[Other Term] OR \"data reuse\"[Title/Abstract] OR \"data reuse\"[Other Term] OR \"individual participant data sharing\"[Title/Abstract] OR \"individual participant data sharing\"[Other Term]) AND (\"published articles\"[Title/Abstract] OR \"published articles\"[Other Term] OR \"published studies\"[Title/Abstract] OR \"published studies\"[Other Term] OR \"published trials\"[Title/Abstract] OR \"published trials\"[Other Term] OR \"journal articles\"[Title/Abstract] OR \"journal articles\"[Other Term] OR \"publications\"[Title/Abstract] OR \"publications\"[Other Term] OR \"sample of articles\"[Title/Abstract] OR \"sample of articles\"[Other Term] OR \"cross-sectional study of\"[Title/Abstract] OR \"cross-sectional study of\"[Other Term] OR \"we searched PubMed\"[Title/Abstract] OR \"we searched PubMed\"[Other Term] OR \"we searched MEDLINE\"[Title/Abstract] OR \"we searched MEDLINE\"[Other Term] OR \"we searched Embase\"[Title/Abstract] OR \"we searched Embase\"[Other Term] OR \"research articles\"[Title/Abstract] OR \"research articles\"[Other Term] OR \"abstracts of\"[Title/Abstract] OR \"abstracts of\"[Other Term] OR \"meta-epidemiological\"[Title/Abstract] OR \"meta-epidemiological\"[Other Term] OR \"sample of trials\"[Title/Abstract] OR \"sample of trials\"[Other Term])",
+    "hits": 754,
+    "ids": 754,
+    "parsed": 754,
+    "gaps": []
+   },
+   {
+    "block": "report",
+    "tier": "B",
+    "variants": [
+     "reporting quality",
+     "quality of reporting",
+     "completeness of reporting",
+     "adherence to reporting",
+     "reporting guideline",
+     "reporting guidelines",
+     "CONSORT statement",
+     "PRISMA statement",
+     "STROBE statement",
+     "ARRIVE guidelines",
+     "SPIRIT statement",
+     "TRIPOD statement",
+     "CHEERS statement",
+     "STARD statement"
+    ],
+    "db": "pubmed",
+    "qualified": true,
+    "term": "(\"reporting quality\"[Title/Abstract] OR \"reporting quality\"[Other Term] OR \"quality of reporting\"[Title/Abstract] OR \"quality of reporting\"[Other Term] OR \"completeness of reporting\"[Title/Abstract] OR \"completeness of reporting\"[Other Term] OR \"adherence to reporting\"[Title/Abstract] OR \"adherence to reporting\"[Other Term] OR \"reporting guideline\"[Title/Abstract] OR \"reporting guideline\"[Other Term] OR \"reporting guidelines\"[Title/Abstract] OR \"reporting guidelines\"[Other Term] OR \"CONSORT statement\"[Title/Abstract] OR \"CONSORT statement\"[Other Term] OR \"PRISMA statement\"[Title/Abstract] OR \"PRISMA statement\"[Other Term] OR \"STROBE statement\"[Title/Abstract] OR \"STROBE statement\"[Other Term] OR \"ARRIVE guidelines\"[Title/Abstract] OR \"ARRIVE guidelines\"[Other Term] OR \"SPIRIT statement\"[Title/Abstract] OR \"SPIRIT statement\"[Other Term] OR \"TRIPOD statement\"[Title/Abstract] OR \"TRIPOD statement\"[Other Term] OR \"CHEERS statement\"[Title/Abstract] OR \"CHEERS statement\"[Other Term] OR \"STARD statement\"[Title/Abstract] OR \"STARD statement\"[Other Term]) AND (\"published articles\"[Title/Abstract] OR \"published articles\"[Other Term] OR \"published studies\"[Title/Abstract] OR \"published studies\"[Other Term] OR \"published trials\"[Title/Abstract] OR \"published trials\"[Other Term] OR \"journal articles\"[Title/Abstract] OR \"journal articles\"[Other Term] OR \"publications\"[Title/Abstract] OR \"publications\"[Other Term] OR \"sample of articles\"[Title/Abstract] OR \"sample of articles\"[Other Term] OR \"cross-sectional study of\"[Title/Abstract] OR \"cross-sectional study of\"[Other Term] OR \"we searched PubMed\"[Title/Abstract] OR \"we searched PubMed\"[Other Term] OR \"we searched MEDLINE\"[Title/Abstract] OR \"we searched MEDLINE\"[Other Term] OR \"we searched Embase\"[Title/Abstract] OR \"we searched Embase\"[Other Term] OR \"research articles\"[Title/Abstract] OR \"research articles\"[Other Term] OR \"abstracts of\"[Title/Abstract] OR \"abstracts of\"[Other Term] OR \"meta-epidemiological\"[Title/Abstract] OR \"meta-epidemiological\"[Other Term] OR \"sample of trials\"[Title/Abstract] OR \"sample of trials\"[Other Term])",
+    "hits": 2392,
+    "ids": 2392,
+    "parsed": 2392,
+    "gaps": []
+   },
+   {
+    "block": "reg",
+    "tier": "B",
+    "variants": [
+     "prospective registration",
+     "prospectively registered",
+     "retrospectively registered",
+     "registration status",
+     "outcome switching",
+     "outcome reporting bias",
+     "selective outcome reporting",
+     "publication bias",
+     "registered reports",
+     "protocol availability",
+     "registry entry"
+    ],
+    "db": "pubmed",
+    "qualified": true,
+    "term": "(\"prospective registration\"[Title/Abstract] OR \"prospective registration\"[Other Term] OR \"prospectively registered\"[Title/Abstract] OR \"prospectively registered\"[Other Term] OR \"retrospectively registered\"[Title/Abstract] OR \"retrospectively registered\"[Other Term] OR \"registration status\"[Title/Abstract] OR \"registration status\"[Other Term] OR \"outcome switching\"[Title/Abstract] OR \"outcome switching\"[Other Term] OR \"outcome reporting bias\"[Title/Abstract] OR \"outcome reporting bias\"[Other Term] OR \"selective outcome reporting\"[Title/Abstract] OR \"selective outcome reporting\"[Other Term] OR \"publication bias\"[Title/Abstract] OR \"publication bias\"[Other Term] OR \"registered reports\"[Title/Abstract] OR \"registered reports\"[Other Term] OR \"protocol availability\"[Title/Abstract] OR \"protocol availability\"[Other Term] OR \"registry entry\"[Title/Abstract] OR \"registry entry\"[Other Term]) AND (\"published articles\"[Title/Abstract] OR \"published articles\"[Other Term] OR \"published studies\"[Title/Abstract] OR \"published studies\"[Other Term] OR \"published trials\"[Title/Abstract] OR \"published trials\"[Other Term] OR \"journal articles\"[Title/Abstract] OR \"journal articles\"[Other Term] OR \"publications\"[Title/Abstract] OR \"publications\"[Other Term] OR \"sample of articles\"[Title/Abstract] OR \"sample of articles\"[Other Term] OR \"cross-sectional study of\"[Title/Abstract] OR \"cross-sectional study of\"[Other Term] OR \"we searched PubMed\"[Title/Abstract] OR \"we searched PubMed\"[Other Term] OR \"we searched MEDLINE\"[Title/Abstract] OR \"we searched MEDLINE\"[Other Term] OR \"we searched Embase\"[Title/Abstract] OR \"we searched Embase\"[Other Term] OR \"research articles\"[Title/Abstract] OR \"research articles\"[Other Term] OR \"abstracts of\"[Title/Abstract] OR \"abstracts of\"[Other Term] OR \"meta-epidemiological\"[Title/Abstract] OR \"meta-epidemiological\"[Other Term] OR \"sample of trials\"[Title/Abstract] OR \"sample of trials\"[Other Term])",
+    "hits": 4450,
+    "ids": 4450,
+    "parsed": 4450,
+    "gaps": []
+   },
+   {
+    "block": "repro",
+    "tier": "B",
+    "variants": [
+     "reproducibility crisis",
+     "replication crisis",
+     "replication study",
+     "replication studies",
+     "reproducibility of research",
+     "computational reproducibility",
+     "analytic reproducibility",
+     "analytical reproducibility",
+     "reproducible research"
+    ],
+    "db": "pubmed",
+    "qualified": true,
+    "term": "(\"reproducibility crisis\"[Title/Abstract] OR \"reproducibility crisis\"[Other Term] OR \"replication crisis\"[Title/Abstract] OR \"replication crisis\"[Other Term] OR \"replication study\"[Title/Abstract] OR \"replication study\"[Other Term] OR \"replication studies\"[Title/Abstract] OR \"replication studies\"[Other Term] OR \"reproducibility of research\"[Title/Abstract] OR \"reproducibility of research\"[Other Term] OR \"computational reproducibility\"[Title/Abstract] OR \"computational reproducibility\"[Other Term] OR \"analytic reproducibility\"[Title/Abstract] OR \"analytic reproducibility\"[Other Term] OR \"analytical reproducibility\"[Title/Abstract] OR \"analytical reproducibility\"[Other Term] OR \"reproducible research\"[Title/Abstract] OR \"reproducible research\"[Other Term]) AND (\"published articles\"[Title/Abstract] OR \"published articles\"[Other Term] OR \"published studies\"[Title/Abstract] OR \"published studies\"[Other Term] OR \"published trials\"[Title/Abstract] OR \"published trials\"[Other Term] OR \"journal articles\"[Title/Abstract] OR \"journal articles\"[Other Term] OR \"publications\"[Title/Abstract] OR \"publications\"[Other Term] OR \"sample of articles\"[Title/Abstract] OR \"sample of articles\"[Other Term] OR \"cross-sectional study of\"[Title/Abstract] OR \"cross-sectional study of\"[Other Term] OR \"we searched PubMed\"[Title/Abstract] OR \"we searched PubMed\"[Other Term] OR \"we searched MEDLINE\"[Title/Abstract] OR \"we searched MEDLINE\"[Other Term] OR \"we searched Embase\"[Title/Abstract] OR \"we searched Embase\"[Other Term] OR \"research articles\"[Title/Abstract] OR \"research articles\"[Other Term] OR \"abstracts of\"[Title/Abstract] OR \"abstracts of\"[Other Term] OR \"meta-epidemiological\"[Title/Abstract] OR \"meta-epidemiological\"[Other Term] OR \"sample of trials\"[Title/Abstract] OR \"sample of trials\"[Other Term])",
+    "hits": 229,
+    "ids": 229,
+    "parsed": 229,
+    "gaps": []
+   }
+  ]
+ }
+]

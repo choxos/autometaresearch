@@ -31,3 +31,6 @@ docs/
 # that every analysis actually reads is tracked, so a study reruns on a fresh clone.
 studies/*/data/_cache/
 studies/*/data/*.log
+
+# Probe frame full text. Large and refetchable; the extracted frame-statements.csv is tracked.
+studies/*/out/*.log

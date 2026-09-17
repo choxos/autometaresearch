@@ -1,0 +1,201 @@
+record_id,pmid,arm,year,journal
+S001,26306174,exposed,2015,Ecology and evolution
+S002,36309756,comparison,2022,Trials
+S003,22151233,comparison,2011,BMC medical research methodology
+S004,32934239,exposed,2020,Nature communications
+S005,34479394,exposed,2021,Yearbook of medical informatics
+S006,39730300,comparison,2024,"Clinical lymphoma, myeloma & leukemia"
+S007,33170273,exposed,2021,Nucleic acids research
+S008,23185182,comparison,2012,Archives of medical science : AMS
+S009,33107008,comparison,2020,Journal of general internal medicine
+S010,36895077,comparison,2023,Nursing open
+S011,40380305,comparison,2025,Journal of orthopaedic surgery and research
+S012,40481658,exposed,2025,Annals of botany
+S013,31602101,comparison,2019,Indian journal of community medicine : official publication of Indian Association of Preventive & Social Medicine
+S014,30252883,comparison,2018,PloS one
+S015,38594408,comparison,2024,NPJ digital medicine
+S016,42424418,exposed,2026,The Journal of bone and joint surgery. American volume
+S017,34124603,comparison,2021,Cardiovascular endocrinology & metabolism
+S018,41973296,exposed,2026,Saudi pharmaceutical journal : SPJ : the official publication of the Saudi Pharmaceutical Society
+S019,26809779,comparison,2016,BMC genetics
+S020,39035421,comparison,2024,Gates open research
+S021,34376442,comparison,2021,BMJ open
+S022,35427367,comparison,2022,PloS one
+S023,27679558,exposed,2016,Frontiers in neuroscience
+S024,30024552,comparison,2018,Medicine
+S025,36332724,exposed,2022,Advanced drug delivery reviews
+S026,24187468,comparison,2013,World journal of gastroenterology
+S027,24719027,comparison,2014,The Cochrane database of systematic reviews
+S028,30254541,exposed,2018,"Journal of undergraduate neuroscience education : JUNE : a publication of FUN, Faculty for Undergraduate Neuroscience"
+S029,36173632,comparison,2022,JAMA network open
+S030,42558966,exposed,2026,Health science reports
+S031,25901117,exposed,2015,ZooKeys
+S032,42703825,comparison,2026,The Eurasian journal of medicine
+S033,40713677,comparison,2025,BMC palliative care
+S034,31910049,exposed,2020,Human gene therapy
+S035,32999273,comparison,2020,Translational psychiatry
+S036,38873040,comparison,2024,Experimental and therapeutic medicine
+S037,30202533,comparison,2018,JRSM open
+S038,31618959,comparison,2019,Viruses
+S039,28529738,comparison,2017,Biomedical reports
+S040,37852772,exposed,2023,BMJ open
+S041,39042621,comparison,2024,PloS one
+S042,29945857,comparison,2018,Journal of medical Internet research
+S043,32847922,comparison,2020,BMJ open
+S044,38670623,comparison,2024,BMJ open
+S045,29476029,exposed,2018,BMJ open
+S046,42688457,comparison,2026,Frontiers in immunology
+S047,39240945,comparison,2024,PloS one
+S048,28666443,comparison,2017,International journal for equity in health
+S049,40319254,comparison,2025,BMC public health
+S050,42036306,comparison,2026,Pharmacoepidemiology and drug safety
+S051,40609491,comparison,2025,Journal of communication disorders
+S052,35494825,comparison,2022,PeerJ. Computer science
+S053,33130412,comparison,2020,Epidemics
+S054,34384485,comparison,2021,Systematic reviews
+S055,40740552,comparison,2025,Medical journal of the Islamic Republic of Iran
+S056,31265473,comparison,2019,PloS one
+S057,38505730,exposed,2023,Annals of clinical epidemiology
+S058,30559146,comparison,2019,Bioscience reports
+S059,35177375,comparison,2022,The journal of sexual medicine
+S060,33042805,comparison,2020,Frontiers in oncology
+S061,37292336,comparison,2023,Heliyon
+S062,37842566,comparison,2023,Heliyon
+S063,37352021,comparison,2023,Medicine
+S064,30280721,exposed,2018,Scientific data
+S065,29662791,comparison,2017,Journal of orthopaedic translation
+S066,42333464,comparison,2026,Integrative cancer therapies
+S067,37609176,exposed,2023,bioRxiv : the preprint server for biology
+S068,36602999,comparison,2023,PloS one
+S069,30410399,comparison,2018,Cancer management and research
+S070,26576268,comparison,2015,Archives of public health = Archives belges de sante publique
+S071,32660541,comparison,2020,BMC veterinary research
+S072,34039577,comparison,2021,BMJ open
+S073,39568007,comparison,2024,Italian journal of pediatrics
+S074,35968410,exposed,2022,Multimedia tools and applications
+S075,30618885,comparison,2018,Frontiers in psychiatry
+S076,31565572,comparison,2019,PeerJ
+S077,24146806,comparison,2013,PloS one
+S078,29696217,comparison,2017,Contemporary clinical trials communications
+S079,41753079,comparison,2026,Journal of clinical medicine
+S080,30166288,comparison,2018,BMJ open
+S081,42032086,comparison,2026,Scientific reports
+S082,42230977,exposed,2026,Communications medicine
+S083,41450841,comparison,2025,Frontiers in psychiatry
+S084,32702818,comparison,2020,Medicine
+S085,37793922,comparison,2023,BMJ open
+S086,40520786,exposed,2025,Frontiers in medicine
+S087,31719155,exposed,2019,Journal of medical ethics
+S088,38662634,comparison,2024,PloS one
+S089,41856594,exposed,2026,BMJ open
+S090,18998887,exposed,2008,AMIA ... Annual Symposium proceedings. AMIA Symposium
+S091,33318608,comparison,2020,Scientific reports
+S092,33954268,comparison,2018,BMJ open science
+S093,32894127,comparison,2020,BMC international health and human rights
+S094,39044498,exposed,2024,The journal of prevention of Alzheimer's disease
+S095,37844082,comparison,2023,PloS one
+S096,40070923,exposed,2025,Frontiers in medicine
+S097,22848554,comparison,2012,PloS one
+S098,33847656,comparison,2021,Medicine
+S099,42539429,comparison,2026,Frontiers in endocrinology
+S100,39353677,exposed,2024,BMJ open ophthalmology
+S101,24884458,comparison,2014,BMC cardiovascular disorders
+S102,41727021,exposed,2026,bioRxiv : the preprint server for biology
+S103,41814967,exposed,2026,Journal of medical Internet research
+S104,35867343,comparison,2022,Perspectives on psychological science : a journal of the Association for Psychological Science
+S105,30766729,comparison,2019,Journal of ophthalmology
+S106,35182738,exposed,2022,Contemporary clinical trials
+S107,29700789,exposed,2018,Journal of general internal medicine
+S108,38550794,comparison,2024,Frontiers in surgery
+S109,41623326,exposed,2025,Blockchain in healthcare today
+S110,25248284,comparison,2014,BMC neurology
+S111,33292564,comparison,2020,Archives of public health = Archives belges de sante publique
+S112,33722870,exposed,2021,BMJ open
+S113,41375881,comparison,2025,Journal of clinical medicine
+S114,37211820,exposed,2023,eLife
+S115,34206864,comparison,2021,Journal of clinical medicine
+S116,31709181,comparison,2019,Frontiers in oncology
+S117,33986001,comparison,2021,BMJ global health
+S118,34308567,comparison,2021,Cancer medicine
+S119,38772894,comparison,2024,BMJ open
+S120,27926919,comparison,2016,PLoS neglected tropical diseases
+S121,41712537,comparison,2026,PloS one
+S122,34039578,exposed,2021,BMJ open
+S123,41188841,comparison,2025,BMC medicine
+S124,40040935,exposed,2025,Ecology and evolution
+S125,32010404,comparison,2019,Open access Macedonian journal of medical sciences
+S126,36691210,comparison,2022,BMJ open
+S127,29568405,comparison,2017,Oncotarget
+S128,33031522,comparison,2021,JAMA cardiology
+S129,26597174,comparison,2015,BMC pulmonary medicine
+S130,41913279,exposed,2026,Annals of general psychiatry
+S131,27737882,exposed,2016,BMJ open
+S132,24377091,comparison,2013,International journal of circumpolar health
+S133,37250643,exposed,2023,Frontiers in medicine
+S134,34386744,comparison,2021,EClinicalMedicine
+S135,40762014,comparison,2025,Journal of environmental health science & engineering
+S136,37656235,comparison,2023,Breast cancer research and treatment
+S137,28858123,comparison,2017,Medicine
+S138,37851443,comparison,2023,JAMA network open
+S139,39206460,exposed,2024,Ecology and evolution
+S140,40227048,exposed,2025,Antimicrobial agents and chemotherapy
+S141,26735955,comparison,2016,PloS one
+S142,39828926,comparison,2025,"Trauma, violence & abuse"
+S143,32818138,exposed,2020,Open forum infectious diseases
+S144,27357636,exposed,2016,Cardiovascular research
+S145,39433420,comparison,2024,BMJ open
+S146,27881524,exposed,2016,BMJ open
+S147,37835611,comparison,2023,Animals : an open access journal from MDPI
+S148,38707059,comparison,2024,Cureus
+S149,40971184,comparison,2025,Epilepsia
+S150,39192339,exposed,2024,Trials
+S151,38664625,comparison,2024,BMC pregnancy and childbirth
+S152,34428851,comparison,2021,European journal of dentistry
+S153,39806278,comparison,2025,BMC gastroenterology
+S154,38533128,exposed,2024,EClinicalMedicine
+S155,31851689,exposed,2019,PloS one
+S156,36890575,comparison,2023,BMC medical genomics
+S157,27656610,comparison,2016,Advanced biomedical research
+S158,25584364,exposed,2014,Information security and computer fraud
+S159,30565873,comparison,2018,Acta ophthalmologica
+S160,32104708,comparison,2020,BioMed research international
+S161,26550231,comparison,2015,International journal of clinical and experimental medicine
+S162,39736607,comparison,2024,International journal for equity in health
+S163,35143109,exposed,2022,Human mutation
+S164,38343618,comparison,2023,Open research Europe
+S165,41448704,comparison,2025,BMJ open
+S166,37552459,comparison,2023,Neurology and therapy
+S167,35395724,comparison,2022,BMC medical research methodology
+S168,40523895,comparison,2025,Communications medicine
+S169,35729406,comparison,2022,Surgical endoscopy
+S170,40312399,comparison,2025,Journal of eating disorders
+S171,20813027,exposed,2010,BMC research notes
+S172,30139066,comparison,2018,Asian Pacific journal of cancer prevention : APJCP
+S173,41332908,exposed,2025,Biochemistry and biophysics reports
+S174,37657047,comparison,2023,Medicine
+S175,40950803,exposed,2025,Integrative medicine research
+S176,40619391,exposed,2025,Journal of cheminformatics
+S177,37033365,exposed,2023,International journal of integrated care
+S178,38807156,comparison,2024,BMC oral health
+S179,18978412,comparison,2008,The Journal of bone and joint surgery. American volume
+S180,30340465,comparison,2018,BMC medical genetics
+S181,28707147,comparison,2017,Journal of assisted reproduction and genetics
+S182,42006763,comparison,2026,BMJ public health
+S183,30948521,comparison,2019,Occupational and environmental medicine
+S184,31252688,comparison,2019,Cancers
+S185,36983774,comparison,2023,"Life (Basel, Switzerland)"
+S186,20543892,exposed,2010,International journal of information management
+S187,38832151,exposed,2024,Cureus
+S188,37393892,comparison,2023,Folia phoniatrica et logopaedica : official organ of the International Association of Logopedics and Phoniatrics (IALP)
+S189,35850660,comparison,2022,BMC neurology
+S190,40962348,comparison,2025,BMJ open
+S191,39199441,comparison,2024,Brain sciences
+S192,39757157,comparison,2025,Health and quality of life outcomes
+S193,33294212,exposed,2020,Journal of virus eradication
+S194,42608037,comparison,2026,BMJ open
+S195,36081704,comparison,2022,JSES international
+S196,41583230,comparison,2025,Cureus
+S197,42311841,exposed,2026,Digital health
+S198,42172294,comparison,2026,PLoS medicine
+S199,31550214,exposed,2019,Current HIV research
+S200,27830254,exposed,2016,Yearbook of medical informatics

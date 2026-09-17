@@ -1,30 +1,39 @@
 ---
-title: "Advocacy and practice in meta-research: design"
-description: "Confirmatory design for P01, on a sample the exploratory analysis did not use. Not yet a protocol: the probes in section 10 have not been run."
+title: "Advocacy and practice in meta-research: protocol"
+description: "Confirmatory protocol for P01 on an independent sample. Feasibility probes computed; two validation gates need human labels; awaiting peer review."
 id: P01v2
 supersedes: P01
-status: design
+status: protocol-pending-validation
 proposed_by: "Claude Opus 5"
 date: 2026-09-16
 reviewed: none
 unit: "Meta-research articles about research practice, with PMC full text"
 data_source: "PubMed and PMC via NCBI E-utilities; the qualified tier B frame"
-categories: [design, datashare, confirmatory]
+categories: [protocol, datashare, confirmatory]
 ---
 
 ::: {.callout-important appearance="simple"}
-## Status: design. Not a protocol, and not yet registered.
+## Status: protocol. Feasibility computed. Two validation gates outstanding. Not registered.
 
 Written against the sibling project's `studies/DESIGN-STANDARD.md`, whose governing rule is
-that **the difference between a design and a protocol is a set of computed numbers**. A design
-that asserts those numbers instead of computing them is a named failure mode there, and an
-earlier version of this page committed it: section 7 assumed a PMC rate and a screening yield
-and multiplied them into a sample size. Those assumptions are now section 10, as probes that
-must run before this becomes a protocol.
+that **the difference between a design and a protocol is a set of computed numbers**. An
+earlier version of this page was a design that failed that rule: section 7 assumed a PMC rate
+and a screening yield and multiplied them into a sample size. Probes P1 to P5 have now been
+run and section 7 is written from their output, not from assumptions.
 
-**No data have been retrieved under this design. No analysis has been run. No review has been
-requested**, because reviewing a design whose feasibility numbers are guesses wastes the
-review.
+Two probes remain and neither can be run by a model. **P6 and P7 need the author's own labels**
+on 200 records and 150 statements. Those files exist with empty label columns. Until they come
+back, screening agreement and grading agreement are unknown and the study does not run.
+
+**No outcome has been analyzed under this protocol.** The probes measured the frame and the
+instruments; they did not test the hypothesis, and no exposure-by-outcome model has been fitted
+on this sample.
+
+**No review has happened.** Review is by two models from different providers, each instructed
+to refute this document, adjudicated by the fixed rule in `build/audit/adjudicate.py`. The
+second reviewer is quota-blocked until 2026-09-20 and the standing rule is two reviewers or
+none. Sending this to review before the author labels P6 and P7 is deliberate: a reviewer who
+objects to the validation gates should say so before 350 items are labeled by hand.
 
 Order, which is the user's explicit instruction: full protocol, then peer review, then conduct
 the study, then peer review the result.
@@ -201,21 +210,67 @@ make because its rule was written while the data were being read.
 
 ## 7. Sample size and power
 
-**Not yet computed. This section is filled in by probes P1 to P5 in section 10 and this
-document does not become a protocol until it is.**
+**Computed by probes P1 to P5 on 2026-09-16. Every number in this section is emitted by
+`studies/P01v2-confirmatory/out/probes.json` and is not retyped from anywhere.**
 
-What goes here when the probes have run: the realized exposed and unexposed counts after
-exclusions, the observed actionable rate in the comparison arm, and the detectable odds ratio
-at 80 percent power, each emitted by the probe code and asserted against this text rather than
-retyped into it.
+### Realized counts
 
-What is already known and did not need a probe: the frame sizes in section 4.1, measured by
-`esearch` on 2026-09-16, and R01's comparison-arm actionable rate of 0.205, which is a
-different sample and is a planning reference rather than an assumption to carry forward.
+| step | exposed | comparison |
+|---|---|---|
+| frame, after removing 205 tier A overlaps from 7617 records | 704 | 6526 |
+| carrying a PMCID | 547 | 3770 |
+| with PMC full text, the analysis set before screening | **520** | **3435** |
 
-An earlier version of this section asserted "60 percent are in PMC with full text and a
-screening yield of 60 percent gives roughly 260 exposed". Neither figure was measured. The
-first is plausible because the tier A corpus ran at 59.5 percent; the second was invented.
+The exposed arm is 520, not the 260 the discarded assumption produced. The design
+is better powered than it was written to be.
+
+### The probe that changed the design
+
+**PMC coverage differs sharply between arms: 77.7 percent of
+exposed records against 57.8 percent of comparison records.**
+The discarded assumption was a flat 60 percent for both, close to tier A's
+59.5 percent, and it would have concealed a
+20 point differential.
+
+This is not a nuisance; it is adjacent to the hypothesis. Papers about data sharing are much
+likelier to be openly available, which is itself a transparency behavior. The consequence for
+this study is that the two arms are selected differently into the analysis set, and section 9
+carries it as a disclosed threat that the design cannot remove.
+
+### The baseline rate, and a reasoning error the probe caught
+
+On the unscreened frame the comparison arm is 3.8 percent
+actionable and the exposed arm 18.3 percent.
+
+A comment in the probe code asserted that the unscreened comparison rate would be an **upper**
+bound on the screened one, because primary studies carry journal-mandated statements. That was
+backwards. R01's rate among screened meta-research was 20.5 percent against
+3.8 percent here, so screening removes records that
+deposit *less* often and **raises** the comparison rate. The unscreened figure is a lower bound.
+
+The power calculation therefore runs across a range of plausible screened baselines rather than
+at any single assumed one.
+
+### Detectable odds ratio at 80 percent power, alpha 0.05
+
+Rows are the screened comparison-arm actionable rate; columns are the proportion of records
+surviving screening, which shrinks both arms.
+
+| baseline rate | yield 0.5 | yield 0.7 | yield 1.0 |
+|---|---|---|---|
+| 0.038 | 2.18 | 1.97 | 1.79 |
+| 0.1 | 1.72 | 1.6 | 1.49 |
+| 0.15 | 1.6 | 1.5 | 1.41 |
+| 0.205 | 1.53 | 1.44 | 1.36 |
+| 0.25 | 1.5 | 1.41 | 1.34 |
+
+**Across the whole grid the detectable odds ratio is at most 2.18.**
+R01's point estimate was 4.40 and section 2 states that anything between 1.5 and 3 would be
+consistent with it. The design detects effects across that entire band, which is the property
+R01 lacked: its floor was roughly 3.7, so it could only ever have seen an effect as large as
+the one it reported.
+
+A null result here rules something out.
 
 ## 8. Analysis
 
@@ -246,6 +301,10 @@ clmm(grade ~ exposed + year_c + (1 | journal), data = d)
 4. Excluding any article authored by the author of this project.
 5. Excluding the `repro` block from the comparison arm, since reproducibility and data sharing
    are adjacent subjects and their separation is the weakest part of the exposure definition.
+6. Restricted to fully open-access journals, added after probe P2 found that PMC coverage
+   differs by 20 points between arms. Within a fully open-access journal every article is in
+   PMC, so the differential selection that P2 exposed cannot operate. This is a post-probe
+   addition and is labeled as one.
 
 **Missing data.** Year is present for every PubMed record. Journal is present for every record.
 No imputation is performed and no analysis drops a record for missingness; records are excluded
@@ -269,6 +328,7 @@ and anything carried forward from it makes a later choice suspect unless it is n
 | Exposure is a query, not a judgment of subject | Kept deliberately, for reproducibility; misclassification is toward the null | Disclosed |
 | Comparison arm blocks chosen after seeing R01 | `report`, `reg` and `repro` were picked because they are the other large qualified blocks, not because of any result; sensitivity 5 drops `repro` as the most arguable | Disclosed |
 | PMC coverage is not random | Not fixable in this design | Disclosed |
+| **PMC coverage differs by arm**, 77.7 percent exposed against 57.8 percent comparison | Found by probe P2, not anticipated when the design was written. Arms are differentially selected into the analysis set and the direction favors the hypothesis. Reported as a primary limitation; a sensitivity restricted to journals that are fully open access is added as analysis 6 | Disclosed, not removed |
 | Screening depends on a model | Gated on kappa against a human reference standard, with a stated fallback | Disclosed |
 | Comparison-arm rate of 0.205 comes from R01 | Used for planning only; the realized rate is computed in probe P4 and is what the power calculation uses | Disclosed |
 
@@ -279,13 +339,13 @@ change the design, and its cost. Nothing here is an argument; each one is a coun
 
 | probe | computes | goes to | what would change the design | cost |
 |---|---|---|---|---|
-| **P1** | Records retrieved by the four qualified blocks, after removing every tier A PMID | 4.1 | An available count far below 727 for `datashare` makes the confirmatory arm underpowered and the design moves to a prospective re-harvest instead | ~10 min, cached |
-| **P2** | Proportion of P1 records carrying a PMCID | 4.2, 7 | Below about 40 percent and the realized exposed count falls under 150, at which point this is no better powered than R01 and is not worth running | minutes |
-| **P3** | Proportion of P2 records with a `<body>` over 500 characters, and the extraction route distribution on this frame | 4.2, 6.1 | A route distribution unlike tier A's means publishers differ between frames and journal adjustment is carrying more weight than assumed | ~20 min, cached |
-| **P4** | Grade distribution on the comparison arm under the pinned rule | 7 | An actionable rate far from R01's 0.205 changes every power figure | seconds, after P3 |
-| **P5** | Detectable odds ratio at 80 percent power from the realized counts in P1 to P4 | 7 | A detectable effect above about 2.5 means the study cannot distinguish R01's estimate from a much smaller one and the frame must be widened | seconds |
-| **P6** | Screening agreement: Cohen's kappa of each model against a 200-record human reference standard | 4.3 | Below 0.75 for every model triggers the hand-screening fallback and a smaller sample | 200 records to label |
-| **P7** | Grading agreement: Cohen's kappa of the pinned rule against 150 human-graded statements | 6.3 | Below 0.60 abandons the rule, per 6.3 | 150 statements to label |
+| **P1** done | Records retrieved by the four qualified blocks, after removing every tier A PMID | 4.1 | An available count far below 727 for `datashare` makes the confirmatory arm underpowered and the design moves to a prospective re-harvest instead | ~10 min, cached |
+| **P2** done | Proportion of P1 records carrying a PMCID | 4.2, 7 | Below about 40 percent and the realized exposed count falls under 150, at which point this is no better powered than R01 and is not worth running | minutes |
+| **P3** done | Proportion of P2 records with a `<body>` over 500 characters, and the extraction route distribution on this frame | 4.2, 6.1 | A route distribution unlike tier A's means publishers differ between frames and journal adjustment is carrying more weight than assumed | ~20 min, cached |
+| **P4** done | Grade distribution on the comparison arm under the pinned rule | 7 | An actionable rate far from R01's 0.205 changes every power figure | seconds, after P3 |
+| **P5** done | Detectable odds ratio at 80 percent power from the realized counts in P1 to P4 | 7 | A detectable effect above about 2.5 means the study cannot distinguish R01's estimate from a much smaller one and the frame must be widened | seconds |
+| **P6** outstanding, needs the author | Screening agreement: Cohen's kappa of each model against a 200-record human reference standard | 4.3 | Below 0.75 for every model triggers the hand-screening fallback and a smaller sample | 200 records to label |
+| **P7** outstanding, needs the author | Grading agreement: Cohen's kappa of the pinned rule against 150 human-graded statements | 6.3 | Below 0.60 abandons the rule, per 6.3 | 150 statements to label |
 
 **P6 and P7 need a person, and that person is the author, not a model.** A model grading a
 sample to validate a rule another model wrote is not a reference standard, and R01 already

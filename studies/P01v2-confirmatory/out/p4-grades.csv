@@ -1,0 +1,7 @@
+arm,grade,n,pct
+comparison,actionable,132,3.8
+comparison,declarative,1348,39.2
+comparison,none,1955,56.9
+exposed,actionable,95,18.3
+exposed,declarative,113,21.7
+exposed,none,312,60

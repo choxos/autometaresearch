@@ -1,0 +1,167 @@
+{
+  "P1": {
+    "frame_records": 7617,
+    "dropped_no_pmid": 0,
+    "dropped_overlap_with_tier_a": 205,
+    "independent": 7412,
+    "excluded_pubtype": 90,
+    "excluded_language": 92,
+    "eligible_before_screening": 7230,
+    "eligible_exposed": 704,
+    "eligible_comparison": 6526,
+    "by_block": {
+      "datashare": 704,
+      "reg": 4263,
+      "repro": 207,
+      "report": 2234
+    }
+  },
+  "P2": {
+    "with_pmcid_exposed": 547,
+    "with_pmcid_comparison": 3770,
+    "pmcid_rate_exposed": 0.777,
+    "pmcid_rate_comparison": 0.5777,
+    "tier_a_pmcid_rate_for_reference": 0.5945
+  },
+  "P3": {
+    "exposed_fetched": 520,
+    "comparison_fetched": 3435,
+    "routes": {
+      "back-notes-type": 789,
+      "back-sec-type": 555,
+      "fuzzy-title": 344,
+      "none": 2267
+    }
+  },
+  "P4": {
+    "screened": false,
+    "exposed": {
+      "actionable": 95,
+      "declarative": 113,
+      "none": 312
+    },
+    "comparison": {
+      "actionable": 132,
+      "declarative": 1348,
+      "none": 1955
+    },
+    "comparison_actionable_rate": 0.0384,
+    "exposed_actionable_rate": 0.1827
+  },
+  "P5": {
+    "n_exposed": 520,
+    "n_comparison": 3435,
+    "detectable_exposed_rate": 0.0666,
+    "detectable_odds_ratio_at_unscreened_baseline": 1.784,
+    "detectable_odds_ratio_grid": [
+      {
+        "p0_s": 0.038,
+        "yield": 0.5,
+        "n1_s": 260,
+        "n0_s": 1718,
+        "det_or": 2.18
+      },
+      {
+        "p0_s": 0.1,
+        "yield": 0.5,
+        "n1_s": 260,
+        "n0_s": 1718,
+        "det_or": 1.72
+      },
+      {
+        "p0_s": 0.15,
+        "yield": 0.5,
+        "n1_s": 260,
+        "n0_s": 1718,
+        "det_or": 1.6
+      },
+      {
+        "p0_s": 0.205,
+        "yield": 0.5,
+        "n1_s": 260,
+        "n0_s": 1718,
+        "det_or": 1.53
+      },
+      {
+        "p0_s": 0.25,
+        "yield": 0.5,
+        "n1_s": 260,
+        "n0_s": 1718,
+        "det_or": 1.5
+      },
+      {
+        "p0_s": 0.038,
+        "yield": 0.7,
+        "n1_s": 364,
+        "n0_s": 2404,
+        "det_or": 1.97
+      },
+      {
+        "p0_s": 0.1,
+        "yield": 0.7,
+        "n1_s": 364,
+        "n0_s": 2404,
+        "det_or": 1.6
+      },
+      {
+        "p0_s": 0.15,
+        "yield": 0.7,
+        "n1_s": 364,
+        "n0_s": 2404,
+        "det_or": 1.5
+      },
+      {
+        "p0_s": 0.205,
+        "yield": 0.7,
+        "n1_s": 364,
+        "n0_s": 2404,
+        "det_or": 1.44
+      },
+      {
+        "p0_s": 0.25,
+        "yield": 0.7,
+        "n1_s": 364,
+        "n0_s": 2404,
+        "det_or": 1.41
+      },
+      {
+        "p0_s": 0.038,
+        "yield": 1,
+        "n1_s": 520,
+        "n0_s": 3435,
+        "det_or": 1.79
+      },
+      {
+        "p0_s": 0.1,
+        "yield": 1,
+        "n1_s": 520,
+        "n0_s": 3435,
+        "det_or": 1.49
+      },
+      {
+        "p0_s": 0.15,
+        "yield": 1,
+        "n1_s": 520,
+        "n0_s": 3435,
+        "det_or": 1.41
+      },
+      {
+        "p0_s": 0.205,
+        "yield": 1,
+        "n1_s": 520,
+        "n0_s": 3435,
+        "det_or": 1.36
+      },
+      {
+        "p0_s": 0.25,
+        "yield": 1,
+        "n1_s": 520,
+        "n0_s": 3435,
+        "det_or": 1.34
+      }
+    ],
+    "worst_case_detectable_or": 2.18,
+    "power": 0.8,
+    "alpha": 0.05
+  }
+}

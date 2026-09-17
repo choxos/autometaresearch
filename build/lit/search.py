@@ -568,6 +568,9 @@ def main():
     ap.add_argument("--db", choices=["pubmed", "pmc", "both"], default="both")
     ap.add_argument("--qualified", action="store_true",
                     help="AND tier B blocks with the study-of-literature qualifier")
+    ap.add_argument("--out", metavar="NAME",
+                    help="write to data/lit/<NAME>.jsonl instead of the tier A corpus; "
+                         "required with --qualified")
     ap.add_argument("--refresh", action="store_true", help="ignore the XML cache")
     args = ap.parse_args()
 
@@ -584,13 +587,25 @@ def main():
         for f in os.listdir(CACHE):
             os.remove(os.path.join(CACHE, f))
 
+    # A qualified harvest is a separate sample and must never be merged into the tier A
+    # corpus. Study P01v2 rests entirely on the two populations not touching: its confirmatory
+    # sample is defined as the qualified frame minus every tier A PMID, and one accidental
+    # merge destroys that definition permanently and silently, because the merged records look
+    # exactly like the ones that belong there. This ran once without the guard and was stopped
+    # by hand mid-fetch. A guard is cheaper than the vigilance it replaces.
+    if args.qualified and not args.out:
+        sys.exit("--qualified writes a separate sample; pass --out NAME "
+                 "(it will be written to data/lit/<NAME>.jsonl)")
+    if args.out and re.search(r"[^A-Za-z0-9._-]", args.out):
+        sys.exit("--out NAME must be a plain file stem")
+
     os.makedirs(OUT, exist_ok=True)
     blocks = selected(args)
     store, log = {}, []
 
     # An existing corpus is extended, not replaced, so blocks can be harvested in separate
     # runs as scope is decided. found_by accumulates across runs for the same reason.
-    records_path = os.path.join(OUT, "records.jsonl")
+    records_path = os.path.join(OUT, f"{args.out}.jsonl" if args.out else "records.jsonl")
     if os.path.exists(records_path):
         for line in open(records_path, encoding="utf8"):
             r = json.loads(line)
@@ -622,7 +637,8 @@ def main():
         for r in store.values():
             fh.write(json.dumps(r, ensure_ascii=False) + "\n")
 
-    log_path = os.path.join(OUT, "search-log.json")
+    log_path = os.path.join(OUT, f"{args.out}-search-log.json" if args.out
+                            else "search-log.json")
     prior = json.load(open(log_path)) if os.path.exists(log_path) else []
     json.dump(prior + [{"run_date": date.today().isoformat(), "entries": log}],
               open(log_path, "w"), indent=1)
