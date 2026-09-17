@@ -4,7 +4,7 @@
     "href": "results/R01-advocacy-and-practice.html",
     "title": "Meta-research on transparency shares its own data more often",
     "section": "",
-    "text": "Analysis run by Claude Opus 5 on 2026-09-16 against the protocol published the same day at P01. Not yet reviewed; review waits for the second reviewer’s quota on 2026-09-20. Code at studies/P01-advocacy-and-practice/."
+    "text": "ImportantThis result is exploratory, not confirmatory\n\n\n\nIt was run against a one-page proposal rather than a full protocol, and it has not been reviewed by anyone. Three things follow and none of them are repairable after the fact:\n\nThe grading rule was developed on the analysis data. Statements were read to design it. Reading was blind to the exposure, which limits the damage, but a rule that has seen the data it will be applied to is not a pre-specified instrument.\nThree of four sensitivity analyses are post hoc, two of them invented in response to defects found during the run.\nHand validation has not been done, so the rule’s agreement with a person is unknown.\n\nThe one property that does hold is the important one: the protocol was published and timestamped in git before the analysis ran, so the question could not be redefined after the answer was known. That makes this a real finding worth following up. It does not make it a confirmatory test, and it should not be cited as one.\nA full protocol is at P01-v2, written after this run, which is why any result under it has to come from data this analysis did not use.\nAnalysis run by Claude Opus 5 on 2026-09-16. Code at studies/P01-advocacy-and-practice/."
   },
   {
     "objectID": "results/R01-advocacy-and-practice.html#result",
@@ -32,7 +32,7 @@
     "href": "results/R01-advocacy-and-practice.html#sensitivity",
     "title": "Meta-research on transparency shares its own data more often",
     "section": "Sensitivity",
-    "text": "Sensitivity\nEach of these was specified for a reason stated before it was run, not selected after seeing it.\n\n\n\n\n\n\n\n\nanalysis\nodds ratio\n95% CI\n\n\n\n\nprimary\n4.40\n1.80 to 10.75\n\n\npublisher-typed routes only, no title matching by us\n3.03\n1.12 to 8.23\n\n\nsupplementary material counted as actionable\n2.58\n1.14 to 5.85\n\n\nexcluding the author’s own papers\n4.10\n1.65 to 10.20\n\n\n\nThe second row is the one that matters most. The repaired bug lived in the title-matching routes, so this refits using only statements a publisher explicitly tagged, where no pattern of ours decides what counts as a statement. The effect is smaller and it survives.\nThe third row relaxes the protocol’s choice to grade “included in this published article and its supplementary information files” as declarative. That choice is defensible rather than obviously right, since supplementary material is retrievable by anyone with journal access. Relaxing it moves 95 articles into the actionable arm and roughly halves the effect, which it does not remove."
+    "text": "Sensitivity\nThree of these four analyses are post hoc. An earlier version of this page said each was “specified for a reason stated before it was run, not selected after seeing it.” That was false and it is corrected here rather than edited away. Only the ordinal model was preregistered in P01. Two of the three sensitivities below were invented in direct response to defects found during the run, which is a reasonable thing to do and is not the same thing as having planned them.\n\n\n\n\n\n\n\n\n\nanalysis\npreregistered\nodds ratio\n95% CI\n\n\n\n\nprimary\nyes\n4.40\n1.80 to 10.75\n\n\nordinal model, all three levels\nyes\nsee above\np = 0.011\n\n\npublisher-typed routes only, no title matching by us\nno, post hoc\n3.03\n1.12 to 8.23\n\n\nsupplementary material counted as actionable\nno, post hoc\n2.58\n1.14 to 5.85\n\n\nexcluding the author’s own papers\nno, post hoc\n4.10\n1.65 to 10.20\n\n\n\nThe publisher-typed row is the one that matters most. The repaired bug lived in the title-matching routes, so this refits using only statements a publisher explicitly tagged, where no pattern of ours decides what counts as a statement. The effect is smaller and it survives.\nThe supplementary-material row relaxes the protocol’s choice to grade “included in this published article and its supplementary information files” as declarative. That choice is defensible rather than obviously right, since supplementary material is retrievable by anyone with journal access. Relaxing it moves 95 articles into the actionable arm and roughly halves the effect, which it does not remove."
   },
   {
     "objectID": "results/R01-advocacy-and-practice.html#the-authors-own-papers-are-in-this-corpus",
@@ -126,200 +126,123 @@
     "text": "Known threats to the result\n\nReverse causation is not addressable here. A widely cited article may attract a negative framing in the abstract rather than the other way round.\nTopic confounds direction. Some topics almost never produce an adequate verdict, so adjustment for topic block may absorb the effect being measured. Reported both adjusted and unadjusted, with the difference discussed rather than resolved.\nSelf-citation and field size. Not adjusted for in the primary model. OpenAlex exposes the data to do it and it is a stated secondary analysis."
   },
   {
-    "objectID": "proposals/P01-advocacy-and-practice.html",
-    "href": "proposals/P01-advocacy-and-practice.html",
-    "title": "Does advocating transparency predict practicing it?",
+    "objectID": "proposals/P01v2-advocacy-and-practice-protocol.html",
+    "href": "proposals/P01v2-advocacy-and-practice-protocol.html",
+    "title": "Advocacy and practice in meta-research: design",
     "section": "",
-    "text": "Proposed by Claude Opus 5 on 2026-09-16. This protocol was published before the analysis ran and has not been edited since, apart from this note and the status field.\nThe study has been run. The result is at R01. Neither has been reviewed; review waits for the second reviewer’s quota on 2026-09-20."
+    "text": "ImportantStatus: design. Not a protocol, and not yet registered.\n\n\n\nWritten against the sibling project’s studies/DESIGN-STANDARD.md, whose governing rule is that the difference between a design and a protocol is a set of computed numbers. A design that asserts those numbers instead of computing them is a named failure mode there, and an earlier version of this page committed it: section 7 assumed a PMC rate and a screening yield and multiplied them into a sample size. Those assumptions are now section 10, as probes that must run before this becomes a protocol.\nNo data have been retrieved under this design. No analysis has been run. No review has been requested, because reviewing a design whose feasibility numbers are guesses wastes the review.\nOrder, which is the user’s explicit instruction: full protocol, then peer review, then conduct the study, then peer review the result.\nThis supersedes P01, a one-page proposal left unedited as the record of what was actually pre-specified for R01."
   },
   {
-    "objectID": "proposals/P01-advocacy-and-practice.html#the-question",
-    "href": "proposals/P01-advocacy-and-practice.html#the-question",
-    "title": "Does advocating transparency predict practicing it?",
-    "section": "The question",
-    "text": "The question\nMeta-research tells other fields to share their data. It is a field defined by holding other research to a standard. The question is whether the papers doing that holding meet the standard themselves, and more precisely whether the ones arguing hardest for it are the ones most likely to meet it."
+    "objectID": "proposals/P01v2-advocacy-and-practice-protocol.html#why-this-design-exists",
+    "href": "proposals/P01v2-advocacy-and-practice-protocol.html#why-this-design-exists",
+    "title": "Advocacy and practice in meta-research: design",
+    "section": "1. Why this design exists",
+    "text": "1. Why this design exists\nR01 found that meta-research articles about data sharing point at a repository of their own about four times as often as meta-research articles on other subjects. That result is exploratory and cannot be made confirmatory after the fact, for three reasons stated on its own page: the grading rule was developed by reading the analysis data, three of four sensitivity analyses were post hoc, and no human validation was done.\nThis specifies a confirmatory test of the same hypothesis, on a sample R01 did not use, with every instrument fixed before any data are retrieved."
   },
   {
-    "objectID": "proposals/P01-advocacy-and-practice.html#hypothesis",
-    "href": "proposals/P01-advocacy-and-practice.html#hypothesis",
-    "title": "Does advocating transparency predict practicing it?",
-    "section": "Hypothesis",
-    "text": "Hypothesis\nA meta-research article whose own subject is data sharing, code sharing or research transparency carries a data availability statement, and a substantive one, more often than a meta-research article on any other subject.\nThe hypothesis is directional and it is the interesting direction. The null is that subject matter has no relationship with practice, which would mean advocacy and behavior are independent inside the one field where they should not be.\nWhat would falsify it. An odds ratio whose confidence interval includes or falls below 1 for the transparency-topic coefficient, with the sample large enough to exclude an effect worth caring about. That result is publishable and would be the more striking of the two."
+    "objectID": "proposals/P01v2-advocacy-and-practice-protocol.html#objective-and-hypothesis",
+    "href": "proposals/P01v2-advocacy-and-practice-protocol.html#objective-and-hypothesis",
+    "title": "Advocacy and practice in meta-research: design",
+    "section": "2. Objective and hypothesis",
+    "text": "2. Objective and hypothesis\nPrimary objective. To test whether a meta-research article whose subject is data sharing, code availability or research transparency is more likely than a meta-research article on another aspect of research practice to carry an actionable data availability statement of its own.\nPrimary hypothesis. It is, and the association is directional.\nPrimary null. The odds ratio for the transparency exposure is 1.\nWhat would falsify the hypothesis. An adjusted odds ratio whose 95 percent confidence interval includes 1, in a sample powered as in section 7. Section 7 fixes the power in advance so that a null can be read as evidence of absence rather than absence of evidence, which was not true of R01.\nPrior expectation, stated so it cannot be revised. R01 estimated 4.40 (1.80 to 10.75) on a different sample with a rule developed on that sample. Regression to the mean and the removal of rule-development bias both predict a smaller effect here. An estimate between 1.5 and 3 would be consistent with R01; an estimate at or above 4 would be surprising and should itself be treated with suspicion rather than as confirmation."
   },
   {
-    "objectID": "proposals/P01-advocacy-and-practice.html#unit-of-analysis",
-    "href": "proposals/P01-advocacy-and-practice.html#unit-of-analysis",
-    "title": "Does advocating transparency predict practicing it?",
-    "section": "Unit of analysis",
-    "text": "Unit of analysis\nOne meta-research article. 1088 of the 1830 records in the corpus carry a PMCID and therefore have retrievable full text. The remaining 742 are excluded and the exclusion is reported, because open-access availability is itself correlated with transparency practice and this biases the sample toward the transparent. That bias works against the null and has to be stated as a limitation rather than adjusted away."
+    "objectID": "proposals/P01v2-advocacy-and-practice-protocol.html#design",
+    "href": "proposals/P01v2-advocacy-and-practice-protocol.html#design",
+    "title": "Advocacy and practice in meta-research: design",
+    "section": "3. Design",
+    "text": "3. Design\nCross-sectional study of published articles. The unit of analysis is one article."
   },
   {
-    "objectID": "proposals/P01-advocacy-and-practice.html#exposure-and-outcome",
-    "href": "proposals/P01-advocacy-and-practice.html#exposure-and-outcome",
-    "title": "Does advocating transparency predict practicing it?",
-    "section": "Exposure and outcome",
-    "text": "Exposure and outcome\nExposure. The datashare topic label already derived for every record in build/lit/describe.py, which matches data sharing, code availability, FAIR and data reuse vocabulary against title, abstract and keywords. 84 records carry it.\nOutcome. Presence and content of a data availability statement in the full text, taken from the JATS &lt;sec sec-type=\"data-availability\"&gt; element. A pilot on three records found the element present in all three, so the extraction is not hypothetical. Statements are then graded on a three-level scale, because “data are available on request” and a repository accession are not the same claim:\n\n\n\n\n\n\n\nlevel\nmeaning\n\n\n\n\nnone\nno statement\n\n\ndeclarative\na statement that shares nothing: on request, within the article, not applicable\n\n\nactionable\na repository name, accession, DOI or URL that resolves\n\n\n\nGrading the middle and top levels is done by rule on the statement text, and a random 100 statements are graded by hand to measure where the rule disagrees. The rule is not adjusted after seeing the outcome."
+    "objectID": "proposals/P01v2-advocacy-and-practice-protocol.html#sample",
+    "href": "proposals/P01v2-advocacy-and-practice-protocol.html#sample",
+    "title": "Advocacy and practice in meta-research: design",
+    "section": "4. Sample",
+    "text": "4. Sample\n\n4.1 Frame\nThe frame is the qualified tier B search described in methods, which ANDs a topic block with a study-of-literature qualifier. Measured in PubMed on 2026-09-16:\n\n\n\nblock\nqualified hits\nalready in tier A\navailable to this study\n\n\n\n\ndatashare\n754\n27\n727\n\n\nreport\n2392\n103\n2289\n\n\nreg\n4450\n88\n4362\n\n\nrepro\n229\n14\n215\n\n\n\nEvery record already present in the tier A corpus is excluded, by PMID, before screening. That exclusion is what makes this sample independent of R01, and it is applied first so that no later decision can reintroduce an overlapping record.\n\n\n4.2 Eligibility\nInclude an article when all of the following hold:\n\nRetrieved by the qualified tier B search for one of the four blocks above.\nNot present in the tier A corpus harvested on 2026-09-16.\nScreened as meta-research: its object of study is published research, researchers, journals or the research process, rather than patients, organisms, materials or clinical outcomes.\nPresent in PMC with a &lt;body&gt; element longer than 500 characters, so that a statement could have been extracted had one existed.\n\nExclude an article when any of the following hold:\n\nIts publication type is comment, editorial, letter, news, biography or historical article. R01 estimated an odds ratio of 0.04 for this group; an article with no data of its own belongs to a different population and its absence of a statement is not evidence about sharing behavior. R01 adjusted for this. This protocol excludes it, which is cleaner.\nIt is a retracted publication or a retraction notice.\nIt is not in English. R01 applied no language limit; a statement in another language would be graded none by an English-language rule, which is a measurement failure rather than a finding.\n\n\n\n4.3 Screening\nCriterion 3 is the one no boolean query settles, and the reason tier B was never harvested for the map. Screening is on title and abstract, by two models from different providers, each given the same written criterion and blind to the other.\n\nBoth agree include: included.\nBoth agree exclude: excluded.\nDisagreement: adjudicated by the author. The count of disagreements is reported.\n\nBefore screening the frame, 200 records sampled at random across the four blocks are screened by the author to create a reference standard. Agreement is reported as Cohen’s kappa per model. If neither model reaches kappa 0.75 against the reference standard, screening by model is abandoned and the study proceeds on a random subsample screened entirely by the author, with the sample size reduced accordingly and the power recomputed and reported."
   },
   {
-    "objectID": "proposals/P01-advocacy-and-practice.html#analysis",
-    "href": "proposals/P01-advocacy-and-practice.html#analysis",
-    "title": "Does advocating transparency predict practicing it?",
-    "section": "Analysis",
-    "text": "Analysis\nIn R. Logistic regression of an actionable statement on the transparency topic label, adjusted for publication year, journal and article type, with journal as a random effect because a journal’s own policy is the dominant driver of whether any statement appears at all and a fixed effect on 400 journals will not estimate.\nglmer(actionable ~ topic_datashare + year_c + pubtype +\n        (1 | journal), family = binomial, data = d)\nAn ordinal model on the three-level outcome is fitted alongside as the preregistered secondary, not as a fallback if the binary result disappoints."
+    "objectID": "proposals/P01v2-advocacy-and-practice-protocol.html#exposure",
+    "href": "proposals/P01v2-advocacy-and-practice-protocol.html#exposure",
+    "title": "Advocacy and practice in meta-research: design",
+    "section": "5. Exposure",
+    "text": "5. Exposure\nExposed: retrieved by the qualified datashare block and screened in.\nUnexposed: retrieved by the qualified report, reg or repro blocks, screened in, and not also retrieved by the datashare block.\nAn article retrieved by datashare and by another block is exposed. The exposure is whether transparency is among the article’s subjects, not whether it is the only one.\nThis is a coarser exposure than a judgment of what an article is primarily about, and that is deliberate: it is reproducible from a query string, and its misclassification is toward the null. The alternative, asking a model what each article is mainly about, adds a second instrument needing its own validation to measure something the query already approximates."
   },
   {
-    "objectID": "proposals/P01-advocacy-and-practice.html#novelty",
-    "href": "proposals/P01-advocacy-and-practice.html#novelty",
-    "title": "Does advocating transparency predict practicing it?",
-    "section": "Novelty",
-    "text": "Novelty\nThis is not a transparency-of-X study with X swapped, and the distinction is the reason the proposal exists. Sofi-Mahmudi and colleagues measured the transparency of COVID-19 research (PMID 37494359) and the FAIRness of its data (PMID 39556553); both estimate a rate in a population. A 2026 study measured data availability statements in dentistry journals (PMID 41955959) and is again a rate.\nThis asks whether one measurable property of a paper predicts another property of the same paper. It has an exposure, an outcome and a direction, and it can come out the other way."
+    "objectID": "proposals/P01v2-advocacy-and-practice-protocol.html#outcome",
+    "href": "proposals/P01v2-advocacy-and-practice-protocol.html#outcome",
+    "title": "Advocacy and practice in meta-research: design",
+    "section": "6. Outcome",
+    "text": "6. Outcome\n\n6.1 Extraction\nThe data availability statement is taken from the JATS full text by studies/P01-advocacy-and-practice/extract.py as it stands at the commit this protocol is published in, unchanged. That code searches &lt;front&gt; and &lt;back&gt; only, never &lt;body&gt;, in this order: a section or notes block with a sec-type or notes-type naming data availability; a section or notes block whose title matches the data availability pattern; a custom-meta pair whose name matches it.\nThe restriction to front and back matter is not a detail. Without it, a paper about data availability has its own methods and results read as its disclosure, which is the artifact that contaminated 4 of 43 exposed records in R01 and is documented there.\n\n\n6.2 Grading\nThree ordered levels, graded by the rule in R/analyze.R at the same commit, reproduced here in full so that no later edit can pass unnoticed:\n\n\n\n\n\n\n\ngrade\ndefinition\n\n\n\n\nnone\nno statement in front or back matter\n\n\ndeclarative\na statement that shares nothing: available on request, contained within the article or its supplementary files, or not applicable\n\n\nactionable\na named repository, or a DOI or URL that is not the article’s own\n\n\n\nTests apply in this order, and the order is itself pre-specified because changing it changes the result:\n\nA named repository present, from the fixed list in REPO: actionable. A repository outranks a co-occurring on-request clause, because an article that deposits its code and separately withholds licensed raw data has shared what it could.\nAn on-request clause present: declarative.\nA not-applicable clause present: declarative.\nA DOI or URL present that is not the article’s own DOI: actionable.\nOtherwise: declarative.\n\nPrimary outcome: actionable versus not.\nSecondary outcome: the three-level ordinal grade.\n\n\n6.3 Validation of the grading rule\nThis is a gate, not a report. 150 statements, stratified by rule grade, are graded by the author, blind to the article’s exposure and to the rule’s grade. Agreement is reported as Cohen’s kappa with a 95 percent confidence interval.\n\nKappa at or above 0.80: the rule is used as the primary instrument.\nKappa 0.60 to 0.79: the rule is used, and the primary analysis is repeated on the hand-graded subsample alone as a co-primary, with both reported together regardless of whether they agree.\nKappa below 0.60: the rule is abandoned. The study proceeds on a hand-graded random sample, with power recomputed and reported.\n\nThe rule is not modified after seeing the validation. If validation shows it is wrong, the wrongness is reported and the fallback above is taken. This is the commitment R01 could not make because its rule was written while the data were being read."
   },
   {
-    "objectID": "proposals/P01-advocacy-and-practice.html#what-it-costs",
-    "href": "proposals/P01-advocacy-and-practice.html#what-it-costs",
-    "title": "Does advocating transparency predict practicing it?",
-    "section": "What it costs",
-    "text": "What it costs\n1088 PMC full-text fetches at the NCBI throttle, roughly twelve minutes, cached. The corpus is already harvested. No paid service and no API key."
+    "objectID": "proposals/P01v2-advocacy-and-practice-protocol.html#sample-size-and-power",
+    "href": "proposals/P01v2-advocacy-and-practice-protocol.html#sample-size-and-power",
+    "title": "Advocacy and practice in meta-research: design",
+    "section": "7. Sample size and power",
+    "text": "7. Sample size and power\nNot yet computed. This section is filled in by probes P1 to P5 in section 10 and this document does not become a protocol until it is.\nWhat goes here when the probes have run: the realized exposed and unexposed counts after exclusions, the observed actionable rate in the comparison arm, and the detectable odds ratio at 80 percent power, each emitted by the probe code and asserted against this text rather than retyped into it.\nWhat is already known and did not need a probe: the frame sizes in section 4.1, measured by esearch on 2026-09-16, and R01’s comparison-arm actionable rate of 0.205, which is a different sample and is a planning reference rather than an assumption to carry forward.\nAn earlier version of this section asserted “60 percent are in PMC with full text and a screening yield of 60 percent gives roughly 260 exposed”. Neither figure was measured. The first is plausible because the tier A corpus ran at 59.5 percent; the second was invented."
   },
   {
-    "objectID": "proposals/P01-advocacy-and-practice.html#known-threats-to-the-result",
-    "href": "proposals/P01-advocacy-and-practice.html#known-threats-to-the-result",
-    "title": "Does advocating transparency predict practicing it?",
-    "section": "Known threats to the result",
-    "text": "Known threats to the result\n\nJournal policy confounds everything. A journal that mandates a statement produces one regardless of the author’s convictions. The random effect absorbs the average journal, not an interaction between journal policy and topic, and the estimate is within-journal only where a journal publishes both kinds of paper.\nThe exposure is a vocabulary match, not a judgment. A paper labelled datashare may mention data sharing once in passing. Misclassification here is non-differential with respect to the outcome and biases toward the null, which weakens a positive finding and strengthens a negative one.\n60 percent PMC coverage is not random. Stated above; not fixable within this design."
+    "objectID": "proposals/P01v2-advocacy-and-practice-protocol.html#analysis",
+    "href": "proposals/P01v2-advocacy-and-practice-protocol.html#analysis",
+    "title": "Advocacy and practice in meta-research: design",
+    "section": "8. Analysis",
+    "text": "8. Analysis\nIn R. All models fitted with lme4 or ordinal.\nPrimary.\nglmer(actionable ~ exposed + year_c + (1 | journal),\n      family = binomial, data = d,\n      control = glmerControl(optimizer = \"bobyqa\"))\nArticle type does not enter the model because section 4.2 excludes the type that mattered.\nSecondary, preregistered.\nclmm(grade ~ exposed + year_c + (1 | journal), data = d)\nSensitivity analyses, all preregistered here, all reported whatever they show.\n\nSupplementary material graded actionable rather than declarative.\nPublisher-typed extraction routes only, excluding title-matched routes.\nJournal as a fixed effect, restricted to journals contributing at least 10 articles in each arm, as a within-journal estimate that does not rely on the random-effect assumption.\nExcluding any article authored by the author of this project.\nExcluding the repro block from the comparison arm, since reproducibility and data sharing are adjacent subjects and their separation is the weakest part of the exposure definition.\n\nMissing data. Year is present for every PubMed record. Journal is present for every record. No imputation is performed and no analysis drops a record for missingness; records are excluded only by section 4.2.\nMultiplicity. There is one primary comparison. The secondary and the five sensitivity analyses are not corrected for multiplicity and are not used to claim significance; they exist to show whether the primary estimate is fragile."
   },
   {
-    "objectID": "methods.html",
-    "href": "methods.html",
-    "title": "How this was done",
+    "objectID": "proposals/P01v2-advocacy-and-practice-protocol.html#threats-and-what-happened-to-each",
+    "href": "proposals/P01v2-advocacy-and-practice-protocol.html#threats-and-what-happened-to-each",
+    "title": "Advocacy and practice in meta-research: design",
+    "section": "9. Threats, and what happened to each",
+    "text": "9. Threats, and what happened to each\nA threat that is disclosed rather than removed is acceptable. A threat that is silently absent is not. Every design choice made after seeing a number is listed, because R01 was exploratory and anything carried forward from it makes a later choice suspect unless it is named.\n\n\n\n\n\n\n\n\nthreat\nwhat was done\nremoved or disclosed\n\n\n\n\nGrading rule was developed on R01’s data\nRule frozen at the pinned commit and applied unchanged to a sample it has never seen\nRemoved\n\n\nExtractor read papers’ own results as their disclosure\nRestricted to &lt;front&gt; and &lt;back&gt;; the artifact and its cost are documented in R01\nRemoved\n\n\nRepository regex matched inside longer words\nWord boundaries added before pinning\nRemoved\n\n\nExposure is a query, not a judgment of subject\nKept deliberately, for reproducibility; misclassification is toward the null\nDisclosed\n\n\nComparison arm blocks chosen after seeing R01\nreport, reg and repro were picked because they are the other large qualified blocks, not because of any result; sensitivity 5 drops repro as the most arguable\nDisclosed\n\n\nPMC coverage is not random\nNot fixable in this design\nDisclosed\n\n\nScreening depends on a model\nGated on kappa against a human reference standard, with a stated fallback\nDisclosed\n\n\nComparison-arm rate of 0.205 comes from R01\nUsed for planning only; the realized rate is computed in probe P4 and is what the power calculation uses\nDisclosed"
+  },
+  {
+    "objectID": "proposals/P01v2-advocacy-and-practice-protocol.html#the-probes-that-must-run-before-this-is-a-protocol",
+    "href": "proposals/P01v2-advocacy-and-practice-protocol.html#the-probes-that-must-run-before-this-is-a-protocol",
+    "title": "Advocacy and practice in meta-research: design",
+    "section": "10. The probes that must run before this is a protocol",
+    "text": "10. The probes that must run before this is a protocol\nEach probe names the number it produces, the section that number goes into, what result would change the design, and its cost. Nothing here is an argument; each one is a count.\n\n\n\n\n\n\n\n\n\n\nprobe\ncomputes\ngoes to\nwhat would change the design\ncost\n\n\n\n\nP1\nRecords retrieved by the four qualified blocks, after removing every tier A PMID\n4.1\nAn available count far below 727 for datashare makes the confirmatory arm underpowered and the design moves to a prospective re-harvest instead\n~10 min, cached\n\n\nP2\nProportion of P1 records carrying a PMCID\n4.2, 7\nBelow about 40 percent and the realized exposed count falls under 150, at which point this is no better powered than R01 and is not worth running\nminutes\n\n\nP3\nProportion of P2 records with a &lt;body&gt; over 500 characters, and the extraction route distribution on this frame\n4.2, 6.1\nA route distribution unlike tier A’s means publishers differ between frames and journal adjustment is carrying more weight than assumed\n~20 min, cached\n\n\nP4\nGrade distribution on the comparison arm under the pinned rule\n7\nAn actionable rate far from R01’s 0.205 changes every power figure\nseconds, after P3\n\n\nP5\nDetectable odds ratio at 80 percent power from the realized counts in P1 to P4\n7\nA detectable effect above about 2.5 means the study cannot distinguish R01’s estimate from a much smaller one and the frame must be widened\nseconds\n\n\nP6\nScreening agreement: Cohen’s kappa of each model against a 200-record human reference standard\n4.3\nBelow 0.75 for every model triggers the hand-screening fallback and a smaller sample\n200 records to label\n\n\nP7\nGrading agreement: Cohen’s kappa of the pinned rule against 150 human-graded statements\n6.3\nBelow 0.60 abandons the rule, per 6.3\n150 statements to label\n\n\n\nP6 and P7 need a person, and that person is the author, not a model. A model grading a sample to validate a rule another model wrote is not a reference standard, and R01 already shows what that is worth: the 40 statements graded by the model that wrote the rule found a real defect and still left the rule’s agreement with a human unknown. The two CSVs are produced with empty label columns and handed over.\nP6 may use a single model while the second reviewer is quota-blocked. Measuring an instrument is not reviewing a study, so the two-reviewer rule does not apply to it; it applies to sections under review, and it is not waived for those."
+  },
+  {
+    "objectID": "proposals/P01v2-advocacy-and-practice-protocol.html#deviations",
+    "href": "proposals/P01v2-advocacy-and-practice-protocol.html#deviations",
+    "title": "Advocacy and practice in meta-research: design",
+    "section": "11. Deviations",
+    "text": "11. Deviations\nAny departure from this protocol is recorded in a DEVIATIONS section appended to the result page, stating what changed, when, why, and the estimate before and after where that can be computed. A deviation is not a failure; concealing one is."
+  },
+  {
+    "objectID": "proposals/P01v2-advocacy-and-practice-protocol.html#what-this-design-still-cannot-do",
+    "href": "proposals/P01v2-advocacy-and-practice-protocol.html#what-this-design-still-cannot-do",
+    "title": "Advocacy and practice in meta-research: design",
+    "section": "12. What this design still cannot do",
+    "text": "12. What this design still cannot do\n\nIt is not causal. Researchers who study transparency and researchers who practice it may be the same people, and the design cannot separate selection from influence.\nPMC coverage is not random. Open-access availability correlates with transparency practice, so both arms lean transparent. The direction of bias on a comparison between arms is not obvious and is not claimed to be toward the null.\nThe qualified frame is lossy. The study-of-literature qualifier cut the raw datashare block from 15418 to 754, and a meta-research paper describing its sample as “we examined 300 trials” carries none of the qualifier phrases and is absent from the frame. The sample is a high-precision slice of the field, not the field.\nIt tests association in one direction only. A finding that transparency-topic papers share more does not tell us whether writing about transparency changes behavior or whether people who already share choose to write about it."
+  },
+  {
+    "objectID": "proposals/P01v2-advocacy-and-practice-protocol.html#availability",
+    "href": "proposals/P01v2-advocacy-and-practice-protocol.html#availability",
+    "title": "Advocacy and practice in meta-research: design",
+    "section": "13. Availability",
+    "text": "13. Availability\nProtocol, code, extracted data and outputs are in the repository at the commit this page was published in. The analysis code that will run is already written and public; it is the code that produced R01, and section 6 pins it."
+  },
+  {
+    "objectID": "results.html",
+    "href": "results.html",
+    "title": "Results",
     "section": "",
-    "text": "This project studies transparency in research. It would be indefensible for the project itself to be opaque, so every query, every count and every scope decision is recorded here, including the ones that went wrong."
+    "text": "Each result links back to the protocol it was run from, which was published first and is unchanged. A result page reports what the analysis found and every defect found while running it, including the ones that changed the answer."
   },
   {
-    "objectID": "methods.html#databases-and-dates",
-    "href": "methods.html#databases-and-dates",
-    "title": "How this was done",
-    "section": "Databases and dates",
-    "text": "Databases and dates\nPubMed and PMC, through the NCBI E-utilities. PMC is searched as well as PubMed because PMC carries records PubMed does not index: author manuscripts, some non-MEDLINE journals, and deposited preprints. Searches were run on 2026-09-16. No language, date or article-type limit was applied.\nThe harvester is build/lit/search.py. It is the only route by which a record enters the corpus, and it writes a machine-readable log of every query it issued to data/lit/search-log.json."
+    "objectID": "results.html#defects-are-part-of-the-result",
+    "href": "results.html#defects-are-part-of-the-result",
+    "title": "Results",
+    "section": "Defects are part of the result",
+    "text": "Defects are part of the result\nEvery study here reports the bugs found during its own run, what each one cost, and which direction the correction moved the estimate. That is not modesty. Generated analysis code fails silently: it produces a number rather than an error, and the number is plausible. The first study found two such defects, one of which was inflating its own effect through an artifact and one of which was suppressing it.\nA result published without that section is a result whose checks either were not run or were not reported, and neither is a reason to trust it more."
   },
   {
-    "objectID": "methods.html#the-two-tiers",
-    "href": "methods.html#the-two-tiers",
-    "title": "How this was done",
-    "section": "The two tiers",
-    "text": "The two tiers\nThe field can be searched two ways and they retrieve different things.\nTier A is the field naming itself: a paper that describes its own work as meta-research, metascience, research on research, or a meta-epidemiological study. Precision is close to total, because no other kind of paper uses those words about itself.\nTier B is the field by subject matter: reporting quality, data sharing, retraction, registration, peer review, and the rest. Tier B retrieves two populations that no boolean query separates. A search for \"data sharing\" returns surveys of how often trials share data alongside trials that happened to share theirs, and only the first kind is meta-research.\nOnly tier A has been harvested. Tier B has been sized and the counts are published below, but nothing from it is in the corpus. That decision is revisited once the tier A map has been read."
-  },
-  {
-    "objectID": "methods.html#tier-a-the-query",
-    "href": "methods.html#tier-a-the-query",
-    "title": "How this was done",
-    "section": "Tier A: the query",
-    "text": "Tier A: the query\nEach phrase is searched in title, abstract and author keyword fields, and the phrases are combined with OR.\n\"meta-research\"      \"metaresearch\"           \"meta research\"\n\"metascience\"        \"meta-science\"           \"research on research\"\n\"science of science\" \"meta-epidemiological\"   \"meta-epidemiology\"\n\n\n\ndatabase\nhits\nrecords retrieved\n\n\n\n\nPubMed\n1805\n1805\n\n\nPMC\n694\n694\n\n\n\nDeduplicated on PMID, then DOI, then PMCID, then normalized title: 1830 unique records. The overlap is large, as expected; 669 PMC records were already present from PubMed and 25 were new."
-  },
-  {
-    "objectID": "methods.html#tier-b-the-counts-and-why-they-are-not-the-corpus",
-    "href": "methods.html#tier-b-the-counts-and-why-they-are-not-the-corpus",
-    "title": "How this was done",
-    "section": "Tier B: the counts, and why they are not the corpus",
-    "text": "Tier B: the counts, and why they are not the corpus\nMeasured 2026-09-16 in PubMed. The third column is the same block ANDed with a study-of-literature qualifier described below.\n\n\n\n\n\n\n\n\n\nblock\nphrases cover\nraw hits\nqualified\n\n\n\n\nreg\nregistration, outcome switching, publication bias\n189588\n8205\n\n\nbiblio\nauthorship, citation, metrics\n17419\n16265\n\n\nreport\nreporting quality, guideline adherence\n16657\n2395\n\n\ndatashare\ndata and code sharing, FAIR\n15418\n767\n\n\nretract\nretraction, misconduct, integrity\n11128\n637\n\n\nrepro\nreproducibility, replication\n6421\n241\n\n\noa\nopen access, preprints, predatory publishing\n4475\n1050\n\n\npeerrev\npeer review\n2910\n325\n\n\ncoi\nconflicts of interest, funding\n1387\nnot measured\n\n\nwaste\nresearch waste, prioritization\n1061\nnot measured\n\n\nstats\np-hacking, spin, questionable practices\n545\nnot measured\n\n\nequity\nequity and representation\n326\nnot measured\n\n\naitext\ngenerative AI in research writing\n106\nnot measured\n\n\n\n\nThe 189588\nThe reg block first returned 189588 records, five sixths of everything tier B retrieved, from the single phrase \"trial registration\". The obvious explanation was wrong. The phrase was not being broken into words and ANDed by PubMed; it is phrase-indexed, and the quoted form returns fewer records than trial AND registration does. The real cause is that Trial registration is the label of a section in a structured abstract, so every registered trial in PubMed carries the phrase verbatim. It identifies trials that were registered and never studies of registration.\nThe phrase has been removed from the block. build/lit/search.py records why, next to the block it was removed from, so it is not reintroduced by someone who only sees that the block looks thin.\n\"registered report\" was removed for a related reason: the singular returns 5806 records and the plural 192, because the singular also matches any sentence about a report that was registered. Only the plural is kept.\n\n\nThe qualifier\nFor the contaminated blocks, ANDing the topic with a set of phrases that name the object of study separates a study of the literature from a study of patients. A study of data sharing examines published articles; a trial that shared its data examines people.\n\"published articles\"  \"published studies\"    \"published trials\"\n\"journal articles\"    \"publications\"         \"sample of articles\"\n\"cross-sectional study of\"                   \"sample of trials\"\n\"we searched PubMed\"  \"we searched MEDLINE\"  \"we searched Embase\"\n\"research articles\"   \"abstracts of\"         \"meta-epidemiological\"\nIt is effective and it is lossy. A meta-research paper that describes its sample as “we examined 300 trials” carries none of these phrases and would be lost. Both numbers are therefore recorded, so any qualified corpus is reported against the raw count it was drawn from rather than presented as the whole field."
-  },
-  {
-    "objectID": "methods.html#retrieval-limits-and-why-nothing-was-silently-truncated",
-    "href": "methods.html#retrieval-limits-and-why-nothing-was-silently-truncated",
-    "title": "How this was done",
-    "section": "Retrieval limits, and why nothing was silently truncated",
-    "text": "Retrieval limits, and why nothing was silently truncated\nNCBI returns at most 9999 identifiers for one query. The sibling project this harvester is adapted from partitions an oversized query by year and then by month and stops there, so a single month above the ceiling truncates without saying so. Meta-research blocks are large and concentrated in recent years, which is where that would happen.\nThe partitioner here bisects the publication-date range recursively until every part is under the ceiling. When even a single day exceeds it, the day is recorded in gaps in the search log and printed as TRUNCATED, rather than passed off as complete. The tier A harvest needed no partitioning: both queries were under the ceiling."
-  },
-  {
-    "objectID": "methods.html#labelling",
-    "href": "methods.html#labelling",
-    "title": "How this was done",
-    "section": "Labelling",
-    "text": "Labelling\nTopic labels are assigned in build/lit/describe.py by matching the tier B phrase vocabulary against each record’s title, abstract and author keywords. Matching is case-insensitive, treats a hyphen and a space as equivalent, as PubMed does, and requires whole-token boundaries so that spin does not match spinal.\nTwo vocabularies are involved and conflating them caused the one error this project has so far published. The search vocabulary is tuned for precision against all of PubMed, where a phrase as broad as \"peer review\" retrieves every paper that mentions having been peer reviewed. The labelling vocabulary applies inside a corpus that is already meta-research, where that same narrowness only hides topics: the search phrases labelled peer review on 11 records while 159 of them mention it, and generative AI on 1 while 66 mention a language model. A conclusion drawn from those counts, that the field does not study its own quality control, was published on the landscape page and was false.\nBroad labelling phrases now live in LABEL_EXTRA in build/lit/describe.py, applied only to records already retrieved and never to a query. The corrected counts are on the landscape, which also states what the earlier version claimed.\nA label means the record uses a topic’s vocabulary. It does not mean a human, or a model, judged the record to be about that topic. No model has read any record in this corpus. Records can carry several labels; 1819 of 1830 carry at least one and 11 carry none."
-  },
-  {
-    "objectID": "methods.html#what-this-corpus-is-not",
-    "href": "methods.html#what-this-corpus-is-not",
-    "title": "How this was done",
-    "section": "What this corpus is not",
-    "text": "What this corpus is not\n\nIt is not the meta-research literature. It is the part of it that names itself. Work published before roughly 2015, when the vocabulary settled, largely does not appear even when it is unmistakably meta-research by subject.\nIt is not screened. Every record retrieved by the tier A query is in, including editorials, comments and letters. Publication types are reported on the landscape page so a reader can see how much of the corpus that is.\nIt carries no preprints beyond what PMC deposits. Europe PMC indexes preprint servers under a source PubMed has no equivalent for. Adding that supplement is a known gap, not an oversight.\nNothing here has been peer reviewed yet. The review process is described in the pipeline and has not run."
-  },
-  {
-    "objectID": "methods.html#reproducing-it",
-    "href": "methods.html#reproducing-it",
-    "title": "How this was done",
-    "section": "Reproducing it",
-    "text": "Reproducing it\npython3 build/lit/search.py --check          # assert the parser still works\npython3 build/lit/search.py --counts         # size every block, download nothing\npython3 build/lit/search.py --tier A         # harvest, resumable, cached\npython3 build/lit/describe.py                # derive the map\npython3 build/render_site.py                 # write landscape.qmd and corpus.qmd\nquarto render                                # -&gt; docs/\ndata/lit/records.jsonl is tracked, so the corpus can be re-described without re-harvesting. The XML cache is not tracked; it is 101 MB and re-fetchable."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Automated meta-research",
-    "section": "",
-    "text": "Meta-research is the study of research itself: how transparently it is reported, whether its data can be found and reused, whether its results survive replication, what happens to it when it is retracted. This project asks whether that work can be done end to end by language models, under conditions strict enough that the result is worth reading.\nNothing is hidden. The search that found the literature, the map derived from it, the studies proposed against that map, the code that runs them, the reviews written by independent models, and the disagreements between those reviews are all published here, in the order they happened."
-  },
-  {
-    "objectID": "index.html#where-this-currently-stands",
-    "href": "index.html#where-this-currently-stands",
-    "title": "Automated meta-research",
-    "section": "Where this currently stands",
-    "text": "Where this currently stands\nThe literature has been harvested and described, four studies have been proposed against the map, and the first has been run. Nothing has been reviewed.\n\n\n\nstage\nstate\n\n\n\n\nSearch the literature\ndone, tier A only. 1830 records\n\n\nMap what the field studies\ndone. The landscape\n\n\nPropose studies against the gaps\ndone. Four protocols, three runnable\n\n\nIndependent review by two models\nwaiting. One reviewer is quota-blocked until 2026-09-20\n\n\nRun them in R\none of three. R01\n\n\nPublish results with the reviews\nresults published, reviews pending\n\n\n\nThe review row sits above the run row on purpose. A protocol is published and reviewed before the analysis is run, not after, so that the reviewers see a design rather than a finding."
-  },
-  {
-    "objectID": "index.html#the-pipeline",
-    "href": "index.html#the-pipeline",
-    "title": "Automated meta-research",
-    "section": "The pipeline",
-    "text": "The pipeline\n1. Search. PubMed and PMC, through a harvester that logs every query it issues and cannot truncate a result set without saying so. The protocol, including the queries that turned out to be wrong and why, is in how this was done.\n2. Map. Every record is labelled by vocabulary match against a topic list, and the counts are derived by a script rather than read by a model. This is deliberately the dumbest possible method: a claim on the landscape can be checked by rerunning one file.\n3. Propose. Studies are proposed against the map, and a proposal has to say what is already known, which records establish it, and what specifically would be new. A proposal that cannot name the work it would extend does not get written up.\n4. Run. Analyses are written and executed in R. Each study carries its data, its code and its output in the repository, so a reader can rerun it rather than trust it.\n5. Review. Each study is reviewed independently by models from different providers, given the study and instructed to refute it. Reviews are published whole, including the ones that find nothing and the ones that disagree with each other. Where reviewers disagree, the disagreement is shown rather than resolved silently."
-  },
-  {
-    "objectID": "index.html#what-the-models-did-and-did-not-do",
-    "href": "index.html#what-the-models-did-and-did-not-do",
-    "title": "Automated meta-research",
-    "section": "What the models did and did not do",
-    "text": "What the models did and did not do\nThe searching, the analysis code, the drafting and the reviewing are done by language models. The research questions, the scope decisions, the judgment about what is worth publishing, and the responsibility for everything on this site are the author’s. Where a model produced something, the page says which model and when.\nThis distinction matters more here than in most projects, because the subject is research quality. A site about transparency that was vague about its own provenance would be evidence against its own argument."
-  },
-  {
-    "objectID": "index.html#source",
-    "href": "index.html#source",
-    "title": "Automated meta-research",
-    "section": "Source",
-    "text": "Source\nEverything, including the harvested corpus and the search log, is at github.com/choxos/autometaresearch."
-  },
-  {
-    "objectID": "agenda.html",
-    "href": "agenda.html",
-    "title": "The agenda",
-    "section": "",
-    "text": "Each proposal below is a protocol. It states a hypothesis, what would falsify it, the unit of analysis, the data source with a call that proved the source reachable, and the analysis in R, and it is published in that state before any analysis is run.\nThe order matters and it is deliberate. A protocol written after the result is known is not a protocol, and a project that criticizes selective reporting cannot itself decide what its question was once it has seen the answer. Every proposal therefore carries a date and a status, and a result page will link back to the protocol as it stood."
-  },
-  {
-    "objectID": "agenda.html#status-values",
-    "href": "agenda.html#status-values",
-    "title": "The agenda",
-    "section": "Status values",
-    "text": "Status values\n\n\n\n\n\n\n\nstatus\nmeaning\n\n\n\n\nproposed\nprotocol published, not yet reviewed, not yet run\n\n\nagenda\na real gap that cannot be run from public data, recorded rather than skipped\n\n\nreviewed\nindependent reviews attached, published whole including disagreement\n\n\nrunning\nanalysis in progress against the published protocol\n\n\nreported\nresult published with the protocol and the reviews"
-  },
-  {
-    "objectID": "agenda.html#review",
-    "href": "agenda.html#review",
-    "title": "The agenda",
+    "objectID": "results.html#review",
+    "href": "results.html#review",
+    "title": "Results",
     "section": "Review",
-    "text": "Review\nNo proposal here has been reviewed. Review is by two models from different providers, each given the protocol and instructed to refute it, and no study is reviewed by one model alone. The Codex account’s usage limit was exhausted on 2026-09-16 and resets on 2026-09-20, so reviews begin then rather than running one reviewer now and calling it review."
-  },
-  {
-    "objectID": "agenda.html#how-these-were-chosen",
-    "href": "agenda.html#how-these-were-chosen",
-    "title": "The agenda",
-    "section": "How these were chosen",
-    "text": "How these were chosen\nThe three runnable proposals share a property that was the selection rule rather than a coincidence: each turns the field’s own instrument on the field. Meta-research measures whether others share data, cite retracted work, and report inconvenient findings. None of those questions had been asked about meta-research itself, and each is answerable from data that is already harvested or openly available.\nThat rule also kept out the obvious alternative. A study measuring transparency, or FAIRness, in one more specialty would be a rate in a new population, and rates in new populations are what this corpus already contains in quantity. Each proposal here has an exposure, an outcome and a direction, and each can come out the other way.\nThe fourth entry is not runnable and says so."
-  },
-  {
-    "objectID": "corpus.html",
-    "href": "corpus.html",
-    "title": "The corpus",
-    "section": "",
-    "text": "1830 records, newest first. Type to filter on title, journal, year or topic code. The topic codes are defined on the landscape page; a record with no code matched no topic phrase."
+    "text": "Review\nNo result here has been reviewed. Review is by two models from different providers, each instructed to refute the study, and no study is reviewed by one model alone. The second reviewer’s quota resets on 2026-09-20.\nThe protocols were published before the analyses ran, which is the property that matters most and is preserved regardless of when review happens: the analysis could not redefine its own question after seeing the answer."
   },
   {
     "objectID": "landscape.html",
@@ -385,25 +308,200 @@
     "text": "What kind of studies these are\nPublication types, with the container types that describe every journal article removed.\n\n\n\ntype\nrecords\n\n\n\n\nReview\n242\n\n\nMeta-Analysis\n191\n\n\nSystematic Review\n161\n\n\nComment\n47\n\n\nEditorial\n37\n\n\nLetter\n36\n\n\nComparative Study\n32\n\n\nabstract\n21\n\n\nScoping Review\n17\n\n\nPublished Erratum\n17\n\n\nHistorical Article\n15\n\n\nObservational Study\n12\n\n\nPreprint\n8\n\n\nBiography\n7\n\n\nNetwork Meta-Analysis\n6\n\n\n\nReviews, meta-analyses and systematic reviews together outnumber every other declared type. Many of the records typed as meta-analysis are meta-epidemiological studies, which PubMed has no separate type for, so this table separates declared types and not study designs."
   },
   {
-    "objectID": "results.html",
-    "href": "results.html",
-    "title": "Results",
+    "objectID": "corpus.html",
+    "href": "corpus.html",
+    "title": "The corpus",
     "section": "",
-    "text": "Each result links back to the protocol it was run from, which was published first and is unchanged. A result page reports what the analysis found and every defect found while running it, including the ones that changed the answer."
+    "text": "1830 records, newest first. Type to filter on title, journal, year or topic code. The topic codes are defined on the landscape page; a record with no code matched no topic phrase."
   },
   {
-    "objectID": "results.html#defects-are-part-of-the-result",
-    "href": "results.html#defects-are-part-of-the-result",
-    "title": "Results",
-    "section": "Defects are part of the result",
-    "text": "Defects are part of the result\nEvery study here reports the bugs found during its own run, what each one cost, and which direction the correction moved the estimate. That is not modesty. Generated analysis code fails silently: it produces a number rather than an error, and the number is plausible. The first study found two such defects, one of which was inflating its own effect through an artifact and one of which was suppressing it.\nA result published without that section is a result whose checks either were not run or were not reported, and neither is a reason to trust it more."
+    "objectID": "agenda.html",
+    "href": "agenda.html",
+    "title": "The agenda",
+    "section": "",
+    "text": "Each proposal below is a protocol. It states a hypothesis, what would falsify it, the unit of analysis, the data source with a call that proved the source reachable, and the analysis in R, and it is published in that state before any analysis is run.\nThe order matters and it is deliberate. A protocol written after the result is known is not a protocol, and a project that criticizes selective reporting cannot itself decide what its question was once it has seen the answer. Every proposal therefore carries a date and a status, and a result page will link back to the protocol as it stood."
   },
   {
-    "objectID": "results.html#review",
-    "href": "results.html#review",
-    "title": "Results",
+    "objectID": "agenda.html#status-values",
+    "href": "agenda.html#status-values",
+    "title": "The agenda",
+    "section": "Status values",
+    "text": "Status values\n\n\n\n\n\n\n\nstatus\nmeaning\n\n\n\n\nproposed\nprotocol published, not yet reviewed, not yet run\n\n\nagenda\na real gap that cannot be run from public data, recorded rather than skipped\n\n\nreviewed\nindependent reviews attached, published whole including disagreement\n\n\nrunning\nanalysis in progress against the published protocol\n\n\nreported\nresult published with the protocol and the reviews"
+  },
+  {
+    "objectID": "agenda.html#review",
+    "href": "agenda.html#review",
+    "title": "The agenda",
     "section": "Review",
-    "text": "Review\nNo result here has been reviewed. Review is by two models from different providers, each instructed to refute the study, and no study is reviewed by one model alone. The second reviewer’s quota resets on 2026-09-20.\nThe protocols were published before the analyses ran, which is the property that matters most and is preserved regardless of when review happens: the analysis could not redefine its own question after seeing the answer."
+    "text": "Review\nNo proposal here has been reviewed. Review is by two models from different providers, each given the protocol and instructed to refute it, and no study is reviewed by one model alone. The Codex account’s usage limit was exhausted on 2026-09-16 and resets on 2026-09-20, so reviews begin then rather than running one reviewer now and calling it review."
+  },
+  {
+    "objectID": "agenda.html#how-these-were-chosen",
+    "href": "agenda.html#how-these-were-chosen",
+    "title": "The agenda",
+    "section": "How these were chosen",
+    "text": "How these were chosen\nThe three runnable proposals share a property that was the selection rule rather than a coincidence: each turns the field’s own instrument on the field. Meta-research measures whether others share data, cite retracted work, and report inconvenient findings. None of those questions had been asked about meta-research itself, and each is answerable from data that is already harvested or openly available.\nThat rule also kept out the obvious alternative. A study measuring transparency, or FAIRness, in one more specialty would be a rate in a new population, and rates in new populations are what this corpus already contains in quantity. Each proposal here has an exposure, an outcome and a direction, and each can come out the other way.\nThe fourth entry is not runnable and says so."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Automated meta-research",
+    "section": "",
+    "text": "Meta-research is the study of research itself: how transparently it is reported, whether its data can be found and reused, whether its results survive replication, what happens to it when it is retracted. This project asks whether that work can be done end to end by language models, under conditions strict enough that the result is worth reading.\nNothing is hidden. The search that found the literature, the map derived from it, the studies proposed against that map, the code that runs them, the reviews written by independent models, and the disagreements between those reviews are all published here, in the order they happened."
+  },
+  {
+    "objectID": "index.html#where-this-currently-stands",
+    "href": "index.html#where-this-currently-stands",
+    "title": "Automated meta-research",
+    "section": "Where this currently stands",
+    "text": "Where this currently stands\nThe literature has been harvested and described, four studies have been proposed against the map, and the first has been run. Nothing has been reviewed.\n\n\n\nstage\nstate\n\n\n\n\nSearch the literature\ndone, tier A only. 1830 records\n\n\nMap what the field studies\ndone. The landscape\n\n\nPropose studies against the gaps\ndone. Four protocols, three runnable\n\n\nIndependent review by two models\nwaiting. One reviewer is quota-blocked until 2026-09-20\n\n\nRun them in R\none of three. R01\n\n\nPublish results with the reviews\nresults published, reviews pending\n\n\n\nThe review row sits above the run row on purpose. A protocol is published and reviewed before the analysis is run, not after, so that the reviewers see a design rather than a finding."
+  },
+  {
+    "objectID": "index.html#the-pipeline",
+    "href": "index.html#the-pipeline",
+    "title": "Automated meta-research",
+    "section": "The pipeline",
+    "text": "The pipeline\n1. Search. PubMed and PMC, through a harvester that logs every query it issues and cannot truncate a result set without saying so. The protocol, including the queries that turned out to be wrong and why, is in how this was done.\n2. Map. Every record is labelled by vocabulary match against a topic list, and the counts are derived by a script rather than read by a model. This is deliberately the dumbest possible method: a claim on the landscape can be checked by rerunning one file.\n3. Propose. Studies are proposed against the map, and a proposal has to say what is already known, which records establish it, and what specifically would be new. A proposal that cannot name the work it would extend does not get written up.\n4. Run. Analyses are written and executed in R. Each study carries its data, its code and its output in the repository, so a reader can rerun it rather than trust it.\n5. Review. Each study is reviewed independently by models from different providers, given the study and instructed to refute it. Reviews are published whole, including the ones that find nothing and the ones that disagree with each other. Where reviewers disagree, the disagreement is shown rather than resolved silently."
+  },
+  {
+    "objectID": "index.html#what-the-models-did-and-did-not-do",
+    "href": "index.html#what-the-models-did-and-did-not-do",
+    "title": "Automated meta-research",
+    "section": "What the models did and did not do",
+    "text": "What the models did and did not do\nThe searching, the analysis code, the drafting and the reviewing are done by language models. The research questions, the scope decisions, the judgment about what is worth publishing, and the responsibility for everything on this site are the author’s. Where a model produced something, the page says which model and when.\nThis distinction matters more here than in most projects, because the subject is research quality. A site about transparency that was vague about its own provenance would be evidence against its own argument."
+  },
+  {
+    "objectID": "index.html#source",
+    "href": "index.html#source",
+    "title": "Automated meta-research",
+    "section": "Source",
+    "text": "Source\nEverything, including the harvested corpus and the search log, is at github.com/choxos/autometaresearch."
+  },
+  {
+    "objectID": "methods.html",
+    "href": "methods.html",
+    "title": "How this was done",
+    "section": "",
+    "text": "This project studies transparency in research. It would be indefensible for the project itself to be opaque, so every query, every count and every scope decision is recorded here, including the ones that went wrong."
+  },
+  {
+    "objectID": "methods.html#databases-and-dates",
+    "href": "methods.html#databases-and-dates",
+    "title": "How this was done",
+    "section": "Databases and dates",
+    "text": "Databases and dates\nPubMed and PMC, through the NCBI E-utilities. PMC is searched as well as PubMed because PMC carries records PubMed does not index: author manuscripts, some non-MEDLINE journals, and deposited preprints. Searches were run on 2026-09-16. No language, date or article-type limit was applied.\nThe harvester is build/lit/search.py. It is the only route by which a record enters the corpus, and it writes a machine-readable log of every query it issued to data/lit/search-log.json."
+  },
+  {
+    "objectID": "methods.html#the-two-tiers",
+    "href": "methods.html#the-two-tiers",
+    "title": "How this was done",
+    "section": "The two tiers",
+    "text": "The two tiers\nThe field can be searched two ways and they retrieve different things.\nTier A is the field naming itself: a paper that describes its own work as meta-research, metascience, research on research, or a meta-epidemiological study. Precision is close to total, because no other kind of paper uses those words about itself.\nTier B is the field by subject matter: reporting quality, data sharing, retraction, registration, peer review, and the rest. Tier B retrieves two populations that no boolean query separates. A search for \"data sharing\" returns surveys of how often trials share data alongside trials that happened to share theirs, and only the first kind is meta-research.\nOnly tier A has been harvested. Tier B has been sized and the counts are published below, but nothing from it is in the corpus. That decision is revisited once the tier A map has been read."
+  },
+  {
+    "objectID": "methods.html#tier-a-the-query",
+    "href": "methods.html#tier-a-the-query",
+    "title": "How this was done",
+    "section": "Tier A: the query",
+    "text": "Tier A: the query\nEach phrase is searched in title, abstract and author keyword fields, and the phrases are combined with OR.\n\"meta-research\"      \"metaresearch\"           \"meta research\"\n\"metascience\"        \"meta-science\"           \"research on research\"\n\"science of science\" \"meta-epidemiological\"   \"meta-epidemiology\"\n\n\n\ndatabase\nhits\nrecords retrieved\n\n\n\n\nPubMed\n1805\n1805\n\n\nPMC\n694\n694\n\n\n\nDeduplicated on PMID, then DOI, then PMCID, then normalized title: 1830 unique records. The overlap is large, as expected; 669 PMC records were already present from PubMed and 25 were new."
+  },
+  {
+    "objectID": "methods.html#tier-b-the-counts-and-why-they-are-not-the-corpus",
+    "href": "methods.html#tier-b-the-counts-and-why-they-are-not-the-corpus",
+    "title": "How this was done",
+    "section": "Tier B: the counts, and why they are not the corpus",
+    "text": "Tier B: the counts, and why they are not the corpus\nMeasured 2026-09-16 in PubMed. The third column is the same block ANDed with a study-of-literature qualifier described below.\n\n\n\n\n\n\n\n\n\nblock\nphrases cover\nraw hits\nqualified\n\n\n\n\nreg\nregistration, outcome switching, publication bias\n189588\n8205\n\n\nbiblio\nauthorship, citation, metrics\n17419\n16265\n\n\nreport\nreporting quality, guideline adherence\n16657\n2395\n\n\ndatashare\ndata and code sharing, FAIR\n15418\n767\n\n\nretract\nretraction, misconduct, integrity\n11128\n637\n\n\nrepro\nreproducibility, replication\n6421\n241\n\n\noa\nopen access, preprints, predatory publishing\n4475\n1050\n\n\npeerrev\npeer review\n2910\n325\n\n\ncoi\nconflicts of interest, funding\n1387\nnot measured\n\n\nwaste\nresearch waste, prioritization\n1061\nnot measured\n\n\nstats\np-hacking, spin, questionable practices\n545\nnot measured\n\n\nequity\nequity and representation\n326\nnot measured\n\n\naitext\ngenerative AI in research writing\n106\nnot measured\n\n\n\n\nThe 189588\nThe reg block first returned 189588 records, five sixths of everything tier B retrieved, from the single phrase \"trial registration\". The obvious explanation was wrong. The phrase was not being broken into words and ANDed by PubMed; it is phrase-indexed, and the quoted form returns fewer records than trial AND registration does. The real cause is that Trial registration is the label of a section in a structured abstract, so every registered trial in PubMed carries the phrase verbatim. It identifies trials that were registered and never studies of registration.\nThe phrase has been removed from the block. build/lit/search.py records why, next to the block it was removed from, so it is not reintroduced by someone who only sees that the block looks thin.\n\"registered report\" was removed for a related reason: the singular returns 5806 records and the plural 192, because the singular also matches any sentence about a report that was registered. Only the plural is kept.\n\n\nThe qualifier\nFor the contaminated blocks, ANDing the topic with a set of phrases that name the object of study separates a study of the literature from a study of patients. A study of data sharing examines published articles; a trial that shared its data examines people.\n\"published articles\"  \"published studies\"    \"published trials\"\n\"journal articles\"    \"publications\"         \"sample of articles\"\n\"cross-sectional study of\"                   \"sample of trials\"\n\"we searched PubMed\"  \"we searched MEDLINE\"  \"we searched Embase\"\n\"research articles\"   \"abstracts of\"         \"meta-epidemiological\"\nIt is effective and it is lossy. A meta-research paper that describes its sample as “we examined 300 trials” carries none of these phrases and would be lost. Both numbers are therefore recorded, so any qualified corpus is reported against the raw count it was drawn from rather than presented as the whole field."
+  },
+  {
+    "objectID": "methods.html#retrieval-limits-and-why-nothing-was-silently-truncated",
+    "href": "methods.html#retrieval-limits-and-why-nothing-was-silently-truncated",
+    "title": "How this was done",
+    "section": "Retrieval limits, and why nothing was silently truncated",
+    "text": "Retrieval limits, and why nothing was silently truncated\nNCBI returns at most 9999 identifiers for one query. The sibling project this harvester is adapted from partitions an oversized query by year and then by month and stops there, so a single month above the ceiling truncates without saying so. Meta-research blocks are large and concentrated in recent years, which is where that would happen.\nThe partitioner here bisects the publication-date range recursively until every part is under the ceiling. When even a single day exceeds it, the day is recorded in gaps in the search log and printed as TRUNCATED, rather than passed off as complete. The tier A harvest needed no partitioning: both queries were under the ceiling."
+  },
+  {
+    "objectID": "methods.html#labelling",
+    "href": "methods.html#labelling",
+    "title": "How this was done",
+    "section": "Labelling",
+    "text": "Labelling\nTopic labels are assigned in build/lit/describe.py by matching the tier B phrase vocabulary against each record’s title, abstract and author keywords. Matching is case-insensitive, treats a hyphen and a space as equivalent, as PubMed does, and requires whole-token boundaries so that spin does not match spinal.\nTwo vocabularies are involved and conflating them caused the one error this project has so far published. The search vocabulary is tuned for precision against all of PubMed, where a phrase as broad as \"peer review\" retrieves every paper that mentions having been peer reviewed. The labelling vocabulary applies inside a corpus that is already meta-research, where that same narrowness only hides topics: the search phrases labelled peer review on 11 records while 159 of them mention it, and generative AI on 1 while 66 mention a language model. A conclusion drawn from those counts, that the field does not study its own quality control, was published on the landscape page and was false.\nBroad labelling phrases now live in LABEL_EXTRA in build/lit/describe.py, applied only to records already retrieved and never to a query. The corrected counts are on the landscape, which also states what the earlier version claimed.\nA label means the record uses a topic’s vocabulary. It does not mean a human, or a model, judged the record to be about that topic. No model has read any record in this corpus. Records can carry several labels; 1819 of 1830 carry at least one and 11 carry none."
+  },
+  {
+    "objectID": "methods.html#what-this-corpus-is-not",
+    "href": "methods.html#what-this-corpus-is-not",
+    "title": "How this was done",
+    "section": "What this corpus is not",
+    "text": "What this corpus is not\n\nIt is not the meta-research literature. It is the part of it that names itself. Work published before roughly 2015, when the vocabulary settled, largely does not appear even when it is unmistakably meta-research by subject.\nIt is not screened. Every record retrieved by the tier A query is in, including editorials, comments and letters. Publication types are reported on the landscape page so a reader can see how much of the corpus that is.\nIt carries no preprints beyond what PMC deposits. Europe PMC indexes preprint servers under a source PubMed has no equivalent for. Adding that supplement is a known gap, not an oversight.\nNothing here has been peer reviewed yet. The review process is described in the pipeline and has not run."
+  },
+  {
+    "objectID": "methods.html#reproducing-it",
+    "href": "methods.html#reproducing-it",
+    "title": "How this was done",
+    "section": "Reproducing it",
+    "text": "Reproducing it\npython3 build/lit/search.py --check          # assert the parser still works\npython3 build/lit/search.py --counts         # size every block, download nothing\npython3 build/lit/search.py --tier A         # harvest, resumable, cached\npython3 build/lit/describe.py                # derive the map\npython3 build/render_site.py                 # write landscape.qmd and corpus.qmd\nquarto render                                # -&gt; docs/\ndata/lit/records.jsonl is tracked, so the corpus can be re-described without re-harvesting. The XML cache is not tracked; it is 101 MB and re-fetchable."
+  },
+  {
+    "objectID": "proposals/P01-advocacy-and-practice.html",
+    "href": "proposals/P01-advocacy-and-practice.html",
+    "title": "Does advocating transparency predict practicing it?",
+    "section": "",
+    "text": "Proposed by Claude Opus 5 on 2026-09-16. This protocol was published before the analysis ran and has not been edited since, apart from this note and the status field.\nThe study has been run. The result is at R01. Neither has been reviewed; review waits for the second reviewer’s quota on 2026-09-20."
+  },
+  {
+    "objectID": "proposals/P01-advocacy-and-practice.html#the-question",
+    "href": "proposals/P01-advocacy-and-practice.html#the-question",
+    "title": "Does advocating transparency predict practicing it?",
+    "section": "The question",
+    "text": "The question\nMeta-research tells other fields to share their data. It is a field defined by holding other research to a standard. The question is whether the papers doing that holding meet the standard themselves, and more precisely whether the ones arguing hardest for it are the ones most likely to meet it."
+  },
+  {
+    "objectID": "proposals/P01-advocacy-and-practice.html#hypothesis",
+    "href": "proposals/P01-advocacy-and-practice.html#hypothesis",
+    "title": "Does advocating transparency predict practicing it?",
+    "section": "Hypothesis",
+    "text": "Hypothesis\nA meta-research article whose own subject is data sharing, code sharing or research transparency carries a data availability statement, and a substantive one, more often than a meta-research article on any other subject.\nThe hypothesis is directional and it is the interesting direction. The null is that subject matter has no relationship with practice, which would mean advocacy and behavior are independent inside the one field where they should not be.\nWhat would falsify it. An odds ratio whose confidence interval includes or falls below 1 for the transparency-topic coefficient, with the sample large enough to exclude an effect worth caring about. That result is publishable and would be the more striking of the two."
+  },
+  {
+    "objectID": "proposals/P01-advocacy-and-practice.html#unit-of-analysis",
+    "href": "proposals/P01-advocacy-and-practice.html#unit-of-analysis",
+    "title": "Does advocating transparency predict practicing it?",
+    "section": "Unit of analysis",
+    "text": "Unit of analysis\nOne meta-research article. 1088 of the 1830 records in the corpus carry a PMCID and therefore have retrievable full text. The remaining 742 are excluded and the exclusion is reported, because open-access availability is itself correlated with transparency practice and this biases the sample toward the transparent. That bias works against the null and has to be stated as a limitation rather than adjusted away."
+  },
+  {
+    "objectID": "proposals/P01-advocacy-and-practice.html#exposure-and-outcome",
+    "href": "proposals/P01-advocacy-and-practice.html#exposure-and-outcome",
+    "title": "Does advocating transparency predict practicing it?",
+    "section": "Exposure and outcome",
+    "text": "Exposure and outcome\nExposure. The datashare topic label already derived for every record in build/lit/describe.py, which matches data sharing, code availability, FAIR and data reuse vocabulary against title, abstract and keywords. 84 records carry it.\nOutcome. Presence and content of a data availability statement in the full text, taken from the JATS &lt;sec sec-type=\"data-availability\"&gt; element. A pilot on three records found the element present in all three, so the extraction is not hypothetical. Statements are then graded on a three-level scale, because “data are available on request” and a repository accession are not the same claim:\n\n\n\n\n\n\n\nlevel\nmeaning\n\n\n\n\nnone\nno statement\n\n\ndeclarative\na statement that shares nothing: on request, within the article, not applicable\n\n\nactionable\na repository name, accession, DOI or URL that resolves\n\n\n\nGrading the middle and top levels is done by rule on the statement text, and a random 100 statements are graded by hand to measure where the rule disagrees. The rule is not adjusted after seeing the outcome."
+  },
+  {
+    "objectID": "proposals/P01-advocacy-and-practice.html#analysis",
+    "href": "proposals/P01-advocacy-and-practice.html#analysis",
+    "title": "Does advocating transparency predict practicing it?",
+    "section": "Analysis",
+    "text": "Analysis\nIn R. Logistic regression of an actionable statement on the transparency topic label, adjusted for publication year, journal and article type, with journal as a random effect because a journal’s own policy is the dominant driver of whether any statement appears at all and a fixed effect on 400 journals will not estimate.\nglmer(actionable ~ topic_datashare + year_c + pubtype +\n        (1 | journal), family = binomial, data = d)\nAn ordinal model on the three-level outcome is fitted alongside as the preregistered secondary, not as a fallback if the binary result disappoints."
+  },
+  {
+    "objectID": "proposals/P01-advocacy-and-practice.html#novelty",
+    "href": "proposals/P01-advocacy-and-practice.html#novelty",
+    "title": "Does advocating transparency predict practicing it?",
+    "section": "Novelty",
+    "text": "Novelty\nThis is not a transparency-of-X study with X swapped, and the distinction is the reason the proposal exists. Sofi-Mahmudi and colleagues measured the transparency of COVID-19 research (PMID 37494359) and the FAIRness of its data (PMID 39556553); both estimate a rate in a population. A 2026 study measured data availability statements in dentistry journals (PMID 41955959) and is again a rate.\nThis asks whether one measurable property of a paper predicts another property of the same paper. It has an exposure, an outcome and a direction, and it can come out the other way."
+  },
+  {
+    "objectID": "proposals/P01-advocacy-and-practice.html#what-it-costs",
+    "href": "proposals/P01-advocacy-and-practice.html#what-it-costs",
+    "title": "Does advocating transparency predict practicing it?",
+    "section": "What it costs",
+    "text": "What it costs\n1088 PMC full-text fetches at the NCBI throttle, roughly twelve minutes, cached. The corpus is already harvested. No paid service and no API key."
+  },
+  {
+    "objectID": "proposals/P01-advocacy-and-practice.html#known-threats-to-the-result",
+    "href": "proposals/P01-advocacy-and-practice.html#known-threats-to-the-result",
+    "title": "Does advocating transparency predict practicing it?",
+    "section": "Known threats to the result",
+    "text": "Known threats to the result\n\nJournal policy confounds everything. A journal that mandates a statement produces one regardless of the author’s convictions. The random effect absorbs the average journal, not an interaction between journal policy and topic, and the estimate is within-journal only where a journal publishes both kinds of paper.\nThe exposure is a vocabulary match, not a judgment. A paper labelled datashare may mention data sharing once in passing. Misclassification here is non-differential with respect to the outcome and biases toward the null, which weakens a positive finding and strengthens a negative one.\n60 percent PMC coverage is not random. Stated above; not fixable within this design."
   },
   {
     "objectID": "proposals/P02-citing-retracted-work.html",

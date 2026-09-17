@@ -1,17 +1,18 @@
 [
   {
-    "listing": "/agenda.html",
-    "items": [
-      "/proposals/P01-advocacy-and-practice.html",
-      "/proposals/P02-citing-retracted-work.html",
-      "/proposals/P03-bad-news-citation.html",
-      "/proposals/P04-observational-about-itself.html"
-    ]
-  },
-  {
     "listing": "/results.html",
     "items": [
       "/results/R01-advocacy-and-practice.html"
+    ]
+  },
+  {
+    "listing": "/agenda.html",
+    "items": [
+      "/proposals/P01-advocacy-and-practice.html",
+      "/proposals/P01v2-advocacy-and-practice-protocol.html",
+      "/proposals/P02-citing-retracted-work.html",
+      "/proposals/P03-bad-news-citation.html",
+      "/proposals/P04-observational-about-itself.html"
     ]
   }
 ]
