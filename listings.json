@@ -7,5 +7,11 @@
       "/proposals/P03-bad-news-citation.html",
       "/proposals/P04-observational-about-itself.html"
     ]
+  },
+  {
+    "listing": "/results.html",
+    "items": [
+      "/results/R01-advocacy-and-practice.html"
+    ]
   }
 ]

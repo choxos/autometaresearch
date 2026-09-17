@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2026-09-16">
-<meta name="description" content="Whether meta-research reporting poor practice accrues more citations than meta-research reporting good practice.">
+<meta name="description" content="Result for P01. Papers whose subject is data sharing are about four times more likely to point at a repository of their own.">
 
-<title>Is bad news cited more? – Automated meta-research</title>
+<title>Meta-research on transparency shares its own data more often – Automated meta-research</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -339,14 +339,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#the-question" id="toc-the-question" class="nav-link active" data-scroll-target="#the-question">The question</a></li>
-  <li><a href="#hypothesis" id="toc-hypothesis" class="nav-link" data-scroll-target="#hypothesis">Hypothesis</a></li>
-  <li><a href="#unit-of-analysis" id="toc-unit-of-analysis" class="nav-link" data-scroll-target="#unit-of-analysis">Unit of analysis</a></li>
-  <li><a href="#the-hard-part-stated-plainly" id="toc-the-hard-part-stated-plainly" class="nav-link" data-scroll-target="#the-hard-part-stated-plainly">The hard part, stated plainly</a></li>
-  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis">Analysis</a></li>
-  <li><a href="#novelty" id="toc-novelty" class="nav-link" data-scroll-target="#novelty">Novelty</a></li>
-  <li><a href="#what-it-costs" id="toc-what-it-costs" class="nav-link" data-scroll-target="#what-it-costs">What it costs</a></li>
-  <li><a href="#known-threats-to-the-result" id="toc-known-threats-to-the-result" class="nav-link" data-scroll-target="#known-threats-to-the-result">Known threats to the result</a></li>
+  <li><a href="#result" id="toc-result" class="nav-link active" data-scroll-target="#result">Result</a></li>
+  <li><a href="#what-the-grades-mean" id="toc-what-the-grades-mean" class="nav-link" data-scroll-target="#what-the-grades-mean">What the grades mean</a></li>
+  <li><a href="#two-defects-found-during-the-run-and-what-each-cost" id="toc-two-defects-found-during-the-run-and-what-each-cost" class="nav-link" data-scroll-target="#two-defects-found-during-the-run-and-what-each-cost">Two defects found during the run, and what each cost</a>
+  <ul class="collapse">
+  <li><a href="#the-extractor-read-papers-own-results-as-their-statements" id="toc-the-extractor-read-papers-own-results-as-their-statements" class="nav-link" data-scroll-target="#the-extractor-read-papers-own-results-as-their-statements">The extractor read papers’ own results as their statements</a></li>
+  <li><a href="#the-grading-rule-downgraded-deposits-that-also-offered-data-on-request" id="toc-the-grading-rule-downgraded-deposits-that-also-offered-data-on-request" class="nav-link" data-scroll-target="#the-grading-rule-downgraded-deposits-that-also-offered-data-on-request">The grading rule downgraded deposits that also offered data on request</a></li>
+  </ul></li>
+  <li><a href="#sensitivity" id="toc-sensitivity" class="nav-link" data-scroll-target="#sensitivity">Sensitivity</a></li>
+  <li><a href="#the-authors-own-papers-are-in-this-corpus" id="toc-the-authors-own-papers-are-in-this-corpus" class="nav-link" data-scroll-target="#the-authors-own-papers-are-in-this-corpus">The author’s own papers are in this corpus</a></li>
+  <li><a href="#what-this-does-not-show" id="toc-what-this-does-not-show" class="nav-link" data-scroll-target="#what-this-does-not-show">What this does not show</a></li>
+  <li><a href="#validation-still-outstanding" id="toc-validation-still-outstanding" class="nav-link" data-scroll-target="#validation-still-outstanding">Validation still outstanding</a></li>
+  <li><a href="#reproducing" id="toc-reproducing" class="nav-link" data-scroll-target="#reproducing">Reproducing</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/choxos/autometaresearch/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -356,17 +360,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Is bad news cited more?</h1>
+<h1 class="title">Meta-research on transparency shares its own data more often</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">runnable</div>
-    <div class="quarto-category">biblio</div>
-    <div class="quarto-category">incentives</div>
+    <div class="quarto-category">result</div>
+    <div class="quarto-category">datashare</div>
+    <div class="quarto-category">reflexive</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Whether meta-research reporting poor practice accrues more citations than meta-research reporting good practice.
+    Result for P01. Papers whose subject is data sharing are about four times more likely to point at a repository of their own.
   </div>
 </div>
 
@@ -395,59 +399,154 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Proposed by Claude Opus 5 on 2026-09-16. Not yet reviewed. This page is a protocol and no analysis has been run.</p>
+<p>Analysis run by Claude Opus 5 on 2026-09-16 against the protocol published the same day at <a href="../proposals/P01-advocacy-and-practice.html">P01</a>. Not yet reviewed; review waits for the second reviewer’s quota on 2026-09-20. Code at <code>studies/P01-advocacy-and-practice/</code>.</p>
 </div>
 </div>
 </div>
-<section id="the-question" class="level2">
-<h2 class="anchored" data-anchor-id="the-question">The question</h2>
-<p>Meta-research reports on how well other research is done, and the answer is usually that it is done badly. If findings of failure are rewarded with citations more than findings that a practice is adequate, the field has an incentive gradient pointing at one conclusion, and that gradient would be invisible in any individual study.</p>
-<p>This is publication bias asked about the field that studies publication bias, and asked at the citation stage rather than the acceptance stage.</p>
+<section id="result" class="level2">
+<h2 class="anchored" data-anchor-id="result">Result</h2>
+<p>Among 999 meta-research articles with full text in PMC, those whose own subject is data sharing, code availability or FAIR data point at a repository of their own about four times as often as meta-research articles on any other subject.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>none</th>
+<th>declarative</th>
+<th>actionable</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>other topic (n = 956)</td>
+<td>43.0%</td>
+<td>36.5%</td>
+<td><strong>20.5%</strong></td>
+</tr>
+<tr class="even">
+<td>transparency topic (n = 43)</td>
+<td>32.6%</td>
+<td>16.3%</td>
+<td><strong>51.2%</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Adjusted for publication year and article type, with journal as a random intercept:</p>
+<p><strong>Odds ratio 4.40 (95% CI 1.80 to 10.75), p = 0.0012.</strong></p>
+<p>The preregistered ordinal model on all three levels agrees: 0.99 on the log-odds scale (p = 0.011).</p>
+<p>The hypothesis stated in the protocol was directional and it is supported. Advocacy and practice are not independent inside this field.</p>
 </section>
-<section id="hypothesis" class="level2">
-<h2 class="anchored" data-anchor-id="hypothesis">Hypothesis</h2>
-<p>Among meta-research articles, those concluding that the practice studied is inadequate accrue more citations than those concluding it is adequate, after adjustment for age, journal and topic.</p>
-<p><strong>What would falsify it.</strong> An incidence rate ratio whose interval contains 1. Given a corpus of 1830 and citation counts that are highly skewed, the design is powered for a moderate effect and not a subtle one; the detectable effect size is computed and published before the run.</p>
+<section id="what-the-grades-mean" class="level2">
+<h2 class="anchored" data-anchor-id="what-the-grades-mean">What the grades mean</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>grade</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>none</td>
+<td>no data availability statement in the article’s front or back matter</td>
+</tr>
+<tr class="even">
+<td>declarative</td>
+<td>a statement that shares nothing: on request, within the article, not applicable</td>
+</tr>
+<tr class="odd">
+<td>actionable</td>
+<td>a named repository, accession, DOI or URL a reader can follow without asking</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="unit-of-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="unit-of-analysis">Unit of analysis</h2>
-<p>One meta-research article. All 1830 corpus records are eligible. OpenAlex matched 50 of 50 sampled PMIDs in a single call, so coverage is effectively complete and the whole corpus resolves in about 37 calls.</p>
-<p>Articles published in 2025 and 2026 are retained but age is modeled rather than trimmed, since excluding recent work would drop 76 percent of the corpus.</p>
+<section id="two-defects-found-during-the-run-and-what-each-cost" class="level2">
+<h2 class="anchored" data-anchor-id="two-defects-found-during-the-run-and-what-each-cost">Two defects found during the run, and what each cost</h2>
+<p>Both were found by checking the result rather than by the code failing. Neither raised an error, and the first produced a plausible answer that was partly an artifact.</p>
+<section id="the-extractor-read-papers-own-results-as-their-statements" class="level3">
+<h3 class="anchored" data-anchor-id="the-extractor-read-papers-own-results-as-their-statements">The extractor read papers’ own results as their statements</h3>
+<p>A meta-research paper about data availability contains sections called “Data availability over time” and “Extraction of data availability status” in its own methods and results. The first extractor walked the whole article, found those, and graded the paper actionable because such sections are full of repository URLs. Four of the 43 exposed records were contaminated, and the signature was visible from outside: the exposed arm hit the fuzzy title-matching routes three times more often than the unexposed arm.</p>
+<p>A publisher-assigned <code>sec-type="data-availability"</code> does not protect against this. One article carries that attribute on a numbered methods section. Location does protect against it: a data availability statement is front or back matter, and a numbered section of the narrative is the paper’s argument rather than its disclosure. Extraction is now restricted to <code>&lt;front&gt;</code> and <code>&lt;back&gt;</code>.</p>
+<p>The repair was not purely subtractive. One article’s real statement sits in <code>&lt;front&gt;</code> and was being shadowed by its own results section.</p>
+<p><strong>Cost: the uncorrected odds ratio was 3.86. After the fix it is higher, not lower.</strong> The artifact was not what was producing the effect, which is not what was expected when the check began.</p>
 </section>
-<section id="the-hard-part-stated-plainly" class="level2">
-<h2 class="anchored" data-anchor-id="the-hard-part-stated-plainly">The hard part, stated plainly</h2>
-<p>The exposure is the direction of the article’s conclusion, and no rule extracts it from an abstract. This is the one proposal of the three whose exposure requires a model to read text, and that is a methodological liability rather than a convenience.</p>
-<p>The design therefore treats classification as a measurement instrument that must be validated before it is used:</p>
-<ol type="1">
-<li>A stratified random sample of 300 abstracts is classified by hand, by the author, into inadequate, adequate, mixed or not applicable. This is the reference standard.</li>
-<li>Two models from different providers classify the same 300, blind to the hand labels and to each other.</li>
-<li>Agreement is reported as Cohen’s kappa against the reference standard and between the models. <strong>If neither model reaches kappa 0.7 against the hand labels, the study stops and the negative methodological result is published.</strong> That outcome is a finding about whether language models can read a conclusion direction, and it is worth publishing.</li>
-<li>Only if the threshold is met does classification extend to the remaining records, with the measured misclassification rate carried into a sensitivity analysis.</li>
-</ol>
-<p>The stopping rule is written here, before any classification has been run, because a threshold chosen after seeing the agreement is not a threshold.</p>
+<section id="the-grading-rule-downgraded-deposits-that-also-offered-data-on-request" class="level3">
+<h3 class="anchored" data-anchor-id="the-grading-rule-downgraded-deposits-that-also-offered-data-on-request">The grading rule downgraded deposits that also offered data on request</h3>
+<p>The rule tested for an on-request clause before testing for a repository, on the reasoning that “available from the corresponding author at an email address” contains something that looks like a locator and is a refusal. That is right for a bare URL and wrong for a named repository. One article deposits its code on GitHub and OSF and separately says the raw Scopus data cannot be released under license; it shared what it could, and the rule called it declarative.</p>
+<p>A named repository now outranks a co-occurring on-request clause. Six of 574 statements carry both, five of them a named repository.</p>
+<p><strong>Cost: all six are in the unexposed arm, so the correction raises the comparison rate and works against the hypothesis.</strong> The odds ratio fell from 4.67 to 4.40.</p>
 </section>
-<section id="analysis" class="level2">
-<h2 class="anchored" data-anchor-id="analysis">Analysis</h2>
-<p>In R. Negative binomial regression of citation count on conclusion direction.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glm.nb</span>(cited_by_count <span class="sc">~</span> direction <span class="sc">+</span> <span class="fu">poly</span>(years_since_pub, <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>         topic_block <span class="sc">+</span> (journal), <span class="at">data =</span> d)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Age enters as a quadratic rather than an offset because citation accrual is not linear in time and the corpus spans 1965 to 2026. A quantile regression on the upper citation deciles is fitted alongside, since a mean effect and a tail effect answer different questions and the incentive argument lives in the tail.</p>
 </section>
-<section id="novelty" class="level2">
-<h2 class="anchored" data-anchor-id="novelty">Novelty</h2>
-<p>Predictors of citation rates have been reviewed (PMID 41265666) and citation bias is an established topic. What is absent is the direction of a study’s own conclusion as the exposure, inside meta-research, where the conclusion direction is a property of the field’s product rather than of a clinical result.</p>
+<section id="sensitivity" class="level2">
+<h2 class="anchored" data-anchor-id="sensitivity">Sensitivity</h2>
+<p>Each of these was specified for a reason stated before it was run, not selected after seeing it.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>analysis</th>
+<th>odds ratio</th>
+<th>95% CI</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>primary</strong></td>
+<td><strong>4.40</strong></td>
+<td>1.80 to 10.75</td>
+</tr>
+<tr class="even">
+<td>publisher-typed routes only, no title matching by us</td>
+<td>3.03</td>
+<td>1.12 to 8.23</td>
+</tr>
+<tr class="odd">
+<td>supplementary material counted as actionable</td>
+<td>2.58</td>
+<td>1.14 to 5.85</td>
+</tr>
+<tr class="even">
+<td>excluding the author’s own papers</td>
+<td>4.10</td>
+<td>1.65 to 10.20</td>
+</tr>
+</tbody>
+</table>
+<p>The second row is the one that matters most. The repaired bug lived in the title-matching routes, so this refits using only statements a publisher explicitly tagged, where no pattern of ours decides what counts as a statement. The effect is smaller and it survives.</p>
+<p>The third row relaxes the protocol’s choice to grade “included in this published article and its supplementary information files” as declarative. That choice is defensible rather than obviously right, since supplementary material is retrievable by anyone with journal access. Relaxing it moves 95 articles into the actionable arm and roughly halves the effect, which it does not remove.</p>
 </section>
-<section id="what-it-costs" class="level2">
-<h2 class="anchored" data-anchor-id="what-it-costs">What it costs</h2>
-<p>37 OpenAlex calls, free and unauthenticated. Hand classification of 300 abstracts is the real cost and it falls on the author, not on a model. Two model classification passes.</p>
+<section id="the-authors-own-papers-are-in-this-corpus" class="level2">
+<h2 class="anchored" data-anchor-id="the-authors-own-papers-are-in-this-corpus">The author’s own papers are in this corpus</h2>
+<p>A tier A search for meta-research retrieves the work of anyone who does meta-research, including whoever is running the study. Two articles in the analysis set name the author’s own repositories. Both are in the exposed arm and both are graded actionable, so their presence pushes the estimate in the direction of the hypothesis. Removing them changes the odds ratio from 4.40 to 4.10. Reported rather than silently dropped.</p>
 </section>
-<section id="known-threats-to-the-result" class="level2">
-<h2 class="anchored" data-anchor-id="known-threats-to-the-result">Known threats to the result</h2>
+<section id="what-this-does-not-show" class="level2">
+<h2 class="anchored" data-anchor-id="what-this-does-not-show">What this does not show</h2>
 <ul>
-<li><strong>Reverse causation is not addressable here.</strong> A widely cited article may attract a negative framing in the abstract rather than the other way round.</li>
-<li><strong>Topic confounds direction.</strong> Some topics almost never produce an adequate verdict, so adjustment for topic block may absorb the effect being measured. Reported both adjusted and unadjusted, with the difference discussed rather than resolved.</li>
-<li><strong>Self-citation and field size.</strong> Not adjusted for in the primary model. OpenAlex exposes the data to do it and it is a stated secondary analysis.</li>
+<li><strong>It is not causal and the design cannot make it so.</strong> A researcher who studies data sharing and a researcher who shares data may simply be the same kind of person, or may work in the same few journals with the same few policies. The journal random intercept absorbs the average journal but not an interaction between a journal’s policy and a paper’s topic.</li>
+<li><strong>43 exposed records is thin.</strong> The smallest effect this design could have detected at 80 percent power was a rise from 20.5 to 48.9 percent. The observed effect is larger than that floor, which is why it is visible; an effect half this size would have been missed, and a null here would have ruled out very little.</li>
+<li><strong>The exposure is a vocabulary match, not a judgment.</strong> A paper labelled as a transparency topic may mention data sharing once in passing. That misclassification is non-differential with respect to the outcome and biases toward the null, so it weakens this finding rather than manufacturing it.</li>
+<li><strong>60 percent PMC coverage is not random.</strong> 742 corpus records have no PMCID and 89 more are in PMC as metadata only. Open-access availability is itself correlated with transparency practice, so the sample leans transparent. This is stated in the protocol and is not fixable within the design.</li>
+<li><strong>The grading rule has been validated by a model and not yet by a person.</strong> See below.</li>
 </ul>
+</section>
+<section id="validation-still-outstanding" class="level2">
+<h2 class="anchored" data-anchor-id="validation-still-outstanding">Validation still outstanding</h2>
+<p>The protocol calls for 100 statements graded by hand to measure where the rule disagrees. <code>studies/P01-advocacy-and-practice/out/validation-sample.csv</code> holds that sample with an empty <code>hand_grade</code> column, and the agreement will be reported here when it is filled in.</p>
+<p>What has happened instead is weaker and is labeled as such: 40 statements were read and graded by the same model that wrote the rule, which found the second defect above. A model checking its own rule is not an independent check, and the kappa against a person is not yet known.</p>
+</section>
+<section id="reproducing" class="level2">
+<h2 class="anchored" data-anchor-id="reproducing">Reproducing</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> studies/P01-advocacy-and-practice/extract.py   <span class="co"># PMC full text -&gt; statements.csv</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> studies/P01-advocacy-and-practice/R/analyze.R  <span class="co"># grading, models, sensitivity</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The extractor caches PMC responses by batch content. <code>data/statements.csv</code> is tracked, so the analysis reruns without touching NCBI.</p>
 
 
 </section>
