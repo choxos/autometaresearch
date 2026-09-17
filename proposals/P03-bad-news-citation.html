@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2026-09-16">
-<meta name="description" content="Whether meta-research reporting poor practice accrues more citations than meta-research reporting good practice.">
+<meta name="description" content="Whether meta-research reporting poor practice accrues more citations than meta-research reporting good practice. Citation probe computed; the classifier is the gate.">
 
 <title>Is bad news cited more? – Automated meta-research</title>
 <style>
@@ -339,14 +339,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#the-question" id="toc-the-question" class="nav-link active" data-scroll-target="#the-question">The question</a></li>
-  <li><a href="#hypothesis" id="toc-hypothesis" class="nav-link" data-scroll-target="#hypothesis">Hypothesis</a></li>
-  <li><a href="#unit-of-analysis" id="toc-unit-of-analysis" class="nav-link" data-scroll-target="#unit-of-analysis">Unit of analysis</a></li>
-  <li><a href="#the-hard-part-stated-plainly" id="toc-the-hard-part-stated-plainly" class="nav-link" data-scroll-target="#the-hard-part-stated-plainly">The hard part, stated plainly</a></li>
-  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis">Analysis</a></li>
-  <li><a href="#novelty" id="toc-novelty" class="nav-link" data-scroll-target="#novelty">Novelty</a></li>
-  <li><a href="#what-it-costs" id="toc-what-it-costs" class="nav-link" data-scroll-target="#what-it-costs">What it costs</a></li>
-  <li><a href="#known-threats-to-the-result" id="toc-known-threats-to-the-result" class="nav-link" data-scroll-target="#known-threats-to-the-result">Known threats to the result</a></li>
+  <li><a href="#the-question" id="toc-the-question" class="nav-link active" data-scroll-target="#the-question">1. The question</a></li>
+  <li><a href="#hypothesis" id="toc-hypothesis" class="nav-link" data-scroll-target="#hypothesis">2. Hypothesis</a></li>
+  <li><a href="#design" id="toc-design" class="nav-link" data-scroll-target="#design">3. Design</a></li>
+  <li><a href="#sample" id="toc-sample" class="nav-link" data-scroll-target="#sample">4. Sample</a></li>
+  <li><a href="#outcome" id="toc-outcome" class="nav-link" data-scroll-target="#outcome">5. Outcome</a></li>
+  <li><a href="#exposure-and-the-gate" id="toc-exposure-and-the-gate" class="nav-link" data-scroll-target="#exposure-and-the-gate">6. Exposure, and the gate</a></li>
+  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis">7. Analysis</a></li>
+  <li><a href="#threats-and-what-happened-to-each" id="toc-threats-and-what-happened-to-each" class="nav-link" data-scroll-target="#threats-and-what-happened-to-each">8. Threats, and what happened to each</a></li>
+  <li><a href="#probes" id="toc-probes" class="nav-link" data-scroll-target="#probes">9. Probes</a></li>
+  <li><a href="#deviations" id="toc-deviations" class="nav-link" data-scroll-target="#deviations">10. Deviations</a></li>
+  <li><a href="#what-this-cannot-show" id="toc-what-this-cannot-show" class="nav-link" data-scroll-target="#what-this-cannot-show">11. What this cannot show</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/choxos/autometaresearch/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -358,7 +361,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-title">
 <h1 class="title">Is bad news cited more?</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">runnable</div>
+    <div class="quarto-category">protocol</div>
     <div class="quarto-category">biblio</div>
     <div class="quarto-category">incentives</div>
   </div>
@@ -366,7 +369,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div>
   <div class="description">
-    Whether meta-research reporting poor practice accrues more citations than meta-research reporting good practice.
+    Whether meta-research reporting poor practice accrues more citations than meta-research reporting good practice. Citation probe computed; the classifier is the gate.
   </div>
 </div>
 
@@ -389,64 +392,200 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="callout callout-style-simple callout-note">
-<div class="callout-body d-flex">
+<div class="callout callout-style-simple callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
-<p>Proposed by Claude Opus 5 on 2026-09-16. Not yet reviewed. This page is a protocol and no analysis has been run.</p>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Status: protocol. Citation data retrieved. The classifier gate is outstanding. Not registered.
 </div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The citation probe ran on 2026-09-16: 1790 of 1805 tier A PMIDs resolved in OpenAlex, a match rate of 99.2 percent.</p>
+<p><strong>The exposure has not been measured and cannot be until 300 abstracts are classified by the author.</strong> Section 6 carries a stopping rule written before any classification has been run.</p>
+<p>Awaiting review by two models; the second is quota-blocked until 2026-09-20.</p>
 </div>
 </div>
 <section id="the-question" class="level2">
-<h2 class="anchored" data-anchor-id="the-question">The question</h2>
-<p>Meta-research reports on how well other research is done, and the answer is usually that it is done badly. If findings of failure are rewarded with citations more than findings that a practice is adequate, the field has an incentive gradient pointing at one conclusion, and that gradient would be invisible in any individual study.</p>
-<p>This is publication bias asked about the field that studies publication bias, and asked at the citation stage rather than the acceptance stage.</p>
+<h2 class="anchored" data-anchor-id="the-question">1. The question</h2>
+<p>Meta-research reports on how well other research is done, and the answer is usually that it is done badly. If findings of failure are rewarded with citations more than findings that a practice is adequate, the field faces an incentive gradient pointing at one conclusion, and that gradient would be invisible within any single study.</p>
+<p>This is publication bias asked about the field that studies publication bias, and asked at the citation stage rather than at acceptance.</p>
 </section>
 <section id="hypothesis" class="level2">
-<h2 class="anchored" data-anchor-id="hypothesis">Hypothesis</h2>
-<p>Among meta-research articles, those concluding that the practice studied is inadequate accrue more citations than those concluding it is adequate, after adjustment for age, journal and topic.</p>
-<p><strong>What would falsify it.</strong> An incidence rate ratio whose interval contains 1. Given a corpus of 1830 and citation counts that are highly skewed, the design is powered for a moderate effect and not a subtle one; the detectable effect size is computed and published before the run.</p>
+<h2 class="anchored" data-anchor-id="hypothesis">2. Hypothesis</h2>
+<p>Among meta-research articles, those concluding that the practice studied is inadequate accrue more citations than those concluding it is adequate, adjusted for age, journal and topic.</p>
+<p><strong>Primary null.</strong> The incidence rate ratio for conclusion direction is 1.</p>
+<p><strong>What would falsify it.</strong> An interval containing 1.</p>
 </section>
-<section id="unit-of-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="unit-of-analysis">Unit of analysis</h2>
-<p>One meta-research article. All 1830 corpus records are eligible. OpenAlex matched 50 of 50 sampled PMIDs in a single call, so coverage is effectively complete and the whole corpus resolves in about 37 calls.</p>
-<p>Articles published in 2025 and 2026 are retained but age is modeled rather than trimmed, since excluding recent work would drop 76 percent of the corpus.</p>
+<section id="design" class="level2">
+<h2 class="anchored" data-anchor-id="design">3. Design</h2>
+<p>Cross-sectional study of published articles with a count outcome.</p>
 </section>
-<section id="the-hard-part-stated-plainly" class="level2">
-<h2 class="anchored" data-anchor-id="the-hard-part-stated-plainly">The hard part, stated plainly</h2>
-<p>The exposure is the direction of the article’s conclusion, and no rule extracts it from an abstract. This is the one proposal of the three whose exposure requires a model to read text, and that is a methodological liability rather than a convenience.</p>
-<p>The design therefore treats classification as a measurement instrument that must be validated before it is used:</p>
+<section id="sample" class="level2">
+<h2 class="anchored" data-anchor-id="sample">4. Sample</h2>
+<p>The tier A corpus, all 1805 records carrying a PMID. 1790 resolve in OpenAlex.</p>
+<p>Articles from 2025 and 2026 are retained and age is modeled, not trimmed; excluding recent work would drop 76 percent of the corpus.</p>
+</section>
+<section id="outcome" class="level2">
+<h2 class="anchored" data-anchor-id="outcome">5. Outcome</h2>
+<p><code>cited_by_count</code> from OpenAlex, retrieved on 2026-09-16 and frozen at <code>data/lit/openalex-records.jsonl</code>. The date matters: citation counts move, and an analysis run against a live API is not reproducible.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>quantity</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>median citations</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td>mean citations</td>
+<td>36.29</td>
+</tr>
+<tr class="odd">
+<td>90th percentile</td>
+<td>75</td>
+</tr>
+<tr class="even">
+<td>maximum</td>
+<td>2937</td>
+</tr>
+<tr class="odd">
+<td>articles with zero citations</td>
+<td>284</td>
+</tr>
+</tbody>
+</table>
+<p>The distribution is heavily skewed, mean 36.29 against median 8, which is why the model is negative binomial and why a quantile regression on the upper deciles is fitted alongside. The incentive argument lives in the tail and a mean effect would not find it.</p>
+<p>284 articles have zero citations. They are retained; a zero is informative about a paper nobody used and dropping them would condition on the outcome.</p>
+</section>
+<section id="exposure-and-the-gate" class="level2">
+<h2 class="anchored" data-anchor-id="exposure-and-the-gate">6. Exposure, and the gate</h2>
+<p>The exposure is the direction of the article’s own conclusion, and no rule extracts it from an abstract. This is the one study of the set whose exposure needs a model to read text, and that is a liability rather than a convenience.</p>
+<p>Classification is therefore treated as an instrument that must be validated before it is used:</p>
 <ol type="1">
-<li>A stratified random sample of 300 abstracts is classified by hand, by the author, into inadequate, adequate, mixed or not applicable. This is the reference standard.</li>
-<li>Two models from different providers classify the same 300, blind to the hand labels and to each other.</li>
-<li>Agreement is reported as Cohen’s kappa against the reference standard and between the models. <strong>If neither model reaches kappa 0.7 against the hand labels, the study stops and the negative methodological result is published.</strong> That outcome is a finding about whether language models can read a conclusion direction, and it is worth publishing.</li>
-<li>Only if the threshold is met does classification extend to the remaining records, with the measured misclassification rate carried into a sensitivity analysis.</li>
+<li>A stratified random sample of <strong>300 abstracts is classified by the author</strong> into inadequate, adequate, mixed, or not applicable. This is the reference standard. A model does not produce it, for the reason R01 already demonstrated: a model checking a rule another model wrote found a real defect and still left agreement with a person unknown.</li>
+<li>Two models from different providers classify the same 300, blind to the author’s labels and to each other.</li>
+<li>Agreement is reported as Cohen’s kappa against the reference standard and between models.</li>
+<li><strong>If neither model reaches kappa 0.70 against the author’s labels, the study stops and the negative methodological result is published.</strong> Whether a language model can read the direction of a scientific conclusion is itself worth knowing.</li>
+<li>Only above the threshold does classification extend to the rest, with the measured misclassification rate carried into a sensitivity analysis.</li>
 </ol>
-<p>The stopping rule is written here, before any classification has been run, because a threshold chosen after seeing the agreement is not a threshold.</p>
+<p>The threshold is written here, before any classification has been run. A threshold chosen after seeing the agreement is not a threshold.</p>
 </section>
 <section id="analysis" class="level2">
-<h2 class="anchored" data-anchor-id="analysis">Analysis</h2>
-<p>In R. Negative binomial regression of citation count on conclusion direction.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glm.nb</span>(cited_by_count <span class="sc">~</span> direction <span class="sc">+</span> <span class="fu">poly</span>(years_since_pub, <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>         topic_block <span class="sc">+</span> (journal), <span class="at">data =</span> d)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Age enters as a quadratic rather than an offset because citation accrual is not linear in time and the corpus spans 1965 to 2026. A quantile regression on the upper citation deciles is fitted alongside, since a mean effect and a tail effect answer different questions and the incentive argument lives in the tail.</p>
+<h2 class="anchored" data-anchor-id="analysis">7. Analysis</h2>
+<p>In R.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glm.nb</span>(cited_by_count <span class="sc">~</span> direction <span class="sc">+</span> <span class="fu">poly</span>(years_since_pub, <span class="dv">2</span>) <span class="sc">+</span> topic_block <span class="sc">+</span> journal_size,</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">data =</span> d)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Age enters as a quadratic because citation accrual is not linear in time and the corpus spans 1965 to 2026. Preregistered alongside: quantile regression at the 75th and 90th percentiles, and the same model with <code>direction</code> as measured by each classifier separately, so that a result that depends on which model read the abstracts is visible as such.</p>
 </section>
-<section id="novelty" class="level2">
-<h2 class="anchored" data-anchor-id="novelty">Novelty</h2>
-<p>Predictors of citation rates have been reviewed (PMID 41265666) and citation bias is an established topic. What is absent is the direction of a study’s own conclusion as the exposure, inside meta-research, where the conclusion direction is a property of the field’s product rather than of a clinical result.</p>
+<section id="threats-and-what-happened-to-each" class="level2">
+<h2 class="anchored" data-anchor-id="threats-and-what-happened-to-each">8. Threats, and what happened to each</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>threat</th>
+<th>what was done</th>
+<th>removed or disclosed</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Reverse causation</td>
+<td>Not addressable in this design. A widely cited article may attract a negative framing rather than the other way round</td>
+<td>Disclosed</td>
+</tr>
+<tr class="even">
+<td>Topic confounds direction</td>
+<td>Some topics almost never produce an adequate verdict, so adjusting for topic may absorb the effect. Reported adjusted and unadjusted, with the difference discussed rather than resolved</td>
+<td>Disclosed</td>
+</tr>
+<tr class="odd">
+<td>Classifier error</td>
+<td>Gated on kappa against the author’s labels, with a stated stop</td>
+<td>Disclosed</td>
+</tr>
+<tr class="even">
+<td>Citation counts move</td>
+<td>Frozen at a dated snapshot in the repository</td>
+<td>Removed</td>
+</tr>
+<tr class="odd">
+<td>Self-citation and field size</td>
+<td>Not in the primary model; OpenAlex exposes the data and it is a stated secondary</td>
+<td>Disclosed</td>
+</tr>
+<tr class="even">
+<td>Zero-citation articles</td>
+<td>Retained; dropping them conditions on the outcome</td>
+<td>Removed</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="what-it-costs" class="level2">
-<h2 class="anchored" data-anchor-id="what-it-costs">What it costs</h2>
-<p>37 OpenAlex calls, free and unauthenticated. Hand classification of 300 abstracts is the real cost and it falls on the author, not on a model. Two model classification passes.</p>
+<section id="probes" class="level2">
+<h2 class="anchored" data-anchor-id="probes">9. Probes</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>probe</th>
+<th>computes</th>
+<th>goes to</th>
+<th>what would change the design</th>
+<th>status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>PA</strong></td>
+<td>OpenAlex match rate and citation distribution</td>
+<td>4, 5</td>
+<td>a match rate below about 90 percent makes the sample unrepresentative</td>
+<td>done</td>
+</tr>
+<tr class="even">
+<td><strong>PB</strong></td>
+<td>classifier agreement against 300 author labels</td>
+<td>6</td>
+<td>below kappa 0.70 stops the study</td>
+<td>outstanding, needs the author</td>
+</tr>
+<tr class="odd">
+<td><strong>PC</strong></td>
+<td>detectable rate ratio from the realized exposure split</td>
+<td>7</td>
+<td>computed once PB returns, because it depends on how many articles fall in each direction</td>
+<td>outstanding, depends on PB</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="known-threats-to-the-result" class="level2">
-<h2 class="anchored" data-anchor-id="known-threats-to-the-result">Known threats to the result</h2>
+<section id="deviations" class="level2">
+<h2 class="anchored" data-anchor-id="deviations">10. Deviations</h2>
+<p>Recorded on the result page: what changed, when, why, and the estimate before and after.</p>
+</section>
+<section id="what-this-cannot-show" class="level2">
+<h2 class="anchored" data-anchor-id="what-this-cannot-show">11. What this cannot show</h2>
 <ul>
-<li><strong>Reverse causation is not addressable here.</strong> A widely cited article may attract a negative framing in the abstract rather than the other way round.</li>
-<li><strong>Topic confounds direction.</strong> Some topics almost never produce an adequate verdict, so adjustment for topic block may absorb the effect being measured. Reported both adjusted and unadjusted, with the difference discussed rather than resolved.</li>
-<li><strong>Self-citation and field size.</strong> Not adjusted for in the primary model. OpenAlex exposes the data to do it and it is a stated secondary analysis.</li>
+<li>It cannot show that negative findings are rewarded, only that they are cited more.</li>
+<li>It cannot separate the effect of the finding from the effect of the topic that produced it.</li>
+<li>OpenAlex citation counts include self-citations and citations from any source it indexes, which is broader than PubMed and not identical to it.</li>
 </ul>
 
 

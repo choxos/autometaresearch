@@ -1,18 +1,23 @@
 [
   {
-    "listing": "/results.html",
-    "items": [
-      "/results/R01-advocacy-and-practice.html"
-    ]
-  },
-  {
     "listing": "/agenda.html",
     "items": [
       "/proposals/P01-advocacy-and-practice.html",
       "/proposals/P01v2-advocacy-and-practice-protocol.html",
       "/proposals/P02-citing-retracted-work.html",
       "/proposals/P03-bad-news-citation.html",
-      "/proposals/P04-observational-about-itself.html"
+      "/proposals/P04-observational-about-itself.html",
+      "/proposals/P05-does-the-link-resolve.html",
+      "/proposals/P06-preprint-conclusion-drift.html",
+      "/proposals/P07-do-two-studies-agree.html",
+      "/proposals/P08-guidelines-it-audits-by.html",
+      "/proposals/P09-does-meta-research-change-practice.html"
+    ]
+  },
+  {
+    "listing": "/results.html",
+    "items": [
+      "/results/R01-advocacy-and-practice.html"
     ]
   }
 ]

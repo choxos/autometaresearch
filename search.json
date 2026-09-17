@@ -63,67 +63,578 @@
     "text": "Reproducing\npython3 studies/P01-advocacy-and-practice/extract.py   # PMC full text -&gt; statements.csv\nRscript studies/P01-advocacy-and-practice/R/analyze.R  # grading, models, sensitivity\nThe extractor caches PMC responses by batch content. data/statements.csv is tracked, so the analysis reruns without touching NCBI."
   },
   {
-    "objectID": "proposals/P03-bad-news-citation.html",
-    "href": "proposals/P03-bad-news-citation.html",
-    "title": "Is bad news cited more?",
+    "objectID": "proposals/P08-guidelines-it-audits-by.html",
+    "href": "proposals/P08-guidelines-it-audits-by.html",
+    "title": "Do meta-research studies follow the guidelines they audit others by?",
     "section": "",
-    "text": "Proposed by Claude Opus 5 on 2026-09-16. Not yet reviewed. This page is a protocol and no analysis has been run."
+    "text": "ImportantStatus: design. Frame counted. The scoring instrument is the obstacle. Not a protocol.\n\n\n\nThe frame is large: 630 tier A records and 685 frame records declare a cross-sectional or methodological design, of which 67 and 197 respectively name a reporting guideline.\nWhat blocks this from being a protocol is not data but measurement: scoring adherence to STROBE means reading 22 items per article, and no validated automatic scorer exists. Section 5 is honest that this is the most expensive study of the set per unit of evidence."
   },
   {
-    "objectID": "proposals/P03-bad-news-citation.html#the-question",
-    "href": "proposals/P03-bad-news-citation.html#the-question",
-    "title": "Is bad news cited more?",
+    "objectID": "proposals/P08-guidelines-it-audits-by.html#the-question",
+    "href": "proposals/P08-guidelines-it-audits-by.html#the-question",
+    "title": "Do meta-research studies follow the guidelines they audit others by?",
+    "section": "1. The question",
+    "text": "1. The question\nMeta-research grades other people’s papers against reporting checklists. Most meta-research is itself a cross-sectional study of a sample of articles, and cross-sectional studies have a checklist: STROBE. A field that measures adherence and does not meet it is making an argument against its own instrument."
+  },
+  {
+    "objectID": "proposals/P08-guidelines-it-audits-by.html#hypothesis",
+    "href": "proposals/P08-guidelines-it-audits-by.html#hypothesis",
+    "title": "Do meta-research studies follow the guidelines they audit others by?",
+    "section": "2. Hypothesis",
+    "text": "2. Hypothesis\nMeta-research articles that themselves assess guideline adherence report their own methods more completely than meta-research articles that do not.\nThe hypothesis is deliberately internal rather than a comparison against non-meta-research, because a comparison across fields would confound topic with venue with design. This is the same structure as P01v2, and the same criticism applies to it.\nPrimary null. Adherence does not differ by whether the article’s own subject is reporting quality.\nWhat would falsify it. No difference, or worse adherence among the auditors."
+  },
+  {
+    "objectID": "proposals/P08-guidelines-it-audits-by.html#sample",
+    "href": "proposals/P08-guidelines-it-audits-by.html#sample",
+    "title": "Do meta-research studies follow the guidelines they audit others by?",
+    "section": "3. Sample",
+    "text": "3. Sample\nArticles from the tier A corpus and the tier B frame whose design is cross-sectional or methodological, with PMC full text.\n\n\n\nframe\ndeclaring such a design\nnaming a reporting guideline\n\n\n\n\ntier A\n630\n67\n\n\ntier B frame\n685\n197\n\n\n\nDesign is determined from the full text methods section, not from the abstract regex used for this count. The regex is a frame estimate and is labeled as one."
+  },
+  {
+    "objectID": "proposals/P08-guidelines-it-audits-by.html#exposure",
+    "href": "proposals/P08-guidelines-it-audits-by.html#exposure",
+    "title": "Do meta-research studies follow the guidelines they audit others by?",
+    "section": "4. Exposure",
+    "text": "4. Exposure\nWhether the article’s own subject is reporting quality, from the report topic label."
+  },
+  {
+    "objectID": "proposals/P08-guidelines-it-audits-by.html#outcome-and-why-this-is-expensive",
+    "href": "proposals/P08-guidelines-it-audits-by.html#outcome-and-why-this-is-expensive",
+    "title": "Do meta-research studies follow the guidelines they audit others by?",
+    "section": "5. Outcome, and why this is expensive",
+    "text": "5. Outcome, and why this is expensive\nA STROBE-based adherence score over the items that apply to a study of documents rather than of people. Not all 22 items apply; the applicable subset is fixed in advance and published with the protocol, because choosing which items apply after scoring is how an adherence study manufactures its own result.\nScoring requires reading. The realistic options are:\n\nThe author scores a random sample of 150 articles. Precise, and the ceiling on sample size.\nModels score all of them after being validated against the author’s 150, gated at kappa 0.70 per item group, with items that fail the gate dropped and reported as dropped.\n\nOption 2 is the design, with option 1 as its reference standard, and neither can start until the author’s 150 exist."
+  },
+  {
+    "objectID": "proposals/P08-guidelines-it-audits-by.html#analysis",
+    "href": "proposals/P08-guidelines-it-audits-by.html#analysis",
+    "title": "Do meta-research studies follow the guidelines they audit others by?",
+    "section": "6. Analysis",
+    "text": "6. Analysis\nIn R. Linear regression of the adherence proportion on the exposure, adjusted for year and with journal as a random intercept; and a per-item logistic model so that a difference driven by one item is visible rather than averaged away."
+  },
+  {
+    "objectID": "proposals/P08-guidelines-it-audits-by.html#threats-and-what-happened-to-each",
+    "href": "proposals/P08-guidelines-it-audits-by.html#threats-and-what-happened-to-each",
+    "title": "Do meta-research studies follow the guidelines they audit others by?",
+    "section": "7. Threats, and what happened to each",
+    "text": "7. Threats, and what happened to each\n\n\n\n\n\n\n\n\nthreat\nwhat was done\nremoved or disclosed\n\n\n\n\nWhich STROBE items apply is a choice\nFixed and published before scoring\nRemoved\n\n\nScoring by model\nGated against the author’s labels per item group; failing items dropped and reported\nDisclosed\n\n\nDesign determined by regex\nOnly for the frame count; the analysis reads the methods section\nRemoved\n\n\nSTROBE was not written for studies of documents\nTrue, and the item subset is an interpretation the protocol publishes so it can be disagreed with\nDisclosed\n\n\nReporting completeness is not study quality\nStated; the outcome is what is written, never whether it was done\nDisclosed\n\n\nSame structural criticism as P01v2\nThe exposure is a vocabulary label and the comparison is internal\nDisclosed"
+  },
+  {
+    "objectID": "proposals/P08-guidelines-it-audits-by.html#probes",
+    "href": "proposals/P08-guidelines-it-audits-by.html#probes",
+    "title": "Do meta-research studies follow the guidelines they audit others by?",
+    "section": "8. Probes",
+    "text": "8. Probes\n\n\n\n\n\n\n\n\n\n\nprobe\ncomputes\ngoes to\nwhat would change the design\nstatus\n\n\n\n\nPA\nframe size by declared design\n3\nfewer than about 300 eligible articles makes per-item analysis unusable\ndone: 630 and 685\n\n\nPB\nhow many have a methods section PMC structures well enough to score\n3, 5\npoor structure makes automatic scoring impossible and forces option 1\noutstanding\n\n\nPC\nthe applicable STROBE item subset, fixed by the author\n5\nthis is a design decision, not a measurement\noutstanding, needs the author\n\n\nPD\nper-item scorer agreement against 150 author-scored articles\n5\nitems below kappa 0.70 are dropped\noutstanding, needs the author"
+  },
+  {
+    "objectID": "proposals/P08-guidelines-it-audits-by.html#deviations",
+    "href": "proposals/P08-guidelines-it-audits-by.html#deviations",
+    "title": "Do meta-research studies follow the guidelines they audit others by?",
+    "section": "Deviations",
+    "text": "Deviations\nRecorded on the result page: what changed, when, why, and the estimate before and after where that can be computed. A deviation is not a failure; concealing one is."
+  },
+  {
+    "objectID": "proposals/P08-guidelines-it-audits-by.html#what-this-cannot-show",
+    "href": "proposals/P08-guidelines-it-audits-by.html#what-this-cannot-show",
+    "title": "Do meta-research studies follow the guidelines they audit others by?",
+    "section": "What this cannot show",
+    "text": "What this cannot show\n\nReporting completeness is not methodological quality and the study never claims it is.\nA well-reported study can be wrong, and a badly reported one right."
+  },
+  {
+    "objectID": "proposals/P06-preprint-conclusion-drift.html",
+    "href": "proposals/P06-preprint-conclusion-drift.html",
+    "title": "Do meta-research conclusions soften between preprint and journal?",
+    "section": "",
+    "text": "ImportantStatus: reduced protocol, by the decision rule this document wrote before the number was known.\n\n\n\nBoth linkage probes have run. 66 of 1790 tier A records and 75 of 7572 frame records have a preprint version: 141 pairs, a rate of 3.7 and 1.0 percent respectively.\nSection 4 stated, before either number was known, that 200 or more pairs makes this a full protocol, 80 to 200 makes it a reduced one with a single binary outcome and no subgroup analyses, and under 80 makes it an agenda item. 141 falls in the middle band, so the reduced form is what this document now specifies. The rule is applied as written rather than renegotiated, which is the only thing that made writing it in advance worth doing.\nRestricting to biomedical preprint servers, excluding arXiv and SSRN, leaves 108 pairs, which is still inside the 80 to 200 band. The biomedical restriction is therefore the primary analysis, not a subgroup, because this project is about biomedical meta-research and a result carried by arXiv preprints would not be about that.\nA first draft of this section asserted that 108 was “below the 80 the rule requires” and used that to justify keeping arXiv in the primary analysis. 108 is not below 80. The claim contradicted the number printed two sentences above it, and it is recorded here rather than silently corrected because it is the third time in this project that a sentence reasoning about a computed value came out backwards."
+  },
+  {
+    "objectID": "proposals/P06-preprint-conclusion-drift.html#the-question",
+    "href": "proposals/P06-preprint-conclusion-drift.html#the-question",
+    "title": "Do meta-research conclusions soften between preprint and journal?",
+    "section": "1. The question",
+    "text": "1. The question\nMeta-research criticizes the literature, and peer reviewers are drawn from the literature being criticized. If review systematically blunts that criticism, the published record understates what the field found, and the preprint is the only place the original claim survives.\nThis is measurable because meta-research increasingly appears as a preprint first, and both versions persist."
+  },
+  {
+    "objectID": "proposals/P06-preprint-conclusion-drift.html#hypothesis",
+    "href": "proposals/P06-preprint-conclusion-drift.html#hypothesis",
+    "title": "Do meta-research conclusions soften between preprint and journal?",
+    "section": "2. Hypothesis",
+    "text": "2. Hypothesis\nThe conclusion of a meta-research article is less critical of the practice it studied in the published version than in the preprint.\nPrimary null. Conclusion direction does not change between versions.\nWhat would falsify the hypothesis. No net shift, or a shift toward more criticism. Either is publishable and the second would be the more interesting."
+  },
+  {
+    "objectID": "proposals/P06-preprint-conclusion-drift.html#design",
+    "href": "proposals/P06-preprint-conclusion-drift.html#design",
+    "title": "Do meta-research conclusions soften between preprint and journal?",
+    "section": "3. Design",
+    "text": "3. Design\nPaired before-and-after comparison within article. Each article is its own control, which removes the between-article confounding that every other design here has to manage."
+  },
+  {
+    "objectID": "proposals/P06-preprint-conclusion-drift.html#sample",
+    "href": "proposals/P06-preprint-conclusion-drift.html#sample",
+    "title": "Do meta-research conclusions soften between preprint and journal?",
+    "section": "4. Sample",
+    "text": "4. Sample\nMeta-research articles with both a preprint and a published version, identified from OpenAlex locations where a source is a named preprint server.\n\n\n\nframe\nresolved in OpenAlex\nwith a preprint\nrate\n\n\n\n\ntier A\n1790\n66\n3.7 percent\n\n\ntier B frame\n7572\n75\n1.0 percent\n\n\ncombined\n\n141\n\n\n\n\nServers, tier A: [['osf preprints (osf preprints)', 31], ['arxiv (cornell university)', 24], ['medrxiv', 4], ['research square', 3], ['biorxiv (cold spring harbor laboratory)', 3], ['metarxiv (osf preprints)', 2], ['psyarxiv (osf preprints)', 1], ['zenodo (cern european organization for nuclear research)', 1]]\nServers, frame: [['osf preprints (osf preprints)', 19], ['zenodo (cern european organization for nuclear research)', 17], ['medrxiv', 16], ['arxiv (cornell university)', 10], ['research square', 6], ['biorxiv (cold spring harbor laboratory)', 5], ['ssrn electronic journal', 3]]\narXiv and SSRN contribute 33 of the 141 pairs and are mostly science-of-science rather than biomedical meta-research. Excluding them leaves 108, still within the 80 to 200 band, so the primary analysis is restricted to biomedical preprint servers and the full 141 pairs are reported as a preregistered secondary. Neither is a subgroup fished for after the fact: both counts were known before either analysis was specified, and both are published.\n\nThe decision rule, written before either probe returned\n\n200 or more pairs: full protocol, five-point ordinal outcome, subgroup analyses.\n80 to 200: reduced protocol, single binary outcome, no subgroups.\nBelow 80: agenda item, like P04.\n\nObserved: 141. The reduced form applies."
+  },
+  {
+    "objectID": "proposals/P06-preprint-conclusion-drift.html#exposure-and-outcome",
+    "href": "proposals/P06-preprint-conclusion-drift.html#exposure-and-outcome",
+    "title": "Do meta-research conclusions soften between preprint and journal?",
+    "section": "5. Exposure and outcome",
+    "text": "5. Exposure and outcome\nThere is no exposure; the contrast is version. The outcome is the direction and strength of the concluding claim, extracted from the abstract conclusion and the discussion of each version and scored on a five-point scale from strongly critical to endorsing.\nScoring is by the same gated procedure as P03: the author labels a reference sample, two models label it blind, and the study does not proceed unless a model reaches kappa 0.70 against the author.\nThe scorer must be blind to version. The two texts are presented in random order with dates, venue and version labels stripped, because a scorer who knows which text is the preprint knows which direction the hypothesis predicts."
+  },
+  {
+    "objectID": "proposals/P06-preprint-conclusion-drift.html#analysis-in-the-reduced-form",
+    "href": "proposals/P06-preprint-conclusion-drift.html#analysis-in-the-reduced-form",
+    "title": "Do meta-research conclusions soften between preprint and journal?",
+    "section": "6. Analysis, in the reduced form",
+    "text": "6. Analysis, in the reduced form\nThe five-point ordinal outcome is not used. At 141 pairs it would spread the sample across five levels and two directions. The outcome is binary: did the concluding claim become less critical, yes or no, with unchanged pairs retained as “no”.\n# McNemar on the paired binary shift. No covariates, no subgroups: at this sample\n# size every added term is a term the data cannot support.\nmcnemar.test(table(d$preprint_critical, d$published_critical))\nReported alongside: the raw 2x2 table, an exact binomial test on the discordant pairs, and the count of pairs by preprint server so a reader can see the arXiv concentration for themselves.\nHad the probes returned 200 or more pairs, section 6 would have specified clmm(score ~ version + (1 | article)) on the ordinal score. It did not, so it does not."
+  },
+  {
+    "objectID": "proposals/P06-preprint-conclusion-drift.html#threats-and-what-happened-to-each",
+    "href": "proposals/P06-preprint-conclusion-drift.html#threats-and-what-happened-to-each",
+    "title": "Do meta-research conclusions soften between preprint and journal?",
+    "section": "7. Threats, and what happened to each",
+    "text": "7. Threats, and what happened to each\n\n\n\n\n\n\n\n\nthreat\nwhat was done\nremoved or disclosed\n\n\n\n\nScorer knows which version is which\nVersion-blinded presentation, randomized order, stripped metadata\nRemoved\n\n\nBetween-article confounding\nPaired design; each article is its own control\nRemoved\n\n\nArticles that post preprints are unusual\nThey are, and the result generalizes only to them\nDisclosed\n\n\nPeer review is not the only difference\nAuthors revise for many reasons; the design attributes nothing to review specifically\nDisclosed\n\n\nPreprint linkage via OpenAlex is incomplete\nMeasured, not assumed: 3.7 percent in tier A. A missed pair is a missing observation, not a biased one, unless linkage failure correlates with revision\nDisclosed\n\n\narXiv dominates the tier A pairs\nWould make the result about science-of-science rather than biomedical meta-research; restricted in the primary analysis\nDisclosed"
+  },
+  {
+    "objectID": "proposals/P06-preprint-conclusion-drift.html#probes",
+    "href": "proposals/P06-preprint-conclusion-drift.html#probes",
+    "title": "Do meta-research conclusions soften between preprint and journal?",
+    "section": "8. Probes",
+    "text": "8. Probes\n\n\n\n\n\n\n\n\n\n\nprobe\ncomputes\ngoes to\nwhat would change the design\nstatus\n\n\n\n\nPA\npreprint linkage rate in tier A\n4\nbelow about 100 pairs the tier A frame alone is unusable\ndone: 66 of 1790\n\n\nPB\nthe same for the tier B frame\n4\ndecides protocol, reduced protocol, or agenda item, by the rule in section 4\ndone: 75 of 7572, giving 141 pairs, the reduced form\n\n\nPC\nhow many pairs have both full texts retrievable\n5\na pair whose preprint text cannot be fetched cannot be scored\noutstanding, depends on PB\n\n\nPD\nscorer agreement against the author’s labels\n5\nbelow kappa 0.70 stops the study\noutstanding, needs the author"
+  },
+  {
+    "objectID": "proposals/P06-preprint-conclusion-drift.html#deviations",
+    "href": "proposals/P06-preprint-conclusion-drift.html#deviations",
+    "title": "Do meta-research conclusions soften between preprint and journal?",
+    "section": "Deviations",
+    "text": "Deviations\nRecorded on the result page: what changed, when, why, and the estimate before and after where that can be computed. A deviation is not a failure; concealing one is."
+  },
+  {
+    "objectID": "proposals/P06-preprint-conclusion-drift.html#what-this-cannot-show",
+    "href": "proposals/P06-preprint-conclusion-drift.html#what-this-cannot-show",
+    "title": "Do meta-research conclusions soften between preprint and journal?",
+    "section": "What this cannot show",
+    "text": "What this cannot show\n\nIt cannot attribute a change to peer review rather than to time, new data, or an author’s own second thoughts.\nIt cannot see criticism removed before the preprint was posted, which is the censorship most likely to matter and is invisible to every design."
+  },
+  {
+    "objectID": "proposals/P04-observational-about-itself.html",
+    "href": "proposals/P04-observational-about-itself.html",
+    "title": "The field is observational about itself",
+    "section": "",
+    "text": "This is an agenda item and not a proposal. It states a gap that is measured and real, and then says why the study it implies cannot be run from public data. It is published so that the gap is on the record rather than quietly skipped because it is inconvenient."
+  },
+  {
+    "objectID": "proposals/P04-observational-about-itself.html#the-measurement",
+    "href": "proposals/P04-observational-about-itself.html#the-measurement",
+    "title": "The field is observational about itself",
+    "section": "The measurement",
+    "text": "The measurement\nOf the 1830 articles in the corpus, four carry a publication type of randomized controlled trial, controlled clinical trial or clinical trial:\n\n\n\n\n\n\n\n\nPMID\nyear\narticle\n\n\n\n\n36995753\n2023\nUsing normative language when describing scientific findings: randomized controlled trial\n\n\n35838202\n2022\nSelective outcome reporting in paediatric dentistry restorative treatment randomized clinical trials\n\n\n34118367\n2021\nThe impact of gender on researchers’ assessment: a randomized controlled trial\n\n\n29886846\n2018\nAvoidable waste of research related to outcome planning and reporting in clinical trials\n\n\n\nOf those four, two are experiments on the research process itself: the normative language trial and the gender assessment trial. The other two carry the type because the object they studied was a trial, not because they ran one.\nTwo experiments in 1830 articles. The corpus is 549 meta-epidemiological studies, 680 that examine systematic reviews, and almost no manipulation of anything."
+  },
+  {
+    "objectID": "proposals/P04-observational-about-itself.html#why-this-matters-rather-than-merely-being-true",
+    "href": "proposals/P04-observational-about-itself.html#why-this-matters-rather-than-merely-being-true",
+    "title": "The field is observational about itself",
+    "section": "Why this matters rather than merely being true",
+    "text": "Why this matters rather than merely being true\nMeta-research grades other fields on their evidence hierarchy. It tells clinical researchers that an observational association is weaker than a randomized comparison, and it is right. Its own output is almost entirely observational association.\nSome of that is unavoidable. You cannot randomize whether a paper was preregistered. But the questions the field most wants answered are causal and several of them are randomizable: whether a reporting checklist at submission improves reporting, whether blinding reviewers changes what gets accepted, whether a data availability mandate produces available data or only statements. Each of those is an intervention on a process someone controls."
+  },
+  {
+    "objectID": "proposals/P04-observational-about-itself.html#why-it-cannot-be-run-here",
+    "href": "proposals/P04-observational-about-itself.html#why-it-cannot-be-run-here",
+    "title": "The field is observational about itself",
+    "section": "Why it cannot be run here",
+    "text": "Why it cannot be run here\nEvery such experiment requires randomizing something inside a journal, a funder or an ethics committee: which manuscripts get an intervention, which reviewers see what, which applicants receive which instruction. None of that is reachable from public data, and no amount of harvesting substitutes for the permission.\nThe honest statement is that this project can measure the gap and cannot fill it. Recording that is more useful than inventing an observational proxy and calling it an answer, which is precisely the substitution the field is criticized for elsewhere."
+  },
+  {
+    "objectID": "proposals/P04-observational-about-itself.html#what-would-make-it-runnable",
+    "href": "proposals/P04-observational-about-itself.html#what-would-make-it-runnable",
+    "title": "The field is observational about itself",
+    "section": "What would make it runnable",
+    "text": "What would make it runnable\nA partner willing to randomize one thing: a journal, a preprint server, a funder, or a conference with a submission process. The design is not the obstacle and would be short. The access is the obstacle."
+  },
+  {
+    "objectID": "proposals/P04-observational-about-itself.html#the-one-caveat-on-the-measurement",
+    "href": "proposals/P04-observational-about-itself.html#the-one-caveat-on-the-measurement",
+    "title": "The field is observational about itself",
+    "section": "The one caveat on the measurement",
+    "text": "The one caveat on the measurement\nPublication type is assigned by NLM indexing and an experiment can be missed. 515 of the corpus records carry no MeSH indexing at all, mostly the most recent, and an unindexed experiment would not appear in the count above. The number is a floor, not a point estimate, and the floor is four."
+  },
+  {
+    "objectID": "proposals/P02-citing-retracted-work.html",
+    "href": "proposals/P02-citing-retracted-work.html",
+    "title": "Does meta-research cite retracted work?",
+    "section": "",
+    "text": "ImportantStatus: protocol. Feasibility computed. Screening gate outstanding. Not registered.\n\n\n\nProbes PA to PC ran on 2026-09-16 against full text already cached by P01 and P01v2, so they cost nothing to NCBI. Section 7 is written from studies/P02-citing-retracted/out/probes.json.\nThe screening gate is shared with P01v2: both studies draw their comparison arm from the same frame and neither runs until screening agreement is measured against the author’s labels.\nNo exposure-by-outcome model has been fitted. Awaiting review by two models; the second is quota-blocked until 2026-09-20."
+  },
+  {
+    "objectID": "proposals/P02-citing-retracted-work.html#the-question",
+    "href": "proposals/P02-citing-retracted-work.html#the-question",
+    "title": "Does meta-research cite retracted work?",
+    "section": "1. The question",
+    "text": "1. The question\nCiting a retracted paper as though it still stands is a documented failure of the literature, and meta-research is the field that documents it. Retracted randomized trials have been shown to go on being cited uncorrected in systematic reviews and clinical guidelines (PMID 35779825), and guidelines for low back pain have been shown to cite retracted and predatory work (PMID 40156953).\nNobody has turned that instrument on meta-research itself. A field with domain expertise in this exact failure, failing at the same rate as everyone else, would say something about how far knowing a problem gets you toward avoiding it."
+  },
+  {
+    "objectID": "proposals/P02-citing-retracted-work.html#hypothesis",
+    "href": "proposals/P02-citing-retracted-work.html#hypothesis",
+    "title": "Does meta-research cite retracted work?",
+    "section": "2. Hypothesis",
+    "text": "2. Hypothesis\nMeta-research articles cite retracted work, after retraction, at a lower rate than a matched comparison of articles in the same journals and years.\nPrimary null. The rate ratio is 1.\nWhat would falsify it. A rate ratio at or above 1. The direction is stated because the alternative is the interesting one.\nPrior expectation. Nothing in the corpus estimates this, so the design has no anchor and does not pretend to one."
+  },
+  {
+    "objectID": "proposals/P02-citing-retracted-work.html#design",
+    "href": "proposals/P02-citing-retracted-work.html#design",
+    "title": "Does meta-research cite retracted work?",
+    "section": "3. Design",
+    "text": "3. Design\nCross-sectional study of reference lists. The unit of analysis is one reference; the unit of modeling is one article, with its matchable reference count as the offset."
+  },
+  {
+    "objectID": "proposals/P02-citing-retracted-work.html#sample",
+    "href": "proposals/P02-citing-retracted-work.html#sample",
+    "title": "Does meta-research cite retracted work?",
+    "section": "4. Sample",
+    "text": "4. Sample\nThe same frame as P01v2: the qualified tier B blocks with every tier A PMID removed, screened to meta-research, restricted to PMC full text. Reusing it rather than building a third population means one screening effort, one independence argument, and one set of exclusions.\nExposed arm: screened meta-research articles. Comparison arm: articles from the same journals and years that screening excluded, which is to say articles that are not meta-research. This is a better comparison than a fresh PubMed sample because it is drawn from the same query frame and differs on exactly the axis of interest.\nBoth arms require a reference list in PMC. Probe PA found 4948 of the cached articles carry one."
+  },
+  {
+    "objectID": "proposals/P02-citing-retracted-work.html#measurement",
+    "href": "proposals/P02-citing-retracted-work.html#measurement",
+    "title": "Does meta-research cite retracted work?",
+    "section": "5. Measurement",
+    "text": "5. Measurement\nRetraction Watch is retrieved as an open CSV through Crossref Labs. Probe PB found 60972 distinct DOIs whose RetractionNature is Retraction; expressions of concern and corrections are excluded because they are not retractions and counting them would inflate every arm.\nA cited DOI counts as a citation of retracted work when it appears in OriginalPaperDOI.\n\nThe classification that decides the result\nA reference is only a failure if the retraction preceded the citing article. Every match is classified:\n\n\n\nclass\nmeaning\nprobe count\n\n\n\n\npost-retraction\nthe retraction predates the citing article\n83\n\n\npre-retraction\nthe citing article came first\n107\n\n\nundated\nno usable retraction date\n0\n\n\n\nThe pre-retraction class is the majority. 107 of 190 matches are citations of work that had not yet been retracted, and a study that counted those as failures would report more than twice the true rate. The probe is what establishes that; it was not assumed.\nA third class, an article citing a retracted paper deliberately as an example, is separated by the retract topic label and by the citation context from the surrounding sentence, and every article carrying that label is additionally reported separately."
+  },
+  {
+    "objectID": "proposals/P02-citing-retracted-work.html#outcome",
+    "href": "proposals/P02-citing-retracted-work.html#outcome",
+    "title": "Does meta-research cite retracted work?",
+    "section": "6. Outcome",
+    "text": "6. Outcome\nCount of post-retraction citations per article, with the article’s DOI-matchable reference count as the offset."
+  },
+  {
+    "objectID": "proposals/P02-citing-retracted-work.html#feasibility-computed",
+    "href": "proposals/P02-citing-retracted-work.html#feasibility-computed",
+    "title": "Does meta-research cite retracted work?",
+    "section": "7. Feasibility, computed",
+    "text": "7. Feasibility, computed\nEvery number here is emitted by out/probes.json.\n\n\n\nquantity\nvalue\n\n\n\n\narticles with a reference list in cache\n4948\n\n\ntotal references\n268290\n\n\nreferences carrying a DOI\n222730\n\n\nDOI coverage\n83.0 percent\n\n\nmedian references per article\n46\n\n\ncitations of retracted work, any timing\n190\n\n\narticles citing at least one\n152\n\n\npost-retraction citations\n83\n\n\narticles with at least one post-retraction citation\n70\n\n\n\nDOI coverage is 83.0 percent, not the 62 percent the original one-page proposal estimated from three articles. The earlier figure came from a sample too small to estimate anything and is superseded.\n70 articles carry the outcome. That is enough to fit a count model and not enough to slice finely; the design commits to one primary comparison and no subgroup analyses.\n\nA defect the probe caught\nA first version computed DOI coverage as distinct DOI-like strings per article divided by the reference count and reported 1.41. A rate above 1 is impossible and is the only reason it was noticed: the plain-text fallback regex matches several times inside one reference, so the numerator was not a subset of the denominator. Coverage is now counted per reference."
+  },
+  {
+    "objectID": "proposals/P02-citing-retracted-work.html#analysis",
+    "href": "proposals/P02-citing-retracted-work.html#analysis",
+    "title": "Does meta-research cite retracted work?",
+    "section": "8. Analysis",
+    "text": "8. Analysis\nIn R.\nglm.nb(n_post_retraction ~ arm + year_c + offset(log(n_matchable_refs)), data = d)\nNegative binomial rather than Poisson, with the dispersion parameter reported rather than assumed. Preregistered sensitivity analyses:\n\nExcluding every article carrying the retract topic label from both arms.\nPoisson with robust standard errors, to show the distributional choice is not carrying the result.\nRestricted to articles published from 2015, when Retraction Watch coverage is densest.\nCounting expressions of concern alongside retractions."
+  },
+  {
+    "objectID": "proposals/P02-citing-retracted-work.html#threats-and-what-happened-to-each",
+    "href": "proposals/P02-citing-retracted-work.html#threats-and-what-happened-to-each",
+    "title": "Does meta-research cite retracted work?",
+    "section": "9. Threats, and what happened to each",
+    "text": "9. Threats, and what happened to each\n\n\n\n\n\n\n\n\nthreat\nwhat was done\nremoved or disclosed\n\n\n\n\nPre-retraction citations counted as failures\nClassified by date; the probe shows they are the majority\nRemoved\n\n\nPapers about retraction cite retracted work deliberately\nSeparated by topic label and reported separately\nDisclosed\n\n\nDOI coverage may differ between arms\nMeasured per arm before the model is fitted; the offset is biased if it differs\nDisclosed\n\n\nRetraction Watch is incomplete\nA missing retraction biases both arms toward the null equally\nDisclosed\n\n\nRetraction dates are the database’s, not always the publisher’s\nA late date misclassifies post as pre, in both arms\nDisclosed\n\n\nComparison arm is defined by screening exclusion\nDepends entirely on the screening gate; the study cannot run before it\nDisclosed\n\n\nReference lists in &lt;back&gt; only\nArticles whose references PMC does not structure are absent, not zero\nDisclosed"
+  },
+  {
+    "objectID": "proposals/P02-citing-retracted-work.html#probes",
+    "href": "proposals/P02-citing-retracted-work.html#probes",
+    "title": "Does meta-research cite retracted work?",
+    "section": "10. Probes",
+    "text": "10. Probes\n\n\n\n\n\n\n\n\n\n\nprobe\ncomputes\ngoes to\nwhat would change the design\nstatus\n\n\n\n\nPA\nreference counts and DOI coverage\n7\ncoverage below about 50 percent makes the offset unreliable\ndone\n\n\nPB\nraw Retraction Watch matches\n7\nfewer than about 30 matches makes the study unpowered\ndone\n\n\nPC\nthe post and pre retraction split\n5, 7\na post-retraction count under about 20 ends the study\ndone\n\n\nPD\nDOI coverage separately per arm, after screening\n9\na differential in coverage biases the offset and needs adjustment\noutstanding, needs screening\n\n\nPE\nscreening agreement, shared with P01v2 probe P6\n4\nbelow kappa 0.75 triggers the hand-screening fallback\noutstanding, needs the author"
+  },
+  {
+    "objectID": "proposals/P02-citing-retracted-work.html#deviations",
+    "href": "proposals/P02-citing-retracted-work.html#deviations",
+    "title": "Does meta-research cite retracted work?",
+    "section": "11. Deviations",
+    "text": "11. Deviations\nRecorded in a DEVIATIONS section on the result page: what changed, when, why, and the estimate before and after where computable."
+  },
+  {
+    "objectID": "proposals/P02-citing-retracted-work.html#what-this-cannot-show",
+    "href": "proposals/P02-citing-retracted-work.html#what-this-cannot-show",
+    "title": "Does meta-research cite retracted work?",
+    "section": "12. What this cannot show",
+    "text": "12. What this cannot show\n\nIt is not causal. Meta-research authors may differ from other authors in ways unrelated to their expertise in retraction.\nA citation is not an endorsement. The design counts post-retraction citations and does not read what each one says about the work it cites. A citation flagging a paper as retracted is counted as a failure unless the retract label catches it.\nRetraction Watch is the ground truth and it is not. Coverage is best for recent, English-language, indexed work."
+  },
+  {
+    "objectID": "proposals/P01-advocacy-and-practice.html",
+    "href": "proposals/P01-advocacy-and-practice.html",
+    "title": "Does advocating transparency predict practicing it?",
+    "section": "",
+    "text": "Proposed by Claude Opus 5 on 2026-09-16. This protocol was published before the analysis ran and has not been edited since, apart from this note and the status field.\nThe study has been run. The result is at R01. Neither has been reviewed; review waits for the second reviewer’s quota on 2026-09-20."
+  },
+  {
+    "objectID": "proposals/P01-advocacy-and-practice.html#the-question",
+    "href": "proposals/P01-advocacy-and-practice.html#the-question",
+    "title": "Does advocating transparency predict practicing it?",
     "section": "The question",
-    "text": "The question\nMeta-research reports on how well other research is done, and the answer is usually that it is done badly. If findings of failure are rewarded with citations more than findings that a practice is adequate, the field has an incentive gradient pointing at one conclusion, and that gradient would be invisible in any individual study.\nThis is publication bias asked about the field that studies publication bias, and asked at the citation stage rather than the acceptance stage."
+    "text": "The question\nMeta-research tells other fields to share their data. It is a field defined by holding other research to a standard. The question is whether the papers doing that holding meet the standard themselves, and more precisely whether the ones arguing hardest for it are the ones most likely to meet it."
   },
   {
-    "objectID": "proposals/P03-bad-news-citation.html#hypothesis",
-    "href": "proposals/P03-bad-news-citation.html#hypothesis",
-    "title": "Is bad news cited more?",
+    "objectID": "proposals/P01-advocacy-and-practice.html#hypothesis",
+    "href": "proposals/P01-advocacy-and-practice.html#hypothesis",
+    "title": "Does advocating transparency predict practicing it?",
     "section": "Hypothesis",
-    "text": "Hypothesis\nAmong meta-research articles, those concluding that the practice studied is inadequate accrue more citations than those concluding it is adequate, after adjustment for age, journal and topic.\nWhat would falsify it. An incidence rate ratio whose interval contains 1. Given a corpus of 1830 and citation counts that are highly skewed, the design is powered for a moderate effect and not a subtle one; the detectable effect size is computed and published before the run."
+    "text": "Hypothesis\nA meta-research article whose own subject is data sharing, code sharing or research transparency carries a data availability statement, and a substantive one, more often than a meta-research article on any other subject.\nThe hypothesis is directional and it is the interesting direction. The null is that subject matter has no relationship with practice, which would mean advocacy and behavior are independent inside the one field where they should not be.\nWhat would falsify it. An odds ratio whose confidence interval includes or falls below 1 for the transparency-topic coefficient, with the sample large enough to exclude an effect worth caring about. That result is publishable and would be the more striking of the two."
   },
   {
-    "objectID": "proposals/P03-bad-news-citation.html#unit-of-analysis",
-    "href": "proposals/P03-bad-news-citation.html#unit-of-analysis",
-    "title": "Is bad news cited more?",
+    "objectID": "proposals/P01-advocacy-and-practice.html#unit-of-analysis",
+    "href": "proposals/P01-advocacy-and-practice.html#unit-of-analysis",
+    "title": "Does advocating transparency predict practicing it?",
     "section": "Unit of analysis",
-    "text": "Unit of analysis\nOne meta-research article. All 1830 corpus records are eligible. OpenAlex matched 50 of 50 sampled PMIDs in a single call, so coverage is effectively complete and the whole corpus resolves in about 37 calls.\nArticles published in 2025 and 2026 are retained but age is modeled rather than trimmed, since excluding recent work would drop 76 percent of the corpus."
+    "text": "Unit of analysis\nOne meta-research article. 1088 of the 1830 records in the corpus carry a PMCID and therefore have retrievable full text. The remaining 742 are excluded and the exclusion is reported, because open-access availability is itself correlated with transparency practice and this biases the sample toward the transparent. That bias works against the null and has to be stated as a limitation rather than adjusted away."
   },
   {
-    "objectID": "proposals/P03-bad-news-citation.html#the-hard-part-stated-plainly",
-    "href": "proposals/P03-bad-news-citation.html#the-hard-part-stated-plainly",
-    "title": "Is bad news cited more?",
-    "section": "The hard part, stated plainly",
-    "text": "The hard part, stated plainly\nThe exposure is the direction of the article’s conclusion, and no rule extracts it from an abstract. This is the one proposal of the three whose exposure requires a model to read text, and that is a methodological liability rather than a convenience.\nThe design therefore treats classification as a measurement instrument that must be validated before it is used:\n\nA stratified random sample of 300 abstracts is classified by hand, by the author, into inadequate, adequate, mixed or not applicable. This is the reference standard.\nTwo models from different providers classify the same 300, blind to the hand labels and to each other.\nAgreement is reported as Cohen’s kappa against the reference standard and between the models. If neither model reaches kappa 0.7 against the hand labels, the study stops and the negative methodological result is published. That outcome is a finding about whether language models can read a conclusion direction, and it is worth publishing.\nOnly if the threshold is met does classification extend to the remaining records, with the measured misclassification rate carried into a sensitivity analysis.\n\nThe stopping rule is written here, before any classification has been run, because a threshold chosen after seeing the agreement is not a threshold."
+    "objectID": "proposals/P01-advocacy-and-practice.html#exposure-and-outcome",
+    "href": "proposals/P01-advocacy-and-practice.html#exposure-and-outcome",
+    "title": "Does advocating transparency predict practicing it?",
+    "section": "Exposure and outcome",
+    "text": "Exposure and outcome\nExposure. The datashare topic label already derived for every record in build/lit/describe.py, which matches data sharing, code availability, FAIR and data reuse vocabulary against title, abstract and keywords. 84 records carry it.\nOutcome. Presence and content of a data availability statement in the full text, taken from the JATS &lt;sec sec-type=\"data-availability\"&gt; element. A pilot on three records found the element present in all three, so the extraction is not hypothetical. Statements are then graded on a three-level scale, because “data are available on request” and a repository accession are not the same claim:\n\n\n\n\n\n\n\nlevel\nmeaning\n\n\n\n\nnone\nno statement\n\n\ndeclarative\na statement that shares nothing: on request, within the article, not applicable\n\n\nactionable\na repository name, accession, DOI or URL that resolves\n\n\n\nGrading the middle and top levels is done by rule on the statement text, and a random 100 statements are graded by hand to measure where the rule disagrees. The rule is not adjusted after seeing the outcome."
   },
   {
-    "objectID": "proposals/P03-bad-news-citation.html#analysis",
-    "href": "proposals/P03-bad-news-citation.html#analysis",
-    "title": "Is bad news cited more?",
+    "objectID": "proposals/P01-advocacy-and-practice.html#analysis",
+    "href": "proposals/P01-advocacy-and-practice.html#analysis",
+    "title": "Does advocating transparency predict practicing it?",
     "section": "Analysis",
-    "text": "Analysis\nIn R. Negative binomial regression of citation count on conclusion direction.\nglm.nb(cited_by_count ~ direction + poly(years_since_pub, 2) +\n         topic_block + (journal), data = d)\nAge enters as a quadratic rather than an offset because citation accrual is not linear in time and the corpus spans 1965 to 2026. A quantile regression on the upper citation deciles is fitted alongside, since a mean effect and a tail effect answer different questions and the incentive argument lives in the tail."
+    "text": "Analysis\nIn R. Logistic regression of an actionable statement on the transparency topic label, adjusted for publication year, journal and article type, with journal as a random effect because a journal’s own policy is the dominant driver of whether any statement appears at all and a fixed effect on 400 journals will not estimate.\nglmer(actionable ~ topic_datashare + year_c + pubtype +\n        (1 | journal), family = binomial, data = d)\nAn ordinal model on the three-level outcome is fitted alongside as the preregistered secondary, not as a fallback if the binary result disappoints."
   },
   {
-    "objectID": "proposals/P03-bad-news-citation.html#novelty",
-    "href": "proposals/P03-bad-news-citation.html#novelty",
-    "title": "Is bad news cited more?",
+    "objectID": "proposals/P01-advocacy-and-practice.html#novelty",
+    "href": "proposals/P01-advocacy-and-practice.html#novelty",
+    "title": "Does advocating transparency predict practicing it?",
     "section": "Novelty",
-    "text": "Novelty\nPredictors of citation rates have been reviewed (PMID 41265666) and citation bias is an established topic. What is absent is the direction of a study’s own conclusion as the exposure, inside meta-research, where the conclusion direction is a property of the field’s product rather than of a clinical result."
+    "text": "Novelty\nThis is not a transparency-of-X study with X swapped, and the distinction is the reason the proposal exists. Sofi-Mahmudi and colleagues measured the transparency of COVID-19 research (PMID 37494359) and the FAIRness of its data (PMID 39556553); both estimate a rate in a population. A 2026 study measured data availability statements in dentistry journals (PMID 41955959) and is again a rate.\nThis asks whether one measurable property of a paper predicts another property of the same paper. It has an exposure, an outcome and a direction, and it can come out the other way."
   },
   {
-    "objectID": "proposals/P03-bad-news-citation.html#what-it-costs",
-    "href": "proposals/P03-bad-news-citation.html#what-it-costs",
-    "title": "Is bad news cited more?",
+    "objectID": "proposals/P01-advocacy-and-practice.html#what-it-costs",
+    "href": "proposals/P01-advocacy-and-practice.html#what-it-costs",
+    "title": "Does advocating transparency predict practicing it?",
     "section": "What it costs",
-    "text": "What it costs\n37 OpenAlex calls, free and unauthenticated. Hand classification of 300 abstracts is the real cost and it falls on the author, not on a model. Two model classification passes."
+    "text": "What it costs\n1088 PMC full-text fetches at the NCBI throttle, roughly twelve minutes, cached. The corpus is already harvested. No paid service and no API key."
   },
   {
-    "objectID": "proposals/P03-bad-news-citation.html#known-threats-to-the-result",
-    "href": "proposals/P03-bad-news-citation.html#known-threats-to-the-result",
-    "title": "Is bad news cited more?",
+    "objectID": "proposals/P01-advocacy-and-practice.html#known-threats-to-the-result",
+    "href": "proposals/P01-advocacy-and-practice.html#known-threats-to-the-result",
+    "title": "Does advocating transparency predict practicing it?",
     "section": "Known threats to the result",
-    "text": "Known threats to the result\n\nReverse causation is not addressable here. A widely cited article may attract a negative framing in the abstract rather than the other way round.\nTopic confounds direction. Some topics almost never produce an adequate verdict, so adjustment for topic block may absorb the effect being measured. Reported both adjusted and unadjusted, with the difference discussed rather than resolved.\nSelf-citation and field size. Not adjusted for in the primary model. OpenAlex exposes the data to do it and it is a stated secondary analysis."
+    "text": "Known threats to the result\n\nJournal policy confounds everything. A journal that mandates a statement produces one regardless of the author’s convictions. The random effect absorbs the average journal, not an interaction between journal policy and topic, and the estimate is within-journal only where a journal publishes both kinds of paper.\nThe exposure is a vocabulary match, not a judgment. A paper labelled datashare may mention data sharing once in passing. Misclassification here is non-differential with respect to the outcome and biases toward the null, which weakens a positive finding and strengthens a negative one.\n60 percent PMC coverage is not random. Stated above; not fixable within this design."
+  },
+  {
+    "objectID": "methods.html",
+    "href": "methods.html",
+    "title": "How this was done",
+    "section": "",
+    "text": "This project studies transparency in research. It would be indefensible for the project itself to be opaque, so every query, every count and every scope decision is recorded here, including the ones that went wrong."
+  },
+  {
+    "objectID": "methods.html#databases-and-dates",
+    "href": "methods.html#databases-and-dates",
+    "title": "How this was done",
+    "section": "Databases and dates",
+    "text": "Databases and dates\nPubMed and PMC, through the NCBI E-utilities. PMC is searched as well as PubMed because PMC carries records PubMed does not index: author manuscripts, some non-MEDLINE journals, and deposited preprints. Searches were run on 2026-09-16. No language, date or article-type limit was applied.\nThe harvester is build/lit/search.py. It is the only route by which a record enters the corpus, and it writes a machine-readable log of every query it issued to data/lit/search-log.json."
+  },
+  {
+    "objectID": "methods.html#the-two-tiers",
+    "href": "methods.html#the-two-tiers",
+    "title": "How this was done",
+    "section": "The two tiers",
+    "text": "The two tiers\nThe field can be searched two ways and they retrieve different things.\nTier A is the field naming itself: a paper that describes its own work as meta-research, metascience, research on research, or a meta-epidemiological study. Precision is close to total, because no other kind of paper uses those words about itself.\nTier B is the field by subject matter: reporting quality, data sharing, retraction, registration, peer review, and the rest. Tier B retrieves two populations that no boolean query separates. A search for \"data sharing\" returns surveys of how often trials share data alongside trials that happened to share theirs, and only the first kind is meta-research.\nOnly tier A has been harvested. Tier B has been sized and the counts are published below, but nothing from it is in the corpus. That decision is revisited once the tier A map has been read."
+  },
+  {
+    "objectID": "methods.html#tier-a-the-query",
+    "href": "methods.html#tier-a-the-query",
+    "title": "How this was done",
+    "section": "Tier A: the query",
+    "text": "Tier A: the query\nEach phrase is searched in title, abstract and author keyword fields, and the phrases are combined with OR.\n\"meta-research\"      \"metaresearch\"           \"meta research\"\n\"metascience\"        \"meta-science\"           \"research on research\"\n\"science of science\" \"meta-epidemiological\"   \"meta-epidemiology\"\n\n\n\ndatabase\nhits\nrecords retrieved\n\n\n\n\nPubMed\n1805\n1805\n\n\nPMC\n694\n694\n\n\n\nDeduplicated on PMID, then DOI, then PMCID, then normalized title: 1830 unique records. The overlap is large, as expected; 669 PMC records were already present from PubMed and 25 were new."
+  },
+  {
+    "objectID": "methods.html#tier-b-the-counts-and-why-they-are-not-the-corpus",
+    "href": "methods.html#tier-b-the-counts-and-why-they-are-not-the-corpus",
+    "title": "How this was done",
+    "section": "Tier B: the counts, and why they are not the corpus",
+    "text": "Tier B: the counts, and why they are not the corpus\nMeasured 2026-09-16 in PubMed. The third column is the same block ANDed with a study-of-literature qualifier described below.\n\n\n\n\n\n\n\n\n\nblock\nphrases cover\nraw hits\nqualified\n\n\n\n\nreg\nregistration, outcome switching, publication bias\n189588\n8205\n\n\nbiblio\nauthorship, citation, metrics\n17419\n16265\n\n\nreport\nreporting quality, guideline adherence\n16657\n2395\n\n\ndatashare\ndata and code sharing, FAIR\n15418\n767\n\n\nretract\nretraction, misconduct, integrity\n11128\n637\n\n\nrepro\nreproducibility, replication\n6421\n241\n\n\noa\nopen access, preprints, predatory publishing\n4475\n1050\n\n\npeerrev\npeer review\n2910\n325\n\n\ncoi\nconflicts of interest, funding\n1387\nnot measured\n\n\nwaste\nresearch waste, prioritization\n1061\nnot measured\n\n\nstats\np-hacking, spin, questionable practices\n545\nnot measured\n\n\nequity\nequity and representation\n326\nnot measured\n\n\naitext\ngenerative AI in research writing\n106\nnot measured\n\n\n\n\nThe 189588\nThe reg block first returned 189588 records, five sixths of everything tier B retrieved, from the single phrase \"trial registration\". The obvious explanation was wrong. The phrase was not being broken into words and ANDed by PubMed; it is phrase-indexed, and the quoted form returns fewer records than trial AND registration does. The real cause is that Trial registration is the label of a section in a structured abstract, so every registered trial in PubMed carries the phrase verbatim. It identifies trials that were registered and never studies of registration.\nThe phrase has been removed from the block. build/lit/search.py records why, next to the block it was removed from, so it is not reintroduced by someone who only sees that the block looks thin.\n\"registered report\" was removed for a related reason: the singular returns 5806 records and the plural 192, because the singular also matches any sentence about a report that was registered. Only the plural is kept.\n\n\nThe qualifier\nFor the contaminated blocks, ANDing the topic with a set of phrases that name the object of study separates a study of the literature from a study of patients. A study of data sharing examines published articles; a trial that shared its data examines people.\n\"published articles\"  \"published studies\"    \"published trials\"\n\"journal articles\"    \"publications\"         \"sample of articles\"\n\"cross-sectional study of\"                   \"sample of trials\"\n\"we searched PubMed\"  \"we searched MEDLINE\"  \"we searched Embase\"\n\"research articles\"   \"abstracts of\"         \"meta-epidemiological\"\nIt is effective and it is lossy. A meta-research paper that describes its sample as “we examined 300 trials” carries none of these phrases and would be lost. Both numbers are therefore recorded, so any qualified corpus is reported against the raw count it was drawn from rather than presented as the whole field."
+  },
+  {
+    "objectID": "methods.html#retrieval-limits-and-why-nothing-was-silently-truncated",
+    "href": "methods.html#retrieval-limits-and-why-nothing-was-silently-truncated",
+    "title": "How this was done",
+    "section": "Retrieval limits, and why nothing was silently truncated",
+    "text": "Retrieval limits, and why nothing was silently truncated\nNCBI returns at most 9999 identifiers for one query. The sibling project this harvester is adapted from partitions an oversized query by year and then by month and stops there, so a single month above the ceiling truncates without saying so. Meta-research blocks are large and concentrated in recent years, which is where that would happen.\nThe partitioner here bisects the publication-date range recursively until every part is under the ceiling. When even a single day exceeds it, the day is recorded in gaps in the search log and printed as TRUNCATED, rather than passed off as complete. The tier A harvest needed no partitioning: both queries were under the ceiling."
+  },
+  {
+    "objectID": "methods.html#labelling",
+    "href": "methods.html#labelling",
+    "title": "How this was done",
+    "section": "Labelling",
+    "text": "Labelling\nTopic labels are assigned in build/lit/describe.py by matching the tier B phrase vocabulary against each record’s title, abstract and author keywords. Matching is case-insensitive, treats a hyphen and a space as equivalent, as PubMed does, and requires whole-token boundaries so that spin does not match spinal.\nTwo vocabularies are involved and conflating them caused the one error this project has so far published. The search vocabulary is tuned for precision against all of PubMed, where a phrase as broad as \"peer review\" retrieves every paper that mentions having been peer reviewed. The labelling vocabulary applies inside a corpus that is already meta-research, where that same narrowness only hides topics: the search phrases labelled peer review on 11 records while 159 of them mention it, and generative AI on 1 while 66 mention a language model. A conclusion drawn from those counts, that the field does not study its own quality control, was published on the landscape page and was false.\nBroad labelling phrases now live in LABEL_EXTRA in build/lit/describe.py, applied only to records already retrieved and never to a query. The corrected counts are on the landscape, which also states what the earlier version claimed.\nA label means the record uses a topic’s vocabulary. It does not mean a human, or a model, judged the record to be about that topic. No model has read any record in this corpus. Records can carry several labels; 1819 of 1830 carry at least one and 11 carry none."
+  },
+  {
+    "objectID": "methods.html#what-this-corpus-is-not",
+    "href": "methods.html#what-this-corpus-is-not",
+    "title": "How this was done",
+    "section": "What this corpus is not",
+    "text": "What this corpus is not\n\nIt is not the meta-research literature. It is the part of it that names itself. Work published before roughly 2015, when the vocabulary settled, largely does not appear even when it is unmistakably meta-research by subject.\nIt is not screened. Every record retrieved by the tier A query is in, including editorials, comments and letters. Publication types are reported on the landscape page so a reader can see how much of the corpus that is.\nIt carries no preprints beyond what PMC deposits. Europe PMC indexes preprint servers under a source PubMed has no equivalent for. Adding that supplement is a known gap, not an oversight.\nNothing here has been peer reviewed yet. The review process is described in the pipeline and has not run."
+  },
+  {
+    "objectID": "methods.html#reproducing-it",
+    "href": "methods.html#reproducing-it",
+    "title": "How this was done",
+    "section": "Reproducing it",
+    "text": "Reproducing it\npython3 build/lit/search.py --check          # assert the parser still works\npython3 build/lit/search.py --counts         # size every block, download nothing\npython3 build/lit/search.py --tier A         # harvest, resumable, cached\npython3 build/lit/describe.py                # derive the map\npython3 build/render_site.py                 # write landscape.qmd and corpus.qmd\nquarto render                                # -&gt; docs/\ndata/lit/records.jsonl is tracked, so the corpus can be re-described without re-harvesting. The XML cache is not tracked; it is 101 MB and re-fetchable."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Automated meta-research",
+    "section": "",
+    "text": "Meta-research is the study of research itself: how transparently it is reported, whether its data can be found and reused, whether its results survive replication, what happens to it when it is retracted. This project asks whether that work can be done end to end by language models, under conditions strict enough that the result is worth reading.\nNothing is hidden. The search that found the literature, the map derived from it, the studies proposed against that map, the code that runs them, the reviews written by independent models, and the disagreements between those reviews are all published here, in the order they happened."
+  },
+  {
+    "objectID": "index.html#where-this-currently-stands",
+    "href": "index.html#where-this-currently-stands",
+    "title": "Automated meta-research",
+    "section": "Where this currently stands",
+    "text": "Where this currently stands\nThe literature has been harvested and described, four studies have been proposed against the map, and the first has been run. Nothing has been reviewed.\n\n\n\nstage\nstate\n\n\n\n\nSearch the literature\ndone, tier A only. 1830 records\n\n\nMap what the field studies\ndone. The landscape\n\n\nPropose studies against the gaps\ndone. Four protocols, three runnable\n\n\nIndependent review by two models\nwaiting. One reviewer is quota-blocked until 2026-09-20\n\n\nRun them in R\none of three. R01\n\n\nPublish results with the reviews\nresults published, reviews pending\n\n\n\nThe review row sits above the run row on purpose. A protocol is published and reviewed before the analysis is run, not after, so that the reviewers see a design rather than a finding."
+  },
+  {
+    "objectID": "index.html#the-pipeline",
+    "href": "index.html#the-pipeline",
+    "title": "Automated meta-research",
+    "section": "The pipeline",
+    "text": "The pipeline\n1. Search. PubMed and PMC, through a harvester that logs every query it issues and cannot truncate a result set without saying so. The protocol, including the queries that turned out to be wrong and why, is in how this was done.\n2. Map. Every record is labelled by vocabulary match against a topic list, and the counts are derived by a script rather than read by a model. This is deliberately the dumbest possible method: a claim on the landscape can be checked by rerunning one file.\n3. Propose. Studies are proposed against the map, and a proposal has to say what is already known, which records establish it, and what specifically would be new. A proposal that cannot name the work it would extend does not get written up.\n4. Run. Analyses are written and executed in R. Each study carries its data, its code and its output in the repository, so a reader can rerun it rather than trust it.\n5. Review. Each study is reviewed independently by models from different providers, given the study and instructed to refute it. Reviews are published whole, including the ones that find nothing and the ones that disagree with each other. Where reviewers disagree, the disagreement is shown rather than resolved silently."
+  },
+  {
+    "objectID": "index.html#what-the-models-did-and-did-not-do",
+    "href": "index.html#what-the-models-did-and-did-not-do",
+    "title": "Automated meta-research",
+    "section": "What the models did and did not do",
+    "text": "What the models did and did not do\nThe searching, the analysis code, the drafting and the reviewing are done by language models. The research questions, the scope decisions, the judgment about what is worth publishing, and the responsibility for everything on this site are the author’s. Where a model produced something, the page says which model and when.\nThis distinction matters more here than in most projects, because the subject is research quality. A site about transparency that was vague about its own provenance would be evidence against its own argument."
+  },
+  {
+    "objectID": "index.html#source",
+    "href": "index.html#source",
+    "title": "Automated meta-research",
+    "section": "Source",
+    "text": "Source\nEverything, including the harvested corpus and the search log, is at github.com/choxos/autometaresearch."
+  },
+  {
+    "objectID": "agenda.html",
+    "href": "agenda.html",
+    "title": "The agenda",
+    "section": "",
+    "text": "Each proposal below is a protocol. It states a hypothesis, what would falsify it, the unit of analysis, the data source with a call that proved the source reachable, and the analysis in R, and it is published in that state before any analysis is run.\nThe order matters and it is deliberate. A protocol written after the result is known is not a protocol, and a project that criticizes selective reporting cannot itself decide what its question was once it has seen the answer. Every proposal therefore carries a date and a status, and a result page will link back to the protocol as it stood."
+  },
+  {
+    "objectID": "agenda.html#status-values",
+    "href": "agenda.html#status-values",
+    "title": "The agenda",
+    "section": "Status values",
+    "text": "Status values\nThe distinction between a design and a protocol is not cosmetic. It comes from the sibling project’s studies/DESIGN-STANDARD.md and it is the rule this project now works to: the difference between a design and a protocol is a set of computed numbers. A document that asserts its sample size, its power or its feasibility rather than measuring them is a design, whatever it calls itself.\n\n\n\n\n\n\n\nstatus\nmeaning\n\n\n\n\ndesign\nthe question, hypothesis, threats and probes are written. Feasibility is not yet measured\n\n\nprotocol-pending-validation\nprobes computed and written in. One or more validation gates need human labels before it runs\n\n\nprotocol-reduced\nprobes computed, and they came back small enough that a pre-written rule cut the analysis down\n\n\nagenda\na real gap that public data cannot answer, recorded rather than skipped\n\n\nreported\nresult published with the protocol and, when they exist, the reviews\n\n\n\nNothing here is registered. Registration needs the probes complete, the validation gates passed, and two reviews attached. No document has all three."
+  },
+  {
+    "objectID": "agenda.html#where-each-one-stands",
+    "href": "agenda.html#where-each-one-stands",
+    "title": "The agenda",
+    "section": "Where each one stands",
+    "text": "Where each one stands\n\n\n\n\n\n\n\n\n\n\nquestion\nstatus\nwhat is blocking it\n\n\n\n\nP01v2\nDoes advocating transparency predict practicing it?\nprotocol\nscreening and grading labels, then review\n\n\nP02\nDoes meta-research cite retracted work?\nprotocol\nshares P01v2’s screening gate\n\n\nP03\nIs bad news cited more?\nprotocol\n300 abstracts classified by the author\n\n\nP05\nDo the links actually resolve?\nprotocol\na requester bug, then 100 hand checks\n\n\nP06\nDo conclusions soften between preprint and journal?\nprotocol, reduced\n141 pairs found, so the ordinal outcome was cut to binary by a pre-written rule\n\n\nP07\nWhen two studies measure the same thing, do they agree?\ndesign\nnobody has counted the pairs yet\n\n\nP08\nDo meta-research studies follow the guidelines they audit by?\ndesign\nscoring STROBE needs a human reading 150 articles\n\n\nP09\nDoes meta-research change the practice it documents?\ndesign\nthe author must choose which documented problems count\n\n\nP04\nThe field is observational about itself\nagenda\nneeds a journal or funder willing to randomize"
+  },
+  {
+    "objectID": "agenda.html#review",
+    "href": "agenda.html#review",
+    "title": "The agenda",
+    "section": "Review",
+    "text": "Review\nNothing here has been reviewed. Review is by two models from different providers, each given the document and instructed to refute it, with output validated against a schema and adjudicated by the fixed rule in build/audit/adjudicate.py. That rule downgrades an unsubstantiated severe finding rather than counting it, lets a lone reviewer holding a verbatim quote block a document two others called sound, and publishes a contested document as contested rather than picking a winner. Twelve golden cases pin it.\nNo document is reviewed by one model alone. The Codex account’s usage limit was exhausted on 2026-09-16 and resets on 2026-09-20, so reviews begin then.\nThe five documents at protocol stage go first. The three designs are reviewed when their probes complete, because a reviewer asked to assess feasibility numbers that do not exist yet is being asked to review a wish."
+  },
+  {
+    "objectID": "agenda.html#how-these-were-chosen",
+    "href": "agenda.html#how-these-were-chosen",
+    "title": "The agenda",
+    "section": "How these were chosen",
+    "text": "How these were chosen\nThe selection rule was to turn the field’s own instrument on the field. Meta-research measures whether others share data, cite retracted work, follow checklists, replicate, and report inconvenient findings. Those questions had not been asked about meta-research itself, and most are answerable from data already harvested or openly available.\nThe rule also kept out the obvious alternative. A study measuring transparency, or FAIRness, in one more specialty is a rate in a new population, and rates in new populations are what this corpus already holds in quantity. Every document here has an exposure, an outcome and a direction, and every one can come out the other way.\nOne candidate was dropped for lack of novelty rather than lack of interest: a study relating a journal’s transparency policy score to the transparency of the meta-research it publishes. The corpus search found PMID 37433624, a systematic review with individual participant data meta-analysis of predictors of data and code sharing, which covers it. It is recorded here because a dropped idea and the reason it was dropped are part of the trail.\nP04 is not runnable and says so. P09 is the most important question of the set and is the least far along, which is a fact about difficulty rather than about priority."
+  },
+  {
+    "objectID": "corpus.html",
+    "href": "corpus.html",
+    "title": "The corpus",
+    "section": "",
+    "text": "1830 records, newest first. Type to filter on title, journal, year or topic code. The topic codes are defined on the landscape page; a record with no code matched no topic phrase."
+  },
+  {
+    "objectID": "landscape.html",
+    "href": "landscape.html",
+    "title": "The landscape",
+    "section": "",
+    "text": "Every number on this page is derived from the corpus by a rule written in build/lit/describe.py and reproduced by running it. Nothing here was read by a model or chosen by hand. The labels are vocabulary matches, so a label means the record uses a topic’s words, not that a human judged the record to be about that topic."
+  },
+  {
+    "objectID": "landscape.html#the-field-is-young-and-it-is-accelerating",
+    "href": "landscape.html#the-field-is-young-and-it-is-accelerating",
+    "title": "The landscape",
+    "section": "The field is young and it is accelerating",
+    "text": "The field is young and it is accelerating\nThe corpus holds 1830 records. 1396 of them, 76 percent, were published in 2020 or later.\n\n\n\nperiod\nrecords\n\n\n\n\n1965-1969\n2\n\n\n1970-1974\n2\n\n\n1975-1979\n1\n\n\n1985-1989\n4\n\n\n1990-1994\n6\n\n\n1995-1999\n8\n\n\n2000-2004\n8\n\n\n2005-2009\n21\n\n\n2010-2014\n68\n\n\n2015-2019\n314\n\n\n2020-2024\n906\n\n\n2025-2029\n490\n\n\n\nThe earliest records are scattered and mostly editorial. The shape changes around 2015, which is when the vocabulary itself settles: a paper published before then that does this kind of work rarely calls it meta-research, so this corpus does not contain it. That is a limitation of a tier A search and it is stated again in the protocol."
+  },
+  {
+    "objectID": "landscape.html#what-it-studies",
+    "href": "landscape.html#what-it-studies",
+    "title": "The landscape",
+    "section": "What it studies",
+    "text": "What it studies\nA record can carry several labels, so the column sums past the corpus size. 11 records match no topic phrase at all.\n\n\n\n\n\n\n\n\n\ntopic\ncode\nrecords\nshare\n\n\n\n\nNames itself meta-research\nmetares\n1812\n99.0%\n\n\nReporting quality and guideline adherence\nreport\n277\n15.1%\n\n\nRegistration, outcome switching and publication bias\nreg\n268\n14.6%\n\n\nReproducibility and replication\nrepro\n268\n14.6%\n\n\nAuthorship, citation and metrics\nbiblio\n163\n8.9%\n\n\nStatistical practice, spin and p-hacking\nstats\n114\n6.2%\n\n\nData and code sharing, FAIR\ndatashare\n84\n4.6%\n\n\nRetraction, misconduct and integrity\nretract\n83\n4.5%\n\n\nOpen access, preprints and predatory publishing\noa\n81\n4.4%\n\n\nPeer review\npeerrev\n76\n4.2%\n\n\nConflicts of interest and funding\ncoi\n64\n3.5%\n\n\nResearch waste and prioritization\nwaste\n46\n2.5%\n\n\nGenerative AI in research writing and review\naitext\n33\n1.8%\n\n\nEquity and representation\nequity\n21\n1.1%"
+  },
+  {
+    "objectID": "landscape.html#where-the-vocabulary-is-thin",
+    "href": "landscape.html#where-the-vocabulary-is-thin",
+    "title": "The landscape",
+    "section": "Where the vocabulary is thin",
+    "text": "Where the vocabulary is thin\nBlocks carry different numbers of phrases and phrases of different breadth, so a count here measures how much of a topic’s vocabulary this corpus uses and not how much attention the topic receives. The counts are not comparable across blocks and a small one is not evidence of a gap.\n\n\n\ntopic\nrecords\n\n\n\n\nResearch waste and prioritization\n46\n\n\nGenerative AI in research writing and review\n33\n\n\nEquity and representation\n21\n\n\n\nAn earlier version of this page read a field-level conclusion off this table, that meta-research does not study peer review or generative AI. It was wrong, and it was wrong because the labelling vocabulary had been borrowed from the search vocabulary, where narrowness is a virtue. Broad phrases for labelling now live separately in build/lit/describe.py and the counts above are the corrected ones. The episode is left on the page rather than quietly fixed, because a project about research transparency that silently corrects its own record is arguing against itself."
+  },
+  {
+    "objectID": "landscape.html#topics-studied-together",
+    "href": "landscape.html#topics-studied-together",
+    "title": "The landscape",
+    "section": "Topics studied together",
+    "text": "Topics studied together\nPairs of topic labels on the same record, most frequent first. The pairs are what a new study would have to be novel against.\n\n\n\npair\nrecords\n\n\n\n\nreg and report\n59\n\n\nreport and repro\n46\n\n\ndatashare and repro\n40\n\n\nreg and repro\n40\n\n\nbiblio and report\n31\n\n\nreg and stats\n30\n\n\nrepro and stats\n28\n\n\ndatashare and reg\n19\n\n\ndatashare and oa\n19\n\n\nbiblio and reg\n18\n\n\npeerrev and report\n18\n\n\nbiblio and oa\n17\n\n\ncoi and reg\n17\n\n\nbiblio and datashare\n16\n\n\nbiblio and retract\n16\n\n\noa and report\n16\n\n\nrepro and retract\n15\n\n\nreg and retract\n15\n\n\nreport and retract\n15\n\n\nreport and stats\n15"
+  },
+  {
+    "objectID": "landscape.html#topics-over-time",
+    "href": "landscape.html#topics-over-time",
+    "title": "The landscape",
+    "section": "Topics over time",
+    "text": "Topics over time\nRecords per half decade, from 2015. A topic that flattens while the corpus grows is losing share of the field’s attention, not gaining it.\n\n\n\ntopic\n2015-2019\n2020-2024\n2025-2029\n\n\n\n\nReporting quality and guideline adherence\n39\n138\n96\n\n\nRegistration, outcome switching and publication bias\n37\n144\n77\n\n\nReproducibility and replication\n52\n141\n72\n\n\nAuthorship, citation and metrics\n24\n83\n53\n\n\nStatistical practice, spin and p-hacking\n25\n53\n32\n\n\nData and code sharing, FAIR\n8\n55\n20\n\n\nRetraction, misconduct and integrity\n9\n28\n39\n\n\nOpen access, preprints and predatory publishing\n7\n51\n23\n\n\nPeer review\n12\n37\n26\n\n\nConflicts of interest and funding\n12\n34\n16\n\n\nResearch waste and prioritization\n11\n25\n10\n\n\nGenerative AI in research writing and review\n0\n4\n29\n\n\nEquity and representation\n1\n14\n6"
+  },
+  {
+    "objectID": "landscape.html#where-it-is-published",
+    "href": "landscape.html#where-it-is-published",
+    "title": "The landscape",
+    "section": "Where it is published",
+    "text": "Where it is published\n\n\n\n\n\n\n\njournal\nrecords\n\n\n\n\nJournal of clinical epidemiology\n207\n\n\neLife\n74\n\n\nProceedings of the National Academy of Sciences of the United States of America\n57\n\n\nBMJ open\n48\n\n\nPloS one\n46\n\n\nBMC medical research methodology\n44\n\n\nRoyal Society open science\n44\n\n\nBMJ (Clinical research ed.)\n31\n\n\nPerspectives on psychological science : a journal of the Association for Psychological Science\n24\n\n\nSystematic reviews\n24\n\n\nResearch synthesis methods\n22\n\n\nBMC medicine\n20\n\n\nResearch integrity and peer review\n18\n\n\nBMJ evidence-based medicine\n17\n\n\nF1000Research\n16\n\n\nTrials\n15\n\n\nCochrane evidence synthesis and methods\n14\n\n\nPLoS biology\n14\n\n\nFrontiers in psychology\n13\n\n\nJournal of dentistry\n12\n\n\n\nOne journal carries more than a tenth of the corpus. A field concentrated in a single venue inherits that venue’s editorial priorities, which is itself a meta-research question and one this corpus does not answer."
+  },
+  {
+    "objectID": "landscape.html#how-it-is-indexed",
+    "href": "landscape.html#how-it-is-indexed",
+    "title": "The landscape",
+    "section": "How it is indexed",
+    "text": "How it is indexed\nMeSH descriptors on the 1315 records that carry MeSH indexing.\n\n\n\ndescriptor\nrecords\n\n\n\n\nHumans\n1181\n\n\nResearch Design\n322\n\n\nRandomized Controlled Trials as Topic\n305\n\n\nEpidemiologic Studies\n243\n\n\nSystematic Reviews as Topic\n178\n\n\nMeta-Analysis as Topic\n155\n\n\nBias\n136\n\n\nReproducibility of Results\n125\n\n\nFemale\n113\n\n\nPeriodicals as Topic\n110\n\n\nBiomedical Research\n98\n\n\nMale\n97\n\n\nResearch Personnel\n80\n\n\nTreatment Outcome\n74\n\n\nClinical Trials as Topic\n70\n\n\nCross-Sectional Studies\n68\n\n\nUnited States\n61\n\n\nPublishing\n61\n\n\nAdult\n58\n\n\nResearch Report\n53\n\n\nPublication Bias\n53\n\n\nResearch\n52\n\n\nAnimals\n52\n\n\nPublications\n52\n\n\nOutcome Assessment, Health Care\n48"
+  },
+  {
+    "objectID": "landscape.html#what-kind-of-studies-these-are",
+    "href": "landscape.html#what-kind-of-studies-these-are",
+    "title": "The landscape",
+    "section": "What kind of studies these are",
+    "text": "What kind of studies these are\nPublication types, with the container types that describe every journal article removed.\n\n\n\ntype\nrecords\n\n\n\n\nReview\n242\n\n\nMeta-Analysis\n191\n\n\nSystematic Review\n161\n\n\nComment\n47\n\n\nEditorial\n37\n\n\nLetter\n36\n\n\nComparative Study\n32\n\n\nabstract\n21\n\n\nScoping Review\n17\n\n\nPublished Erratum\n17\n\n\nHistorical Article\n15\n\n\nObservational Study\n12\n\n\nPreprint\n8\n\n\nBiography\n7\n\n\nNetwork Meta-Analysis\n6\n\n\n\nReviews, meta-analyses and systematic reviews together outnumber every other declared type. Many of the records typed as meta-analysis are meta-epidemiological studies, which PubMed has no separate type for, so this table separates declared types and not study designs."
+  },
+  {
+    "objectID": "results.html",
+    "href": "results.html",
+    "title": "Results",
+    "section": "",
+    "text": "Each result links back to the protocol it was run from, which was published first and is unchanged. A result page reports what the analysis found and every defect found while running it, including the ones that changed the answer."
+  },
+  {
+    "objectID": "results.html#defects-are-part-of-the-result",
+    "href": "results.html#defects-are-part-of-the-result",
+    "title": "Results",
+    "section": "Defects are part of the result",
+    "text": "Defects are part of the result\nEvery study here reports the bugs found during its own run, what each one cost, and which direction the correction moved the estimate. That is not modesty. Generated analysis code fails silently: it produces a number rather than an error, and the number is plausible. The first study found two such defects, one of which was inflating its own effect through an artifact and one of which was suppressing it.\nA result published without that section is a result whose checks either were not run or were not reported, and neither is a reason to trust it more."
+  },
+  {
+    "objectID": "results.html#review",
+    "href": "results.html#review",
+    "title": "Results",
+    "section": "Review",
+    "text": "Review\nNo result here has been reviewed. Review is by two models from different providers, each instructed to refute the study, and no study is reviewed by one model alone. The second reviewer’s quota resets on 2026-09-20.\nThe protocols were published before the analyses ran, which is the property that matters most and is preserved regardless of when review happens: the analysis could not redefine its own question after seeing the answer."
   },
   {
     "objectID": "proposals/P01v2-advocacy-and-practice-protocol.html",
@@ -224,388 +735,325 @@
     "text": "13. Availability\nProtocol, code, extracted data and outputs are in the repository at commit 158164be700a596610a074533e6509ce142a6774. The analysis code that will run is already written and public; it is the code that produced R01, and section 6 pins it."
   },
   {
-    "objectID": "results.html",
-    "href": "results.html",
-    "title": "Results",
+    "objectID": "proposals/P03-bad-news-citation.html",
+    "href": "proposals/P03-bad-news-citation.html",
+    "title": "Is bad news cited more?",
     "section": "",
-    "text": "Each result links back to the protocol it was run from, which was published first and is unchanged. A result page reports what the analysis found and every defect found while running it, including the ones that changed the answer."
+    "text": "ImportantStatus: protocol. Citation data retrieved. The classifier gate is outstanding. Not registered.\n\n\n\nThe citation probe ran on 2026-09-16: 1790 of 1805 tier A PMIDs resolved in OpenAlex, a match rate of 99.2 percent.\nThe exposure has not been measured and cannot be until 300 abstracts are classified by the author. Section 6 carries a stopping rule written before any classification has been run.\nAwaiting review by two models; the second is quota-blocked until 2026-09-20."
   },
   {
-    "objectID": "results.html#defects-are-part-of-the-result",
-    "href": "results.html#defects-are-part-of-the-result",
-    "title": "Results",
-    "section": "Defects are part of the result",
-    "text": "Defects are part of the result\nEvery study here reports the bugs found during its own run, what each one cost, and which direction the correction moved the estimate. That is not modesty. Generated analysis code fails silently: it produces a number rather than an error, and the number is plausible. The first study found two such defects, one of which was inflating its own effect through an artifact and one of which was suppressing it.\nA result published without that section is a result whose checks either were not run or were not reported, and neither is a reason to trust it more."
+    "objectID": "proposals/P03-bad-news-citation.html#the-question",
+    "href": "proposals/P03-bad-news-citation.html#the-question",
+    "title": "Is bad news cited more?",
+    "section": "1. The question",
+    "text": "1. The question\nMeta-research reports on how well other research is done, and the answer is usually that it is done badly. If findings of failure are rewarded with citations more than findings that a practice is adequate, the field faces an incentive gradient pointing at one conclusion, and that gradient would be invisible within any single study.\nThis is publication bias asked about the field that studies publication bias, and asked at the citation stage rather than at acceptance."
   },
   {
-    "objectID": "results.html#review",
-    "href": "results.html#review",
-    "title": "Results",
-    "section": "Review",
-    "text": "Review\nNo result here has been reviewed. Review is by two models from different providers, each instructed to refute the study, and no study is reviewed by one model alone. The second reviewer’s quota resets on 2026-09-20.\nThe protocols were published before the analyses ran, which is the property that matters most and is preserved regardless of when review happens: the analysis could not redefine its own question after seeing the answer."
+    "objectID": "proposals/P03-bad-news-citation.html#hypothesis",
+    "href": "proposals/P03-bad-news-citation.html#hypothesis",
+    "title": "Is bad news cited more?",
+    "section": "2. Hypothesis",
+    "text": "2. Hypothesis\nAmong meta-research articles, those concluding that the practice studied is inadequate accrue more citations than those concluding it is adequate, adjusted for age, journal and topic.\nPrimary null. The incidence rate ratio for conclusion direction is 1.\nWhat would falsify it. An interval containing 1."
   },
   {
-    "objectID": "landscape.html",
-    "href": "landscape.html",
-    "title": "The landscape",
+    "objectID": "proposals/P03-bad-news-citation.html#design",
+    "href": "proposals/P03-bad-news-citation.html#design",
+    "title": "Is bad news cited more?",
+    "section": "3. Design",
+    "text": "3. Design\nCross-sectional study of published articles with a count outcome."
+  },
+  {
+    "objectID": "proposals/P03-bad-news-citation.html#sample",
+    "href": "proposals/P03-bad-news-citation.html#sample",
+    "title": "Is bad news cited more?",
+    "section": "4. Sample",
+    "text": "4. Sample\nThe tier A corpus, all 1805 records carrying a PMID. 1790 resolve in OpenAlex.\nArticles from 2025 and 2026 are retained and age is modeled, not trimmed; excluding recent work would drop 76 percent of the corpus."
+  },
+  {
+    "objectID": "proposals/P03-bad-news-citation.html#outcome",
+    "href": "proposals/P03-bad-news-citation.html#outcome",
+    "title": "Is bad news cited more?",
+    "section": "5. Outcome",
+    "text": "5. Outcome\ncited_by_count from OpenAlex, retrieved on 2026-09-16 and frozen at data/lit/openalex-records.jsonl. The date matters: citation counts move, and an analysis run against a live API is not reproducible.\n\n\n\nquantity\nvalue\n\n\n\n\nmedian citations\n8\n\n\nmean citations\n36.29\n\n\n90th percentile\n75\n\n\nmaximum\n2937\n\n\narticles with zero citations\n284\n\n\n\nThe distribution is heavily skewed, mean 36.29 against median 8, which is why the model is negative binomial and why a quantile regression on the upper deciles is fitted alongside. The incentive argument lives in the tail and a mean effect would not find it.\n284 articles have zero citations. They are retained; a zero is informative about a paper nobody used and dropping them would condition on the outcome."
+  },
+  {
+    "objectID": "proposals/P03-bad-news-citation.html#exposure-and-the-gate",
+    "href": "proposals/P03-bad-news-citation.html#exposure-and-the-gate",
+    "title": "Is bad news cited more?",
+    "section": "6. Exposure, and the gate",
+    "text": "6. Exposure, and the gate\nThe exposure is the direction of the article’s own conclusion, and no rule extracts it from an abstract. This is the one study of the set whose exposure needs a model to read text, and that is a liability rather than a convenience.\nClassification is therefore treated as an instrument that must be validated before it is used:\n\nA stratified random sample of 300 abstracts is classified by the author into inadequate, adequate, mixed, or not applicable. This is the reference standard. A model does not produce it, for the reason R01 already demonstrated: a model checking a rule another model wrote found a real defect and still left agreement with a person unknown.\nTwo models from different providers classify the same 300, blind to the author’s labels and to each other.\nAgreement is reported as Cohen’s kappa against the reference standard and between models.\nIf neither model reaches kappa 0.70 against the author’s labels, the study stops and the negative methodological result is published. Whether a language model can read the direction of a scientific conclusion is itself worth knowing.\nOnly above the threshold does classification extend to the rest, with the measured misclassification rate carried into a sensitivity analysis.\n\nThe threshold is written here, before any classification has been run. A threshold chosen after seeing the agreement is not a threshold."
+  },
+  {
+    "objectID": "proposals/P03-bad-news-citation.html#analysis",
+    "href": "proposals/P03-bad-news-citation.html#analysis",
+    "title": "Is bad news cited more?",
+    "section": "7. Analysis",
+    "text": "7. Analysis\nIn R.\nglm.nb(cited_by_count ~ direction + poly(years_since_pub, 2) + topic_block + journal_size,\n       data = d)\nAge enters as a quadratic because citation accrual is not linear in time and the corpus spans 1965 to 2026. Preregistered alongside: quantile regression at the 75th and 90th percentiles, and the same model with direction as measured by each classifier separately, so that a result that depends on which model read the abstracts is visible as such."
+  },
+  {
+    "objectID": "proposals/P03-bad-news-citation.html#threats-and-what-happened-to-each",
+    "href": "proposals/P03-bad-news-citation.html#threats-and-what-happened-to-each",
+    "title": "Is bad news cited more?",
+    "section": "8. Threats, and what happened to each",
+    "text": "8. Threats, and what happened to each\n\n\n\n\n\n\n\n\nthreat\nwhat was done\nremoved or disclosed\n\n\n\n\nReverse causation\nNot addressable in this design. A widely cited article may attract a negative framing rather than the other way round\nDisclosed\n\n\nTopic confounds direction\nSome topics almost never produce an adequate verdict, so adjusting for topic may absorb the effect. Reported adjusted and unadjusted, with the difference discussed rather than resolved\nDisclosed\n\n\nClassifier error\nGated on kappa against the author’s labels, with a stated stop\nDisclosed\n\n\nCitation counts move\nFrozen at a dated snapshot in the repository\nRemoved\n\n\nSelf-citation and field size\nNot in the primary model; OpenAlex exposes the data and it is a stated secondary\nDisclosed\n\n\nZero-citation articles\nRetained; dropping them conditions on the outcome\nRemoved"
+  },
+  {
+    "objectID": "proposals/P03-bad-news-citation.html#probes",
+    "href": "proposals/P03-bad-news-citation.html#probes",
+    "title": "Is bad news cited more?",
+    "section": "9. Probes",
+    "text": "9. Probes\n\n\n\n\n\n\n\n\n\n\nprobe\ncomputes\ngoes to\nwhat would change the design\nstatus\n\n\n\n\nPA\nOpenAlex match rate and citation distribution\n4, 5\na match rate below about 90 percent makes the sample unrepresentative\ndone\n\n\nPB\nclassifier agreement against 300 author labels\n6\nbelow kappa 0.70 stops the study\noutstanding, needs the author\n\n\nPC\ndetectable rate ratio from the realized exposure split\n7\ncomputed once PB returns, because it depends on how many articles fall in each direction\noutstanding, depends on PB"
+  },
+  {
+    "objectID": "proposals/P03-bad-news-citation.html#deviations",
+    "href": "proposals/P03-bad-news-citation.html#deviations",
+    "title": "Is bad news cited more?",
+    "section": "10. Deviations",
+    "text": "10. Deviations\nRecorded on the result page: what changed, when, why, and the estimate before and after."
+  },
+  {
+    "objectID": "proposals/P03-bad-news-citation.html#what-this-cannot-show",
+    "href": "proposals/P03-bad-news-citation.html#what-this-cannot-show",
+    "title": "Is bad news cited more?",
+    "section": "11. What this cannot show",
+    "text": "11. What this cannot show\n\nIt cannot show that negative findings are rewarded, only that they are cited more.\nIt cannot separate the effect of the finding from the effect of the topic that produced it.\nOpenAlex citation counts include self-citations and citations from any source it indexes, which is broader than PubMed and not identical to it."
+  },
+  {
+    "objectID": "proposals/P05-does-the-link-resolve.html",
+    "href": "proposals/P05-does-the-link-resolve.html",
+    "title": "Does the link actually resolve?",
     "section": "",
-    "text": "Every number on this page is derived from the corpus by a rule written in build/lit/describe.py and reproduced by running it. Nothing here was read by a model or chosen by hand. The labels are vocabulary matches, so a label means the record uses a topic’s words, not that a human judged the record to be about that topic."
+    "text": "ImportantStatus: protocol. Probes computed on a sample of 150. One defect to fix before the full run. Not registered.\n\n\n\nThis study measures the thing P01 and P01v2 assume. Both grade a statement actionable when it names a repository or carries a locator; that is a claim about the statement, not about the data. P05 asks whether the thing the statement points at is there.\nA defect found by the probe must be fixed first: 2 of 150 checks failed with a Unicode encoding error, which is a bug in the requester and not a dead link. Counting those as breakage would overstate the result. See section 9.\nAwaiting review by two models; the second is quota-blocked until 2026-09-20."
   },
   {
-    "objectID": "landscape.html#the-field-is-young-and-it-is-accelerating",
-    "href": "landscape.html#the-field-is-young-and-it-is-accelerating",
-    "title": "The landscape",
-    "section": "The field is young and it is accelerating",
-    "text": "The field is young and it is accelerating\nThe corpus holds 1830 records. 1396 of them, 76 percent, were published in 2020 or later.\n\n\n\nperiod\nrecords\n\n\n\n\n1965-1969\n2\n\n\n1970-1974\n2\n\n\n1975-1979\n1\n\n\n1985-1989\n4\n\n\n1990-1994\n6\n\n\n1995-1999\n8\n\n\n2000-2004\n8\n\n\n2005-2009\n21\n\n\n2010-2014\n68\n\n\n2015-2019\n314\n\n\n2020-2024\n906\n\n\n2025-2029\n490\n\n\n\nThe earliest records are scattered and mostly editorial. The shape changes around 2015, which is when the vocabulary itself settles: a paper published before then that does this kind of work rarely calls it meta-research, so this corpus does not contain it. That is a limitation of a tier A search and it is stated again in the protocol."
+    "objectID": "proposals/P05-does-the-link-resolve.html#the-question",
+    "href": "proposals/P05-does-the-link-resolve.html#the-question",
+    "title": "Does the link actually resolve?",
+    "section": "1. The question",
+    "text": "1. The question\nA data availability statement naming an OSF project is treated, by every study that grades statements including this project’s own, as evidence that data are available. That inference has a missing step. The statement is a promise; whether the promise was kept is a separate fact and it is checkable."
   },
   {
-    "objectID": "landscape.html#what-it-studies",
-    "href": "landscape.html#what-it-studies",
-    "title": "The landscape",
-    "section": "What it studies",
-    "text": "What it studies\nA record can carry several labels, so the column sums past the corpus size. 11 records match no topic phrase at all.\n\n\n\n\n\n\n\n\n\ntopic\ncode\nrecords\nshare\n\n\n\n\nNames itself meta-research\nmetares\n1812\n99.0%\n\n\nReporting quality and guideline adherence\nreport\n277\n15.1%\n\n\nRegistration, outcome switching and publication bias\nreg\n268\n14.6%\n\n\nReproducibility and replication\nrepro\n268\n14.6%\n\n\nAuthorship, citation and metrics\nbiblio\n163\n8.9%\n\n\nStatistical practice, spin and p-hacking\nstats\n114\n6.2%\n\n\nData and code sharing, FAIR\ndatashare\n84\n4.6%\n\n\nRetraction, misconduct and integrity\nretract\n83\n4.5%\n\n\nOpen access, preprints and predatory publishing\noa\n81\n4.4%\n\n\nPeer review\npeerrev\n76\n4.2%\n\n\nConflicts of interest and funding\ncoi\n64\n3.5%\n\n\nResearch waste and prioritization\nwaste\n46\n2.5%\n\n\nGenerative AI in research writing and review\naitext\n33\n1.8%\n\n\nEquity and representation\nequity\n21\n1.1%"
+    "objectID": "proposals/P05-does-the-link-resolve.html#hypothesis",
+    "href": "proposals/P05-does-the-link-resolve.html#hypothesis",
+    "title": "Does the link actually resolve?",
+    "section": "2. Hypothesis",
+    "text": "2. Hypothesis\nA material fraction of statements graded actionable do not resolve, and the fraction rises with the age of the article.\nPrimary null. The proportion of non-resolving locators does not vary with article age.\nWhat would falsify the hypothesis. A flat or declining relationship with age. A high but age-invariant failure rate would mean statements are wrong on arrival rather than decaying, which is a different problem and a more serious one."
   },
   {
-    "objectID": "landscape.html#where-the-vocabulary-is-thin",
-    "href": "landscape.html#where-the-vocabulary-is-thin",
-    "title": "The landscape",
-    "section": "Where the vocabulary is thin",
-    "text": "Where the vocabulary is thin\nBlocks carry different numbers of phrases and phrases of different breadth, so a count here measures how much of a topic’s vocabulary this corpus uses and not how much attention the topic receives. The counts are not comparable across blocks and a small one is not evidence of a gap.\n\n\n\ntopic\nrecords\n\n\n\n\nResearch waste and prioritization\n46\n\n\nGenerative AI in research writing and review\n33\n\n\nEquity and representation\n21\n\n\n\nAn earlier version of this page read a field-level conclusion off this table, that meta-research does not study peer review or generative AI. It was wrong, and it was wrong because the labelling vocabulary had been borrowed from the search vocabulary, where narrowness is a virtue. Broad phrases for labelling now live separately in build/lit/describe.py and the counts above are the corrected ones. The episode is left on the page rather than quietly fixed, because a project about research transparency that silently corrects its own record is arguing against itself."
+    "objectID": "proposals/P05-does-the-link-resolve.html#design",
+    "href": "proposals/P05-does-the-link-resolve.html#design",
+    "title": "Does the link actually resolve?",
+    "section": "3. Design",
+    "text": "3. Design\nCross-sectional study of locators, with a nested age analysis."
   },
   {
-    "objectID": "landscape.html#topics-studied-together",
-    "href": "landscape.html#topics-studied-together",
-    "title": "The landscape",
-    "section": "Topics studied together",
-    "text": "Topics studied together\nPairs of topic labels on the same record, most frequent first. The pairs are what a new study would have to be novel against.\n\n\n\npair\nrecords\n\n\n\n\nreg and report\n59\n\n\nreport and repro\n46\n\n\ndatashare and repro\n40\n\n\nreg and repro\n40\n\n\nbiblio and report\n31\n\n\nreg and stats\n30\n\n\nrepro and stats\n28\n\n\ndatashare and reg\n19\n\n\ndatashare and oa\n19\n\n\nbiblio and reg\n18\n\n\npeerrev and report\n18\n\n\nbiblio and oa\n17\n\n\ncoi and reg\n17\n\n\nbiblio and datashare\n16\n\n\nbiblio and retract\n16\n\n\noa and report\n16\n\n\nrepro and retract\n15\n\n\nreg and retract\n15\n\n\nreport and retract\n15\n\n\nreport and stats\n15"
+    "objectID": "proposals/P05-does-the-link-resolve.html#sample",
+    "href": "proposals/P05-does-the-link-resolve.html#sample",
+    "title": "Does the link actually resolve?",
+    "section": "4. Sample",
+    "text": "4. Sample\nEvery statement extracted by P01 and P01v2 that carries at least one locator. Probe PA:\n\n\n\nquantity\nvalue\n\n\n\n\nstatements examined\n2262\n\n\nstatements carrying a locator\n431\n\n\nlocators found\n721\n\n\nof which URLs\n644\n\n\nof which bare DOIs\n77\n\n\non a known repository host\n504\n\n\n\nThe three hosts that dominate are OSF, GitHub and doi.org. That concentration is itself a finding and it constrains the design: a result here is substantially a result about three services, and section 8 carries that."
   },
   {
-    "objectID": "landscape.html#topics-over-time",
-    "href": "landscape.html#topics-over-time",
-    "title": "The landscape",
-    "section": "Topics over time",
-    "text": "Topics over time\nRecords per half decade, from 2015. A topic that flattens while the corpus grows is losing share of the field’s attention, not gaining it.\n\n\n\ntopic\n2015-2019\n2020-2024\n2025-2029\n\n\n\n\nReporting quality and guideline adherence\n39\n138\n96\n\n\nRegistration, outcome switching and publication bias\n37\n144\n77\n\n\nReproducibility and replication\n52\n141\n72\n\n\nAuthorship, citation and metrics\n24\n83\n53\n\n\nStatistical practice, spin and p-hacking\n25\n53\n32\n\n\nData and code sharing, FAIR\n8\n55\n20\n\n\nRetraction, misconduct and integrity\n9\n28\n39\n\n\nOpen access, preprints and predatory publishing\n7\n51\n23\n\n\nPeer review\n12\n37\n26\n\n\nConflicts of interest and funding\n12\n34\n16\n\n\nResearch waste and prioritization\n11\n25\n10\n\n\nGenerative AI in research writing and review\n0\n4\n29\n\n\nEquity and representation\n1\n14\n6"
+    "objectID": "proposals/P05-does-the-link-resolve.html#measurement",
+    "href": "proposals/P05-does-the-link-resolve.html#measurement",
+    "title": "Does the link actually resolve?",
+    "section": "5. Measurement",
+    "text": "5. Measurement\nHEAD first, falling back to a ranged GET when a host answers 403, 405 or 501, since several repositories refuse HEAD but serve GET. One request per locator, throttled per host, with a User-Agent naming the project and a contact address. This is a read-only availability check of the kind these hosts exist to serve.\nResolution is not the same as the data being there. A repository landing page for a project with no files attached returns 200. The primary outcome is therefore HTTP resolution, which is a lower bound on breakage, and a hand-checked subsample of 100 resolving locators establishes how often a 200 corresponds to retrievable data. That subsample needs the author."
   },
   {
-    "objectID": "landscape.html#where-it-is-published",
-    "href": "landscape.html#where-it-is-published",
-    "title": "The landscape",
-    "section": "Where it is published",
-    "text": "Where it is published\n\n\n\n\n\n\n\njournal\nrecords\n\n\n\n\nJournal of clinical epidemiology\n207\n\n\neLife\n74\n\n\nProceedings of the National Academy of Sciences of the United States of America\n57\n\n\nBMJ open\n48\n\n\nPloS one\n46\n\n\nBMC medical research methodology\n44\n\n\nRoyal Society open science\n44\n\n\nBMJ (Clinical research ed.)\n31\n\n\nPerspectives on psychological science : a journal of the Association for Psychological Science\n24\n\n\nSystematic reviews\n24\n\n\nResearch synthesis methods\n22\n\n\nBMC medicine\n20\n\n\nResearch integrity and peer review\n18\n\n\nBMJ evidence-based medicine\n17\n\n\nF1000Research\n16\n\n\nTrials\n15\n\n\nCochrane evidence synthesis and methods\n14\n\n\nPLoS biology\n14\n\n\nFrontiers in psychology\n13\n\n\nJournal of dentistry\n12\n\n\n\nOne journal carries more than a tenth of the corpus. A field concentrated in a single venue inherits that venue’s editorial priorities, which is itself a meta-research question and one this corpus does not answer."
+    "objectID": "proposals/P05-does-the-link-resolve.html#feasibility-computed",
+    "href": "proposals/P05-does-the-link-resolve.html#feasibility-computed",
+    "title": "Does the link actually resolve?",
+    "section": "6. Feasibility, computed",
+    "text": "6. Feasibility, computed\nOn a sample of 150 locators, one per article:\n\n\n\noutcome\nn\n\n\n\n\nresolved, HTTP 2xx or 3xx\n133\n\n\nHTTP error\n9\n\n\nnetwork or requester error\n8\n\n\nresolve rate\n88.7 percent\n\n\n\nStatus detail: {'200': 123, '202': 10, '404': 7, 'error:UnicodeEncodeError': 2, '403': 2, 'error:TimeoutError': 3, 'error:URLError': 3}\n7 hard 404s in 150 is the cleanest signal: those are locators that a reader following the statement would not find. The study is feasible and the effect is large enough to measure."
   },
   {
-    "objectID": "landscape.html#how-it-is-indexed",
-    "href": "landscape.html#how-it-is-indexed",
-    "title": "The landscape",
-    "section": "How it is indexed",
-    "text": "How it is indexed\nMeSH descriptors on the 1315 records that carry MeSH indexing.\n\n\n\ndescriptor\nrecords\n\n\n\n\nHumans\n1181\n\n\nResearch Design\n322\n\n\nRandomized Controlled Trials as Topic\n305\n\n\nEpidemiologic Studies\n243\n\n\nSystematic Reviews as Topic\n178\n\n\nMeta-Analysis as Topic\n155\n\n\nBias\n136\n\n\nReproducibility of Results\n125\n\n\nFemale\n113\n\n\nPeriodicals as Topic\n110\n\n\nBiomedical Research\n98\n\n\nMale\n97\n\n\nResearch Personnel\n80\n\n\nTreatment Outcome\n74\n\n\nClinical Trials as Topic\n70\n\n\nCross-Sectional Studies\n68\n\n\nUnited States\n61\n\n\nPublishing\n61\n\n\nAdult\n58\n\n\nResearch Report\n53\n\n\nPublication Bias\n53\n\n\nResearch\n52\n\n\nAnimals\n52\n\n\nPublications\n52\n\n\nOutcome Assessment, Health Care\n48"
+    "objectID": "proposals/P05-does-the-link-resolve.html#outcome-and-analysis",
+    "href": "proposals/P05-does-the-link-resolve.html#outcome-and-analysis",
+    "title": "Does the link actually resolve?",
+    "section": "7. Outcome and analysis",
+    "text": "7. Outcome and analysis\nPrimary: locator resolves, yes or no.\nIn R, logistic regression of resolution on article age, with host as a random intercept because three hosts carry most of the sample and their reliability differs.\nglmer(resolved ~ years_since_pub + kind + (1 | host), family = binomial, data = d)\nPreregistered sensitivity analyses:\n\nRestricted to repository hosts, excluding personal and institutional URLs.\nExcluding doi.org, which resolves through a redirection layer that may mask a dead target.\nTreating a 403 as resolved rather than failed, since a paywall is not link rot.\nRe-running every failure once, at least 48 hours later, so a transient outage is not recorded as permanent breakage."
   },
   {
-    "objectID": "landscape.html#what-kind-of-studies-these-are",
-    "href": "landscape.html#what-kind-of-studies-these-are",
-    "title": "The landscape",
-    "section": "What kind of studies these are",
-    "text": "What kind of studies these are\nPublication types, with the container types that describe every journal article removed.\n\n\n\ntype\nrecords\n\n\n\n\nReview\n242\n\n\nMeta-Analysis\n191\n\n\nSystematic Review\n161\n\n\nComment\n47\n\n\nEditorial\n37\n\n\nLetter\n36\n\n\nComparative Study\n32\n\n\nabstract\n21\n\n\nScoping Review\n17\n\n\nPublished Erratum\n17\n\n\nHistorical Article\n15\n\n\nObservational Study\n12\n\n\nPreprint\n8\n\n\nBiography\n7\n\n\nNetwork Meta-Analysis\n6\n\n\n\nReviews, meta-analyses and systematic reviews together outnumber every other declared type. Many of the records typed as meta-analysis are meta-epidemiological studies, which PubMed has no separate type for, so this table separates declared types and not study designs."
+    "objectID": "proposals/P05-does-the-link-resolve.html#threats-and-what-happened-to-each",
+    "href": "proposals/P05-does-the-link-resolve.html#threats-and-what-happened-to-each",
+    "title": "Does the link actually resolve?",
+    "section": "8. Threats, and what happened to each",
+    "text": "8. Threats, and what happened to each\n\n\n\n\n\n\n\n\nthreat\nwhat was done\nremoved or disclosed\n\n\n\n\nA requester bug counted as link rot\nFound by the probe; must be fixed before the full run. See section 9\nRemoved, once fixed\n\n\nTransient outages\nEvery failure retried at least 48 hours later; sensitivity 4\nRemoved\n\n\nA 200 does not mean data are present\nPrimary outcome is explicitly a lower bound; hand-checked subsample of 100 quantifies the gap\nDisclosed\n\n\nThree hosts dominate\nHost as a random intercept, and sensitivity 1 restricts to repositories\nDisclosed\n\n\nTrailing punctuation stripped from locators\nA wrongly stripped locator fails and is counted as breakage, biasing toward finding MORE\nDisclosed\n\n\nAge and host are confounded\nOlder articles use different services; not separable in this design\nDisclosed\n\n\nWe are requesting third-party services\nOne request per locator, throttled per host, identified User-Agent\nDisclosed"
   },
   {
-    "objectID": "corpus.html",
-    "href": "corpus.html",
-    "title": "The corpus",
+    "objectID": "proposals/P05-does-the-link-resolve.html#the-defect-the-probe-found",
+    "href": "proposals/P05-does-the-link-resolve.html#the-defect-the-probe-found",
+    "title": "Does the link actually resolve?",
+    "section": "9. The defect the probe found",
+    "text": "9. The defect the probe found\n2 checks raised UnicodeEncodeError. That is not a dead link; it is the requester failing to encode a non-ASCII URL, which needs IDNA on the host and percent-encoding on the path. Counting those as breakage would inflate the headline rate.\nIt is recorded here rather than quietly fixed because the same class of error, a tool failure scored as a property of the world, is exactly what this study is about."
+  },
+  {
+    "objectID": "proposals/P05-does-the-link-resolve.html#probes",
+    "href": "proposals/P05-does-the-link-resolve.html#probes",
+    "title": "Does the link actually resolve?",
+    "section": "10. Probes",
+    "text": "10. Probes\n\n\n\n\n\n\n\n\n\n\nprobe\ncomputes\ngoes to\nwhat would change the design\nstatus\n\n\n\n\nPA\nlocators available, by kind and host\n4\nfewer than about 200 locators makes the study unpowered\ndone\n\n\nPB\nresolve rate on a sample of 150\n6\na resolve rate above about 98 percent means there is nothing to study\ndone\n\n\nPC\nresolve rate on all 721 locators, after the encoding fix\n6, 7\nthis is the outcome, not a probe result\noutstanding, needs the fix\n\n\nPD\nhow often a 200 corresponds to retrievable data, on 100 hand-checked locators\n5\na large gap makes HTTP resolution a poor proxy and the outcome must change\noutstanding, needs the author"
+  },
+  {
+    "objectID": "proposals/P05-does-the-link-resolve.html#deviations",
+    "href": "proposals/P05-does-the-link-resolve.html#deviations",
+    "title": "Does the link actually resolve?",
+    "section": "11. Deviations",
+    "text": "11. Deviations\nRecorded on the result page."
+  },
+  {
+    "objectID": "proposals/P05-does-the-link-resolve.html#what-this-cannot-show",
+    "href": "proposals/P05-does-the-link-resolve.html#what-this-cannot-show",
+    "title": "Does the link actually resolve?",
+    "section": "12. What this cannot show",
+    "text": "12. What this cannot show\n\nIt cannot show whether data that are retrievable are usable, documented or correct.\nIt cannot distinguish a repository that deleted a project from an author who mistyped a URL.\nIt measures a moment. A locator that resolves today may not next year, which is the study’s own point turned against it."
+  },
+  {
+    "objectID": "proposals/P07-do-two-studies-agree.html",
+    "href": "proposals/P07-do-two-studies-agree.html",
+    "title": "When two meta-research studies measure the same thing, do they agree?",
     "section": "",
-    "text": "1830 records, newest first. Type to filter on title, journal, year or topic code. The topic codes are defined on the landscape page; a record with no code matched no topic phrase."
+    "text": "ImportantStatus: design. The pair-counting probe has not run. Not a protocol.\n\n\n\nThis is the strongest novelty claim of the set and the weakest on feasibility. Section 2 records the searches that establish the first; probe PA decides the second."
   },
   {
-    "objectID": "agenda.html",
-    "href": "agenda.html",
-    "title": "The agenda",
+    "objectID": "proposals/P07-do-two-studies-agree.html#the-question",
+    "href": "proposals/P07-do-two-studies-agree.html#the-question",
+    "title": "When two meta-research studies measure the same thing, do they agree?",
+    "section": "1. The question",
+    "text": "1. The question\nMeta-research tells other fields that a finding which does not replicate is not a finding. The field publishes many studies measuring the same practices: reporting quality in a specialty, data sharing in a set of journals, registration adherence in a trial population. Their samples overlap. Nobody has asked whether they agree.\nIf two meta-research studies measuring the same practice over overlapping literature report materially different rates, the field’s own evidence base has the property it criticizes elsewhere."
+  },
+  {
+    "objectID": "proposals/P07-do-two-studies-agree.html#novelty-with-the-searches-that-establish-it",
+    "href": "proposals/P07-do-two-studies-agree.html#novelty-with-the-searches-that-establish-it",
+    "title": "When two meta-research studies measure the same thing, do they agree?",
+    "section": "2. Novelty, with the searches that establish it",
+    "text": "2. Novelty, with the searches that establish it\nClaims of novelty in this project must show the search that produced them, because a model-recalled absence of prior work is not evidence of absence.\nCorpus regex, over 1830 tier A records and 7412 frame records, title and abstract:\n(concordan|discordan|agreement|consisten).{0,50}between.{0,40}\n(methodological review|meta-research|cross-sectional stud).{0,40}(same|identical)\n|overlapping (methodological|meta-research)\nResult: 0 records.\nWhat does exist, and is the closest prior work, is PMID 37433624, a systematic review with individual participant data meta-analysis of studies investigating data and code sharing. It pools meta-research studies; it does not ask whether they agree with each other. That distinction is the study.\nThis section is updated, not deleted, if review finds prior work the searches missed."
+  },
+  {
+    "objectID": "proposals/P07-do-two-studies-agree.html#hypothesis",
+    "href": "proposals/P07-do-two-studies-agree.html#hypothesis",
+    "title": "When two meta-research studies measure the same thing, do they agree?",
+    "section": "3. Hypothesis",
+    "text": "3. Hypothesis\nPairs of meta-research studies measuring the same practice in overlapping populations report rates that differ by more than sampling error alone would produce.\nPrimary null. Between-study heterogeneity in the paired rate difference is consistent with sampling variation.\nWhat would falsify it. Heterogeneity consistent with chance, which would be a strong positive result about the field and is the outcome the field would hope for."
+  },
+  {
+    "objectID": "proposals/P07-do-two-studies-agree.html#sample",
+    "href": "proposals/P07-do-two-studies-agree.html#sample",
+    "title": "When two meta-research studies measure the same thing, do they agree?",
+    "section": "4. Sample",
+    "text": "4. Sample\nThe unit is a pair, and pairs are what the probe must count before anything else is decided. Candidate pairs come from two places:\n\nThe included-study lists of meta-research syntheses already in the corpus. PMID 37433624 is the largest and its included studies are, by construction, meta-research studies measuring the same construct.\nThe corpus itself, matched on topic block plus the population studied, extracted from the abstract.\n\nA pair qualifies when both studies measure the same practice, in the same discipline or journal set, over overlapping publication years, and both report an extractable rate with a denominator."
+  },
+  {
+    "objectID": "proposals/P07-do-two-studies-agree.html#outcome",
+    "href": "proposals/P07-do-two-studies-agree.html#outcome",
+    "title": "When two meta-research studies measure the same thing, do they agree?",
+    "section": "5. Outcome",
+    "text": "5. Outcome\nThe absolute difference in reported rate between the two members of a pair, with each study’s own denominator, so that the expected difference under sampling variation alone is computable."
+  },
+  {
+    "objectID": "proposals/P07-do-two-studies-agree.html#analysis",
+    "href": "proposals/P07-do-two-studies-agree.html#analysis",
+    "title": "When two meta-research studies measure the same thing, do they agree?",
+    "section": "6. Analysis",
+    "text": "6. Analysis\nIn R. For each pair, the observed rate difference against the difference expected from the two binomial denominators. Aggregated as an excess-heterogeneity statistic across pairs, with a permutation null built by pairing studies that do not share a population.\nThe permutation null is the part that makes this a test rather than a description: without it, any two rates differ and the result is unfalsifiable."
+  },
+  {
+    "objectID": "proposals/P07-do-two-studies-agree.html#threats-and-what-happened-to-each",
+    "href": "proposals/P07-do-two-studies-agree.html#threats-and-what-happened-to-each",
+    "title": "When two meta-research studies measure the same thing, do they agree?",
+    "section": "7. Threats, and what happened to each",
+    "text": "7. Threats, and what happened to each\n\n\n\n\n\n\n\n\nthreat\nwhat was done\nremoved or disclosed\n\n\n\n\n“Same practice” is a judgment\nPair eligibility is adjudicated by the author against written criteria, not by a model\nDisclosed\n\n\nOverlapping samples are not identical samples\nThe expected difference accounts for denominators but not for which specific articles were sampled; partial overlap inflates apparent disagreement\nDisclosed\n\n\nPairs may not exist in usable numbers\nProbe PA counts them before anything else\nRemoved by the probe, or the study ends\n\n\nPublication years differ, and practice changes\nPairs restricted to overlapping year ranges; year gap reported per pair\nDisclosed\n\n\nReported rates use different denominators for the same word\nEvery rate is re-extracted with its denominator rather than taken from an abstract percentage\nRemoved"
+  },
+  {
+    "objectID": "proposals/P07-do-two-studies-agree.html#probes",
+    "href": "proposals/P07-do-two-studies-agree.html#probes",
+    "title": "When two meta-research studies measure the same thing, do they agree?",
+    "section": "8. Probes",
+    "text": "8. Probes\n\n\n\n\n\n\n\n\n\n\nprobe\ncomputes\ngoes to\nwhat would change the design\nstatus\n\n\n\n\nPA\ncandidate pairs from the included-study list of PMID 37433624 and from corpus matching\n4\nfewer than 10 usable pairs makes this an agenda item\noutstanding\n\n\nPB\nhow many candidate pairs have an extractable rate and denominator in both members\n5\nbelow about 20 the permutation null is not usable\noutstanding, depends on PA\n\n\nPC\nauthor adjudication of “same practice” on the candidates\n4\ndisagreement with the written criteria means the criteria are wrong, not the pairs\noutstanding, needs the author"
+  },
+  {
+    "objectID": "proposals/P07-do-two-studies-agree.html#deviations",
+    "href": "proposals/P07-do-two-studies-agree.html#deviations",
+    "title": "When two meta-research studies measure the same thing, do they agree?",
+    "section": "Deviations",
+    "text": "Deviations\nRecorded on the result page: what changed, when, why, and the estimate before and after where that can be computed. A deviation is not a failure; concealing one is."
+  },
+  {
+    "objectID": "proposals/P07-do-two-studies-agree.html#what-this-cannot-show",
+    "href": "proposals/P07-do-two-studies-agree.html#what-this-cannot-show",
+    "title": "When two meta-research studies measure the same thing, do they agree?",
+    "section": "What this cannot show",
+    "text": "What this cannot show\n\nIt cannot say which member of a disagreeing pair is right.\nIt cannot separate genuine disagreement from different but equally defensible definitions of the same practice, which may be the most common cause of any disagreement found."
+  },
+  {
+    "objectID": "proposals/P09-does-meta-research-change-practice.html",
+    "href": "proposals/P09-does-meta-research-change-practice.html",
+    "title": "Does meta-research change the practice it documents?",
     "section": "",
-    "text": "Each proposal below is a protocol. It states a hypothesis, what would falsify it, the unit of analysis, the data source with a call that proved the source reachable, and the analysis in R, and it is published in that state before any analysis is run.\nThe order matters and it is deliberate. A protocol written after the result is known is not a protocol, and a project that criticizes selective reporting cannot itself decide what its question was once it has seen the answer. Every proposal therefore carries a date and a status, and a result page will link back to the protocol as it stood."
+    "text": "ImportantStatus: design only. No probe has run. This is the one that most needs the author’s judgment.\n\n\n\nEvery other document here can have its feasibility settled by a script. This one cannot, because its unit of analysis is “a documented problem” and enumerating those is a judgment about which meta-research papers were consequential enough to have plausibly changed anything.\nPublished at design stage deliberately. It is the most important question in the set and pretending otherwise by deferring it would be a choice about what is easy rather than what matters."
   },
   {
-    "objectID": "agenda.html#status-values",
-    "href": "agenda.html#status-values",
-    "title": "The agenda",
-    "section": "Status values",
-    "text": "Status values\n\n\n\n\n\n\n\nstatus\nmeaning\n\n\n\n\nproposed\nprotocol published, not yet reviewed, not yet run\n\n\nagenda\na real gap that cannot be run from public data, recorded rather than skipped\n\n\nreviewed\nindependent reviews attached, published whole including disagreement\n\n\nrunning\nanalysis in progress against the published protocol\n\n\nreported\nresult published with the protocol and the reviews"
+    "objectID": "proposals/P09-does-meta-research-change-practice.html#the-question",
+    "href": "proposals/P09-does-meta-research-change-practice.html#the-question",
+    "title": "Does meta-research change the practice it documents?",
+    "section": "1. The question",
+    "text": "1. The question\nMeta-research documents problems on the assumption that documenting them helps. That assumption is rarely tested, and the field that insists on evidence for other people’s interventions has little for its own."
   },
   {
-    "objectID": "agenda.html#review",
-    "href": "agenda.html#review",
-    "title": "The agenda",
-    "section": "Review",
-    "text": "Review\nNo proposal here has been reviewed. Review is by two models from different providers, each given the protocol and instructed to refute it, and no study is reviewed by one model alone. The Codex account’s usage limit was exhausted on 2026-09-16 and resets on 2026-09-20, so reviews begin then rather than running one reviewer now and calling it review."
+    "objectID": "proposals/P09-does-meta-research-change-practice.html#hypothesis",
+    "href": "proposals/P09-does-meta-research-change-practice.html#hypothesis",
+    "title": "Does meta-research change the practice it documents?",
+    "section": "2. Hypothesis",
+    "text": "2. Hypothesis\nPublication of a meta-research study documenting poor practice in a defined population is followed by improvement in that practice, beyond the secular trend.\nPrimary null. No change in level or slope at the publication date, beyond trend.\nWhat would falsify it. No discontinuity and no slope change. Given how many such studies exist and how little practice appears to move, the null is the more likely outcome and the design must be able to report it credibly. That is why it is an interrupted time series with a control series rather than a before-and-after comparison."
   },
   {
-    "objectID": "agenda.html#how-these-were-chosen",
-    "href": "agenda.html#how-these-were-chosen",
-    "title": "The agenda",
-    "section": "How these were chosen",
-    "text": "How these were chosen\nThe three runnable proposals share a property that was the selection rule rather than a coincidence: each turns the field’s own instrument on the field. Meta-research measures whether others share data, cite retracted work, and report inconvenient findings. None of those questions had been asked about meta-research itself, and each is answerable from data that is already harvested or openly available.\nThat rule also kept out the obvious alternative. A study measuring transparency, or FAIRness, in one more specialty would be a rate in a new population, and rates in new populations are what this corpus already contains in quantity. Each proposal here has an exposure, an outcome and a direction, and each can come out the other way.\nThe fourth entry is not runnable and says so."
+    "objectID": "proposals/P09-does-meta-research-change-practice.html#design",
+    "href": "proposals/P09-does-meta-research-change-practice.html#design",
+    "title": "Does meta-research change the practice it documents?",
+    "section": "3. Design",
+    "text": "3. Design\nControlled interrupted time series. For each documented problem:\n\nIntervention: publication of the meta-research study.\nSeries: the practice it measured, re-measured by us at regular intervals before and after, in the same population the study defined.\nControl series: the same practice over the same period in a comparable population the study did not examine.\n\nThe control series is what separates a real effect from the secular improvement that affects everything. A study reporting improvement without one is measuring the calendar."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Automated meta-research",
-    "section": "",
-    "text": "Meta-research is the study of research itself: how transparently it is reported, whether its data can be found and reused, whether its results survive replication, what happens to it when it is retracted. This project asks whether that work can be done end to end by language models, under conditions strict enough that the result is worth reading.\nNothing is hidden. The search that found the literature, the map derived from it, the studies proposed against that map, the code that runs them, the reviews written by independent models, and the disagreements between those reviews are all published here, in the order they happened."
+    "objectID": "proposals/P09-does-meta-research-change-practice.html#sample-and-what-the-author-must-decide",
+    "href": "proposals/P09-does-meta-research-change-practice.html#sample-and-what-the-author-must-decide",
+    "title": "Does meta-research change the practice it documents?",
+    "section": "4. Sample, and what the author must decide",
+    "text": "4. Sample, and what the author must decide\nThe unit is a documented problem. A candidate qualifies when the original study:\n\ndefines its population explicitly enough to reconstruct it from a query,\nreports a rate with a denominator,\nwas published at least three years ago, so there is post-period to observe,\nmeasures something re-measurable from metadata or full text without human reading at scale.\n\nCriterion 4 is the binding one. “Adherence to CONSORT item 6a” is not re-measurable at scale; “carries a data availability statement”, “reports a registration number”, “is registered prospectively” are.\nThe author selects the candidate problems. A model proposing which papers were influential would be choosing the intervention to suit the hypothesis, and there is no defensible automatic criterion. Five to ten problems is the target."
   },
   {
-    "objectID": "index.html#where-this-currently-stands",
-    "href": "index.html#where-this-currently-stands",
-    "title": "Automated meta-research",
-    "section": "Where this currently stands",
-    "text": "Where this currently stands\nThe literature has been harvested and described, four studies have been proposed against the map, and the first has been run. Nothing has been reviewed.\n\n\n\nstage\nstate\n\n\n\n\nSearch the literature\ndone, tier A only. 1830 records\n\n\nMap what the field studies\ndone. The landscape\n\n\nPropose studies against the gaps\ndone. Four protocols, three runnable\n\n\nIndependent review by two models\nwaiting. One reviewer is quota-blocked until 2026-09-20\n\n\nRun them in R\none of three. R01\n\n\nPublish results with the reviews\nresults published, reviews pending\n\n\n\nThe review row sits above the run row on purpose. A protocol is published and reviewed before the analysis is run, not after, so that the reviewers see a design rather than a finding."
+    "objectID": "proposals/P09-does-meta-research-change-practice.html#analysis",
+    "href": "proposals/P09-does-meta-research-change-practice.html#analysis",
+    "title": "Does meta-research change the practice it documents?",
+    "section": "5. Analysis",
+    "text": "5. Analysis\nIn R. Segmented regression per problem, with a control series and autocorrelation handled explicitly.\ngls(rate ~ time + level + trend + series + series:level + series:trend,\n    correlation = corARMA(p = 1), data = d)\nPooled across problems by random-effects meta-analysis of the level and slope changes, since a single problem is a case study and the question is about the field."
   },
   {
-    "objectID": "index.html#the-pipeline",
-    "href": "index.html#the-pipeline",
-    "title": "Automated meta-research",
-    "section": "The pipeline",
-    "text": "The pipeline\n1. Search. PubMed and PMC, through a harvester that logs every query it issues and cannot truncate a result set without saying so. The protocol, including the queries that turned out to be wrong and why, is in how this was done.\n2. Map. Every record is labelled by vocabulary match against a topic list, and the counts are derived by a script rather than read by a model. This is deliberately the dumbest possible method: a claim on the landscape can be checked by rerunning one file.\n3. Propose. Studies are proposed against the map, and a proposal has to say what is already known, which records establish it, and what specifically would be new. A proposal that cannot name the work it would extend does not get written up.\n4. Run. Analyses are written and executed in R. Each study carries its data, its code and its output in the repository, so a reader can rerun it rather than trust it.\n5. Review. Each study is reviewed independently by models from different providers, given the study and instructed to refute it. Reviews are published whole, including the ones that find nothing and the ones that disagree with each other. Where reviewers disagree, the disagreement is shown rather than resolved silently."
+    "objectID": "proposals/P09-does-meta-research-change-practice.html#threats-and-what-happened-to-each",
+    "href": "proposals/P09-does-meta-research-change-practice.html#threats-and-what-happened-to-each",
+    "title": "Does meta-research change the practice it documents?",
+    "section": "6. Threats, and what happened to each",
+    "text": "6. Threats, and what happened to each\n\n\n\n\n\n\n\n\nthreat\nwhat was done\nremoved or disclosed\n\n\n\n\nSecular trend mistaken for effect\nControl series; the primary estimate is the difference in differences\nRemoved\n\n\nAutocorrelation inflating significance\nModeled explicitly, order selected and reported\nRemoved\n\n\nSelection of influential papers\nThe author selects, against written criteria, and the criteria are published before selection\nDisclosed\n\n\nCo-interventions\nA journal policy change often follows the same concern that prompted the study; the design cannot separate them, and this is the central limitation\nDisclosed\n\n\nRegression to the mean\nA study is often published because a rate looked bad; the rate would drift up without any effect\nDisclosed, and the control series partly addresses it\n\n\nRe-measurement differs from the original measurement\nOur instrument is re-applied to the pre-period as well, so the comparison is internally consistent even where it disagrees with the original paper’s number\nRemoved"
   },
   {
-    "objectID": "index.html#what-the-models-did-and-did-not-do",
-    "href": "index.html#what-the-models-did-and-did-not-do",
-    "title": "Automated meta-research",
-    "section": "What the models did and did not do",
-    "text": "What the models did and did not do\nThe searching, the analysis code, the drafting and the reviewing are done by language models. The research questions, the scope decisions, the judgment about what is worth publishing, and the responsibility for everything on this site are the author’s. Where a model produced something, the page says which model and when.\nThis distinction matters more here than in most projects, because the subject is research quality. A site about transparency that was vague about its own provenance would be evidence against its own argument."
+    "objectID": "proposals/P09-does-meta-research-change-practice.html#probes",
+    "href": "proposals/P09-does-meta-research-change-practice.html#probes",
+    "title": "Does meta-research change the practice it documents?",
+    "section": "7. Probes",
+    "text": "7. Probes\n\n\n\n\n\n\n\n\n\n\nprobe\ncomputes\ngoes to\nwhat would change the design\nstatus\n\n\n\n\nPA\ncandidate problems meeting criteria 1 to 4\n4\nfewer than 5 makes pooling meaningless\noutstanding, needs the author\n\n\nPB\nfor each candidate, whether the population is reconstructible as a PubMed query\n4\na population that cannot be reconstructed cannot be a series\noutstanding\n\n\nPC\npre-period length and number of points per series\n5\nfewer than about 8 pre-period points makes segmented regression unreliable\noutstanding, depends on PB\n\n\nPD\nagreement between our re-measurement and the original study’s reported rate\n6\na large gap means the instrument differs and the series is not the one the paper measured\noutstanding"
   },
   {
-    "objectID": "index.html#source",
-    "href": "index.html#source",
-    "title": "Automated meta-research",
-    "section": "Source",
-    "text": "Source\nEverything, including the harvested corpus and the search log, is at github.com/choxos/autometaresearch."
+    "objectID": "proposals/P09-does-meta-research-change-practice.html#deviations",
+    "href": "proposals/P09-does-meta-research-change-practice.html#deviations",
+    "title": "Does meta-research change the practice it documents?",
+    "section": "Deviations",
+    "text": "Deviations\nRecorded on the result page: what changed, when, why, and the estimate before and after where that can be computed. A deviation is not a failure; concealing one is."
   },
   {
-    "objectID": "methods.html",
-    "href": "methods.html",
-    "title": "How this was done",
-    "section": "",
-    "text": "This project studies transparency in research. It would be indefensible for the project itself to be opaque, so every query, every count and every scope decision is recorded here, including the ones that went wrong."
-  },
-  {
-    "objectID": "methods.html#databases-and-dates",
-    "href": "methods.html#databases-and-dates",
-    "title": "How this was done",
-    "section": "Databases and dates",
-    "text": "Databases and dates\nPubMed and PMC, through the NCBI E-utilities. PMC is searched as well as PubMed because PMC carries records PubMed does not index: author manuscripts, some non-MEDLINE journals, and deposited preprints. Searches were run on 2026-09-16. No language, date or article-type limit was applied.\nThe harvester is build/lit/search.py. It is the only route by which a record enters the corpus, and it writes a machine-readable log of every query it issued to data/lit/search-log.json."
-  },
-  {
-    "objectID": "methods.html#the-two-tiers",
-    "href": "methods.html#the-two-tiers",
-    "title": "How this was done",
-    "section": "The two tiers",
-    "text": "The two tiers\nThe field can be searched two ways and they retrieve different things.\nTier A is the field naming itself: a paper that describes its own work as meta-research, metascience, research on research, or a meta-epidemiological study. Precision is close to total, because no other kind of paper uses those words about itself.\nTier B is the field by subject matter: reporting quality, data sharing, retraction, registration, peer review, and the rest. Tier B retrieves two populations that no boolean query separates. A search for \"data sharing\" returns surveys of how often trials share data alongside trials that happened to share theirs, and only the first kind is meta-research.\nOnly tier A has been harvested. Tier B has been sized and the counts are published below, but nothing from it is in the corpus. That decision is revisited once the tier A map has been read."
-  },
-  {
-    "objectID": "methods.html#tier-a-the-query",
-    "href": "methods.html#tier-a-the-query",
-    "title": "How this was done",
-    "section": "Tier A: the query",
-    "text": "Tier A: the query\nEach phrase is searched in title, abstract and author keyword fields, and the phrases are combined with OR.\n\"meta-research\"      \"metaresearch\"           \"meta research\"\n\"metascience\"        \"meta-science\"           \"research on research\"\n\"science of science\" \"meta-epidemiological\"   \"meta-epidemiology\"\n\n\n\ndatabase\nhits\nrecords retrieved\n\n\n\n\nPubMed\n1805\n1805\n\n\nPMC\n694\n694\n\n\n\nDeduplicated on PMID, then DOI, then PMCID, then normalized title: 1830 unique records. The overlap is large, as expected; 669 PMC records were already present from PubMed and 25 were new."
-  },
-  {
-    "objectID": "methods.html#tier-b-the-counts-and-why-they-are-not-the-corpus",
-    "href": "methods.html#tier-b-the-counts-and-why-they-are-not-the-corpus",
-    "title": "How this was done",
-    "section": "Tier B: the counts, and why they are not the corpus",
-    "text": "Tier B: the counts, and why they are not the corpus\nMeasured 2026-09-16 in PubMed. The third column is the same block ANDed with a study-of-literature qualifier described below.\n\n\n\n\n\n\n\n\n\nblock\nphrases cover\nraw hits\nqualified\n\n\n\n\nreg\nregistration, outcome switching, publication bias\n189588\n8205\n\n\nbiblio\nauthorship, citation, metrics\n17419\n16265\n\n\nreport\nreporting quality, guideline adherence\n16657\n2395\n\n\ndatashare\ndata and code sharing, FAIR\n15418\n767\n\n\nretract\nretraction, misconduct, integrity\n11128\n637\n\n\nrepro\nreproducibility, replication\n6421\n241\n\n\noa\nopen access, preprints, predatory publishing\n4475\n1050\n\n\npeerrev\npeer review\n2910\n325\n\n\ncoi\nconflicts of interest, funding\n1387\nnot measured\n\n\nwaste\nresearch waste, prioritization\n1061\nnot measured\n\n\nstats\np-hacking, spin, questionable practices\n545\nnot measured\n\n\nequity\nequity and representation\n326\nnot measured\n\n\naitext\ngenerative AI in research writing\n106\nnot measured\n\n\n\n\nThe 189588\nThe reg block first returned 189588 records, five sixths of everything tier B retrieved, from the single phrase \"trial registration\". The obvious explanation was wrong. The phrase was not being broken into words and ANDed by PubMed; it is phrase-indexed, and the quoted form returns fewer records than trial AND registration does. The real cause is that Trial registration is the label of a section in a structured abstract, so every registered trial in PubMed carries the phrase verbatim. It identifies trials that were registered and never studies of registration.\nThe phrase has been removed from the block. build/lit/search.py records why, next to the block it was removed from, so it is not reintroduced by someone who only sees that the block looks thin.\n\"registered report\" was removed for a related reason: the singular returns 5806 records and the plural 192, because the singular also matches any sentence about a report that was registered. Only the plural is kept.\n\n\nThe qualifier\nFor the contaminated blocks, ANDing the topic with a set of phrases that name the object of study separates a study of the literature from a study of patients. A study of data sharing examines published articles; a trial that shared its data examines people.\n\"published articles\"  \"published studies\"    \"published trials\"\n\"journal articles\"    \"publications\"         \"sample of articles\"\n\"cross-sectional study of\"                   \"sample of trials\"\n\"we searched PubMed\"  \"we searched MEDLINE\"  \"we searched Embase\"\n\"research articles\"   \"abstracts of\"         \"meta-epidemiological\"\nIt is effective and it is lossy. A meta-research paper that describes its sample as “we examined 300 trials” carries none of these phrases and would be lost. Both numbers are therefore recorded, so any qualified corpus is reported against the raw count it was drawn from rather than presented as the whole field."
-  },
-  {
-    "objectID": "methods.html#retrieval-limits-and-why-nothing-was-silently-truncated",
-    "href": "methods.html#retrieval-limits-and-why-nothing-was-silently-truncated",
-    "title": "How this was done",
-    "section": "Retrieval limits, and why nothing was silently truncated",
-    "text": "Retrieval limits, and why nothing was silently truncated\nNCBI returns at most 9999 identifiers for one query. The sibling project this harvester is adapted from partitions an oversized query by year and then by month and stops there, so a single month above the ceiling truncates without saying so. Meta-research blocks are large and concentrated in recent years, which is where that would happen.\nThe partitioner here bisects the publication-date range recursively until every part is under the ceiling. When even a single day exceeds it, the day is recorded in gaps in the search log and printed as TRUNCATED, rather than passed off as complete. The tier A harvest needed no partitioning: both queries were under the ceiling."
-  },
-  {
-    "objectID": "methods.html#labelling",
-    "href": "methods.html#labelling",
-    "title": "How this was done",
-    "section": "Labelling",
-    "text": "Labelling\nTopic labels are assigned in build/lit/describe.py by matching the tier B phrase vocabulary against each record’s title, abstract and author keywords. Matching is case-insensitive, treats a hyphen and a space as equivalent, as PubMed does, and requires whole-token boundaries so that spin does not match spinal.\nTwo vocabularies are involved and conflating them caused the one error this project has so far published. The search vocabulary is tuned for precision against all of PubMed, where a phrase as broad as \"peer review\" retrieves every paper that mentions having been peer reviewed. The labelling vocabulary applies inside a corpus that is already meta-research, where that same narrowness only hides topics: the search phrases labelled peer review on 11 records while 159 of them mention it, and generative AI on 1 while 66 mention a language model. A conclusion drawn from those counts, that the field does not study its own quality control, was published on the landscape page and was false.\nBroad labelling phrases now live in LABEL_EXTRA in build/lit/describe.py, applied only to records already retrieved and never to a query. The corrected counts are on the landscape, which also states what the earlier version claimed.\nA label means the record uses a topic’s vocabulary. It does not mean a human, or a model, judged the record to be about that topic. No model has read any record in this corpus. Records can carry several labels; 1819 of 1830 carry at least one and 11 carry none."
-  },
-  {
-    "objectID": "methods.html#what-this-corpus-is-not",
-    "href": "methods.html#what-this-corpus-is-not",
-    "title": "How this was done",
-    "section": "What this corpus is not",
-    "text": "What this corpus is not\n\nIt is not the meta-research literature. It is the part of it that names itself. Work published before roughly 2015, when the vocabulary settled, largely does not appear even when it is unmistakably meta-research by subject.\nIt is not screened. Every record retrieved by the tier A query is in, including editorials, comments and letters. Publication types are reported on the landscape page so a reader can see how much of the corpus that is.\nIt carries no preprints beyond what PMC deposits. Europe PMC indexes preprint servers under a source PubMed has no equivalent for. Adding that supplement is a known gap, not an oversight.\nNothing here has been peer reviewed yet. The review process is described in the pipeline and has not run."
-  },
-  {
-    "objectID": "methods.html#reproducing-it",
-    "href": "methods.html#reproducing-it",
-    "title": "How this was done",
-    "section": "Reproducing it",
-    "text": "Reproducing it\npython3 build/lit/search.py --check          # assert the parser still works\npython3 build/lit/search.py --counts         # size every block, download nothing\npython3 build/lit/search.py --tier A         # harvest, resumable, cached\npython3 build/lit/describe.py                # derive the map\npython3 build/render_site.py                 # write landscape.qmd and corpus.qmd\nquarto render                                # -&gt; docs/\ndata/lit/records.jsonl is tracked, so the corpus can be re-described without re-harvesting. The XML cache is not tracked; it is 101 MB and re-fetchable."
-  },
-  {
-    "objectID": "proposals/P01-advocacy-and-practice.html",
-    "href": "proposals/P01-advocacy-and-practice.html",
-    "title": "Does advocating transparency predict practicing it?",
-    "section": "",
-    "text": "Proposed by Claude Opus 5 on 2026-09-16. This protocol was published before the analysis ran and has not been edited since, apart from this note and the status field.\nThe study has been run. The result is at R01. Neither has been reviewed; review waits for the second reviewer’s quota on 2026-09-20."
-  },
-  {
-    "objectID": "proposals/P01-advocacy-and-practice.html#the-question",
-    "href": "proposals/P01-advocacy-and-practice.html#the-question",
-    "title": "Does advocating transparency predict practicing it?",
-    "section": "The question",
-    "text": "The question\nMeta-research tells other fields to share their data. It is a field defined by holding other research to a standard. The question is whether the papers doing that holding meet the standard themselves, and more precisely whether the ones arguing hardest for it are the ones most likely to meet it."
-  },
-  {
-    "objectID": "proposals/P01-advocacy-and-practice.html#hypothesis",
-    "href": "proposals/P01-advocacy-and-practice.html#hypothesis",
-    "title": "Does advocating transparency predict practicing it?",
-    "section": "Hypothesis",
-    "text": "Hypothesis\nA meta-research article whose own subject is data sharing, code sharing or research transparency carries a data availability statement, and a substantive one, more often than a meta-research article on any other subject.\nThe hypothesis is directional and it is the interesting direction. The null is that subject matter has no relationship with practice, which would mean advocacy and behavior are independent inside the one field where they should not be.\nWhat would falsify it. An odds ratio whose confidence interval includes or falls below 1 for the transparency-topic coefficient, with the sample large enough to exclude an effect worth caring about. That result is publishable and would be the more striking of the two."
-  },
-  {
-    "objectID": "proposals/P01-advocacy-and-practice.html#unit-of-analysis",
-    "href": "proposals/P01-advocacy-and-practice.html#unit-of-analysis",
-    "title": "Does advocating transparency predict practicing it?",
-    "section": "Unit of analysis",
-    "text": "Unit of analysis\nOne meta-research article. 1088 of the 1830 records in the corpus carry a PMCID and therefore have retrievable full text. The remaining 742 are excluded and the exclusion is reported, because open-access availability is itself correlated with transparency practice and this biases the sample toward the transparent. That bias works against the null and has to be stated as a limitation rather than adjusted away."
-  },
-  {
-    "objectID": "proposals/P01-advocacy-and-practice.html#exposure-and-outcome",
-    "href": "proposals/P01-advocacy-and-practice.html#exposure-and-outcome",
-    "title": "Does advocating transparency predict practicing it?",
-    "section": "Exposure and outcome",
-    "text": "Exposure and outcome\nExposure. The datashare topic label already derived for every record in build/lit/describe.py, which matches data sharing, code availability, FAIR and data reuse vocabulary against title, abstract and keywords. 84 records carry it.\nOutcome. Presence and content of a data availability statement in the full text, taken from the JATS &lt;sec sec-type=\"data-availability\"&gt; element. A pilot on three records found the element present in all three, so the extraction is not hypothetical. Statements are then graded on a three-level scale, because “data are available on request” and a repository accession are not the same claim:\n\n\n\n\n\n\n\nlevel\nmeaning\n\n\n\n\nnone\nno statement\n\n\ndeclarative\na statement that shares nothing: on request, within the article, not applicable\n\n\nactionable\na repository name, accession, DOI or URL that resolves\n\n\n\nGrading the middle and top levels is done by rule on the statement text, and a random 100 statements are graded by hand to measure where the rule disagrees. The rule is not adjusted after seeing the outcome."
-  },
-  {
-    "objectID": "proposals/P01-advocacy-and-practice.html#analysis",
-    "href": "proposals/P01-advocacy-and-practice.html#analysis",
-    "title": "Does advocating transparency predict practicing it?",
-    "section": "Analysis",
-    "text": "Analysis\nIn R. Logistic regression of an actionable statement on the transparency topic label, adjusted for publication year, journal and article type, with journal as a random effect because a journal’s own policy is the dominant driver of whether any statement appears at all and a fixed effect on 400 journals will not estimate.\nglmer(actionable ~ topic_datashare + year_c + pubtype +\n        (1 | journal), family = binomial, data = d)\nAn ordinal model on the three-level outcome is fitted alongside as the preregistered secondary, not as a fallback if the binary result disappoints."
-  },
-  {
-    "objectID": "proposals/P01-advocacy-and-practice.html#novelty",
-    "href": "proposals/P01-advocacy-and-practice.html#novelty",
-    "title": "Does advocating transparency predict practicing it?",
-    "section": "Novelty",
-    "text": "Novelty\nThis is not a transparency-of-X study with X swapped, and the distinction is the reason the proposal exists. Sofi-Mahmudi and colleagues measured the transparency of COVID-19 research (PMID 37494359) and the FAIRness of its data (PMID 39556553); both estimate a rate in a population. A 2026 study measured data availability statements in dentistry journals (PMID 41955959) and is again a rate.\nThis asks whether one measurable property of a paper predicts another property of the same paper. It has an exposure, an outcome and a direction, and it can come out the other way."
-  },
-  {
-    "objectID": "proposals/P01-advocacy-and-practice.html#what-it-costs",
-    "href": "proposals/P01-advocacy-and-practice.html#what-it-costs",
-    "title": "Does advocating transparency predict practicing it?",
-    "section": "What it costs",
-    "text": "What it costs\n1088 PMC full-text fetches at the NCBI throttle, roughly twelve minutes, cached. The corpus is already harvested. No paid service and no API key."
-  },
-  {
-    "objectID": "proposals/P01-advocacy-and-practice.html#known-threats-to-the-result",
-    "href": "proposals/P01-advocacy-and-practice.html#known-threats-to-the-result",
-    "title": "Does advocating transparency predict practicing it?",
-    "section": "Known threats to the result",
-    "text": "Known threats to the result\n\nJournal policy confounds everything. A journal that mandates a statement produces one regardless of the author’s convictions. The random effect absorbs the average journal, not an interaction between journal policy and topic, and the estimate is within-journal only where a journal publishes both kinds of paper.\nThe exposure is a vocabulary match, not a judgment. A paper labelled datashare may mention data sharing once in passing. Misclassification here is non-differential with respect to the outcome and biases toward the null, which weakens a positive finding and strengthens a negative one.\n60 percent PMC coverage is not random. Stated above; not fixable within this design."
-  },
-  {
-    "objectID": "proposals/P02-citing-retracted-work.html",
-    "href": "proposals/P02-citing-retracted-work.html",
-    "title": "Does meta-research cite retracted work?",
-    "section": "",
-    "text": "Proposed by Claude Opus 5 on 2026-09-16. Not yet reviewed. This page is a protocol and no analysis has been run."
-  },
-  {
-    "objectID": "proposals/P02-citing-retracted-work.html#the-question",
-    "href": "proposals/P02-citing-retracted-work.html#the-question",
-    "title": "Does meta-research cite retracted work?",
-    "section": "The question",
-    "text": "The question\nCiting a retracted paper as though it stands is a known failure of the literature, and meta-research is the field that documents it. Retracted randomized trials have been shown to go on being cited uncorrected in systematic reviews and clinical guidelines (PMID 35779825), and clinical practice guidelines for low back pain have been shown to cite retracted and predatory work (PMID 40156953).\nNobody has turned that instrument on meta-research itself. If a field that studies citation of retracted work does it at the same rate as everyone else, that is a finding about how far knowing a problem gets you toward avoiding it."
-  },
-  {
-    "objectID": "proposals/P02-citing-retracted-work.html#hypothesis",
-    "href": "proposals/P02-citing-retracted-work.html#hypothesis",
-    "title": "Does meta-research cite retracted work?",
-    "section": "Hypothesis",
-    "text": "Hypothesis\nMeta-research articles cite retracted work at a lower rate than a matched comparison of articles published in the same journals and years.\nThe direction is stated because the alternative is the interesting one. A field with domain expertise in this exact failure, finding no advantage from that expertise, says something the descriptive literature does not.\nWhat would falsify it. A rate ratio at or above 1 against the matched comparison. Given the low base rate of citing retracted work, the study is powered by the number of references, not the number of articles, and the power calculation is done before the run and reported whatever it says."
-  },
-  {
-    "objectID": "proposals/P02-citing-retracted-work.html#unit-of-analysis",
-    "href": "proposals/P02-citing-retracted-work.html#unit-of-analysis",
-    "title": "Does meta-research cite retracted work?",
-    "section": "Unit of analysis",
-    "text": "Unit of analysis\nOne reference. The 1088 corpus records with PMC full text yield an estimated 60000 to 90000 references, of which roughly 62 percent carry a DOI in the JATS markup, measured on a pilot of three articles. References without a DOI are not matchable and are excluded; the exclusion rate is reported per article, since an article whose references are mostly unmatchable contributes little and a systematic difference in DOI coverage between the corpus and the comparison would be a confounder in its own right."
-  },
-  {
-    "objectID": "proposals/P02-citing-retracted-work.html#comparison-group",
-    "href": "proposals/P02-citing-retracted-work.html#comparison-group",
-    "title": "Does meta-research cite retracted work?",
-    "section": "Comparison group",
-    "text": "Comparison group\nArticles from the same journals and the same publication years that are not in the corpus, sampled to match the corpus distribution of journal and year, and restricted to those with PMC full text so that reference extraction is identical for both arms. Matching on journal is not optional: the corpus is concentrated in a small number of methods journals whose reference practices are not those of the literature at large."
-  },
-  {
-    "objectID": "proposals/P02-citing-retracted-work.html#measurement",
-    "href": "proposals/P02-citing-retracted-work.html#measurement",
-    "title": "Does meta-research cite retracted work?",
-    "section": "Measurement",
-    "text": "Measurement\nRetraction Watch is retrieved as an open CSV through Crossref Labs; it carries 72577 records with OriginalPaperDOI, RetractionDate and Reason. A cited DOI counts as a citation of retracted work when it appears in that column.\nThe critical refinement, and the reason a naive version of this study would be wrong: a reference is only a failure if the retraction preceded the citing article. A paper published before its source was retracted could not have known. Every match is therefore classified:\n\n\n\n\n\n\n\nclass\nmeaning\n\n\n\n\npost-retraction citation\nretraction date precedes the citing article’s publication date\n\n\npre-retraction citation\nthe citing article came first\n\n\ndiscussed as retracted\nthe citing article is about retraction and cites the paper as an example\n\n\n\nThe third class is not a small correction here; it is the dominant confounder. Meta-research about retraction cites retracted papers on purpose, and a study that counted those as failures would produce exactly the opposite of the truth. Classification uses the retract topic label and the citation context extracted from the surrounding sentence in the JATS body, and every article carrying the retract label is additionally reported separately so the primary estimate can be read with and without them."
-  },
-  {
-    "objectID": "proposals/P02-citing-retracted-work.html#analysis",
-    "href": "proposals/P02-citing-retracted-work.html#analysis",
-    "title": "Does meta-research cite retracted work?",
-    "section": "Analysis",
-    "text": "Analysis\nIn R. The outcome is a count of post-retraction citations per article with the article’s total matchable references as the offset.\nglm.nb(n_post_retraction ~ arm + year_c + offset(log(n_matchable_refs)),\n       data = d)\nNegative binomial rather than Poisson because reference counts of this kind are overdispersed, with the dispersion parameter reported rather than assumed. A sensitivity analysis excludes every article carrying the retract label from both arms."
-  },
-  {
-    "objectID": "proposals/P02-citing-retracted-work.html#what-it-costs",
-    "href": "proposals/P02-citing-retracted-work.html#what-it-costs",
-    "title": "Does meta-research cite retracted work?",
-    "section": "What it costs",
-    "text": "What it costs\n1088 PMC full-text fetches, shared with P01 and served from the same cache. One 72577-row CSV. The comparison arm needs its own PubMed query and PMC fetch, of comparable size. No paid service."
-  },
-  {
-    "objectID": "proposals/P02-citing-retracted-work.html#known-threats-to-the-result",
-    "href": "proposals/P02-citing-retracted-work.html#known-threats-to-the-result",
-    "title": "Does meta-research cite retracted work?",
-    "section": "Known threats to the result",
-    "text": "Known threats to the result\n\n62 percent DOI coverage in reference lists. If coverage differs between arms the offset is biased. Measured and reported per arm before the model is fitted.\nRetraction Watch is not complete and its dates are not always the publisher’s. A missing retraction biases both arms toward the null equally; a systematically late date misclassifies post-retraction citations as pre-retraction, again in both arms.\nThe matched comparison is matched on journal and year and nothing else. Article type, length and reference count differ, and the offset handles only the last."
-  },
-  {
-    "objectID": "proposals/P04-observational-about-itself.html",
-    "href": "proposals/P04-observational-about-itself.html",
-    "title": "The field is observational about itself",
-    "section": "",
-    "text": "This is an agenda item and not a proposal. It states a gap that is measured and real, and then says why the study it implies cannot be run from public data. It is published so that the gap is on the record rather than quietly skipped because it is inconvenient."
-  },
-  {
-    "objectID": "proposals/P04-observational-about-itself.html#the-measurement",
-    "href": "proposals/P04-observational-about-itself.html#the-measurement",
-    "title": "The field is observational about itself",
-    "section": "The measurement",
-    "text": "The measurement\nOf the 1830 articles in the corpus, four carry a publication type of randomized controlled trial, controlled clinical trial or clinical trial:\n\n\n\n\n\n\n\n\nPMID\nyear\narticle\n\n\n\n\n36995753\n2023\nUsing normative language when describing scientific findings: randomized controlled trial\n\n\n35838202\n2022\nSelective outcome reporting in paediatric dentistry restorative treatment randomized clinical trials\n\n\n34118367\n2021\nThe impact of gender on researchers’ assessment: a randomized controlled trial\n\n\n29886846\n2018\nAvoidable waste of research related to outcome planning and reporting in clinical trials\n\n\n\nOf those four, two are experiments on the research process itself: the normative language trial and the gender assessment trial. The other two carry the type because the object they studied was a trial, not because they ran one.\nTwo experiments in 1830 articles. The corpus is 549 meta-epidemiological studies, 680 that examine systematic reviews, and almost no manipulation of anything."
-  },
-  {
-    "objectID": "proposals/P04-observational-about-itself.html#why-this-matters-rather-than-merely-being-true",
-    "href": "proposals/P04-observational-about-itself.html#why-this-matters-rather-than-merely-being-true",
-    "title": "The field is observational about itself",
-    "section": "Why this matters rather than merely being true",
-    "text": "Why this matters rather than merely being true\nMeta-research grades other fields on their evidence hierarchy. It tells clinical researchers that an observational association is weaker than a randomized comparison, and it is right. Its own output is almost entirely observational association.\nSome of that is unavoidable. You cannot randomize whether a paper was preregistered. But the questions the field most wants answered are causal and several of them are randomizable: whether a reporting checklist at submission improves reporting, whether blinding reviewers changes what gets accepted, whether a data availability mandate produces available data or only statements. Each of those is an intervention on a process someone controls."
-  },
-  {
-    "objectID": "proposals/P04-observational-about-itself.html#why-it-cannot-be-run-here",
-    "href": "proposals/P04-observational-about-itself.html#why-it-cannot-be-run-here",
-    "title": "The field is observational about itself",
-    "section": "Why it cannot be run here",
-    "text": "Why it cannot be run here\nEvery such experiment requires randomizing something inside a journal, a funder or an ethics committee: which manuscripts get an intervention, which reviewers see what, which applicants receive which instruction. None of that is reachable from public data, and no amount of harvesting substitutes for the permission.\nThe honest statement is that this project can measure the gap and cannot fill it. Recording that is more useful than inventing an observational proxy and calling it an answer, which is precisely the substitution the field is criticized for elsewhere."
-  },
-  {
-    "objectID": "proposals/P04-observational-about-itself.html#what-would-make-it-runnable",
-    "href": "proposals/P04-observational-about-itself.html#what-would-make-it-runnable",
-    "title": "The field is observational about itself",
-    "section": "What would make it runnable",
-    "text": "What would make it runnable\nA partner willing to randomize one thing: a journal, a preprint server, a funder, or a conference with a submission process. The design is not the obstacle and would be short. The access is the obstacle."
-  },
-  {
-    "objectID": "proposals/P04-observational-about-itself.html#the-one-caveat-on-the-measurement",
-    "href": "proposals/P04-observational-about-itself.html#the-one-caveat-on-the-measurement",
-    "title": "The field is observational about itself",
-    "section": "The one caveat on the measurement",
-    "text": "The one caveat on the measurement\nPublication type is assigned by NLM indexing and an experiment can be missed. 515 of the corpus records carry no MeSH indexing at all, mostly the most recent, and an unindexed experiment would not appear in the count above. The number is a floor, not a point estimate, and the floor is four."
+    "objectID": "proposals/P09-does-meta-research-change-practice.html#what-this-cannot-show",
+    "href": "proposals/P09-does-meta-research-change-practice.html#what-this-cannot-show",
+    "title": "Does meta-research change the practice it documents?",
+    "section": "What this cannot show",
+    "text": "What this cannot show\n\nIt cannot attribute change to the paper rather than to the concern that produced the paper. This is the central limitation and no observational design removes it.\nIt cannot detect an effect on practice that is not recorded in metadata or full text.\nA null result would not show that meta-research is useless, only that this particular route from documentation to practice is not visible at this resolution."
   }
 ]
