@@ -65,11 +65,14 @@ say("analysis set:           ", nrow(d))
 # unexposed arm. The correction therefore raises the comparison rate and works against the
 # hypothesis, which is the direction that makes it worth trusting.
 # ---------------------------------------------------------------------------------------
+# Word-bounded throughout. Without \\b, "4tu" matches inside "24tu" and "opendata" matches
+# inside "opendataset"; this list is pinned by the P01v2 protocol, and a pinned bug is forever.
 REPO <- paste0(
-  "osf\\.io|zenodo|dryad|figshare|dataverse|mendeley data|opendata|",
-  "github\\.com|gitlab\\.com|bitbucket|codeocean|openneuro|",
-  "dbgap|geo accession|arrayexpress|clinicalvars|sequence read archive|",
-  "harvard dataverse|borealis|4tu|pangaea|datacite|re3data"
+  "\\bosf\\.io|\\bzenodo\\b|\\bdryad\\b|\\bfigshare\\b|\\bdataverse\\b|",
+  "\\bmendeley data\\b|\\bopendata\\b|\\bgithub\\.com|\\bgitlab\\.com|\\bbitbucket\\b|",
+  "\\bcodeocean\\b|\\bopenneuro\\b|\\bdbgap\\b|\\bgeo accession\\b|\\barrayexpress\\b|",
+  "\\bsequence read archive\\b|\\bharvard dataverse\\b|\\bborealis\\b|\\b4tu\\b|",
+  "\\bpangaea\\b|\\bdatacite\\b|\\bre3data\\b"
 )
 ON_REQUEST <- paste0(
   "available (from|upon|on)( the)? (corresponding )?(author|authors|first author|request)|",

@@ -10,10 +10,29 @@ reviewed: none
 categories: [result, datashare, reflexive]
 ---
 
-::: {.callout-note appearance="simple"}
-Analysis run by Claude Opus 5 on 2026-09-16 against the protocol published the same day at
-[P01](../proposals/P01-advocacy-and-practice.qmd). Not yet reviewed; review waits for the
-second reviewer's quota on 2026-09-20. Code at `studies/P01-advocacy-and-practice/`.
+::: {.callout-important appearance="simple"}
+## This result is exploratory, not confirmatory
+
+It was run against a one-page proposal rather than a full protocol, and it has not been
+reviewed by anyone. Three things follow and none of them are repairable after the fact:
+
+- **The grading rule was developed on the analysis data.** Statements were read to design it.
+  Reading was blind to the exposure, which limits the damage, but a rule that has seen the data
+  it will be applied to is not a pre-specified instrument.
+- **Three of four sensitivity analyses are post hoc**, two of them invented in response to
+  defects found during the run.
+- **Hand validation has not been done**, so the rule's agreement with a person is unknown.
+
+The one property that does hold is the important one: the protocol was published and
+timestamped in git before the analysis ran, so the question could not be redefined after the
+answer was known. That makes this a real finding worth following up. It does not make it a
+confirmatory test, and it should not be cited as one.
+
+A full protocol is at [P01-v2](../proposals/P01v2-advocacy-and-practice-protocol.qmd), written
+after this run, which is why any result under it has to come from data this analysis did not
+use.
+
+Analysis run by Claude Opus 5 on 2026-09-16. Code at `studies/P01-advocacy-and-practice/`.
 :::
 
 ## Result
@@ -88,20 +107,26 @@ works against the hypothesis.** The odds ratio fell from 4.67 to 4.40.
 
 ## Sensitivity
 
-Each of these was specified for a reason stated before it was run, not selected after seeing it.
+**Three of these four analyses are post hoc.** An earlier version of this page said each was
+"specified for a reason stated before it was run, not selected after seeing it." That was
+false and it is corrected here rather than edited away. Only the ordinal model was
+preregistered in [P01](../proposals/P01-advocacy-and-practice.qmd). Two of the three
+sensitivities below were invented in direct response to defects found during the run, which is
+a reasonable thing to do and is not the same thing as having planned them.
 
-| analysis | odds ratio | 95% CI |
-|---|---|---|
-| **primary** | **4.40** | 1.80 to 10.75 |
-| publisher-typed routes only, no title matching by us | 3.03 | 1.12 to 8.23 |
-| supplementary material counted as actionable | 2.58 | 1.14 to 5.85 |
-| excluding the author's own papers | 4.10 | 1.65 to 10.20 |
+| analysis | preregistered | odds ratio | 95% CI |
+|---|---|---|---|
+| **primary** | yes | **4.40** | 1.80 to 10.75 |
+| ordinal model, all three levels | yes | see above | p = 0.011 |
+| publisher-typed routes only, no title matching by us | no, post hoc | 3.03 | 1.12 to 8.23 |
+| supplementary material counted as actionable | no, post hoc | 2.58 | 1.14 to 5.85 |
+| excluding the author's own papers | no, post hoc | 4.10 | 1.65 to 10.20 |
 
-The second row is the one that matters most. The repaired bug lived in the title-matching
-routes, so this refits using only statements a publisher explicitly tagged, where no pattern of
+The publisher-typed row is the one that matters most. The repaired bug lived in the
+title-matching routes, so this refits using only statements a publisher explicitly tagged, where no pattern of
 ours decides what counts as a statement. The effect is smaller and it survives.
 
-The third row relaxes the protocol's choice to grade "included in this published article and
+The supplementary-material row relaxes the protocol's choice to grade "included in this published article and
 its supplementary information files" as declarative. That choice is defensible rather than
 obviously right, since supplementary material is retrievable by anyone with journal access.
 Relaxing it moves 95 articles into the actionable arm and roughly halves the effect, which it

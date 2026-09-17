@@ -1,0 +1,325 @@
+---
+title: "Advocacy and practice in meta-research: design"
+description: "Confirmatory design for P01, on a sample the exploratory analysis did not use. Not yet a protocol: the probes in section 10 have not been run."
+id: P01v2
+supersedes: P01
+status: design
+proposed_by: "Claude Opus 5"
+date: 2026-09-16
+reviewed: none
+unit: "Meta-research articles about research practice, with PMC full text"
+data_source: "PubMed and PMC via NCBI E-utilities; the qualified tier B frame"
+categories: [design, datashare, confirmatory]
+---
+
+::: {.callout-important appearance="simple"}
+## Status: design. Not a protocol, and not yet registered.
+
+Written against the sibling project's `studies/DESIGN-STANDARD.md`, whose governing rule is
+that **the difference between a design and a protocol is a set of computed numbers**. A design
+that asserts those numbers instead of computing them is a named failure mode there, and an
+earlier version of this page committed it: section 7 assumed a PMC rate and a screening yield
+and multiplied them into a sample size. Those assumptions are now section 10, as probes that
+must run before this becomes a protocol.
+
+**No data have been retrieved under this design. No analysis has been run. No review has been
+requested**, because reviewing a design whose feasibility numbers are guesses wastes the
+review.
+
+Order, which is the user's explicit instruction: full protocol, then peer review, then conduct
+the study, then peer review the result.
+
+This supersedes [P01](P01-advocacy-and-practice.qmd), a one-page proposal left unedited as the
+record of what was actually pre-specified for [R01](../results/R01-advocacy-and-practice.qmd).
+:::
+
+## 1. Why this design exists
+
+R01 found that meta-research articles about data sharing point at a repository of their own
+about four times as often as meta-research articles on other subjects. That result is
+exploratory and cannot be made confirmatory after the fact, for three reasons stated on its
+own page: the grading rule was developed by reading the analysis data, three of four
+sensitivity analyses were post hoc, and no human validation was done.
+
+This specifies a confirmatory test of the same hypothesis, on a sample R01 did not use,
+with every instrument fixed before any data are retrieved.
+
+## 2. Objective and hypothesis
+
+**Primary objective.** To test whether a meta-research article whose subject is data sharing,
+code availability or research transparency is more likely than a meta-research article on
+another aspect of research practice to carry an actionable data availability statement of its
+own.
+
+**Primary hypothesis.** It is, and the association is directional.
+
+**Primary null.** The odds ratio for the transparency exposure is 1.
+
+**What would falsify the hypothesis.** An adjusted odds ratio whose 95 percent confidence
+interval includes 1, in a sample powered as in section 7. Section 7 fixes the power in
+advance so that a null can be read as evidence of absence rather than absence of evidence,
+which was not true of R01.
+
+**Prior expectation, stated so it cannot be revised.** R01 estimated 4.40 (1.80 to 10.75) on
+a different sample with a rule developed on that sample. Regression to the mean and the
+removal of rule-development bias both predict a smaller effect here. An estimate between 1.5
+and 3 would be consistent with R01; an estimate at or above 4 would be surprising and should
+itself be treated with suspicion rather than as confirmation.
+
+## 3. Design
+
+Cross-sectional study of published articles. The unit of analysis is one article.
+
+## 4. Sample
+
+### 4.1 Frame
+
+The frame is the qualified tier B search described in [methods](../methods.qmd), which ANDs a
+topic block with a study-of-literature qualifier. Measured in PubMed on 2026-09-16:
+
+| block | qualified hits | already in tier A | available to this study |
+|---|---|---|---|
+| `datashare` | 754 | 27 | **727** |
+| `report` | 2392 | 103 | **2289** |
+| `reg` | 4450 | 88 | **4362** |
+| `repro` | 229 | 14 | **215** |
+
+**Every record already present in the tier A corpus is excluded**, by PMID, before screening.
+That exclusion is what makes this sample independent of R01, and it is applied first so that
+no later decision can reintroduce an overlapping record.
+
+### 4.2 Eligibility
+
+**Include** an article when all of the following hold:
+
+1. Retrieved by the qualified tier B search for one of the four blocks above.
+2. Not present in the tier A corpus harvested on 2026-09-16.
+3. Screened as meta-research: its object of study is published research, researchers, journals
+   or the research process, rather than patients, organisms, materials or clinical outcomes.
+4. Present in PMC with a `<body>` element longer than 500 characters, so that a statement
+   could have been extracted had one existed.
+
+**Exclude** an article when any of the following hold:
+
+1. Its publication type is comment, editorial, letter, news, biography or historical article.
+   R01 estimated an odds ratio of 0.04 for this group; an article with no data of its own
+   belongs to a different population and its absence of a statement is not evidence about
+   sharing behavior. R01 adjusted for this. This protocol excludes it, which is cleaner.
+2. It is a retracted publication or a retraction notice.
+3. It is not in English. R01 applied no language limit; a statement in another language would
+   be graded `none` by an English-language rule, which is a measurement failure rather than a
+   finding.
+
+### 4.3 Screening
+
+Criterion 3 is the one no boolean query settles, and the reason tier B was never harvested for
+the map. Screening is on title and abstract, by two models from different providers, each given
+the same written criterion and blind to the other.
+
+- Both agree include: included.
+- Both agree exclude: excluded.
+- Disagreement: adjudicated by the author. The count of disagreements is reported.
+
+**Before screening the frame**, 200 records sampled at random across the four blocks are
+screened by the author to create a reference standard. Agreement is reported as Cohen's kappa
+per model. **If neither model reaches kappa 0.75 against the reference standard, screening by
+model is abandoned** and the study proceeds on a random subsample screened entirely by the
+author, with the sample size reduced accordingly and the power recomputed and reported.
+
+## 5. Exposure
+
+**Exposed**: retrieved by the qualified `datashare` block and screened in.
+
+**Unexposed**: retrieved by the qualified `report`, `reg` or `repro` blocks, screened in, and
+not also retrieved by the `datashare` block.
+
+An article retrieved by `datashare` and by another block is **exposed**. The exposure is
+whether transparency is among the article's subjects, not whether it is the only one.
+
+This is a coarser exposure than a judgment of what an article is primarily about, and that is
+deliberate: it is reproducible from a query string, and its misclassification is toward the
+null. The alternative, asking a model what each article is mainly about, adds a second
+instrument needing its own validation to measure something the query already approximates.
+
+## 6. Outcome
+
+### 6.1 Extraction
+
+The data availability statement is taken from the JATS full text by
+`studies/P01-advocacy-and-practice/extract.py` **as it stands at the commit this protocol is
+published in**, unchanged. That code searches `<front>` and `<back>` only, never `<body>`, in
+this order: a section or notes block with a `sec-type` or `notes-type` naming data
+availability; a section or notes block whose title matches the data availability pattern; a
+`custom-meta` pair whose name matches it.
+
+The restriction to front and back matter is not a detail. Without it, a paper *about* data
+availability has its own methods and results read as its disclosure, which is the artifact
+that contaminated 4 of 43 exposed records in R01 and is documented there.
+
+### 6.2 Grading
+
+Three ordered levels, graded by the rule in `R/analyze.R` at the same commit, reproduced here
+in full so that no later edit can pass unnoticed:
+
+| grade | definition |
+|---|---|
+| `none` | no statement in front or back matter |
+| `declarative` | a statement that shares nothing: available on request, contained within the article or its supplementary files, or not applicable |
+| `actionable` | a named repository, or a DOI or URL that is not the article's own |
+
+Tests apply in this order, and the order is itself pre-specified because changing it changes
+the result:
+
+1. A named repository present, from the fixed list in `REPO`: **actionable**. A repository
+   outranks a co-occurring on-request clause, because an article that deposits its code and
+   separately withholds licensed raw data has shared what it could.
+2. An on-request clause present: **declarative**.
+3. A not-applicable clause present: **declarative**.
+4. A DOI or URL present that is not the article's own DOI: **actionable**.
+5. Otherwise: **declarative**.
+
+**Primary outcome**: `actionable` versus not.
+
+**Secondary outcome**: the three-level ordinal grade.
+
+### 6.3 Validation of the grading rule
+
+**This is a gate, not a report.** 150 statements, stratified by rule grade, are graded by the
+author, blind to the article's exposure and to the rule's grade. Agreement is reported as
+Cohen's kappa with a 95 percent confidence interval.
+
+- **Kappa at or above 0.80**: the rule is used as the primary instrument.
+- **Kappa 0.60 to 0.79**: the rule is used, and the primary analysis is repeated on the
+  hand-graded subsample alone as a co-primary, with both reported together regardless of
+  whether they agree.
+- **Kappa below 0.60**: the rule is abandoned. The study proceeds on a hand-graded random
+  sample, with power recomputed and reported.
+
+The rule is not modified after seeing the validation. If validation shows it is wrong, the
+wrongness is reported and the fallback above is taken. This is the commitment R01 could not
+make because its rule was written while the data were being read.
+
+## 7. Sample size and power
+
+**Not yet computed. This section is filled in by probes P1 to P5 in section 10 and this
+document does not become a protocol until it is.**
+
+What goes here when the probes have run: the realized exposed and unexposed counts after
+exclusions, the observed actionable rate in the comparison arm, and the detectable odds ratio
+at 80 percent power, each emitted by the probe code and asserted against this text rather than
+retyped into it.
+
+What is already known and did not need a probe: the frame sizes in section 4.1, measured by
+`esearch` on 2026-09-16, and R01's comparison-arm actionable rate of 0.205, which is a
+different sample and is a planning reference rather than an assumption to carry forward.
+
+An earlier version of this section asserted "60 percent are in PMC with full text and a
+screening yield of 60 percent gives roughly 260 exposed". Neither figure was measured. The
+first is plausible because the tier A corpus ran at 59.5 percent; the second was invented.
+
+## 8. Analysis
+
+In R. All models fitted with `lme4` or `ordinal`.
+
+**Primary.**
+
+```r
+glmer(actionable ~ exposed + year_c + (1 | journal),
+      family = binomial, data = d,
+      control = glmerControl(optimizer = "bobyqa"))
+```
+
+Article type does not enter the model because section 4.2 excludes the type that mattered.
+
+**Secondary, preregistered.**
+
+```r
+clmm(grade ~ exposed + year_c + (1 | journal), data = d)
+```
+
+**Sensitivity analyses, all preregistered here, all reported whatever they show.**
+
+1. Supplementary material graded actionable rather than declarative.
+2. Publisher-typed extraction routes only, excluding title-matched routes.
+3. Journal as a fixed effect, restricted to journals contributing at least 10 articles in each
+   arm, as a within-journal estimate that does not rely on the random-effect assumption.
+4. Excluding any article authored by the author of this project.
+5. Excluding the `repro` block from the comparison arm, since reproducibility and data sharing
+   are adjacent subjects and their separation is the weakest part of the exposure definition.
+
+**Missing data.** Year is present for every PubMed record. Journal is present for every record.
+No imputation is performed and no analysis drops a record for missingness; records are excluded
+only by section 4.2.
+
+**Multiplicity.** There is one primary comparison. The secondary and the five sensitivity
+analyses are not corrected for multiplicity and are not used to claim significance; they exist
+to show whether the primary estimate is fragile.
+
+## 9. Threats, and what happened to each
+
+A threat that is disclosed rather than removed is acceptable. A threat that is silently absent
+is not. Every design choice made after seeing a number is listed, because R01 was exploratory
+and anything carried forward from it makes a later choice suspect unless it is named.
+
+| threat | what was done | removed or disclosed |
+|---|---|---|
+| Grading rule was developed on R01's data | Rule frozen at the pinned commit and applied unchanged to a sample it has never seen | Removed |
+| Extractor read papers' own results as their disclosure | Restricted to `<front>` and `<back>`; the artifact and its cost are documented in R01 | Removed |
+| Repository regex matched inside longer words | Word boundaries added before pinning | Removed |
+| Exposure is a query, not a judgment of subject | Kept deliberately, for reproducibility; misclassification is toward the null | Disclosed |
+| Comparison arm blocks chosen after seeing R01 | `report`, `reg` and `repro` were picked because they are the other large qualified blocks, not because of any result; sensitivity 5 drops `repro` as the most arguable | Disclosed |
+| PMC coverage is not random | Not fixable in this design | Disclosed |
+| Screening depends on a model | Gated on kappa against a human reference standard, with a stated fallback | Disclosed |
+| Comparison-arm rate of 0.205 comes from R01 | Used for planning only; the realized rate is computed in probe P4 and is what the power calculation uses | Disclosed |
+
+## 10. The probes that must run before this is a protocol
+
+Each probe names the number it produces, the section that number goes into, what result would
+change the design, and its cost. Nothing here is an argument; each one is a count.
+
+| probe | computes | goes to | what would change the design | cost |
+|---|---|---|---|---|
+| **P1** | Records retrieved by the four qualified blocks, after removing every tier A PMID | 4.1 | An available count far below 727 for `datashare` makes the confirmatory arm underpowered and the design moves to a prospective re-harvest instead | ~10 min, cached |
+| **P2** | Proportion of P1 records carrying a PMCID | 4.2, 7 | Below about 40 percent and the realized exposed count falls under 150, at which point this is no better powered than R01 and is not worth running | minutes |
+| **P3** | Proportion of P2 records with a `<body>` over 500 characters, and the extraction route distribution on this frame | 4.2, 6.1 | A route distribution unlike tier A's means publishers differ between frames and journal adjustment is carrying more weight than assumed | ~20 min, cached |
+| **P4** | Grade distribution on the comparison arm under the pinned rule | 7 | An actionable rate far from R01's 0.205 changes every power figure | seconds, after P3 |
+| **P5** | Detectable odds ratio at 80 percent power from the realized counts in P1 to P4 | 7 | A detectable effect above about 2.5 means the study cannot distinguish R01's estimate from a much smaller one and the frame must be widened | seconds |
+| **P6** | Screening agreement: Cohen's kappa of each model against a 200-record human reference standard | 4.3 | Below 0.75 for every model triggers the hand-screening fallback and a smaller sample | 200 records to label |
+| **P7** | Grading agreement: Cohen's kappa of the pinned rule against 150 human-graded statements | 6.3 | Below 0.60 abandons the rule, per 6.3 | 150 statements to label |
+
+**P6 and P7 need a person, and that person is the author, not a model.** A model grading a
+sample to validate a rule another model wrote is not a reference standard, and R01 already
+shows what that is worth: the 40 statements graded by the model that wrote the rule found a
+real defect and still left the rule's agreement with a human unknown. The two CSVs are
+produced with empty label columns and handed over.
+
+P6 may use a single model while the second reviewer is quota-blocked. Measuring an instrument
+is not reviewing a study, so the two-reviewer rule does not apply to it; it applies to sections
+under review, and it is not waived for those.
+
+## 11. Deviations
+
+Any departure from this protocol is recorded in a `DEVIATIONS` section appended to the result
+page, stating what changed, when, why, and the estimate before and after where that can be
+computed. A deviation is not a failure; concealing one is.
+
+## 12. What this design still cannot do
+
+- **It is not causal.** Researchers who study transparency and researchers who practice it may
+  be the same people, and the design cannot separate selection from influence.
+- **PMC coverage is not random.** Open-access availability correlates with transparency
+  practice, so both arms lean transparent. The direction of bias on a *comparison* between arms
+  is not obvious and is not claimed to be toward the null.
+- **The qualified frame is lossy.** The study-of-literature qualifier cut the raw `datashare`
+  block from 15418 to 754, and a meta-research paper describing its sample as "we examined 300
+  trials" carries none of the qualifier phrases and is absent from the frame. The sample is a
+  high-precision slice of the field, not the field.
+- **It tests association in one direction only.** A finding that transparency-topic papers
+  share more does not tell us whether writing about transparency changes behavior or whether
+  people who already share choose to write about it.
+
+## 13. Availability
+
+Protocol, code, extracted data and outputs are in the repository at the commit this page was
+published in. The analysis code that will run is already written and public; it is the code
+that produced R01, and section 6 pins it.
