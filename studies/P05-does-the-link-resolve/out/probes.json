@@ -1,0 +1,90 @@
+{
+ "PA": {
+  "statements_examined": 2262,
+  "statements_with_a_locator": 431,
+  "locators_found": 721,
+  "by_kind": {
+   "url": 644,
+   "doi": 77
+  },
+  "locators_on_a_known_repository_host": 504,
+  "top_hosts": [
+   [
+    "osf.io",
+    184
+   ],
+   [
+    "github.com",
+    140
+   ],
+   [
+    "doi.org",
+    133
+   ],
+   [
+    "zenodo.org",
+    12
+   ],
+   [
+    "figshare.com",
+    8
+   ],
+   [
+    "dx.doi.org",
+    7
+   ],
+   [
+    "www.scopus.com",
+    5
+   ],
+   [
+    "www.ncbi.nlm.nih.gov",
+    4
+   ],
+   [
+    "clarivate.com",
+    3
+   ],
+   [
+    "www.zotero.org",
+    3
+   ],
+   [
+    "www.microsoft.com",
+    3
+   ],
+   [
+    "www.cochranelibrary.com",
+    3
+   ],
+   [
+    "bibliometrie.info",
+    2
+   ],
+   [
+    "codeberg.org",
+    2
+   ],
+   [
+    "gitlab.uzh.ch",
+    2
+   ]
+  ]
+ },
+ "PB": {
+  "checked": 150,
+  "resolved": 133,
+  "http_error": 9,
+  "network_error": 8,
+  "resolve_rate": 0.8867,
+  "status_counts": {
+   "200": 123,
+   "202": 10,
+   "404": 7,
+   "error:UnicodeEncodeError": 2,
+   "403": 2,
+   "error:TimeoutError": 3,
+   "error:URLError": 3
+  }
+ }
+}

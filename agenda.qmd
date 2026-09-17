@@ -27,32 +27,70 @@ and a result page will link back to the protocol as it stood.
 
 ## Status values
 
+The distinction between a design and a protocol is not cosmetic. It comes from the sibling
+project's `studies/DESIGN-STANDARD.md` and it is the rule this project now works to: **the
+difference between a design and a protocol is a set of computed numbers.** A document that
+asserts its sample size, its power or its feasibility rather than measuring them is a design,
+whatever it calls itself.
+
 | status | meaning |
 |---|---|
-| `proposed` | protocol published, not yet reviewed, not yet run |
-| `agenda` | a real gap that cannot be run from public data, recorded rather than skipped |
-| `reviewed` | independent reviews attached, published whole including disagreement |
-| `running` | analysis in progress against the published protocol |
-| `reported` | result published with the protocol and the reviews |
+| `design` | the question, hypothesis, threats and probes are written. Feasibility is not yet measured |
+| `protocol-pending-validation` | probes computed and written in. One or more validation gates need human labels before it runs |
+| `protocol-reduced` | probes computed, and they came back small enough that a pre-written rule cut the analysis down |
+| `agenda` | a real gap that public data cannot answer, recorded rather than skipped |
+| `reported` | result published with the protocol and, when they exist, the reviews |
+
+Nothing here is `registered`. Registration needs the probes complete, the validation gates
+passed, and two reviews attached. No document has all three.
+
+## Where each one stands
+
+| | question | status | what is blocking it |
+|---|---|---|---|
+| **P01v2** | Does advocating transparency predict practicing it? | protocol | screening and grading labels, then review |
+| **P02** | Does meta-research cite retracted work? | protocol | shares P01v2's screening gate |
+| **P03** | Is bad news cited more? | protocol | 300 abstracts classified by the author |
+| **P05** | Do the links actually resolve? | protocol | a requester bug, then 100 hand checks |
+| **P06** | Do conclusions soften between preprint and journal? | protocol, reduced | 141 pairs found, so the ordinal outcome was cut to binary by a pre-written rule |
+| **P07** | When two studies measure the same thing, do they agree? | design | nobody has counted the pairs yet |
+| **P08** | Do meta-research studies follow the guidelines they audit by? | design | scoring STROBE needs a human reading 150 articles |
+| **P09** | Does meta-research change the practice it documents? | design | the author must choose which documented problems count |
+| **P04** | The field is observational about itself | agenda | needs a journal or funder willing to randomize |
 
 ## Review
 
-No proposal here has been reviewed. Review is by two models from different providers, each given
-the protocol and instructed to refute it, and no study is reviewed by one model alone. The
-Codex account's usage limit was exhausted on 2026-09-16 and resets on 2026-09-20, so reviews
-begin then rather than running one reviewer now and calling it review.
+Nothing here has been reviewed. Review is by two models from different providers, each given the
+document and instructed to refute it, with output validated against a schema and adjudicated by
+the fixed rule in `build/audit/adjudicate.py`. That rule downgrades an unsubstantiated severe
+finding rather than counting it, lets a lone reviewer holding a verbatim quote block a document
+two others called sound, and publishes a contested document as contested rather than picking a
+winner. Twelve golden cases pin it.
+
+No document is reviewed by one model alone. The Codex account's usage limit was exhausted on
+2026-09-16 and resets on 2026-09-20, so reviews begin then.
+
+The five documents at protocol stage go first. The three designs are reviewed when their probes
+complete, because a reviewer asked to assess feasibility numbers that do not exist yet is being
+asked to review a wish.
 
 ## How these were chosen
 
-The three runnable proposals share a property that was the selection rule rather than a
-coincidence: each turns the field's own instrument on the field. Meta-research measures whether
-others share data, cite retracted work, and report inconvenient findings. None of those
-questions had been asked about meta-research itself, and each is answerable from data that is
-already harvested or openly available.
+The selection rule was to turn the field's own instrument on the field. Meta-research measures
+whether others share data, cite retracted work, follow checklists, replicate, and report
+inconvenient findings. Those questions had not been asked about meta-research itself, and most
+are answerable from data already harvested or openly available.
 
-That rule also kept out the obvious alternative. A study measuring transparency, or FAIRness, in
-one more specialty would be a rate in a new population, and rates in new populations are what
-this corpus already contains in quantity. Each proposal here has an exposure, an outcome and a
-direction, and each can come out the other way.
+The rule also kept out the obvious alternative. A study measuring transparency, or FAIRness, in
+one more specialty is a rate in a new population, and rates in new populations are what this
+corpus already holds in quantity. Every document here has an exposure, an outcome and a
+direction, and every one can come out the other way.
 
-The fourth entry is not runnable and says so.
+One candidate was dropped for lack of novelty rather than lack of interest: a study relating a
+journal's transparency policy score to the transparency of the meta-research it publishes. The
+corpus search found PMID 37433624, a systematic review with individual participant data
+meta-analysis of predictors of data and code sharing, which covers it. It is recorded here
+because a dropped idea and the reason it was dropped are part of the trail.
+
+P04 is not runnable and says so. P09 is the most important question of the set and is the least
+far along, which is a fact about difficulty rather than about priority.

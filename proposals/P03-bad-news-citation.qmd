@@ -1,105 +1,145 @@
 ---
 title: "Is bad news cited more?"
-description: "Whether meta-research reporting poor practice accrues more citations than meta-research reporting good practice."
+description: "Whether meta-research reporting poor practice accrues more citations than meta-research reporting good practice. Citation probe computed; the classifier is the gate."
 id: P03
-status: proposed
+status: protocol-pending-validation
 proposed_by: "Claude Opus 5"
 date: 2026-09-16
 reviewed: none
 unit: "Meta-research articles with OpenAlex citation counts"
-data_source: "OpenAlex; the project corpus"
-categories: [runnable, biblio, incentives]
+data_source: "OpenAlex; the tier A corpus"
+categories: [protocol, biblio, incentives]
 ---
 
-::: {.callout-note appearance="simple"}
-Proposed by Claude Opus 5 on 2026-09-16. Not yet reviewed. This page is a protocol and no
-analysis has been run.
+::: {.callout-important appearance="simple"}
+## Status: protocol. Citation data retrieved. The classifier gate is outstanding. Not registered.
+
+The citation probe ran on 2026-09-16: 1790 of 1805
+tier A PMIDs resolved in OpenAlex, a match rate of 99.2 percent.
+
+**The exposure has not been measured and cannot be until 300 abstracts are classified by the
+author.** Section 6 carries a stopping rule written before any classification has been run.
+
+Awaiting review by two models; the second is quota-blocked until 2026-09-20.
 :::
 
-## The question
+## 1. The question
 
 Meta-research reports on how well other research is done, and the answer is usually that it is
 done badly. If findings of failure are rewarded with citations more than findings that a
-practice is adequate, the field has an incentive gradient pointing at one conclusion, and that
-gradient would be invisible in any individual study.
+practice is adequate, the field faces an incentive gradient pointing at one conclusion, and
+that gradient would be invisible within any single study.
 
 This is publication bias asked about the field that studies publication bias, and asked at the
-citation stage rather than the acceptance stage.
+citation stage rather than at acceptance.
 
-## Hypothesis
+## 2. Hypothesis
 
 Among meta-research articles, those concluding that the practice studied is inadequate accrue
-more citations than those concluding it is adequate, after adjustment for age, journal and
-topic.
+more citations than those concluding it is adequate, adjusted for age, journal and topic.
 
-**What would falsify it.** An incidence rate ratio whose interval contains 1. Given a corpus of
-1830 and citation counts that are highly skewed, the design is powered for a moderate effect
-and not a subtle one; the detectable effect size is computed and published before the run.
+**Primary null.** The incidence rate ratio for conclusion direction is 1.
 
-## Unit of analysis
+**What would falsify it.** An interval containing 1.
 
-One meta-research article. All 1830 corpus records are eligible. OpenAlex matched 50 of 50
-sampled PMIDs in a single call, so coverage is effectively complete and the whole corpus
-resolves in about 37 calls.
+## 3. Design
 
-Articles published in 2025 and 2026 are retained but age is modeled rather than trimmed, since
-excluding recent work would drop 76 percent of the corpus.
+Cross-sectional study of published articles with a count outcome.
 
-## The hard part, stated plainly
+## 4. Sample
 
-The exposure is the direction of the article's conclusion, and no rule extracts it from an
-abstract. This is the one proposal of the three whose exposure requires a model to read text,
-and that is a methodological liability rather than a convenience.
+The tier A corpus, all 1805 records carrying a PMID.
+1790 resolve in OpenAlex.
 
-The design therefore treats classification as a measurement instrument that must be validated
-before it is used:
+Articles from 2025 and 2026 are retained and age is modeled, not trimmed; excluding recent work
+would drop 76 percent of the corpus.
 
-1. A stratified random sample of 300 abstracts is classified by hand, by the author, into
-   inadequate, adequate, mixed or not applicable. This is the reference standard.
-2. Two models from different providers classify the same 300, blind to the hand labels and to
-   each other.
-3. Agreement is reported as Cohen's kappa against the reference standard and between the models.
-   **If neither model reaches kappa 0.7 against the hand labels, the study stops and the
-   negative methodological result is published.** That outcome is a finding about whether
-   language models can read a conclusion direction, and it is worth publishing.
-4. Only if the threshold is met does classification extend to the remaining records, with the
-   measured misclassification rate carried into a sensitivity analysis.
+## 5. Outcome
 
-The stopping rule is written here, before any classification has been run, because a threshold
-chosen after seeing the agreement is not a threshold.
+`cited_by_count` from OpenAlex, retrieved on 2026-09-16 and frozen at
+`data/lit/openalex-records.jsonl`. The date matters: citation counts move, and an analysis run
+against a live API is not reproducible.
 
-## Analysis
+| quantity | value |
+|---|---|
+| median citations | 8 |
+| mean citations | 36.29 |
+| 90th percentile | 75 |
+| maximum | 2937 |
+| articles with zero citations | 284 |
 
-In R. Negative binomial regression of citation count on conclusion direction.
+The distribution is heavily skewed, mean 36.29 against median
+8, which is why the model is negative binomial and why a quantile
+regression on the upper deciles is fitted alongside. The incentive argument lives in the tail
+and a mean effect would not find it.
+
+284 articles have zero citations. They are retained; a zero is informative
+about a paper nobody used and dropping them would condition on the outcome.
+
+## 6. Exposure, and the gate
+
+The exposure is the direction of the article's own conclusion, and no rule extracts it from an
+abstract. This is the one study of the set whose exposure needs a model to read text, and that
+is a liability rather than a convenience.
+
+Classification is therefore treated as an instrument that must be validated before it is used:
+
+1. A stratified random sample of **300 abstracts is classified by the author** into
+   inadequate, adequate, mixed, or not applicable. This is the reference standard. A model
+   does not produce it, for the reason R01 already demonstrated: a model checking a rule
+   another model wrote found a real defect and still left agreement with a person unknown.
+2. Two models from different providers classify the same 300, blind to the author's labels and
+   to each other.
+3. Agreement is reported as Cohen's kappa against the reference standard and between models.
+4. **If neither model reaches kappa 0.70 against the author's labels, the study stops and the
+   negative methodological result is published.** Whether a language model can read the
+   direction of a scientific conclusion is itself worth knowing.
+5. Only above the threshold does classification extend to the rest, with the measured
+   misclassification rate carried into a sensitivity analysis.
+
+The threshold is written here, before any classification has been run. A threshold chosen after
+seeing the agreement is not a threshold.
+
+## 7. Analysis
+
+In R.
 
 ```r
-glm.nb(cited_by_count ~ direction + poly(years_since_pub, 2) +
-         topic_block + (journal), data = d)
+glm.nb(cited_by_count ~ direction + poly(years_since_pub, 2) + topic_block + journal_size,
+       data = d)
 ```
 
-Age enters as a quadratic rather than an offset because citation accrual is not linear in time
-and the corpus spans 1965 to 2026. A quantile regression on the upper citation deciles is
-fitted alongside, since a mean effect and a tail effect answer different questions and the
-incentive argument lives in the tail.
+Age enters as a quadratic because citation accrual is not linear in time and the corpus spans
+1965 to 2026. Preregistered alongside: quantile regression at the 75th and 90th percentiles,
+and the same model with `direction` as measured by each classifier separately, so that a result
+that depends on which model read the abstracts is visible as such.
 
-## Novelty
+## 8. Threats, and what happened to each
 
-Predictors of citation rates have been reviewed (PMID 41265666) and citation bias is an
-established topic. What is absent is the direction of a study's own conclusion as the exposure,
-inside meta-research, where the conclusion direction is a property of the field's product
-rather than of a clinical result.
+| threat | what was done | removed or disclosed |
+|---|---|---|
+| Reverse causation | Not addressable in this design. A widely cited article may attract a negative framing rather than the other way round | Disclosed |
+| Topic confounds direction | Some topics almost never produce an adequate verdict, so adjusting for topic may absorb the effect. Reported adjusted and unadjusted, with the difference discussed rather than resolved | Disclosed |
+| Classifier error | Gated on kappa against the author's labels, with a stated stop | Disclosed |
+| Citation counts move | Frozen at a dated snapshot in the repository | Removed |
+| Self-citation and field size | Not in the primary model; OpenAlex exposes the data and it is a stated secondary | Disclosed |
+| Zero-citation articles | Retained; dropping them conditions on the outcome | Removed |
 
-## What it costs
+## 9. Probes
 
-37 OpenAlex calls, free and unauthenticated. Hand classification of 300 abstracts is the real
-cost and it falls on the author, not on a model. Two model classification passes.
+| probe | computes | goes to | what would change the design | status |
+|---|---|---|---|---|
+| **PA** | OpenAlex match rate and citation distribution | 4, 5 | a match rate below about 90 percent makes the sample unrepresentative | done |
+| **PB** | classifier agreement against 300 author labels | 6 | below kappa 0.70 stops the study | outstanding, needs the author |
+| **PC** | detectable rate ratio from the realized exposure split | 7 | computed once PB returns, because it depends on how many articles fall in each direction | outstanding, depends on PB |
 
-## Known threats to the result
+## 10. Deviations
 
-- **Reverse causation is not addressable here.** A widely cited article may attract a negative
-  framing in the abstract rather than the other way round.
-- **Topic confounds direction.** Some topics almost never produce an adequate verdict, so
-  adjustment for topic block may absorb the effect being measured. Reported both adjusted and
-  unadjusted, with the difference discussed rather than resolved.
-- **Self-citation and field size.** Not adjusted for in the primary model. OpenAlex exposes the
-  data to do it and it is a stated secondary analysis.
+Recorded on the result page: what changed, when, why, and the estimate before and after.
+
+## 11. What this cannot show
+
+- It cannot show that negative findings are rewarded, only that they are cited more.
+- It cannot separate the effect of the finding from the effect of the topic that produced it.
+- OpenAlex citation counts include self-citations and citations from any source it indexes,
+  which is broader than PubMed and not identical to it.

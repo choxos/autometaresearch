@@ -1,0 +1,118 @@
+---
+title: "Does meta-research change the practice it documents?"
+description: "The question the field exists to answer about itself. Design only; the unit of analysis needs the author."
+id: P09
+status: design
+proposed_by: "Claude Opus 5"
+date: 2026-09-16
+reviewed: none
+unit: "A documented problem, with a practice measurable before and after"
+data_source: "PubMed and PMC over time; the corpus as the source of interventions"
+categories: [design, waste, impact]
+---
+
+::: {.callout-important appearance="simple"}
+## Status: design only. No probe has run. This is the one that most needs the author's judgment.
+
+Every other document here can have its feasibility settled by a script. This one cannot, because
+its unit of analysis is "a documented problem" and enumerating those is a judgment about which
+meta-research papers were consequential enough to have plausibly changed anything.
+
+Published at design stage deliberately. It is the most important question in the set and
+pretending otherwise by deferring it would be a choice about what is easy rather than what
+matters.
+:::
+
+## 1. The question
+
+Meta-research documents problems on the assumption that documenting them helps. That assumption
+is rarely tested, and the field that insists on evidence for other people's interventions has
+little for its own.
+
+## 2. Hypothesis
+
+Publication of a meta-research study documenting poor practice in a defined population is
+followed by improvement in that practice, beyond the secular trend.
+
+**Primary null.** No change in level or slope at the publication date, beyond trend.
+
+**What would falsify it.** No discontinuity and no slope change. Given how many such studies
+exist and how little practice appears to move, the null is the more likely outcome and the
+design must be able to report it credibly. That is why it is an interrupted time series with a
+control series rather than a before-and-after comparison.
+
+## 3. Design
+
+Controlled interrupted time series. For each documented problem:
+
+- **Intervention**: publication of the meta-research study.
+- **Series**: the practice it measured, re-measured by us at regular intervals before and after,
+  in the same population the study defined.
+- **Control series**: the same practice over the same period in a comparable population the
+  study did not examine.
+
+The control series is what separates a real effect from the secular improvement that affects
+everything. A study reporting improvement without one is measuring the calendar.
+
+## 4. Sample, and what the author must decide
+
+The unit is a documented problem. A candidate qualifies when the original study:
+
+1. defines its population explicitly enough to reconstruct it from a query,
+2. reports a rate with a denominator,
+3. was published at least three years ago, so there is post-period to observe,
+4. measures something re-measurable from metadata or full text without human reading at scale.
+
+Criterion 4 is the binding one. "Adherence to CONSORT item 6a" is not re-measurable at scale;
+"carries a data availability statement", "reports a registration number", "is registered
+prospectively" are.
+
+**The author selects the candidate problems.** A model proposing which papers were influential
+would be choosing the intervention to suit the hypothesis, and there is no defensible automatic
+criterion. Five to ten problems is the target.
+
+## 5. Analysis
+
+In R. Segmented regression per problem, with a control series and autocorrelation handled
+explicitly.
+
+```r
+gls(rate ~ time + level + trend + series + series:level + series:trend,
+    correlation = corARMA(p = 1), data = d)
+```
+
+Pooled across problems by random-effects meta-analysis of the level and slope changes, since a
+single problem is a case study and the question is about the field.
+
+## 6. Threats, and what happened to each
+
+| threat | what was done | removed or disclosed |
+|---|---|---|
+| Secular trend mistaken for effect | Control series; the primary estimate is the difference in differences | Removed |
+| Autocorrelation inflating significance | Modeled explicitly, order selected and reported | Removed |
+| Selection of influential papers | The author selects, against written criteria, and the criteria are published before selection | Disclosed |
+| Co-interventions | A journal policy change often follows the same concern that prompted the study; the design cannot separate them, and this is the central limitation | Disclosed |
+| Regression to the mean | A study is often published because a rate looked bad; the rate would drift up without any effect | Disclosed, and the control series partly addresses it |
+| Re-measurement differs from the original measurement | Our instrument is re-applied to the pre-period as well, so the comparison is internally consistent even where it disagrees with the original paper's number | Removed |
+
+## 7. Probes
+
+| probe | computes | goes to | what would change the design | status |
+|---|---|---|---|---|
+| **PA** | candidate problems meeting criteria 1 to 4 | 4 | fewer than 5 makes pooling meaningless | outstanding, needs the author |
+| **PB** | for each candidate, whether the population is reconstructible as a PubMed query | 4 | a population that cannot be reconstructed cannot be a series | outstanding |
+| **PC** | pre-period length and number of points per series | 5 | fewer than about 8 pre-period points makes segmented regression unreliable | outstanding, depends on PB |
+| **PD** | agreement between our re-measurement and the original study's reported rate | 6 | a large gap means the instrument differs and the series is not the one the paper measured | outstanding |
+
+## Deviations
+
+Recorded on the result page: what changed, when, why, and the estimate before and after where
+that can be computed. A deviation is not a failure; concealing one is.
+
+## What this cannot show
+
+- It cannot attribute change to the paper rather than to the concern that produced the paper.
+  This is the central limitation and no observational design removes it.
+- It cannot detect an effect on practice that is not recorded in metadata or full text.
+- A null result would not show that meta-research is useless, only that this particular route
+  from documentation to practice is not visible at this resolution.

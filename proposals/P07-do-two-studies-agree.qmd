@@ -1,0 +1,120 @@
+---
+title: "When two meta-research studies measure the same thing, do they agree?"
+description: "The field's own replication question, asked of itself. Zero prior studies found."
+id: P07
+status: design
+proposed_by: "Claude Opus 5"
+date: 2026-09-16
+reviewed: none
+unit: "A pair of meta-research studies measuring the same practice in overlapping populations"
+data_source: "Published meta-research; the included-study lists of meta-research syntheses"
+categories: [design, repro, reflexive]
+---
+
+::: {.callout-important appearance="simple"}
+## Status: design. The pair-counting probe has not run. Not a protocol.
+
+This is the strongest novelty claim of the set and the weakest on feasibility. Section 2
+records the searches that establish the first; probe PA decides the second.
+:::
+
+## 1. The question
+
+Meta-research tells other fields that a finding which does not replicate is not a finding. The
+field publishes many studies measuring the same practices: reporting quality in a specialty,
+data sharing in a set of journals, registration adherence in a trial population. Their samples
+overlap. Nobody has asked whether they agree.
+
+If two meta-research studies measuring the same practice over overlapping literature report
+materially different rates, the field's own evidence base has the property it criticizes
+elsewhere.
+
+## 2. Novelty, with the searches that establish it
+
+Claims of novelty in this project must show the search that produced them, because a
+model-recalled absence of prior work is not evidence of absence.
+
+**Corpus regex**, over 1830 tier A records and 7412 frame records, title and abstract:
+
+```
+(concordan|discordan|agreement|consisten).{0,50}between.{0,40}
+(methodological review|meta-research|cross-sectional stud).{0,40}(same|identical)
+|overlapping (methodological|meta-research)
+```
+
+**Result: 0 records.**
+
+What does exist, and is the closest prior work, is PMID 37433624, a systematic review with
+individual participant data meta-analysis of studies investigating data and code sharing. It
+pools meta-research studies; it does not ask whether they agree with each other. That
+distinction is the study.
+
+This section is updated, not deleted, if review finds prior work the searches missed.
+
+## 3. Hypothesis
+
+Pairs of meta-research studies measuring the same practice in overlapping populations report
+rates that differ by more than sampling error alone would produce.
+
+**Primary null.** Between-study heterogeneity in the paired rate difference is consistent with
+sampling variation.
+
+**What would falsify it.** Heterogeneity consistent with chance, which would be a strong
+positive result about the field and is the outcome the field would hope for.
+
+## 4. Sample
+
+The unit is a **pair**, and pairs are what the probe must count before anything else is
+decided. Candidate pairs come from two places:
+
+1. The included-study lists of meta-research syntheses already in the corpus. PMID 37433624 is
+   the largest and its included studies are, by construction, meta-research studies measuring
+   the same construct.
+2. The corpus itself, matched on topic block plus the population studied, extracted from the
+   abstract.
+
+A pair qualifies when both studies measure the same practice, in the same discipline or journal
+set, over overlapping publication years, and both report an extractable rate with a denominator.
+
+## 5. Outcome
+
+The absolute difference in reported rate between the two members of a pair, with each study's
+own denominator, so that the expected difference under sampling variation alone is computable.
+
+## 6. Analysis
+
+In R. For each pair, the observed rate difference against the difference expected from the two
+binomial denominators. Aggregated as an excess-heterogeneity statistic across pairs, with a
+permutation null built by pairing studies that do **not** share a population.
+
+The permutation null is the part that makes this a test rather than a description: without it,
+any two rates differ and the result is unfalsifiable.
+
+## 7. Threats, and what happened to each
+
+| threat | what was done | removed or disclosed |
+|---|---|---|
+| "Same practice" is a judgment | Pair eligibility is adjudicated by the author against written criteria, not by a model | Disclosed |
+| Overlapping samples are not identical samples | The expected difference accounts for denominators but not for which specific articles were sampled; partial overlap inflates apparent disagreement | Disclosed |
+| Pairs may not exist in usable numbers | Probe PA counts them before anything else | Removed by the probe, or the study ends |
+| Publication years differ, and practice changes | Pairs restricted to overlapping year ranges; year gap reported per pair | Disclosed |
+| Reported rates use different denominators for the same word | Every rate is re-extracted with its denominator rather than taken from an abstract percentage | Removed |
+
+## 8. Probes
+
+| probe | computes | goes to | what would change the design | status |
+|---|---|---|---|---|
+| **PA** | candidate pairs from the included-study list of PMID 37433624 and from corpus matching | 4 | fewer than 10 usable pairs makes this an agenda item | outstanding |
+| **PB** | how many candidate pairs have an extractable rate and denominator in both members | 5 | below about 20 the permutation null is not usable | outstanding, depends on PA |
+| **PC** | author adjudication of "same practice" on the candidates | 4 | disagreement with the written criteria means the criteria are wrong, not the pairs | outstanding, needs the author |
+
+## Deviations
+
+Recorded on the result page: what changed, when, why, and the estimate before and after where
+that can be computed. A deviation is not a failure; concealing one is.
+
+## What this cannot show
+
+- It cannot say which member of a disagreeing pair is right.
+- It cannot separate genuine disagreement from different but equally defensible definitions of
+  the same practice, which may be the most common cause of any disagreement found.

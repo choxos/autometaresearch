@@ -1,0 +1,114 @@
+---
+title: "Do meta-research studies follow the guidelines they audit others by?"
+description: "The reflexive reporting question. Frame counted; the scoring instrument needs a human."
+id: P08
+status: design
+proposed_by: "Claude Opus 5"
+date: 2026-09-16
+reviewed: none
+unit: "Meta-research articles of cross-sectional or methodological design"
+data_source: "PMC full text; the tier A corpus and the tier B frame"
+categories: [design, report, reflexive]
+---
+
+::: {.callout-important appearance="simple"}
+## Status: design. Frame counted. The scoring instrument is the obstacle. Not a protocol.
+
+The frame is large: **630 tier A records and 685 frame records declare a cross-sectional or
+methodological design**, of which 67 and 197 respectively name a reporting guideline.
+
+What blocks this from being a protocol is not data but measurement: scoring adherence to STROBE
+means reading 22 items per article, and no validated automatic scorer exists. Section 5 is
+honest that this is the most expensive study of the set per unit of evidence.
+:::
+
+## 1. The question
+
+Meta-research grades other people's papers against reporting checklists. Most meta-research is
+itself a cross-sectional study of a sample of articles, and cross-sectional studies have a
+checklist: STROBE. A field that measures adherence and does not meet it is making an argument
+against its own instrument.
+
+## 2. Hypothesis
+
+Meta-research articles that themselves assess guideline adherence report their own methods more
+completely than meta-research articles that do not.
+
+The hypothesis is deliberately internal rather than a comparison against non-meta-research,
+because a comparison across fields would confound topic with venue with design. This is the
+same structure as [P01v2](P01v2-advocacy-and-practice-protocol.qmd), and the same criticism
+applies to it.
+
+**Primary null.** Adherence does not differ by whether the article's own subject is reporting
+quality.
+
+**What would falsify it.** No difference, or worse adherence among the auditors.
+
+## 3. Sample
+
+Articles from the tier A corpus and the tier B frame whose design is cross-sectional or
+methodological, with PMC full text.
+
+| frame | declaring such a design | naming a reporting guideline |
+|---|---|---|
+| tier A | 630 | 67 |
+| tier B frame | 685 | 197 |
+
+Design is determined from the full text methods section, not from the abstract regex used for
+this count. The regex is a frame estimate and is labeled as one.
+
+## 4. Exposure
+
+Whether the article's own subject is reporting quality, from the `report` topic label.
+
+## 5. Outcome, and why this is expensive
+
+A STROBE-based adherence score over the items that apply to a study of documents rather than of
+people. Not all 22 items apply; the applicable subset is fixed in advance and published with
+the protocol, because choosing which items apply after scoring is how an adherence study
+manufactures its own result.
+
+**Scoring requires reading.** The realistic options are:
+
+1. The author scores a random sample of 150 articles. Precise, and the ceiling on sample size.
+2. Models score all of them after being validated against the author's 150, gated at kappa 0.70
+   per item group, with items that fail the gate dropped and reported as dropped.
+
+Option 2 is the design, with option 1 as its reference standard, and neither can start until
+the author's 150 exist.
+
+## 6. Analysis
+
+In R. Linear regression of the adherence proportion on the exposure, adjusted for year and with
+journal as a random intercept; and a per-item logistic model so that a difference driven by one
+item is visible rather than averaged away.
+
+## 7. Threats, and what happened to each
+
+| threat | what was done | removed or disclosed |
+|---|---|---|
+| Which STROBE items apply is a choice | Fixed and published before scoring | Removed |
+| Scoring by model | Gated against the author's labels per item group; failing items dropped and reported | Disclosed |
+| Design determined by regex | Only for the frame count; the analysis reads the methods section | Removed |
+| STROBE was not written for studies of documents | True, and the item subset is an interpretation the protocol publishes so it can be disagreed with | Disclosed |
+| Reporting completeness is not study quality | Stated; the outcome is what is written, never whether it was done | Disclosed |
+| Same structural criticism as P01v2 | The exposure is a vocabulary label and the comparison is internal | Disclosed |
+
+## 8. Probes
+
+| probe | computes | goes to | what would change the design | status |
+|---|---|---|---|---|
+| **PA** | frame size by declared design | 3 | fewer than about 300 eligible articles makes per-item analysis unusable | done: 630 and 685 |
+| **PB** | how many have a methods section PMC structures well enough to score | 3, 5 | poor structure makes automatic scoring impossible and forces option 1 | outstanding |
+| **PC** | the applicable STROBE item subset, fixed by the author | 5 | this is a design decision, not a measurement | outstanding, needs the author |
+| **PD** | per-item scorer agreement against 150 author-scored articles | 5 | items below kappa 0.70 are dropped | outstanding, needs the author |
+
+## Deviations
+
+Recorded on the result page: what changed, when, why, and the estimate before and after where
+that can be computed. A deviation is not a failure; concealing one is.
+
+## What this cannot show
+
+- Reporting completeness is not methodological quality and the study never claims it is.
+- A well-reported study can be wrong, and a badly reported one right.

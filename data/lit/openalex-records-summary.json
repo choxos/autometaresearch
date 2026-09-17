@@ -1,0 +1,54 @@
+{
+ "pmids_queried": 1805,
+ "matched_in_openalex": 1790,
+ "match_rate": 0.9917,
+ "citations_median": 8,
+ "citations_mean": 36.29,
+ "citations_zero": 284,
+ "citations_p90": 75,
+ "citations_max": 2937,
+ "records_with_a_preprint_version": 66,
+ "preprint_rate": 0.0369,
+ "top_preprint_servers": [
+  [
+   "osf preprints (osf preprints)",
+   31
+  ],
+  [
+   "arxiv (cornell university)",
+   24
+  ],
+  [
+   "medrxiv",
+   4
+  ],
+  [
+   "research square",
+   3
+  ],
+  [
+   "biorxiv (cold spring harbor laboratory)",
+   3
+  ],
+  [
+   "metarxiv (osf preprints)",
+   2
+  ],
+  [
+   "psyarxiv (osf preprints)",
+   1
+  ],
+  [
+   "zenodo (cern european organization for nuclear research)",
+   1
+  ]
+ ],
+ "oa_status": {
+  "hybrid": 404,
+  "gold": 706,
+  "green": 135,
+  "closed": 366,
+  "bronze": 117,
+  "diamond": 62
+ }
+}

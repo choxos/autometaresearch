@@ -1,0 +1,21 @@
+{
+ "PA": {
+  "articles_with_a_reference_list": 4948,
+  "total_references": 268290,
+  "references_carrying_a_doi": 222730,
+  "doi_coverage": 0.8302,
+  "distinct_matchable_dois": 222730,
+  "median_refs_per_article": 46
+ },
+ "PB": {
+  "retraction_watch_dois": 60972,
+  "citations_of_retracted_work": 190,
+  "articles_citing_at_least_one": 152
+ },
+ "PC": {
+  "post_retraction_citations": 83,
+  "pre_retraction_citations": 107,
+  "undated": 0,
+  "articles_with_a_post_retraction_citation": 70
+ }
+}
