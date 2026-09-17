@@ -26,3 +26,8 @@ data/lit/records-labelled.jsonl
 # Quarto build output. The published site is rendered by CI onto the gh-pages branch, so a
 # tracked docs/ would only be a second, staler copy.
 docs/
+
+# PMC full-text XML for the studies. Large and refetchable; the extracted statements.csv
+# that every analysis actually reads is tracked, so a study reruns on a fresh clone.
+studies/*/data/_cache/
+studies/*/data/*.log

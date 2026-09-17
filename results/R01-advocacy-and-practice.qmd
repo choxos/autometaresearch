@@ -1,0 +1,156 @@
+---
+title: "Meta-research on transparency shares its own data more often"
+description: "Result for P01. Papers whose subject is data sharing are about four times more likely to point at a repository of their own."
+id: R01
+protocol: P01
+status: reported
+run_by: "Claude Opus 5"
+date: 2026-09-16
+reviewed: none
+categories: [result, datashare, reflexive]
+---
+
+::: {.callout-note appearance="simple"}
+Analysis run by Claude Opus 5 on 2026-09-16 against the protocol published the same day at
+[P01](../proposals/P01-advocacy-and-practice.qmd). Not yet reviewed; review waits for the
+second reviewer's quota on 2026-09-20. Code at `studies/P01-advocacy-and-practice/`.
+:::
+
+## Result
+
+Among 999 meta-research articles with full text in PMC, those whose own subject is data
+sharing, code availability or FAIR data point at a repository of their own about four times
+as often as meta-research articles on any other subject.
+
+| | none | declarative | actionable |
+|---|---|---|---|
+| other topic (n = 956) | 43.0% | 36.5% | **20.5%** |
+| transparency topic (n = 43) | 32.6% | 16.3% | **51.2%** |
+
+Adjusted for publication year and article type, with journal as a random intercept:
+
+**Odds ratio 4.40 (95% CI 1.80 to 10.75), p = 0.0012.**
+
+The preregistered ordinal model on all three levels agrees: 0.99 on the log-odds scale
+(p = 0.011).
+
+The hypothesis stated in the protocol was directional and it is supported. Advocacy and
+practice are not independent inside this field.
+
+## What the grades mean
+
+| grade | meaning |
+|---|---|
+| none | no data availability statement in the article's front or back matter |
+| declarative | a statement that shares nothing: on request, within the article, not applicable |
+| actionable | a named repository, accession, DOI or URL a reader can follow without asking |
+
+## Two defects found during the run, and what each cost
+
+Both were found by checking the result rather than by the code failing. Neither raised an
+error, and the first produced a plausible answer that was partly an artifact.
+
+### The extractor read papers' own results as their statements
+
+A meta-research paper about data availability contains sections called "Data availability over
+time" and "Extraction of data availability status" in its own methods and results. The first
+extractor walked the whole article, found those, and graded the paper actionable because such
+sections are full of repository URLs. Four of the 43 exposed records were contaminated, and the
+signature was visible from outside: the exposed arm hit the fuzzy title-matching routes three
+times more often than the unexposed arm.
+
+A publisher-assigned `sec-type="data-availability"` does not protect against this. One article
+carries that attribute on a numbered methods section. Location does protect against it: a data
+availability statement is front or back matter, and a numbered section of the narrative is the
+paper's argument rather than its disclosure. Extraction is now restricted to `<front>` and
+`<back>`.
+
+The repair was not purely subtractive. One article's real statement sits in `<front>` and was
+being shadowed by its own results section.
+
+**Cost: the uncorrected odds ratio was 3.86. After the fix it is higher, not lower.** The
+artifact was not what was producing the effect, which is not what was expected when the check
+began.
+
+### The grading rule downgraded deposits that also offered data on request
+
+The rule tested for an on-request clause before testing for a repository, on the reasoning that
+"available from the corresponding author at an email address" contains something that looks
+like a locator and is a refusal. That is right for a bare URL and wrong for a named repository.
+One article deposits its code on GitHub and OSF and separately says the raw Scopus data cannot
+be released under license; it shared what it could, and the rule called it declarative.
+
+A named repository now outranks a co-occurring on-request clause. Six of 574 statements carry
+both, five of them a named repository.
+
+**Cost: all six are in the unexposed arm, so the correction raises the comparison rate and
+works against the hypothesis.** The odds ratio fell from 4.67 to 4.40.
+
+## Sensitivity
+
+Each of these was specified for a reason stated before it was run, not selected after seeing it.
+
+| analysis | odds ratio | 95% CI |
+|---|---|---|
+| **primary** | **4.40** | 1.80 to 10.75 |
+| publisher-typed routes only, no title matching by us | 3.03 | 1.12 to 8.23 |
+| supplementary material counted as actionable | 2.58 | 1.14 to 5.85 |
+| excluding the author's own papers | 4.10 | 1.65 to 10.20 |
+
+The second row is the one that matters most. The repaired bug lived in the title-matching
+routes, so this refits using only statements a publisher explicitly tagged, where no pattern of
+ours decides what counts as a statement. The effect is smaller and it survives.
+
+The third row relaxes the protocol's choice to grade "included in this published article and
+its supplementary information files" as declarative. That choice is defensible rather than
+obviously right, since supplementary material is retrievable by anyone with journal access.
+Relaxing it moves 95 articles into the actionable arm and roughly halves the effect, which it
+does not remove.
+
+## The author's own papers are in this corpus
+
+A tier A search for meta-research retrieves the work of anyone who does meta-research,
+including whoever is running the study. Two articles in the analysis set name the author's own
+repositories. Both are in the exposed arm and both are graded actionable, so their presence
+pushes the estimate in the direction of the hypothesis. Removing them changes the odds ratio
+from 4.40 to 4.10. Reported rather than silently dropped.
+
+## What this does not show
+
+- **It is not causal and the design cannot make it so.** A researcher who studies data sharing
+  and a researcher who shares data may simply be the same kind of person, or may work in the
+  same few journals with the same few policies. The journal random intercept absorbs the
+  average journal but not an interaction between a journal's policy and a paper's topic.
+- **43 exposed records is thin.** The smallest effect this design could have detected at 80
+  percent power was a rise from 20.5 to 48.9 percent. The observed effect is larger than that
+  floor, which is why it is visible; an effect half this size would have been missed, and a
+  null here would have ruled out very little.
+- **The exposure is a vocabulary match, not a judgment.** A paper labelled as a transparency
+  topic may mention data sharing once in passing. That misclassification is non-differential
+  with respect to the outcome and biases toward the null, so it weakens this finding rather
+  than manufacturing it.
+- **60 percent PMC coverage is not random.** 742 corpus records have no PMCID and 89 more are
+  in PMC as metadata only. Open-access availability is itself correlated with transparency
+  practice, so the sample leans transparent. This is stated in the protocol and is not fixable
+  within the design.
+- **The grading rule has been validated by a model and not yet by a person.** See below.
+
+## Validation still outstanding
+
+The protocol calls for 100 statements graded by hand to measure where the rule disagrees.
+`studies/P01-advocacy-and-practice/out/validation-sample.csv` holds that sample with an empty
+`hand_grade` column, and the agreement will be reported here when it is filled in.
+
+What has happened instead is weaker and is labeled as such: 40 statements were read and graded
+by the same model that wrote the rule, which found the second defect above. A model checking
+its own rule is not an independent check, and the kappa against a person is not yet known.
+
+## Reproducing
+
+```bash
+python3 studies/P01-advocacy-and-practice/extract.py   # PMC full text -> statements.csv
+Rscript studies/P01-advocacy-and-practice/R/analyze.R  # grading, models, sensitivity
+```
+
+The extractor caches PMC responses by batch content. `data/statements.csv` is tracked, so the
+analysis reruns without touching NCBI.

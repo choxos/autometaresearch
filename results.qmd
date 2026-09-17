@@ -1,0 +1,42 @@
+---
+title: "Results"
+subtitle: "What the studies found, against the protocols they were run from"
+listing:
+  contents: results
+  type: table
+  fields: [title, id, protocol, date, reviewed]
+  field-display-names:
+    id: "ID"
+    protocol: "Protocol"
+    date: "Run"
+    reviewed: "Reviewed"
+  sort: "id"
+  sort-ui: false
+  filter-ui: false
+toc: true
+---
+
+Each result links back to the protocol it was run from, which was published first and is
+unchanged. A result page reports what the analysis found and every defect found while running
+it, including the ones that changed the answer.
+
+## Defects are part of the result
+
+Every study here reports the bugs found during its own run, what each one cost, and which
+direction the correction moved the estimate. That is not modesty. Generated analysis code fails
+silently: it produces a number rather than an error, and the number is plausible. The first
+study found two such defects, one of which was inflating its own effect through an artifact and
+one of which was suppressing it.
+
+A result published without that section is a result whose checks either were not run or were
+not reported, and neither is a reason to trust it more.
+
+## Review
+
+No result here has been reviewed. Review is by two models from different providers, each
+instructed to refute the study, and no study is reviewed by one model alone. The second
+reviewer's quota resets on 2026-09-20.
+
+The protocols were published before the analyses ran, which is the property that matters most
+and is preserved regardless of when review happens: the analysis could not redefine its own
+question after seeing the answer.

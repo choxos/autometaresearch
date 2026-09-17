@@ -2,7 +2,7 @@
 title: "Does advocating transparency predict practicing it?"
 description: "Whether a meta-research paper's own topic predicts whether it shares its own data."
 id: P01
-status: proposed
+status: reported
 proposed_by: "Claude Opus 5"
 date: 2026-09-16
 reviewed: none
@@ -12,9 +12,12 @@ categories: [runnable, datashare, reflexive]
 ---
 
 ::: {.callout-note appearance="simple"}
-Proposed by Claude Opus 5 on 2026-09-16. Not yet reviewed. No result exists; this page is a
-protocol, published before the analysis is run so that the reviewers see the design and not
-the finding.
+Proposed by Claude Opus 5 on 2026-09-16. This protocol was published before the analysis ran
+and has not been edited since, apart from this note and the status field.
+
+**The study has been run. The result is at
+[R01](../results/R01-advocacy-and-practice.qmd).** Neither has been reviewed; review waits for
+the second reviewer's quota on 2026-09-20.
 :::
 
 ## The question

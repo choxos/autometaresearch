@@ -1,0 +1,1000 @@
+pmcid,pmid,year,journal,art_type,route,exposed,grade,actionable,any_statement,labels
+PMC10002660,36909550,2024,bioRxiv : the preprint server for biology,research,back-sec-type,other topic,actionable,1,1,metares
+PMC10004297,36820779,2023,Revista da Associacao Medica Brasileira (1992),review,none,other topic,none,0,0,metares
+PMC10012585,36918987,2023,Trials,comment,back-notes-type,other topic,declarative,0,1,metares;reg
+PMC10013742,36848569,2023,Proceedings of the National Academy of Sciences of the United States of America,research,back-sec-type,other topic,actionable,1,1,biblio;metares
+PMC10014247,36938532,2023,Royal Society open science,research,back-sec-type,other topic,declarative,0,1,metares;repro
+PMC10027979,36941520,2023,Progress in orthodontics,review,back-notes-type,other topic,declarative,0,1,metares;peerrev;report
+PMC10046305,36979202,2023,Brain sciences,research,back-notes-type,other topic,declarative,0,1,metares
+PMC10068789,36940343,2023,Proceedings of the National Academy of Sciences of the United States of America,research,back-sec-type,other topic,actionable,1,1,biblio;metares;peerrev
+PMC10071700,37013585,2023,BMC biology,research,back-notes-type,transparency topic,actionable,1,1,datashare;metares;reg;repro;stats
+PMC10086297,36600446,2022,BMJ evidence-based medicine,review,back-sec-type,other topic,actionable,1,1,biblio;metares;oa;report;repro
+PMC10087835,35838202,2022,International journal of paediatric dentistry,research,back-sec-type,other topic,declarative,0,1,metares;reg
+PMC10089067,36627249,2023,American journal of epidemiology,research,none,other topic,none,0,0,metares;reg;repro
+PMC10089822,37101975,2023,Scientometrics,research,back-notes-type,other topic,declarative,0,1,coi;metares
+PMC10089973,36585905,2022,Journal of the American Geriatrics Society,research,none,other topic,none,0,0,metares
+PMC10120256,37081403,2023,BMC medical research methodology,research,back-notes-type,other topic,declarative,0,1,metares;reg
+PMC10131600,36951931,2023,JMIR research protocols,research,back-sec-type,other topic,declarative,0,1,metares;report;repro
+PMC10131812,36995753,2023,Journal of medical Internet research,research,none,other topic,none,0,0,metares;reg
+PMC10142526,37109373,2023,Journal of clinical medicine,review,back-notes-type,other topic,declarative,0,1,metares;reg;report
+PMC10161412,37143091,2023,"Critical care (London, England)",review,back-notes-type,other topic,declarative,0,1,metares
+PMC10168693,36892457,2023,eLife,review,back-sec-type,other topic,actionable,1,1,metares;repro
+PMC10169719,37181628,2023,Frontiers in aging neuroscience,review,none,other topic,none,0,0,metares;reg
+PMC10180607,37173564,2023,Canadian journal of anaesthesia = Journal canadien d'anesthesie,review,none,other topic,none,0,0,metares
+PMC10192944,37224325,2023,F1000Research,research,none,other topic,none,0,0,metares
+PMC10199475,37208660,2023,BMC medical ethics,research,back-notes-type,other topic,declarative,0,1,coi;metares
+PMC10201822,36940903,2023,"Advances in nutrition (Bethesda, Md.)",review,back-sec-title,other topic,declarative,0,1,metares;report
+PMC10235093,37264014,2023,Scientific data,research,back-notes-type,transparency topic,actionable,1,1,datashare;metares;repro
+PMC10245199,37293356,2023,Royal Society open science,research,back-sec-type,other topic,actionable,1,1,biblio;metares
+PMC10245209,37293358,2023,Royal Society open science,research,back-sec-type,other topic,actionable,1,1,metares;repro
+PMC10250579,37304064,2023,"Mayo Clinic proceedings. Innovations, quality & outcomes",research,none,other topic,none,0,0,metares;reg
+PMC10251147,37305803,2023,MethodsX,research,back-sec-type,other topic,declarative,0,1,metares;stats
+PMC10259619,37312802,2023,Journal of the Medical Library Association : JMLA,research,back-sec-type,other topic,actionable,1,1,metares;repro
+PMC10265847,37316945,2023,Trials,review,back-notes-type,other topic,declarative,0,1,metares
+PMC10266008,37252958,2023,Proceedings of the National Academy of Sciences of the United States of America,research,back-sec-type,other topic,actionable,1,1,metares
+PMC10266422,37325175,2023,International journal of public health,review,back-sec-type,other topic,actionable,1,1,metares
+PMC10277065,37316250,2023,BMJ health & care informatics,research,back-sec-type,other topic,declarative,0,1,metares
+PMC10284568,37346985,2022,Journal of applied research in memory and cognition,research,none,other topic,none,0,0,metares
+PMC10311002,37397623,2023,Frontiers in big data,research,none,other topic,none,0,0,biblio;metares
+PMC10314391,37391755,2023,Trials,research,back-notes-type,transparency topic,declarative,0,1,datashare;metares
+PMC10318803,37400880,2023,Systematic reviews,research,back-notes-type,other topic,declarative,0,1,metares;oa;reg
+PMC10318841,37400814,2023,BMC medicine,research,back-notes-type,other topic,actionable,1,1,metares
+PMC10322148,37341380,2023,eLife,review,back-sec-type,other topic,actionable,1,1,metares;repro
+PMC10334349,37433624,2023,BMJ (Clinical research ed.),review,back-sec-type,transparency topic,actionable,1,1,datashare;metares;oa
+PMC10336712,37057388,2023,Medical decision making : an international journal of the Society for Medical Decision Making,research,none,other topic,none,0,0,metares;waste
+PMC10337867,37437027,2023,PloS one,research,front-notes-title,other topic,actionable,1,1,metares
+PMC10347720,37452309,2023,Systematic reviews,research,back-notes-type,other topic,declarative,0,1,metares
+PMC10349267,37455853,2023,F1000Research,research,back-sec-type,other topic,actionable,1,1,metares;retract;stats
+PMC10353842,37466498,2023,Sao Paulo medical journal = Revista paulista de medicina,research,none,other topic,none,0,0,metares;reg
+PMC10354464,37476516,2023,Royal Society open science,review,back-sec-type,other topic,declarative,0,1,metares;repro
+PMC10360432,37474166,2023,BMJ open,research,none,other topic,none,0,0,metares;reg;report;waste
+PMC10365834,37410627,2023,eLife,research,back-sec-type,other topic,actionable,1,1,metares
+PMC10370694,37494359,2023,PloS one,research,front-notes-title,transparency topic,actionable,1,1,coi;datashare;metares;oa
+PMC10373676,37495391,2023,BMJ open,research,none,other topic,none,0,0,metares
+PMC10389356,37144675,2023,"International journal of surgery (London, England)",research,none,other topic,none,0,0,metares
+PMC10435919,37600907,2024,F1000Research,research,back-sec-type,other topic,actionable,1,1,metares;peerrev;reg
+PMC10437212,37355088,2023,Journal of dentistry,review,none,other topic,none,0,0,metares
+PMC10442263,37421568,2023,Drug safety,research,back-notes-title,other topic,declarative,0,1,metares
+PMC10450398,37579179,2023,Proceedings of the National Academy of Sciences of the United States of America,research,back-sec-type,other topic,declarative,0,1,biblio;metares
+PMC10454650,37628456,2023,"Healthcare (Basel, Switzerland)",research,back-notes-type,other topic,declarative,0,1,metares
+PMC10465209,37650069,2023,Royal Society open science,research,back-sec-type,other topic,declarative,0,1,metares;reg
+PMC10474338,37663796,2024,Wellcome open research,review,back-sec-type,other topic,declarative,0,1,metares
+PMC10485315,36461893,2022,International journal of methods in psychiatric research,review,back-sec-type,other topic,declarative,0,1,metares;report
+PMC10486209,37692532,2022,Proceedings of the Association for Information Science and Technology. Association for Information Science and Technology,research,none,other topic,none,0,0,metares
+PMC10510222,37726707,2023,BMC cancer,review,back-notes-type,other topic,declarative,0,1,metares;reg
+PMC10565389,37830032,2023,Royal Society open science,research,back-sec-type,other topic,actionable,1,1,metares;reg
+PMC10578279,37694309,2023,Journal of Parkinson's disease,comment,none,other topic,none,0,0,metares;repro
+PMC10582702,37860158,2023,Frontiers in research metrics and analytics,research,none,other topic,none,0,0,metares
+PMC10590516,37865743,2023,BMC medical research methodology,research,back-notes-type,other topic,actionable,1,1,metares
+PMC10590772,37867164,2023,Progress in orthodontics,research,back-notes-type,other topic,declarative,0,1,coi;metares;waste
+PMC10593266,37881299,2022,NIHR open research,research,none,other topic,none,0,0,metares;waste
+PMC10598345,37886637,2023,Frontiers in endocrinology,review,none,other topic,none,0,0,metares;reg
+PMC10598368,37885781,2023,Bioinformation,research,none,other topic,none,0,0,metares
+PMC10610318,37895920,2023,"Pharmaceuticals (Basel, Switzerland)",review,back-notes-type,other topic,declarative,0,1,metares;report
+PMC10621717,37928126,2023,Journal of the Medical Library Association : JMLA,research,none,other topic,none,0,0,metares;oa;peerrev;repro
+PMC10623542,37928808,2023,F1000Research,research,none,other topic,none,0,0,metares
+PMC10624422,37922198,2023,eLife,research,back-sec-type,other topic,declarative,0,1,aitext;equity;metares;peerrev
+PMC10629524,37428904,2023,Proceedings of the National Academy of Sciences of the United States of America,research,back-sec-type,other topic,actionable,1,1,metares;repro
+PMC10645069,38026006,2023,Royal Society open science,research,back-sec-type,other topic,actionable,1,1,metares;repro
+PMC10645365,37906614,2023,PLoS medicine,research,front-notes-title,other topic,actionable,1,1,metares;reg
+PMC10646728,37962883,2023,JAMA network open,review,none,transparency topic,none,0,0,biblio;coi;datashare;metares
+PMC10661948,38025477,2023,Frontiers in psychiatry,review,none,other topic,none,0,0,metares;report
+PMC10666438,37993826,2023,BMC oral health,research,back-notes-type,other topic,declarative,0,1,metares
+PMC10672058,38002645,2023,Journal of clinical medicine,review,none,other topic,none,0,0,metares;peerrev;reg;report
+PMC10691329,37983494,2023,Proceedings of the National Academy of Sciences of the United States of America,research,back-sec-type,other topic,actionable,1,1,biblio;metares
+PMC10712860,38079414,2023,PloS one,research,front-notes-title,other topic,actionable,1,1,equity;metares
+PMC10715523,37586872,2023,BMJ evidence-based medicine,review,back-sec-type,other topic,actionable,1,1,metares;reg
+PMC10716103,38098785,2023,EPJ data science,research,back-notes-type,other topic,declarative,0,1,metares
+PMC10717715,38093215,2023,BMC medical research methodology,research,back-notes-type,other topic,declarative,0,1,biblio;metares;report
+PMC10720051,38097923,2023,BMC medical research methodology,review,back-notes-type,other topic,declarative,0,1,metares;report
+PMC10731315,38126060,2023,Royal Society open science,research,back-sec-type,other topic,declarative,0,1,metares;repro
+PMC10731681,38124124,2023,BMC medical research methodology,review,back-notes-type,other topic,actionable,1,1,metares;reg;report
+PMC10744963,38138949,2023,Journal of personalized medicine,research,back-notes-type,other topic,declarative,0,1,coi;metares
+PMC10759380,38166880,2024,BMC musculoskeletal disorders,review,back-notes-type,other topic,declarative,0,1,metares
+PMC10759639,38167207,2024,Globalization and health,research,back-notes-type,other topic,declarative,0,1,biblio;metares
+PMC10787449,38216987,2024,Systematic reviews,research,back-notes-type,other topic,declarative,0,1,metares
+PMC10793774,37800556,2024,"International journal of surgery (London, England)",research,none,other topic,none,0,0,metares
+PMC10800974,38259266,2024,Frontiers in pharmacology,review,none,other topic,none,0,0,metares;reg;report
+PMC10804507,38262938,2024,BMC medical research methodology,research,back-notes-type,other topic,declarative,0,1,metares;reg;waste
+PMC10807142,38267888,2024,BMC medical research methodology,research,back-notes-type,other topic,declarative,0,1,metares;reg
+PMC10827419,38298393,2024,Royal Society open science,research,back-sec-type,other topic,actionable,1,1,metares
+PMC10827424,38298396,2024,Royal Society open science,research,back-sec-type,other topic,actionable,1,1,metares;reg;retract;waste
+PMC10829891,37562729,2023,Journal of clinical epidemiology,research,back-sec-type,other topic,actionable,1,1,biblio;metares;peerrev;report
+PMC10844363,38177564,2024,Diabetologia,review,back-notes-title,other topic,declarative,0,1,biblio;metares
+PMC10859154,38129959,2024,International journal of epidemiology,research,back-sec-type,other topic,declarative,0,1,metares
+PMC10859162,38129958,2024,International journal of epidemiology,review,back-sec-type,other topic,declarative,0,1,metares
+PMC10866997,38355616,2024,"Schizophrenia (Heidelberg, Germany)",research,back-notes-type,other topic,declarative,0,1,metares
+PMC10870617,38365600,2024,BMC medical research methodology,review,back-notes-type,other topic,actionable,1,1,metares;reg
+PMC10871715,38284745,2024,eLife,research,back-sec-type,other topic,actionable,1,1,metares;repro
+PMC10874502,38096378,2023,Journal of proteome research,review,none,other topic,none,0,0,metares
+PMC10882483,38389732,2022,Infant and child development,research,back-sec-type,other topic,actionable,1,1,biblio;metares
+PMC10905014,38434651,2023,F1000Research,research,back-sec-type,other topic,actionable,1,1,metares;repro;stats
+PMC10906088,38435394,2024,Frontiers in medicine,research,none,other topic,none,0,0,metares;reg
+PMC10910963,38455944,2023,Frontiers in epidemiology,comment,none,other topic,none,0,0,metares
+PMC10911986,38433677,2024,"The Journal of law, medicine & ethics : a journal of the American Society of Law, Medicine & Ethics",review,none,other topic,none,0,0,metares
+PMC10925410,38464006,2024,Research square,research,back-sec-type,other topic,declarative,0,1,metares
+PMC10928700,38476242,2024,Journal of clinical and translational science,research,none,other topic,none,0,0,metares
+PMC10933152,37684502,2023,"Sports medicine (Auckland, N.Z.)",review,back-notes-title,other topic,declarative,0,1,metares;reg;stats
+PMC10936784,38478503,2024,PloS one,research,front-notes-title,transparency topic,actionable,1,1,datashare;metares;repro
+PMC10938677,38486299,2024,Trials,research,back-notes-type,other topic,actionable,1,1,metares;reg
+PMC10938939,38112680,2023,European journal of physical and rehabilitation medicine,research,none,other topic,none,0,0,metares
+PMC10938941,38088137,2023,European journal of physical and rehabilitation medicine,research,none,other topic,none,0,0,metares
+PMC10943289,37985301,2023,Anais brasileiros de dermatologia,research,none,other topic,none,0,0,metares
+PMC10945599,38240745,2024,eLife,research,back-sec-type,other topic,actionable,1,1,metares
+PMC10946148,38500200,2024,Systematic reviews,review,back-notes-type,other topic,actionable,1,1,equity;metares;report
+PMC10950254,38502662,2024,PloS one,research,front-notes-title,other topic,declarative,0,1,metares
+PMC10957714,37696974,2023,European radiology,review,none,other topic,none,0,0,metares
+PMC10963027,38525941,2024,eLife,research,back-sec-type,other topic,declarative,0,1,equity;metares;peerrev
+PMC10977968,38546716,2024,eLife,research,back-sec-type,other topic,declarative,0,1,metares
+PMC10984547,38557691,2024,PloS one,review,front-notes-title,other topic,actionable,1,1,metares
+PMC10986953,38564513,2024,PLoS biology,review,front-notes-title,other topic,actionable,1,1,metares;oa
+PMC10986997,38564591,2024,PloS one,research,front-notes-title,transparency topic,actionable,1,1,coi;datashare;metares;oa;reg;repro
+PMC10993287,38584609,2023,Proceedings of the Association for Information Science and Technology. Association for Information Science and Technology,research,none,transparency topic,none,0,0,datashare;metares
+PMC10993725,38577577,2020,Proceedings of the Association for Information Science and Technology. Association for Information Science and Technology,research,none,other topic,none,0,0,biblio;metares
+PMC11012564,38610771,2024,Journal of clinical medicine,research,back-notes-type,other topic,declarative,0,1,metares;report
+PMC11029374,38637129,2024,BMJ open,review,back-sec-type,other topic,declarative,0,1,metares
+PMC11034121,38650032,2024,Journal of biomedical semantics,research,back-notes-type,other topic,actionable,1,1,metares
+PMC11042891,38666001,2024,International journal of exercise science,research,none,other topic,none,0,0,metares;peerrev;report;repro
+PMC11053840,38668279,2024,"Pathogens (Basel, Switzerland)",research,back-notes-type,other topic,declarative,0,1,biblio;metares;oa
+PMC11064813,38699572,2024,Frontiers in psychology,review,none,other topic,none,0,0,metares;repro;stats
+PMC11068716,38700660,2024,Cognitive research: principles and implications,research,back-notes-type,other topic,actionable,1,1,metares;repro;stats
+PMC11075548,38715726,2024,PNAS nexus,research,back-sec-type,other topic,actionable,1,1,biblio;metares
+PMC11078384,38718077,2024,PloS one,research,front-notes-title,transparency topic,actionable,1,1,datashare;metares
+PMC11086528,38719283,2024,BMJ open,research,none,other topic,none,0,0,metares
+PMC11090505,38739437,2024,eLife,research,back-sec-type,other topic,actionable,1,1,metares;repro
+PMC11101378,38177572,2024,European journal of epidemiology,research,none,other topic,none,0,0,metares;reg;repro
+PMC11104640,38768101,2024,PloS one,research,front-notes-title,other topic,declarative,0,1,metares
+PMC11140857,38816752,2024,Research integrity and peer review,research,back-notes-type,other topic,declarative,0,1,metares;report
+PMC11143950,38827987,2024,JCPP advances,research,back-sec-type,other topic,declarative,0,1,metares;repro
+PMC11147161,38836114,2023,The Sociological quarterly,research,back-sec-type,other topic,declarative,0,1,metares
+PMC11152385,38546060,2024,Asian Pacific journal of cancer prevention : APJCP,review,none,other topic,none,0,0,metares;stats
+PMC11165400,38863722,2024,Ecology and evolution,review,back-sec-type,other topic,actionable,1,1,NA
+PMC11177528,38872165,2024,BMC oral health,research,back-notes-type,other topic,declarative,0,1,metares;reg;report
+PMC11192539,38912383,2024,Perspectives of the ASHA special interest groups,research,back-sec-type,other topic,actionable,1,1,equity;metares
+PMC11193208,38909176,2024,BMC medical research methodology,review,back-notes-type,other topic,declarative,0,1,metares;reg
+PMC11210760,38935698,2024,PloS one,research,front-notes-title,other topic,declarative,0,1,metares
+PMC11213976,38885376,2024,Proceedings of the National Academy of Sciences of the United States of America,research,back-sec-type,other topic,actionable,1,1,metares
+PMC11225374,38970140,2024,Infectious diseases of poverty,review,back-notes-type,other topic,declarative,0,1,metares;stats
+PMC11228627,38978541,2024,Forensic science international. Synergy,review,none,other topic,none,0,0,metares
+PMC11229179,38978042,2024,Health research policy and systems,research,back-notes-type,other topic,declarative,0,1,metares
+PMC11230537,38976673,2024,PloS one,research,front-notes-title,other topic,actionable,1,1,metares
+PMC11235027,39886519,2023,BMJ oncology,research,back-sec-type,other topic,declarative,0,1,metares
+PMC11240179,39005482,2024,"Patterns (New York, N.Y.)",research,none,other topic,none,0,0,aitext;biblio;equity;metares;retract
+PMC11251899,39021816,2024,Frontiers in medicine,research,none,other topic,none,0,0,metares
+PMC11256559,39026149,2024,BMC medical research methodology,research,back-notes-type,other topic,declarative,0,1,metares
+PMC11257842,39036096,2024,Frontiers in medicine,research,none,other topic,none,0,0,metares;reg
+PMC11265885,39050728,2024,Royal Society open science,research,back-sec-type,other topic,actionable,1,1,metares
+PMC11271150,39071986,2024,Neurotrauma reports,research,none,other topic,none,0,0,metares;repro
+PMC11284874,39059807,2024,BMJ open,research,none,other topic,none,0,0,metares
+PMC11285638,39076822,2024,Royal Society open science,research,back-sec-type,transparency topic,actionable,1,1,datashare;metares;repro
+PMC11294318,39090273,2024,Insights into imaging,research,back-notes-type,other topic,actionable,1,1,aitext;metares;report
+PMC11302110,39107813,2024,Systematic reviews,research,none,other topic,none,0,0,metares;report;repro
+PMC11302703,39108487,2024,Research square,research,back-sec-type,other topic,declarative,0,1,metares
+PMC11317577,39078672,2024,Proceedings of the National Academy of Sciences of the United States of America,research,back-sec-type,other topic,actionable,1,1,metares;repro
+PMC11322743,39139034,2024,"Journal of the Royal Society, Interface",research,back-sec-type,other topic,actionable,1,1,metares
+PMC11323923,39149744,2024,Saudi journal of anaesthesia,research,none,other topic,none,0,0,metares
+PMC11324322,37196169,2024,Family practice,research,back-sec-type,other topic,declarative,0,1,metares;report
+PMC11328666,38908852,2024,BMJ open,research,back-sec-type,other topic,declarative,0,1,metares;reg
+PMC11344353,39182028,2024,BMC medical research methodology,research,back-notes-type,transparency topic,declarative,0,1,coi;datashare;metares
+PMC11370070,39223563,2024,BMC musculoskeletal disorders,review,back-notes-type,other topic,declarative,0,1,metares;repro
+PMC11380108,39240561,2024,JAMA network open,review,none,other topic,none,0,0,metares;reg
+PMC11381986,39253695,2024,Integrative medicine research,research,back-sec-type,other topic,declarative,0,1,metares;peerrev;repro;retract
+PMC11382479,39251912,2024,BMC medical research methodology,review,back-notes-type,other topic,actionable,1,1,metares;repro
+PMC11391788,39266975,2024,BMC medical research methodology,research,back-notes-type,other topic,actionable,1,1,metares;reg;waste
+PMC11396362,39274394,2024,Journal of clinical medicine,review,back-notes-type,other topic,declarative,0,1,metares;report
+PMC11408022,39296115,2024,Heliyon,research,none,other topic,none,0,0,metares
+PMC11410715,39067259,2024,ESMO open,research,none,other topic,none,0,0,metares
+PMC11412973,39300204,2024,Scientific reports,research,back-notes-type,other topic,actionable,1,1,metares
+PMC11420151,39236231,2024,Proceedings of the National Academy of Sciences of the United States of America,research,back-sec-type,other topic,actionable,1,1,metares;repro
+PMC11421891,39323554,2024,Royal Society open science,research,back-sec-type,other topic,declarative,0,1,aitext;metares
+PMC11432730,39336933,2024,Journal of clinical medicine,research,none,other topic,none,0,0,metares
+PMC11437387,39331390,2024,JAMA network open,review,none,other topic,none,0,0,metares;report
+PMC11438193,39342302,2024,Systematic reviews,research,back-notes-type,other topic,declarative,0,1,biblio;metares;reg;report
+PMC11443767,39350298,2024,Research integrity and peer review,research,back-notes-type,other topic,declarative,0,1,coi;metares;oa
+PMC11444786,39359470,2024,Royal Society open science,research,back-sec-type,other topic,declarative,0,1,metares;repro
+PMC11447435,39293047,2024,JMIR research protocols,research,back-sec-type,other topic,declarative,0,1,metares
+PMC11506855,39456281,2024,"Foods (Basel, Switzerland)",review,back-notes-type,other topic,declarative,0,1,metares
+PMC11507548,39451919,2024,"Entropy (Basel, Switzerland)",research,back-notes-type,other topic,declarative,0,1,metares;repro
+PMC11525395,39322919,2024,Behavior research methods,research,back-notes-type,other topic,actionable,1,1,metares;repro
+PMC11529075,39487397,2024,BMC medical research methodology,research,back-notes-type,other topic,declarative,0,1,metares
+PMC11530002,39485763,2024,PloS one,research,front-notes-title,other topic,declarative,0,1,metares;report
+PMC11539569,39508249,2024,Research involvement and engagement,review,back-notes-type,other topic,declarative,0,1,metares
+PMC11552590,39516011,2024,RMD open,research,back-sec-type,other topic,declarative,0,1,metares
+PMC11562281,39370711,2024,Journal of dental research,comment,none,other topic,none,0,0,metares;report
+PMC11563668,39545412,2024,The Journal of clinical investigation,research,none,other topic,none,0,0,metares;repro
+PMC11569024,39559562,2023,Foundations of science,research,none,other topic,none,0,0,metares;repro
+PMC11573139,39556553,2024,PloS one,research,front-notes-title,transparency topic,actionable,1,1,datashare;metares;oa
+PMC11576104,39569346,2024,Royal Society open science,research,back-sec-type,other topic,declarative,0,1,metares;peerrev
+PMC11580664,39575170,2024,PeerJ,review,none,other topic,none,0,0,metares;report;waste
+PMC11583034,38936882,2024,The British journal of general practice : the journal of the Royal College of General Practitioners,research,none,other topic,none,0,0,metares
+PMC11587663,39587509,2024,BMC medical research methodology,research,back-notes-type,other topic,declarative,0,1,metares;report
+PMC11590734,38375627,2024,"Diagnostic and interventional radiology (Ankara, Turkey)",research,none,other topic,none,0,0,metares;report
+PMC11602250,39582333,2024,Korean journal of orthodontics,research,none,other topic,none,0,0,metares;stats
+PMC11613474,39623370,2024,BMC medicine,review,back-notes-type,other topic,declarative,0,1,metares
+PMC11616184,39627838,2024,Trials,review,back-notes-type,other topic,actionable,1,1,metares;reg
+PMC11627457,39367681,2024,"Acta paediatrica (Oslo, Norway : 1992)",review,none,other topic,none,0,0,NA
+PMC11631404,39665090,2024,Royal Society open science,research,none,other topic,none,0,0,metares
+PMC11633896,38861954,2024,Neonatology,review,back-sec-type,other topic,declarative,0,1,metares
+PMC11639547,39630768,2024,Revista da Associacao Medica Brasileira (1992),research,back-sec-type,other topic,actionable,1,1,metares
+PMC11648638,39621909,2024,Proceedings of the National Academy of Sciences of the United States of America,research,back-sec-type,other topic,declarative,0,1,metares
+PMC11654338,39699504,2024,Brazilian dental journal,research,back-sec-type,other topic,declarative,0,1,metares;report
+PMC11695018,39746037,2025,PloS one,review,front-notes-title,other topic,declarative,0,1,metares;reg;report
+PMC11724997,39566201,2024,Brazilian journal of physical therapy,review,none,other topic,none,0,0,metares
+PMC11730470,39810091,2025,BMC medical research methodology,research,back-notes-type,other topic,actionable,1,1,metares
+PMC11752614,39838444,2025,BMC medicine,review,back-notes-type,other topic,actionable,1,1,metares
+PMC11781634,39883670,2025,PLoS biology,research,front-notes-title,other topic,actionable,1,1,metares;retract
+PMC11789026,39835890,2025,Proceedings of the National Academy of Sciences of the United States of America,research,back-sec-type,other topic,actionable,1,1,metares
+PMC11792648,38986509,2025,"Nephrology, dialysis, transplantation : official publication of the European Dialysis and Transplant Association - European Renal Association",review,back-sec-type,other topic,declarative,0,1,metares
+PMC11792771,39659153,2024,Topics in cognitive science,comment,none,other topic,none,0,0,metares
+PMC11793921,39899788,2025,Neurology,research,none,other topic,none,0,0,biblio;metares
+PMC11793960,39904379,2025,Proceedings. Biological sciences,research,back-sec-type,other topic,actionable,1,1,metares
+PMC11795886,40476264,2024,Cochrane evidence synthesis and methods,research,back-sec-type,other topic,declarative,0,1,metares;report
+PMC11795941,40474875,2024,Cochrane evidence synthesis and methods,research,back-sec-type,other topic,declarative,0,1,metares;reg
+PMC11795943,40475187,2024,Cochrane evidence synthesis and methods,research,back-sec-type,other topic,declarative,0,1,metares
+PMC11795960,40474992,2023,Cochrane evidence synthesis and methods,research,back-sec-type,transparency topic,actionable,1,1,datashare;metares;repro
+PMC11795971,40475809,2024,Cochrane evidence synthesis and methods,review,back-sec-type,other topic,declarative,0,1,metares;report
+PMC11795979,40475182,2025,Cochrane evidence synthesis and methods,research,back-sec-type,other topic,declarative,0,1,metares
+PMC11801768,39913520,2024,The Indian journal of medical research,research,none,other topic,none,0,0,metares
+PMC11804095,39915771,2025,BMC biology,research,back-notes-type,other topic,actionable,1,1,metares;peerrev;repro;stats
+PMC11804648,39869810,2025,Proceedings of the National Academy of Sciences of the United States of America,research,back-sec-type,other topic,declarative,0,1,metares;repro
+PMC11804678,39869812,2025,Proceedings of the National Academy of Sciences of the United States of America,research,back-sec-type,other topic,declarative,0,1,metares
+PMC11814034,39934466,2025,European journal of pediatrics,review,back-notes-type,other topic,declarative,0,1,metares
+PMC11834549,39966939,2025,Health research policy and systems,research,back-notes-type,other topic,declarative,0,1,metares;reg
+PMC11835412,39968470,2024,Medical journal of the Islamic Republic of Iran,research,none,other topic,none,0,0,biblio;metares
+PMC11835977,39789271,2025,European radiology,research,none,other topic,none,0,0,metares;stats
+PMC11861353,40012543,2025,Frontiers in surgery,review,back-sec-type,other topic,declarative,0,1,metares;reg
+PMC11871967,40027066,2025,Cureus,research,none,other topic,none,0,0,metares;report
+PMC11874485,39614606,2024,Assessment,research,none,other topic,none,0,0,metares;reg;repro
+PMC11877234,40032597,2025,BMJ open quality,research,back-sec-type,other topic,declarative,0,1,metares
+PMC11881244,40038835,2025,Research integrity and peer review,research,back-notes-type,other topic,declarative,0,1,metares;reg;stats
+PMC11892580,39993206,2025,Proceedings of the National Academy of Sciences of the United States of America,comment,none,other topic,none,0,0,metares
+PMC11897677,39998876,2025,Journal of medical Internet research,review,back-notes-type,other topic,declarative,0,1,metares;report
+PMC11917100,40102921,2025,Trials,research,back-notes-type,other topic,actionable,1,1,metares;peerrev;report;repro
+PMC11919487,40109937,2025,Royal Society open science,research,back-sec-type,other topic,declarative,0,1,metares
+PMC11925299,40111967,2025,PloS one,research,front-notes-title,other topic,actionable,1,1,metares
+PMC11926743,40123937,2025,Frontiers in nutrition,review,back-sec-type,other topic,declarative,0,1,metares
+PMC11934354,40132830,2025,BMJ open,research,back-sec-type,other topic,actionable,1,1,metares;reg;report;retract
+PMC11937669,40143946,2024,JHEP reports : innovation in hepatology,research,none,other topic,none,0,0,metares
+PMC11940819,40138274,2025,PloS one,research,front-notes-title,other topic,actionable,1,1,metares;repro
+PMC11962015,40177472,2025,Frontiers in research metrics and analytics,research,back-sec-type,other topic,declarative,0,1,metares
+PMC11972496,40188041,2025,BMC medical research methodology,research,back-notes-type,other topic,declarative,0,1,metares;report;repro
+PMC11973413,40189788,2025,Journal of evaluation in clinical practice,review,back-sec-type,other topic,declarative,0,1,metares
+PMC11981735,40207289,2025,The journal of allergy and clinical immunology. Global,research,none,other topic,none,0,0,coi;metares;oa;reg;repro
+PMC11983158,40210257,2025,BMJ (Clinical research ed.),research,back-sec-type,other topic,declarative,0,1,metares
+PMC11998413,40234866,2025,BMC public health,review,back-notes-type,other topic,declarative,0,1,metares
+PMC12000259,39289241,2024,Psychonomic bulletin & review,review,back-notes-type,other topic,actionable,1,1,metares
+PMC12001243,40241846,2025,Frontiers in cellular neuroscience,review,none,other topic,none,0,0,metares
+PMC12002212,39864593,2025,The American journal of clinical nutrition,research,none,other topic,none,0,0,biblio;coi;metares;report;repro
+PMC12011897,40169510,2025,"Sports medicine (Auckland, N.Z.)",review,back-notes-title,other topic,declarative,0,1,metares
+PMC12014597,40271213,2025,Frontiers in physiology,review,back-sec-type,other topic,declarative,0,1,metares
+PMC12018473,40276159,2025,Frontiers in research metrics and analytics,comment,none,other topic,none,0,0,metares
+PMC12019511,40197516,2025,International journal of technology assessment in health care,research,back-sec-type,other topic,actionable,1,1,metares
+PMC12036420,40297433,2025,medRxiv : the preprint server for health sciences,research,none,other topic,none,0,0,metares
+PMC12037000,40238453,2025,Proceedings of the National Academy of Sciences of the United States of America,research,back-sec-type,other topic,declarative,0,1,metares;oa
+PMC12037220,40297487,2025,Revista brasileira de ortopedia,research,none,other topic,none,0,0,metares;reg
+PMC12042460,40301940,2025,Research integrity and peer review,review,back-notes-type,other topic,declarative,0,1,metares;peerrev;retract
+PMC12043490,40313880,2025,Frontiers in nutrition,research,none,other topic,none,0,0,metares
+PMC12057632,40336913,2025,Journal of multidisciplinary healthcare,research,back-sec-type,other topic,declarative,0,1,biblio;metares;oa
+PMC12066129,40347501,2025,The Indian journal of medical research,research,none,other topic,none,0,0,metares
+PMC12067809,40350190,2025,BMJ open,research,back-sec-type,other topic,actionable,1,1,metares;reg;retract
+PMC12071517,40362226,2025,International journal of molecular sciences,review,back-notes-type,other topic,declarative,0,1,metares
+PMC12076912,40361202,2025,Research integrity and peer review,research,back-notes-type,other topic,actionable,1,1,coi;metares;retract
+PMC12079863,40369668,2025,Trials,research,back-notes-type,other topic,declarative,0,1,metares;waste
+PMC12087101,40390137,2025,Pilot and feasibility studies,review,back-notes-type,other topic,declarative,0,1,biblio;metares
+PMC12088789,40395701,2025,Avicenna journal of medicine,research,none,other topic,none,0,0,metares
+PMC12089682,39720839,2024,Autism : the international journal of research and practice,review,none,other topic,none,0,0,metares;reg
+PMC12090408,40389984,2025,BMC medical ethics,research,back-notes-type,other topic,declarative,0,1,biblio;metares;oa
+PMC12092015,40393036,2025,PloS one,review,front-notes-title,other topic,declarative,0,1,metares
+PMC12096108,40406188,2025,Royal Society open science,research,back-sec-type,other topic,declarative,0,1,metares;oa
+PMC12098493,39987376,2025,Drug safety,research,back-notes-title,other topic,declarative,0,1,biblio;metares
+PMC12127067,40458446,2025,PNAS nexus,research,back-sec-type,other topic,actionable,1,1,metares
+PMC12135246,40462051,2025,BMC oral health,review,back-notes-type,other topic,declarative,0,1,metares
+PMC12139716,40487082,2025,Observational studies,research,none,other topic,none,0,0,metares;peerrev
+PMC12143635,40485924,2025,Comprehensive psychoneuroendocrinology,research,none,other topic,none,0,0,metares
+PMC12148307,40498893,2025,Revista da Associacao Medica Brasileira (1992),comment,none,other topic,none,0,0,metares
+PMC12162794,40504403,2025,Journal of medical systems,research,back-notes-type,other topic,declarative,0,1,aitext;metares;report
+PMC12165910,40512318,2025,Nano-micro letters,research,none,other topic,none,0,0,biblio;metares
+PMC12167982,40478873,2025,Proceedings of the National Academy of Sciences of the United States of America,research,back-sec-type,other topic,actionable,1,1,NA
+PMC12182136,40541434,2025,BMJ open,research,none,other topic,none,0,0,metares;oa;report
+PMC12187396,40568558,2025,Royal Society open science,research,back-sec-type,other topic,declarative,0,1,metares
+PMC12204445,40585158,2025,medRxiv : the preprint server for health sciences,research,back-sec-type,other topic,actionable,1,1,metares;oa;reg
+PMC12214308,40606217,2025,Health services insights,research,none,other topic,none,0,0,biblio;equity;metares
+PMC12214412,40425483,2025,Orthopaedic surgery,review,none,other topic,none,0,0,metares
+PMC12220123,40598156,2025,BMC medicine,research,back-notes-type,other topic,declarative,0,1,metares
+PMC12232668,40549913,2025,Proceedings of the National Academy of Sciences of the United States of America,research,back-sec-type,other topic,actionable,1,1,equity;metares;peerrev
+PMC12256131,40628175,2025,"European journal of cancer (Oxford, England : 1990)",research,back-sec-type,other topic,actionable,1,1,metares;repro;stats
+PMC12262331,40667081,2025,bioRxiv : the preprint server for biology,research,back-sec-type,other topic,declarative,0,1,metares
+PMC12270267,40687679,2024,Journal of open psychology data,research,none,other topic,none,0,0,metares;repro
+PMC12274873,40686691,2025,EClinicalMedicine,research,none,transparency topic,none,0,0,datashare;metares;reg
+PMC12282701,40696671,2025,Medicine,research,none,other topic,none,0,0,biblio;metares
+PMC12291516,40707994,2025,"Critical care (London, England)",review,back-notes-type,other topic,declarative,0,1,metares
+PMC12302898,40722191,2025,Systematic reviews,research,back-notes-type,other topic,declarative,0,1,metares;report
+PMC12306809,40735092,2025,ArXiv,research,none,other topic,none,0,0,metares
+PMC12312647,40746963,2025,Royal Society open science,research,back-sec-type,other topic,declarative,0,1,metares;repro
+PMC12313818,40879280,2025,Cancer medicine,review,back-sec-type,other topic,declarative,0,1,metares;reg
+PMC12318195,40694335,2025,Proceedings of the National Academy of Sciences of the United States of America,research,back-sec-type,other topic,actionable,1,1,metares
+PMC12320602,40180445,2025,BMJ evidence-based medicine,research,back-sec-type,transparency topic,declarative,0,1,datashare;metares;oa;reg;report
+PMC12323712,40765616,2025,Frontiers in neurology,review,back-sec-type,other topic,declarative,0,1,coi;metares;oa
+PMC12326343,40767146,2025,Stress and health : journal of the International Society for the Investigation of Stress,review,back-sec-type,other topic,declarative,0,1,NA
+PMC12327621,40768479,2025,PloS one,research,front-notes-title,other topic,actionable,1,1,metares;retract
+PMC12336221,40792081,2025,Frontiers in psychology,research,none,other topic,none,0,0,metares;repro
+PMC12342171,40799347,2025,PNAS nexus,research,back-sec-type,other topic,actionable,1,1,metares;repro
+PMC12350510,40095011,2025,European radiology,review,none,other topic,none,0,0,metares;repro
+PMC12353330,40277459,2025,The Laryngoscope,research,none,other topic,none,0,0,aitext;metares
+PMC12358675,40820674,2025,Health expectations : an international journal of public participation in health care and health policy,research,back-sec-type,other topic,declarative,0,1,metares
+PMC12358853,40758886,2025,Proceedings of the National Academy of Sciences of the United States of America,research,back-sec-type,other topic,actionable,1,1,metares;oa;retract
+PMC12362767,40838186,2025,Cochrane evidence synthesis and methods,research,back-sec-type,other topic,declarative,0,1,NA
+PMC12378696,40873795,2025,Frontiers in medicine,comment,none,other topic,none,0,0,metares
+PMC12385644,40862831,2025,"Current oncology (Toronto, Ont.)",review,back-notes-type,other topic,declarative,0,1,metares;reg
+PMC12392494,40877854,2025,"Critical care (London, England)",research,back-notes-type,other topic,declarative,0,1,biblio;equity;metares
+PMC12395124,40895219,2025,Open research Europe,research,back-sec-type,other topic,declarative,0,1,metares;reg
+PMC12395386,40894102,2025,Royal Society open science,review,back-sec-type,other topic,actionable,1,1,metares;repro
+PMC12398162,40883808,2025,Research integrity and peer review,research,back-notes-type,other topic,declarative,0,1,metares;reg;report
+PMC12402246,40676199,2025,"Eye (London, England)",research,back-notes-type,other topic,declarative,0,1,metares;repro;stats
+PMC12408927,38752984,2024,Perspectives on psychological science : a journal of the Association for Psychological Science,research,none,other topic,none,0,0,metares
+PMC12425474,40934113,2025,eLife,research,back-sec-type,other topic,actionable,1,1,metares
+PMC12432949,40951053,2025,Cureus,research,none,other topic,none,0,0,metares;reg
+PMC12442678,40969451,2025,Cochrane evidence synthesis and methods,review,back-sec-type,other topic,declarative,0,1,metares
+PMC12451481,40374523,2025,Conservation biology : the journal of the Society for Conservation Biology,research,none,other topic,none,0,0,metares
+PMC12452000,40976805,2025,Research integrity and peer review,research,back-notes-type,transparency topic,declarative,0,1,biblio;coi;datashare;metares;report;repro;retract
+PMC12464574,41017903,2025,Interface focus,research,back-sec-type,other topic,declarative,0,1,metares
+PMC12465600,41013569,2025,Health research policy and systems,research,back-notes-type,other topic,declarative,0,1,metares
+PMC12484481,40770172,2025,Pain and therapy,research,back-notes-type,other topic,actionable,1,1,metares;report
+PMC12490803,41032647,2025,Journal of empirical research on human research ethics : JERHRE,review,none,other topic,none,0,0,metares
+PMC12492066,40116276,2025,The British journal of psychiatry : the journal of mental science,review,back-sec-type,other topic,declarative,0,1,metares
+PMC12501581,41064702,2025,F1000Research,research,back-sec-type,other topic,actionable,1,1,aitext;metares;repro
+PMC12502005,41063885,2025,Cureus,research,none,other topic,none,0,0,metares
+PMC12519080,41021802,2025,Proceedings of the National Academy of Sciences of the United States of America,research,back-sec-type,other topic,actionable,1,1,metares
+PMC12521170,41103732,2025,Frontiers in psychiatry,research,none,other topic,none,0,0,metares
+PMC12542254,41126053,2025,BMC medical research methodology,review,back-notes-type,other topic,actionable,1,1,metares;report;repro
+PMC12552206,41136721,2025,Cognitive research: principles and implications,research,none,other topic,none,0,0,metares
+PMC12562089,41153977,2025,Animals : an open access journal from MDPI,research,back-notes-type,other topic,declarative,0,1,biblio;metares
+PMC12567093,41164334,2025,Royal Society open science,research,back-sec-type,transparency topic,actionable,1,1,datashare;metares;reg;repro
+PMC12574439,42261103,2025,BMJ open,research,none,other topic,none,0,0,metares;report
+PMC12575190,41179750,2025,Frontiers in public health,research,back-sec-type,other topic,declarative,0,1,metares
+PMC12575304,41181096,2025,Frontiers in immunology,review,none,other topic,none,0,0,metares;reg
+PMC12577910,41180772,2025,Annals of medicine and surgery (2012),research,back-sec-type,other topic,declarative,0,1,metares
+PMC12583306,41184520,2025,Bulletin of mathematical biology,research,back-notes-type,other topic,actionable,1,1,biblio;metares
+PMC12600059,41213159,2025,Statistics in medicine,research,back-sec-type,other topic,declarative,0,1,metares
+PMC12613592,41233729,2025,BMC medical research methodology,research,back-notes-type,other topic,actionable,1,1,metares;repro;stats
+PMC12615057,41236284,2025,Dermatology practical & conceptual,review,none,other topic,none,0,0,metares;report
+PMC12621523,41626905,2025,Research synthesis methods,research,back-sec-type,other topic,declarative,0,1,biblio;metares;report
+PMC12625687,41253425,2025,BMJ (Clinical research ed.),review,back-sec-type,other topic,actionable,1,1,metares
+PMC12628270,41268565,2025,Journal of bone and joint infection,research,back-sec-type,other topic,declarative,0,1,metares
+PMC12641146,41292563,2025,Health science reports,research,back-sec-type,other topic,declarative,0,1,metares;peerrev;report;repro
+PMC12644166,41286207,2025,Behavior research methods,research,back-notes-type,other topic,actionable,1,1,metares
+PMC12652975,41302260,2025,"Healthcare (Basel, Switzerland)",research,back-notes-type,other topic,declarative,0,1,metares;reg;report;repro
+PMC12657652,41626984,2025,Research synthesis methods,research,back-sec-type,other topic,actionable,1,1,metares
+PMC12662624,41322874,2025,Cureus,review,none,other topic,none,0,0,biblio;metares;report
+PMC12676876,41339872,2025,BMC medicine,research,back-notes-type,other topic,actionable,1,1,metares;peerrev;retract
+PMC12677328,40997084,2025,Anesthesiology,review,none,other topic,none,0,0,metares;report;stats
+PMC12682185,41338635,2025,BMJ open,research,none,other topic,none,0,0,metares
+PMC12684188,41368128,2025,BMJ medicine,research,back-sec-type,other topic,declarative,0,1,metares;repro
+PMC12693178,41375854,2025,Journal of clinical medicine,research,back-notes-type,other topic,declarative,0,1,metares;report;repro
+PMC12695025,41370355,2025,eLife,research,back-sec-type,other topic,declarative,0,1,metares
+PMC12699925,41382158,2025,Research integrity and peer review,research,back-notes-type,other topic,declarative,0,1,metares;stats
+PMC12708511,41415917,2025,"Frontiers in pain research (Lausanne, Switzerland)",review,back-sec-type,other topic,declarative,0,1,metares;reg;report
+PMC12726823,41432059,2025,eLife,research,back-sec-type,other topic,actionable,1,1,metares;peerrev;retract
+PMC12726841,41417021,2026,Revista medica del Instituto Mexicano del Seguro Social,research,none,other topic,none,0,0,metares
+PMC12735231,41440531,2025,"Medical sciences (Basel, Switzerland)",research,back-notes-type,other topic,actionable,1,1,metares;peerrev;reg
+PMC12748294,41476612,2025,Theory and society,research,back-notes-type,other topic,actionable,1,1,metares
+PMC12750758,41469052,2025,BMJ open,research,back-sec-type,other topic,declarative,0,1,metares
+PMC12768914,41503181,2025,Kidney medicine,research,none,other topic,none,0,0,metares;reg;report
+PMC12775159,41509626,2025,Cardiovascular diagnosis and therapy,review,none,other topic,none,0,0,metares;reg
+PMC12783942,41508740,2026,Journal of evaluation in clinical practice,review,back-sec-type,other topic,declarative,0,1,metares;reg
+PMC12788167,41467479,2025,"PM & R : the journal of injury, function, and rehabilitation",review,back-sec-type,other topic,declarative,0,1,metares
+PMC12813109,41560749,2026,Frontiers in pharmacology,research,back-sec-type,other topic,declarative,0,1,metares;report;repro
+PMC12819244,41574368,2026,Frontiers in medicine,research,back-sec-type,other topic,declarative,0,1,metares;repro
+PMC12819542,41402530,2025,Animal cognition,review,back-notes-type,other topic,declarative,0,1,metares;repro
+PMC12825961,41408697,2025,Development and psychopathology,research,back-sec-type,other topic,declarative,0,1,metares
+PMC12826758,41379741,2025,Neonatology,review,back-sec-type,other topic,declarative,0,1,metares
+PMC12833040,41602727,2026,Frontiers in psychology,research,back-sec-type,other topic,declarative,0,1,metares
+PMC12849313,41454224,2025,BMC medical research methodology,research,back-notes-type,other topic,actionable,1,1,aitext;biblio;metares
+PMC12859532,41618646,2026,"European journal of pain (London, England)",review,none,other topic,none,0,0,coi;metares;reg;stats
+PMC12861584,40706731,2025,Clinical gastroenterology and hepatology : the official clinical practice journal of the American Gastroenterological Association,research,none,other topic,none,0,0,metares
+PMC12873610,41635942,2025,Research synthesis methods,research,back-sec-type,other topic,actionable,1,1,aitext;metares;repro
+PMC12873615,41635949,2025,Research synthesis methods,research,back-sec-type,other topic,actionable,1,1,metares;report;repro
+PMC12874346,41660363,2026,EClinicalMedicine,research,none,other topic,none,0,0,metares
+PMC12882696,41653086,2026,Cancer,review,back-sec-type,other topic,declarative,0,1,metares
+PMC12883120,41648981,2025,The Indian journal of medical research,comment,none,other topic,none,0,0,metares
+PMC12890942,41632849,2026,Proceedings of the National Academy of Sciences of the United States of America,research,back-sec-type,other topic,declarative,0,1,metares;peerrev;retract
+PMC12893637,41601378,2026,JBI evidence synthesis,research,back-sec-type,other topic,actionable,1,1,metares;report
+PMC12894648,41671109,2026,Journal of evidence-based integrative medicine,review,none,other topic,none,0,0,metares
+PMC12895702,41547784,2026,BMC medical research methodology,review,back-notes-type,other topic,declarative,0,1,metares;reg
+PMC12904089,41695586,2026,Cochrane evidence synthesis and methods,review,back-sec-type,other topic,declarative,0,1,metares;peerrev
+PMC12904786,41693729,2026,Humanities & social sciences communications,comment,back-notes-type,other topic,declarative,0,1,metares
+PMC12908305,41559574,2026,BMC gastroenterology,review,back-notes-type,other topic,declarative,0,1,metares;report
+PMC12916232,40855182,2025,"The Journal of law, medicine & ethics : a journal of the American Society of Law, Medicine & Ethics",research,none,other topic,none,0,0,metares
+PMC12960757,41570238,2026,Perspectives on psychological science : a journal of the Association for Psychological Science,research,none,transparency topic,none,0,0,datashare;metares;repro;waste
+PMC12961777,41782167,2026,Research integrity and peer review,research,back-notes-type,other topic,actionable,1,1,metares;reg;report;repro
+PMC12966952,41793162,2026,Reviews in medical virology,review,back-sec-type,other topic,actionable,1,1,metares;report
+PMC12973145,41815760,2025,JCPP advances,research,back-sec-type,other topic,declarative,0,1,metares;report
+PMC12976955,40775829,2025,Studies in health technology and informatics,research,none,other topic,none,0,0,metares
+PMC12977556,41654878,2026,BMC public health,review,back-notes-type,other topic,declarative,0,1,metares;reg
+PMC12983368,41836958,2026,Frontiers in medicine,research,back-sec-type,other topic,declarative,0,1,biblio;metares;report
+PMC12988449,41823958,2026,JAMA health forum,review,none,other topic,none,0,0,metares
+PMC12990128,41847079,2026,Frontiers in research metrics and analytics,review,back-sec-type,other topic,declarative,0,1,metares;oa
+PMC12997530,41858745,2026,PNAS nexus,research,back-sec-type,other topic,actionable,1,1,metares
+PMC12997532,41858746,2026,PNAS nexus,research,back-sec-type,other topic,actionable,1,1,metares
+PMC12997672,41667957,2026,BMC medical research methodology,research,back-notes-type,other topic,actionable,1,1,aitext;biblio;metares;report;waste
+PMC13007132,41857820,2026,BMJ open,research,none,other topic,none,0,0,metares;report
+PMC13021501,41366152,2025,Nature computational science,research,back-notes-type,other topic,actionable,1,1,aitext;metares;repro
+PMC13022030,39697129,2024,Personality & social psychology bulletin,research,none,other topic,none,0,0,metares;repro
+PMC13028205,41893026,2026,Journal of personalized medicine,research,back-notes-type,other topic,declarative,0,1,metares
+PMC13035750,41784878,2026,Science and engineering ethics,review,none,other topic,none,0,0,metares;retract
+PMC13039392,41912580,2026,Scientific reports,research,back-notes-type,other topic,actionable,1,1,metares
+PMC13039769,41618670,2026,Journal of evidence-based medicine,review,back-sec-type,other topic,declarative,0,1,metares
+PMC13040165,41843909,2026,JMIR research protocols,research,back-sec-type,other topic,declarative,0,1,aitext;metares;reg;repro
+PMC13044756,41940375,2026,Human reproduction open,research,back-sec-type,other topic,declarative,0,1,biblio;coi;equity;metares;reg
+PMC13045057,41923237,2026,Research integrity and peer review,research,back-notes-type,other topic,actionable,1,1,metares;report
+PMC13049767,41749200,2026,BMC biology,research,back-notes-type,transparency topic,actionable,1,1,biblio;datashare;metares;repro
+PMC13063864,41957603,2026,BMC medicine,comment,back-notes-type,other topic,declarative,0,1,metares
+PMC13063891,41957646,2026,BMC medicine,research,back-notes-type,other topic,declarative,0,1,metares;repro
+PMC13068548,41825595,2026,"Advances in nutrition (Bethesda, Md.)",review,none,other topic,none,0,0,metares
+PMC13080891,41858233,2026,Health expectations : an international journal of public participation in health care and health policy,research,back-sec-type,other topic,declarative,0,1,metares
+PMC13086262,41990242,2026,Online journal of public health informatics,review,none,other topic,none,0,0,metares;report
+PMC13091211,42007408,2026,MethodsX,research,back-sec-type,other topic,declarative,0,1,metares;reg
+PMC13091431,41955959,2026,International dental journal,review,none,transparency topic,none,0,0,biblio;datashare;metares;retract
+PMC13095113,42008538,2026,PloS one,research,front-notes-title,other topic,actionable,1,1,metares
+PMC13095738,42022913,2026,Frontiers in research metrics and analytics,research,back-sec-type,other topic,declarative,0,1,aitext;biblio;coi;metares;peerrev
+PMC13099623,41996160,2026,Proceedings of the National Academy of Sciences of the United States of America,research,back-sec-type,other topic,declarative,0,1,metares
+PMC13103689,42021591,2026,Journal of evaluation in clinical practice,research,back-sec-type,other topic,declarative,0,1,coi;metares;retract
+PMC13104099,42040251,2026,Cochrane evidence synthesis and methods,research,back-sec-type,other topic,declarative,0,1,biblio;metares;reg;retract
+PMC13110517,42020124,2026,BMJ open,research,none,other topic,none,0,0,biblio;metares;reg;report
+PMC13123795,42018415,2026,Proceedings of the National Academy of Sciences of the United States of America,research,back-sec-type,other topic,actionable,1,1,metares
+PMC13123797,42018420,2026,Proceedings of the National Academy of Sciences of the United States of America,research,back-sec-type,other topic,actionable,1,1,biblio;metares
+PMC13126212,41992899,2026,Research synthesis methods,research,back-sec-type,other topic,actionable,1,1,metares;repro;stats
+PMC13127007,41863013,2026,Systematic reviews,research,back-notes-type,other topic,declarative,0,1,metares;report
+PMC13133595,41989827,2026,Journal of medical Internet research,research,back-notes-type,other topic,declarative,0,1,metares;reg
+PMC13134853,41632604,2026,The British journal of radiology,review,none,other topic,none,0,0,metares
+PMC13142791,42044345,2026,Proceedings of the National Academy of Sciences of the United States of America,research,back-sec-type,other topic,declarative,0,1,metares
+PMC13147320,42089191,2026,The European journal of neuroscience,review,back-sec-type,other topic,actionable,1,1,metares;reg;report;repro
+PMC13153008,41611851,2026,Naunyn-Schmiedeberg's archives of pharmacology,research,back-notes-type,other topic,actionable,1,1,biblio;metares
+PMC13153117,42110411,2026,Frontiers in medicine,research,none,other topic,none,0,0,metares
+PMC13167049,42138938,2026,Revista da Associacao Medica Brasileira (1992),comment,back-sec-type,other topic,declarative,0,1,metares
+PMC13171087,42137690,2026,Cureus,review,none,other topic,none,0,0,aitext;metares
+PMC13175306,42133859,2026,JMIR research protocols,research,none,other topic,none,0,0,aitext;metares;report;repro
+PMC13178217,41740900,2026,Journal of clinical epidemiology,research,back-sec-type,other topic,actionable,1,1,metares;oa;retract
+PMC13182097,41942890,2026,BMC medical research methodology,review,back-notes-type,other topic,actionable,1,1,metares;reg;report
+PMC13197235,42171863,2026,Behavior research methods,research,back-notes-type,other topic,actionable,1,1,aitext;metares
+PMC13210462,42198275,2026,Pharmaceutics,research,back-notes-type,other topic,actionable,1,1,metares;reg
+PMC13213652,42203255,2026,BMJ (Clinical research ed.),research,back-sec-type,other topic,declarative,0,1,metares;reg
+PMC13218336,42222493,2026,PeerJ,research,none,other topic,none,0,0,metares;reg;stats
+PMC13224738,42232338,2026,PNAS nexus,research,back-sec-type,other topic,actionable,1,1,biblio;metares
+PMC13230259,41963575,2026,Science and engineering ethics,research,back-notes-type,other topic,declarative,0,1,biblio;metares;retract;stats
+PMC13232573,40817803,2025,JDR clinical and translational research,review,none,other topic,none,0,0,metares;report
+PMC13248283,42260682,2026,Research integrity and peer review,research,back-notes-type,other topic,declarative,0,1,metares;peerrev;retract
+PMC13248297,42035165,2026,Trials,research,back-notes-type,other topic,actionable,1,1,metares;oa;reg
+PMC13253343,42292877,2026,PNAS nexus,research,back-sec-type,other topic,actionable,1,1,metares
+PMC13254191,42293926,2026,Frontiers in psychology,research,none,other topic,none,0,0,metares
+PMC13266964,40652367,2025,"Knee surgery, sports traumatology, arthroscopy : official journal of the ESSKA",review,back-sec-type,other topic,declarative,0,1,biblio;metares;report;stats
+PMC13268686,41818694,2026,Aesthetic surgery journal,research,none,other topic,none,0,0,metares
+PMC13287985,42344430,2026,F1000Research,research,back-sec-type,other topic,actionable,1,1,metares
+PMC13289142,42331587,2026,BMJ open,research,none,other topic,none,0,0,aitext;metares;repro
+PMC13298618,42459535,2024,Computational brain & behavior,research,back-notes-type,other topic,declarative,0,1,metares;repro
+PMC13298656,42459536,2024,Computational brain & behavior,research,back-notes-type,other topic,declarative,0,1,metares
+PMC13301691,42356008,2026,Journal of clinical medicine,research,back-notes-type,other topic,declarative,0,1,metares
+PMC13310966,42366407,2026,Musculoskeletal care,review,back-sec-type,other topic,declarative,0,1,metares;report;repro
+PMC13311022,42375205,2026,Frontiers in medicine,research,none,other topic,none,0,0,metares;peerrev;report;stats
+PMC13316132,42374970,2026,Health expectations : an international journal of public participation in health care and health policy,review,back-sec-type,other topic,declarative,0,1,metares
+PMC13321399,42388828,2026,Open forum infectious diseases,research,none,other topic,none,0,0,metares
+PMC13323324,42394803,2026,Frontiers in research metrics and analytics,research,back-sec-type,other topic,declarative,0,1,metares
+PMC13335679,42441175,2026,Frontiers in medicine,research,back-sec-type,other topic,declarative,0,1,biblio;metares;reg
+PMC13340402,42129912,2026,Pilot and feasibility studies,review,back-notes-type,other topic,declarative,0,1,metares
+PMC13344427,42422486,2026,European heart journal open,research,none,other topic,none,0,0,metares
+PMC13348294,42421154,2026,BMC global and public health,review,back-notes-type,other topic,declarative,0,1,metares
+PMC13350320,42433734,2026,Frontiers in research metrics and analytics,research,none,other topic,none,0,0,metares
+PMC13352761,42243840,2026,BMC medicine,research,back-notes-type,other topic,actionable,1,1,metares;report;retract
+PMC13357400,42445938,2026,Frontiers in research metrics and analytics,research,back-sec-type,other topic,declarative,0,1,biblio;metares
+PMC13372771,42466025,2026,Frontiers in psychology,review,none,other topic,none,0,0,metares;repro;stats
+PMC13387410,42482928,2026,Cochrane evidence synthesis and methods,research,back-sec-type,transparency topic,actionable,1,1,datashare;metares;oa;reg;report
+PMC13407916,42510129,2026,"Diagnostics (Basel, Switzerland)",review,back-notes-type,transparency topic,declarative,0,1,biblio;datashare;metares;reg;report;repro;retract;stats
+PMC13410555,42524203,2026,Cochrane evidence synthesis and methods,research,back-sec-type,other topic,declarative,0,1,metares;reg
+PMC13418392,41810841,2026,"Knee surgery, sports traumatology, arthroscopy : official journal of the ESSKA",research,back-sec-type,other topic,declarative,0,1,aitext
+PMC13431894,42549396,2026,Cochrane evidence synthesis and methods,research,back-sec-type,other topic,declarative,0,1,metares;reg;report;retract
+PMC13436167,42175523,2026,Australian endodontic journal : the journal of the Australian Society of Endodontology Inc,review,back-sec-type,other topic,declarative,0,1,metares
+PMC13438387,42558745,2026,Frontiers in human neuroscience,review,back-sec-type,other topic,declarative,0,1,metares;repro
+PMC13451019,42565459,2026,eLife,research,back-sec-type,other topic,actionable,1,1,metares;repro
+PMC13475257,42575549,2026,BMJ open,research,none,other topic,none,0,0,metares;reg
+PMC13475259,42575673,2026,Open heart,review,back-sec-type,other topic,declarative,0,1,metares
+PMC13484398,42620185,2026,Research square,research,none,other topic,none,0,0,metares;reg
+PMC13486522,42579486,2026,Proceedings of the National Academy of Sciences of the United States of America,research,back-sec-type,other topic,actionable,1,1,aitext;metares
+PMC13505523,42644090,2026,PeerJ,research,back-sec-type,other topic,actionable,1,1,metares
+PMC13516631,42654277,2026,Nutrients,research,back-notes-type,other topic,declarative,0,1,metares
+PMC13521487,42659041,2026,Journal of global health,research,back-sec-type,other topic,declarative,0,1,biblio;metares;reg;waste
+PMC13523189,42665798,2026,BMC medical research methodology,research,back-notes-type,other topic,declarative,0,1,metares;report
+PMC13528004,42310541,2026,BMC medical research methodology,research,back-notes-type,other topic,declarative,0,1,metares;reg;report
+PMC13533124,42683446,2026,Cochrane evidence synthesis and methods,research,back-sec-type,other topic,declarative,0,1,metares
+PMC13536052,42642080,2026,BMJ open,research,back-sec-type,other topic,declarative,0,1,metares;report
+PMC13539546,42689517,2026,Physiotherapy research international : the journal for researchers and clinicians in physical therapy,review,back-sec-type,other topic,declarative,0,1,metares
+PMC13540927,42471575,2026,BMC medical research methodology,research,back-notes-type,other topic,declarative,0,1,metares
+PMC13541867,42313264,2026,Primates; journal of primatology,review,none,other topic,none,0,0,metares
+PMC13555001,42723769,2026,F1000Research,research,back-sec-type,other topic,actionable,1,1,metares;peerrev
+PMC13560594,42728963,2026,Open research Europe,research,back-sec-type,other topic,declarative,0,1,metares;retract
+PMC13563351,42740806,2025,Clinical and public health guidelines,research,back-sec-type,other topic,actionable,1,1,metares
+PMC13563394,42740757,2026,Clinical and public health guidelines,research,back-sec-type,other topic,actionable,1,1,biblio;metares;oa
+PMC2367676,18470312,2008,Environmental health perspectives,review,none,other topic,none,0,0,biblio;metares
+PMC2739282,19736281,2009,BMJ (Clinical research ed.),review,none,other topic,none,0,0,metares
+PMC2893514,20509946,2010,BMC medical education,research,none,other topic,none,0,0,metares
+PMC2905513,20639294,2010,BMJ (Clinical research ed.),review,none,other topic,none,0,0,metares
+PMC3156578,21846695,2011,BMJ (Clinical research ed.),research,none,other topic,none,0,0,metares
+PMC3178853,21966041,2011,The Yale journal of biology and medicine,comment,none,other topic,none,0,0,metares
+PMC3209745,22065657,2011,BMJ (Clinical research ed.),review,none,other topic,none,0,0,metares
+PMC3240955,22355696,2011,Scientific reports,research,none,other topic,none,0,0,biblio;metares
+PMC3279328,22334559,2012,BMJ (Clinical research ed.),review,none,other topic,none,0,0,metares;reg
+PMC3524581,23259152,2011,AJOB primary research,research,none,other topic,none,0,0,metares
+PMC3541352,23151403,2012,Systematic reviews,research,none,other topic,none,0,0,metares
+PMC3545262,23323212,2013,Scientific reports,research,none,other topic,none,0,0,metares
+PMC3558411,23360719,2013,BMJ (Clinical research ed.),review,none,other topic,none,0,0,metares
+PMC3570069,23403829,2013,BMJ (Clinical research ed.),review,none,other topic,none,0,0,metares
+PMC3572179,23418482,2013,PloS one,review,none,other topic,none,0,0,metares
+PMC3634626,23616031,2013,BMJ (Clinical research ed.),review,none,other topic,none,0,0,metares
+PMC3665786,23723992,2013,PloS one,review,none,other topic,none,0,0,metares
+PMC3718427,24453591,2012,Acta ortopedica brasileira,review,none,other topic,none,0,0,metares
+PMC3851163,24070072,2013,Systematic reviews,research,none,other topic,none,0,0,metares
+PMC3913714,24505351,2014,PloS one,review,none,other topic,none,0,0,metares;reg
+PMC3939646,24568962,2014,BMJ open,research,none,other topic,none,0,0,metares
+PMC4023173,24886043,2014,BMC medical research methodology,research,none,other topic,none,0,0,metares
+PMC4035673,24884381,2014,BMC medical research methodology,research,none,other topic,none,0,0,metares;reg
+PMC4056100,23302257,2013,"Critical care (London, England)",review,none,other topic,none,0,0,metares;report;stats
+PMC4179424,25260368,2014,BMJ open,research,none,other topic,none,0,0,metares;peerrev
+PMC4187994,25280805,2014,BMJ open,research,none,other topic,none,0,0,metares;reg
+PMC4219184,24286208,2013,Systematic reviews,research,none,other topic,none,0,0,metares
+PMC4220603,25266419,2014,Epidemiology and health,research,none,other topic,none,0,0,metares;report
+PMC4428480,25988135,2015,Frontiers in nutrition,research,none,other topic,none,0,0,metares;report
+PMC4445790,26016488,2015,BMJ (Clinical research ed.),review,none,other topic,none,0,0,metares
+PMC4450491,25956716,2015,Systematic reviews,review,none,other topic,none,0,0,metares;reg
+PMC4498768,26161653,2015,PloS one,review,front-notes-title,other topic,declarative,0,1,metares
+PMC4500394,26168274,2015,PloS one,research,front-notes-title,other topic,declarative,0,1,metares
+PMC4553239,26335785,2015,Research policy,research,none,other topic,none,0,0,metares
+PMC4555861,26361556,2015,Royal Society open science,research,none,other topic,none,0,0,biblio;metares
+PMC4563231,26338841,2015,BMJ open,review,none,other topic,none,0,0,metares
+PMC4567072,26360583,2015,PloS one,research,front-notes-title,other topic,declarative,0,1,metares
+PMC4592065,26431313,2015,PLoS biology,research,none,other topic,none,0,0,metares;repro
+PMC4599034,26449638,2015,BMC oral health,research,none,other topic,none,0,0,metares
+PMC4602493,25803538,2015,Medicine,research,none,other topic,none,0,0,coi;metares
+PMC4660063,NA,2015,Trials,research,none,other topic,none,0,0,metares
+PMC4699700,26727031,2016,PLoS biology,comment,none,other topic,none,0,0,metares
+PMC4701404,26730980,2016,PloS one,review,front-notes-title,other topic,declarative,0,1,metares;report
+PMC4725722,26808309,2016,PloS one,research,front-notes-title,other topic,declarative,0,1,metares
+PMC4734056,26835187,2016,PeerJ,research,none,other topic,none,0,0,metares
+PMC4769790,26929924,2015,BioImpacts : BI,research,none,other topic,none,0,0,metares
+PMC4772787,26858277,2016,BMJ (Clinical research ed.),research,none,other topic,none,0,0,metares
+PMC4782158,27013992,2016,Frontiers in systems neuroscience,research,none,other topic,none,0,0,metares
+PMC4791943,26989272,2016,Scientometrics,research,none,other topic,none,0,0,biblio;metares
+PMC4854008,27103624,2016,BMJ open,research,none,other topic,none,0,0,metares;reg
+PMC4861326,27159025,2016,PloS one,research,front-notes-title,other topic,actionable,1,1,metares
+PMC4876557,27211576,2016,BMC medicine,review,none,other topic,none,0,0,metares
+PMC4932748,27377062,2016,BMC medicine,research,back-sec-title,other topic,declarative,0,1,metares;reg
+PMC4939945,27398997,2016,PloS one,review,front-notes-title,other topic,declarative,0,1,metares
+PMC4989498,27535658,2016,Systematic reviews,review,back-sec-title,other topic,declarative,0,1,metares;waste
+PMC5043322,27703703,2016,Royal Society open science,research,none,other topic,none,0,0,metares;repro
+PMC5081692,27789483,2016,BMJ (Clinical research ed.),research,none,other topic,none,0,0,metares
+PMC5104355,27832101,2016,PLoS biology,research,front-notes-title,other topic,declarative,0,1,metares;reg
+PMC5122320,27884869,2016,BMJ (Clinical research ed.),review,none,other topic,none,0,0,metares;stats
+PMC518966,15361261,2004,BMC medical genetics,research,none,other topic,none,0,0,metares
+PMC5245955,28100393,2017,eLife,comment,none,other topic,none,0,0,metares;repro
+PMC5245956,28100399,2017,eLife,comment,none,other topic,none,0,0,metares;repro
+PMC5245957,28100398,2017,eLife,research,none,other topic,none,0,0,metares;repro
+PMC5245958,28100396,2017,eLife,comment,none,other topic,none,0,0,metares;repro
+PMC5245960,28100395,2017,eLife,research,none,other topic,none,0,0,metares;repro
+PMC5245962,28100397,2017,eLife,research,none,other topic,none,0,0,metares;repro
+PMC5245966,28100400,2017,eLife,research,none,other topic,none,0,0,metares;repro
+PMC5245968,28100394,2017,eLife,research,none,other topic,none,0,0,metares;repro
+PMC5245970,28100392,2017,eLife,research,none,other topic,none,0,0,metares;repro
+PMC5302882,28182866,2017,eLife,comment,none,other topic,none,0,0,metares;repro
+PMC5326669,28265537,2016,BioImpacts : BI,research,none,other topic,none,0,0,metares
+PMC5336618,28257642,2017,BMC biology,review,none,other topic,none,0,0,metares;reg;stats
+PMC5384162,28596617,2017,Bioscience,research,none,other topic,none,0,0,metares;reg;repro;stats
+PMC5389781,28439544,2017,Science advances,research,none,other topic,none,0,0,metares
+PMC5397134,28439537,2017,Science advances,research,none,other topic,none,0,0,metares
+PMC5443716,28540615,2017,Progress in orthodontics,research,none,other topic,none,0,0,coi;metares
+PMC5487214,28653623,2017,eLife,research,none,other topic,none,0,0,metares;repro
+PMC5487217,28653617,2017,eLife,research,none,other topic,none,0,0,metares;repro
+PMC5537553,28701372,2017,Evidence-based medicine,research,none,other topic,none,0,0,metares;report;repro
+PMC5556344,28806989,2017,Health research policy and systems,research,back-sec-title,other topic,declarative,0,1,metares;waste
+PMC5584989,28873054,2017,eLife,research,none,other topic,none,0,0,metares;repro
+PMC5597227,28902885,2017,PloS one,research,front-notes-title,other topic,declarative,0,1,metares;reg
+PMC5623523,28963300,2017,BMJ open,review,none,other topic,none,0,0,metares
+PMC5653689,29090128,2017,Korean journal of orthodontics,review,none,other topic,none,0,0,metares
+PMC5665249,29061634,2017,BMJ open,research,none,other topic,none,0,0,metares;reg;stats
+PMC5667864,29095836,2017,PloS one,research,front-notes-title,other topic,actionable,1,1,metares
+PMC5674752,29110730,2017,"Philosophy, ethics, and humanities in medicine : PEHM",research,back-sec-title,other topic,declarative,0,1,metares
+PMC5698972,29201386,2017,Journal of clinical movement disorders,research,back-sec-title,other topic,declarative,0,1,metares
+PMC5717810,29208054,2017,BMC research notes,review,back-sec-title,other topic,actionable,1,1,coi;metares;reg;report
+PMC5724154,28827269,2017,BMJ open,research,none,other topic,none,0,0,metares;peerrev;reg
+PMC5724693,28929507,2017,Statistics in medicine,research,none,other topic,none,0,0,metares
+PMC5738221,29258593,2017,Systematic reviews,review,back-sec-title,other topic,actionable,1,1,metares;report
+PMC5742784,29186879,2017,Animals : an open access journal from MDPI,review,none,other topic,none,0,0,metares;peerrev;reg;report;repro;retract;stats
+PMC5760198,29313487,2018,eLife,comment,none,other topic,none,0,0,metares;repro
+PMC5760202,29313488,2018,eLife,research,none,other topic,none,0,0,metares;repro
+PMC5760205,29313490,2018,eLife,research,none,other topic,none,0,0,metares;repro;stats
+PMC5765564,29228281,2018,GigaScience,research,none,other topic,none,0,0,metares
+PMC5792934,29410857,2018,Royal Society open science,research,none,other topic,none,0,0,metares
+PMC5794038,29451544,2016,Research integrity and peer review,comment,none,other topic,none,0,0,metares;oa;peerrev;retract
+PMC5803583,29451532,2017,Research integrity and peer review,research,back-sec-title,other topic,actionable,1,1,metares;peerrev
+PMC5803640,29451561,2017,Research integrity and peer review,review,back-sec-title,transparency topic,actionable,1,1,datashare;metares
+PMC5806262,29422063,2018,Health research policy and systems,comment,back-sec-title,other topic,declarative,0,1,coi;metares
+PMC5817912,26564944,2015,Journal of empirical research on human research ethics : JERHRE,research,none,other topic,none,0,0,metares
+PMC5840713,29556422,2018,Research integrity and peer review,comment,back-sec-title,other topic,declarative,0,1,metares;oa;peerrev;report;retract
+PMC5843843,29862016,2018,F1000Research,research,none,transparency topic,none,0,0,datashare;metares;repro
+PMC5845292,29523200,2018,Systematic reviews,research,back-sec-title,other topic,declarative,0,1,biblio;metares;report
+PMC5849410,29533182,2018,eLife,review,none,other topic,none,0,0,metares;repro
+PMC5849411,29533185,2018,eLife,comment,none,other topic,none,0,0,metares;repro
+PMC5855198,29500210,2018,BMJ open,research,none,other topic,none,0,0,metares
+PMC5861172,29546535,2018,Intensive care medicine,review,none,other topic,none,0,0,metares
+PMC5863466,29562926,2018,BMC medicine,research,back-sec-title,other topic,declarative,0,1,metares
+PMC5865753,29534060,2018,PLoS biology,research,none,other topic,none,0,0,metares;repro
+PMC5879694,29531061,2018,Proceedings of the National Academy of Sciences of the United States of America,research,none,other topic,none,0,0,biblio;metares
+PMC5897028,29608562,2018,PLoS biology,research,none,other topic,none,0,0,metares
+PMC5949209,29496846,2018,"Science (New York, N.Y.)",review,none,other topic,none,0,0,metares
+PMC5988419,29866256,2018,eLife,research,back-sec-type,other topic,actionable,1,1,metares
+PMC5994653,29886846,2018,BMC medicine,research,back-sec-title,other topic,declarative,0,1,metares;waste
+PMC6054949,30038471,2018,World journal of gastroenterology,research,none,other topic,none,0,0,coi;metares;report
+PMC6069813,30064444,2018,Health research policy and systems,comment,none,other topic,none,0,0,metares;oa;repro
+PMC6073092,30135727,2018,F1000Research,research,none,other topic,none,0,0,metares
+PMC6107944,30139391,2018,Systematic reviews,review,back-sec-title,other topic,declarative,0,1,metares
+PMC6124055,30225032,2018,Royal Society open science,research,none,transparency topic,none,0,0,datashare;metares;repro
+PMC6146631,30231912,2018,Trials,research,back-sec-title,other topic,declarative,0,1,metares
+PMC6170771,30257927,2018,"Journal of the Royal Society, Interface",research,none,other topic,none,0,0,metares
+PMC6171721,30345025,2018,F1000Research,research,none,other topic,none,0,0,metares;peerrev
+PMC6175580,30295289,2018,eLife,research,back-sec-type,other topic,actionable,1,1,metares;repro
+PMC6182357,30151688,2018,Intensive care medicine,review,none,other topic,none,0,0,coi;metares
+PMC6188623,30321167,2018,PLoS biology,comment,none,other topic,none,0,0,metares;oa
+PMC6197920,30195054,2018,NeuroImage,research,none,other topic,none,0,0,metares
+PMC6230957,30455661,2018,Frontiers in psychology,research,none,other topic,none,0,0,metares
+PMC6286475,30518583,2018,BMJ open,research,none,other topic,none,0,0,metares;reg
+PMC6289406,30532236,2018,PLoS biology,comment,none,other topic,none,0,0,metares
+PMC6289570,30526855,2018,eLife,research,back-sec-type,other topic,actionable,1,1,metares;repro
+PMC6303574,30530583,2018,BMJ open,research,none,other topic,none,0,0,metares;reg
+PMC6326723,30574870,2018,eLife,research,back-sec-type,other topic,declarative,0,1,metares;report
+PMC6327109,30196129,2018,Journal of clinical epidemiology,research,none,other topic,none,0,0,metares
+PMC6374071,30720433,2019,eLife,research,back-sec-type,other topic,actionable,1,1,metares;repro
+PMC6377509,30782912,2019,BMJ open,research,none,other topic,none,0,0,coi;metares;oa;reg
+PMC6392271,30811451,2019,PloS one,research,front-notes-title,other topic,actionable,1,1,metares;repro
+PMC6414201,30860027,2019,eLife,research,back-sec-type,other topic,actionable,1,1,metares;repro
+PMC6427845,30894161,2019,BMC medicine,review,back-sec-type,other topic,declarative,0,1,metares
+PMC6469309,30418549,2019,International journal of epidemiology,review,none,other topic,none,0,0,metares
+PMC6472427,31000709,2019,Scientific data,research,none,other topic,none,0,0,metares
+PMC6500242,30940759,2019,BMJ open,review,none,other topic,none,0,0,metares
+PMC6500379,30940766,2019,BMJ open,research,none,other topic,none,0,0,metares;repro
+PMC6502358,31183113,2019,Royal Society open science,research,none,other topic,none,0,0,metares;repro;retract;stats
+PMC6510536,31017570,2019,eLife,research,back-sec-type,other topic,actionable,1,1,biblio;metares;oa
+PMC6512293,31074821,2019,JAMA network open,review,none,other topic,none,0,0,metares
+PMC6518431,31131084,2018,F1000Research,research,none,other topic,none,0,0,metares
+PMC6524137,30590190,2018,Journal of clinical epidemiology,review,none,other topic,none,0,0,metares;stats
+PMC6528747,30715291,2019,GigaScience,research,none,other topic,none,0,0,metares;reg;repro
+PMC6541803,31144712,2019,GigaScience,research,none,other topic,none,0,0,biblio;metares
+PMC6549967,31218016,2019,Royal Society open science,research,none,other topic,none,0,0,metares
+PMC6584130,31215867,2019,eLife,research,back-sec-type,other topic,actionable,1,1,metares;repro;stats
+PMC6587552,30515916,2018,International journal of methods in psychiatric research,research,none,other topic,none,0,0,metares
+PMC6606034,31264964,2019,eLife,research,back-sec-type,other topic,actionable,1,1,metares;repro
+PMC6611132,31316755,2019,F1000Research,research,none,other topic,none,0,0,metares;report
+PMC6616996,31216757,2019,Journal of clinical medicine,research,none,other topic,none,0,0,metares
+PMC6618901,31333423,2019,Frontiers in integrative neuroscience,review,none,other topic,none,0,0,biblio;metares
+PMC6625550,31328008,2019,Psychologica Belgica,research,none,other topic,none,0,0,metares
+PMC6657347,28192563,2017,JAMA internal medicine,research,none,other topic,none,0,0,metares
+PMC6661648,31315871,2019,BMJ open,research,none,other topic,none,0,0,metares;report;waste
+PMC6663028,31356629,2019,PloS one,research,front-notes-title,other topic,declarative,0,1,metares;report
+PMC6677534,31305239,2019,eLife,research,back-sec-type,other topic,actionable,1,1,biblio;metares
+PMC6713885,31434596,2019,Primary health care research & development,research,none,other topic,none,0,0,metares;peerrev
+PMC6724156,31469391,2019,JAMA network open,review,none,other topic,none,0,0,coi;metares;report
+PMC6728730,31517081,2019,Heliyon,research,none,other topic,none,0,0,metares
+PMC6731820,31481564,2019,BMJ open,review,none,other topic,none,0,0,biblio;coi;metares;reg;repro
+PMC6731867,31481368,2019,BMJ open,research,none,other topic,none,0,0,metares
+PMC6743032,31565236,2019,Psychologica Belgica,review,none,other topic,none,0,0,metares;repro;stats
+PMC6752782,31536575,2019,PloS one,research,front-notes-title,other topic,declarative,0,1,metares
+PMC6773296,31558457,2019,BMJ open,research,none,other topic,none,0,0,metares;reg;report
+PMC6776492,31473979,2019,CNS drugs,research,none,other topic,none,0,0,metares
+PMC6778415,31598577,2019,Current developments in nutrition,research,none,other topic,none,0,0,metares
+PMC6805640,31639007,2019,BMC medicine,review,back-notes-type,other topic,declarative,0,1,metares
+PMC6814034,31653275,2019,Systematic reviews,research,none,other topic,none,0,0,metares
+PMC6814120,31651263,2019,BMC cancer,research,back-notes-type,other topic,declarative,0,1,metares
+PMC6822154,31587799,2019,Journal of Ayurveda and integrative medicine,comment,none,other topic,none,0,0,metares
+PMC6827233,31700654,2019,Pilot and feasibility studies,research,back-notes-type,other topic,declarative,0,1,biblio;metares
+PMC6829801,31684874,2019,BMC medical research methodology,research,back-notes-type,other topic,declarative,0,1,metares;report
+PMC6865031,31832239,2019,Research involvement and engagement,research,back-notes-type,other topic,declarative,0,1,metares;retract;waste
+PMC6880799,31764261,2019,Journal of acquired immune deficiency syndromes (1999),research,none,other topic,none,0,0,metares
+PMC6916311,31857745,2019,"Journal of the Royal Statistical Society. Series A, (Statistics in Society)",research,none,other topic,none,0,0,NA
+PMC6917486,31845646,2019,eLife,research,none,other topic,none,0,0,metares;repro
+PMC6917490,31845647,2019,eLife,comment,back-sec-type,other topic,actionable,1,1,metares;repro
+PMC6925515,31862012,2019,Systematic reviews,research,back-notes-type,other topic,actionable,1,1,metares;report
+PMC6936276,31903199,2019,Royal Society open science,research,none,other topic,none,0,0,metares;report;repro;stats
+PMC6971910,31959198,2020,Health research policy and systems,review,back-notes-type,other topic,declarative,0,1,metares
+PMC6986940,32025153,2020,Bioinformation,comment,none,other topic,none,0,0,metares
+PMC6992172,31999702,2020,PloS one,review,front-notes-title,other topic,actionable,1,1,biblio;metares;reg
+PMC7003412,32699641,2020,Pilot and feasibility studies,research,back-notes-type,other topic,declarative,0,1,metares
+PMC7012388,32045410,2020,PLoS biology,research,none,other topic,none,0,0,metares;repro
+PMC7014578,32089830,2019,F1000Research,research,none,other topic,none,0,0,metares
+PMC7027584,31730266,2019,Pharmacoepidemiology and drug safety,review,none,other topic,none,0,0,metares
+PMC7044835,31964662,2020,BMJ open,research,none,other topic,none,0,0,metares
+PMC7047221,32153391,2020,Frontiers in pharmacology,research,none,other topic,none,0,0,metares;stats
+PMC7050014,32337483,2019,JNCI cancer spectrum,research,none,other topic,none,0,0,metares;reg
+PMC7057525,32131827,2020,BMC biology,comment,back-notes-type,other topic,declarative,0,1,metares
+PMC7060730,32071248,2020,Proceedings of the National Academy of Sciences of the United States of America,research,none,other topic,none,0,0,biblio;metares
+PMC7062098,32257301,2020,Royal Society open science,research,none,other topic,none,0,0,coi;metares;repro
+PMC7089765,32142406,2020,eLife,research,back-sec-type,other topic,actionable,1,1,biblio;metares
+PMC7100597,32231868,2020,PeerJ,research,none,other topic,none,0,0,biblio;metares;repro
+PMC7112950,32159513,2020,eLife,research,back-sec-type,transparency topic,actionable,1,1,datashare;metares;repro
+PMC7115978,32851123,2020,Animal behavior and cognition,research,none,other topic,none,0,0,metares;reg;repro
+PMC7146898,32272941,2020,Health research policy and systems,research,back-notes-type,other topic,declarative,0,1,metares
+PMC7160588,32307948,2020,Journal of menopausal medicine,research,none,other topic,none,0,0,metares
+PMC7173959,32314733,2020,eLife,comment,none,other topic,none,0,0,metares;repro
+PMC7176952,31401820,2019,Cancer research and treatment,review,none,other topic,none,0,0,metares;stats
+PMC7184711,32336279,2020,BMC medical research methodology,research,back-notes-type,other topic,declarative,0,1,metares;reg;report
+PMC7185998,32314732,2020,eLife,research,back-sec-type,other topic,actionable,1,1,metares;repro
+PMC7190062,31964641,2020,BMJ (Clinical research ed.),review,none,other topic,none,0,0,metares;repro
+PMC7191944,31852680,2019,BMJ (Clinical research ed.),research,none,other topic,none,0,0,metares;waste
+PMC7227529,38620287,2020,Biosafety and health,research,none,other topic,none,0,0,biblio;metares
+PMC7232809,32432182,2017,Tobacco prevention & cessation,review,none,other topic,none,0,0,metares
+PMC7237204,32425159,2020,eLife,research,back-sec-type,transparency topic,actionable,1,1,datashare;metares;stats
+PMC7250615,NA,2020,The Semantic Web,research,none,other topic,none,0,0,metares;repro
+PMC7278161,32513119,2020,BMC medical research methodology,research,back-notes-type,other topic,declarative,0,1,metares
+PMC7282816,32513386,2020,eLife,research,back-sec-type,other topic,declarative,0,1,biblio;metares
+PMC7286515,32520949,2020,PloS one,research,front-notes-title,other topic,declarative,0,1,metares;reg
+PMC7286844,31872365,2019,Science and engineering ethics,research,none,other topic,none,0,0,metares
+PMC7304625,32559236,2020,PloS one,research,front-notes-title,other topic,declarative,0,1,metares
+PMC7304994,32538780,2020,eLife,research,back-sec-type,other topic,actionable,1,1,biblio;metares
+PMC7322065,32522881,2020,Proceedings of the National Academy of Sciences of the United States of America,research,none,other topic,none,0,0,metares
+PMC7336649,32631423,2020,Biology of sex differences,review,back-notes-type,other topic,declarative,0,1,metares
+PMC7353915,32714658,2020,PeerJ,research,none,other topic,none,0,0,metares;oa
+PMC7360372,32530420,2020,eLife,research,back-sec-type,other topic,declarative,0,1,metares
+PMC7382035,32711571,2020,Arthritis research & therapy,review,back-notes-type,other topic,declarative,0,1,metares;reg
+PMC7382846,32711471,2020,BMC medical research methodology,research,back-notes-type,other topic,declarative,0,1,metares;reg
+PMC7384855,32716295,2020,eLife,research,back-sec-type,other topic,actionable,1,1,biblio;metares;oa
+PMC7390598,32678065,2020,eLife,research,back-sec-type,other topic,declarative,0,1,metares;peerrev
+PMC7399971,32709073,2020,"Pathogens (Basel, Switzerland)",research,none,other topic,none,0,0,biblio;metares
+PMC7402002,32747348,2020,BMJ open,research,none,other topic,none,0,0,metares;reg;report
+PMC7417389,31965429,2020,Science and engineering ethics,research,none,other topic,none,0,0,metares;retract;stats
+PMC7433866,32810192,2020,PloS one,research,front-notes-title,other topic,declarative,0,1,metares;stats
+PMC7449896,32971486,2020,Social science & medicine (1982),research,none,other topic,none,0,0,biblio;metares
+PMC7456323,32762563,2020,JCO global oncology,review,none,other topic,none,0,0,metares;reg
+PMC7482431,32416338,2020,Journal of clinical epidemiology,research,none,other topic,none,0,0,metares
+PMC7487909,32894052,2020,BMC medical research methodology,review,back-notes-type,other topic,declarative,0,1,metares;waste
+PMC7497175,32449308,2020,Journal of evidence-based medicine,research,none,other topic,none,0,0,metares;report
+PMC7514497,NA,2019,Entropy,research,none,other topic,none,0,0,biblio;metares
+PMC7521955,32985150,2020,Dementia and neurocognitive disorders,research,none,other topic,none,0,0,metares;reg;stats
+PMC7536542,32924933,2020,eLife,research,back-sec-type,other topic,actionable,1,1,metares;oa
+PMC7541870,32458619,2020,Asian Pacific journal of cancer prevention : APJCP,review,none,other topic,none,0,0,metares
+PMC7551021,32846999,2020,"Healthcare (Basel, Switzerland)",research,none,other topic,none,0,0,metares
+PMC7556863,32701448,2020,eLife,research,back-sec-type,other topic,actionable,1,1,metares
+PMC7561355,32930092,2020,eLife,research,back-sec-type,other topic,declarative,0,1,metares;repro;stats
+PMC7568864,32592384,2020,Asian Pacific journal of cancer prevention : APJCP,review,none,other topic,none,0,0,metares
+PMC7572125,33073769,2020,eLife,research,back-sec-type,other topic,actionable,1,1,metares;repro
+PMC7597013,33292715,2020,Pilot and feasibility studies,research,back-notes-type,other topic,declarative,0,1,metares
+PMC7615127,37766916,2023,Collective intelligence,research,back-sec-type,other topic,actionable,1,1,metares
+PMC7618276,38944059,2024,Journal of clinical epidemiology,review,back-sec-type,other topic,declarative,0,1,metares
+PMC7647398,33063664,2020,eLife,review,back-sec-type,other topic,actionable,1,1,metares;reg;repro
+PMC7647403,33112232,2020,eLife,research,back-sec-type,other topic,actionable,1,1,equity;metares
+PMC7648834,33159126,2020,Scientific reports,comment,none,other topic,none,0,0,metares;repro
+PMC7657932,33204456,2020,Royal Society open science,research,none,other topic,none,0,0,metares
+PMC7685703,33231169,2020,eLife,research,back-sec-type,other topic,actionable,1,1,metares
+PMC7717900,33211009,2020,eLife,research,back-sec-type,transparency topic,actionable,1,1,datashare;metares;peerrev;repro
+PMC7720125,33023250,2020,Journal of Intelligence,research,none,other topic,none,0,0,biblio;metares;reg
+PMC7731550,33303039,2020,Research integrity and peer review,research,back-notes-type,other topic,declarative,0,1,metares;retract
+PMC7742966,33343689,2020,Journal of informetrics,research,none,other topic,none,0,0,metares
+PMC7744610,33343467,2020,Frontiers in psychology,comment,none,other topic,none,0,0,metares;stats
+PMC7745199,33334338,2020,BMC medicine,review,back-notes-type,other topic,actionable,1,1,metares;oa
+PMC7748331,33371154,2020,Medicine,research,none,other topic,none,0,0,metares
+PMC7757389,33381223,2020,Geography compass,research,none,other topic,none,0,0,metares
+PMC7777412,33388080,2021,Systematic reviews,research,back-notes-type,other topic,declarative,0,1,biblio;metares;oa
+PMC7779453,32986382,2020,Asian Pacific journal of cancer prevention : APJCP,review,none,other topic,none,0,0,metares;stats
+PMC7780085,33397292,2021,BMC medical research methodology,review,back-notes-type,transparency topic,declarative,0,1,datashare;metares;oa
+PMC7805241,33435977,2021,BMC medicine,review,back-notes-type,other topic,declarative,0,1,metares;report
+PMC7806263,33439120,2021,eLife,research,back-sec-type,other topic,declarative,0,1,metares;peerrev
+PMC7809068,NA,2020,Perspectives on Medical Education,research,none,other topic,none,0,0,metares
+PMC7821256,33085816,2020,Journal of paediatrics and child health,research,none,other topic,none,0,0,metares;repro;waste
+PMC7822629,31521698,2019,Neuroscience and biobehavioral reviews,review,none,other topic,none,0,0,metares;repro
+PMC7836032,33537552,2021,HRB open research,research,none,other topic,none,0,0,metares
+PMC7838799,33498259,2021,Clocks & sleep,review,back-notes-type,other topic,declarative,0,1,metares
+PMC7876347,33629039,2020,Gates open research,research,none,other topic,none,0,0,metares
+PMC7890505,33614084,2021,Royal Society open science,research,none,transparency topic,none,0,0,datashare;metares;repro
+PMC7893969,33602261,2021,Health research policy and systems,research,back-notes-type,other topic,declarative,0,1,metares
+PMC7898357,33628434,2020,F1000Research,research,none,other topic,none,0,0,metares;repro
+PMC7904195,33626038,2021,PLoS biology,research,none,other topic,none,0,0,metares
+PMC7908009,33637044,2021,BMC medical research methodology,research,back-notes-type,other topic,declarative,0,1,metares;report
+PMC7923522,33648609,2021,Research integrity and peer review,research,back-notes-type,other topic,declarative,0,1,metares;reg;retract
+PMC7924640,33816852,2019,PeerJ. Computer science,research,none,other topic,none,0,0,metares
+PMC7926294,33658187,2021,BMJ (Clinical research ed.),review,none,other topic,none,0,0,metares
+PMC7931949,33693368,2019,Frontiers in big data,research,none,transparency topic,none,0,0,datashare;metares;repro
+PMC7938511,33147614,2021,International journal of epidemiology,research,none,other topic,none,0,0,metares;repro;stats
+PMC7941095,33748432,2021,Wellcome open research,research,none,other topic,none,0,0,metares;reg;repro
+PMC7959659,33817056,2021,PeerJ. Computer science,research,none,other topic,none,0,0,biblio;metares;oa
+PMC7997163,33775812,2021,Journal of clinical epidemiology,review,none,transparency topic,none,0,0,biblio;datashare;metares;reg
+PMC8009675,33734086,2021,eLife,research,back-sec-type,other topic,actionable,1,1,metares;peerrev
+PMC8025969,33870053,2020,Frontiers in research metrics and analytics,research,none,other topic,none,0,0,biblio;metares
+PMC8026803,33825984,2021,Cognitive research: principles and implications,research,back-notes-type,other topic,actionable,1,1,metares
+PMC8028394,33870043,2020,Frontiers in research metrics and analytics,research,none,other topic,none,0,0,metares
+PMC8028417,33870038,2020,Frontiers in research metrics and analytics,research,none,other topic,none,0,0,metares
+PMC8039230,NA,2021,BMJ Open,research,none,other topic,none,0,0,metares
+PMC8040056,33855031,2021,Frontiers in environmental science,research,none,other topic,none,0,0,metares
+PMC8043146,33735097,2021,Journal of medical Internet research,research,none,other topic,none,0,0,biblio;equity;metares;oa
+PMC8059406,33897558,2021,Frontiers in psychology,review,none,other topic,none,0,0,metares;oa
+PMC8059606,33996122,2021,Royal Society open science,research,none,other topic,none,0,0,metares;repro
+PMC8064639,33893092,2021,Science advances,research,none,other topic,none,0,0,metares
+PMC8070868,33888541,2021,BMJ open diabetes research & care,research,back-sec-type,other topic,declarative,0,1,metares
+PMC8071575,33923391,2021,"Entropy (Basel, Switzerland)",research,back-notes-type,other topic,actionable,1,1,metares;oa;peerrev;stats
+PMC8186071,34098926,2021,BMC surgery,research,back-notes-type,other topic,declarative,0,1,metares
+PMC8192251,34168737,2021,World journal of diabetes,research,none,other topic,none,0,0,metares
+PMC8207572,34130658,2021,BMC medical research methodology,research,back-notes-type,other topic,declarative,0,1,metares
+PMC8213706,34145287,2021,NPJ systems biology and applications,review,none,other topic,none,0,0,metares
+PMC8221422,34177558,2021,Frontiers in aging neuroscience,review,none,other topic,none,0,0,metares;report
+PMC8242169,34220635,2021,Frontiers in psychology,review,none,other topic,none,0,0,metares
+PMC8258081,34308119,2021,"BMJ nutrition, prevention & health",research,back-sec-type,other topic,declarative,0,1,metares;stats
+PMC8272613,34276109,2021,Scientometrics,research,none,other topic,none,0,0,metares
+PMC8273164,34262914,2021,Frontiers in medicine,review,none,other topic,none,0,0,metares;reg;report
+PMC8273842,33513312,2021,Perspectives on psychological science : a journal of the Association for Psychological Science,research,none,other topic,none,0,0,metares
+PMC8280397,34274489,2021,Journal of clinical epidemiology,review,none,other topic,none,0,0,coi;metares
+PMC8282034,34264931,2021,PLoS biology,comment,none,other topic,none,0,0,metares
+PMC8286437,34275460,2021,BMC medical research methodology,review,back-notes-type,other topic,declarative,0,1,metares
+PMC8306360,34299733,2021,International journal of environmental research and public health,research,back-notes-type,other topic,actionable,1,1,metares
+PMC8314506,34311793,2021,Trials,review,back-notes-type,other topic,declarative,0,1,metares;reg
+PMC8338205,34376878,2021,Scientometrics,research,none,other topic,none,0,0,biblio;metares;repro;retract
+PMC8367918,33179123,2020,Behavior research methods,research,none,transparency topic,none,0,0,datashare;metares;repro
+PMC8385381,34457332,2021,Royal Society open science,research,none,other topic,none,0,0,biblio;metares
+PMC8414250,34484022,2021,Frontiers in psychology,research,none,other topic,none,0,0,metares
+PMC8424321,34527263,2021,Royal Society open science,research,none,other topic,none,0,0,metares;repro
+PMC8441137,34540248,2021,Royal Society open science,research,none,transparency topic,none,0,0,datashare;metares;repro
+PMC8441535,34526355,2021,BMJ (Clinical research ed.),research,back-sec-type,other topic,declarative,0,1,metares
+PMC8442042,34521659,2021,BMJ open,research,back-sec-type,other topic,declarative,0,1,metares;reg
+PMC8459734,34616596,2021,PeerJ,research,none,transparency topic,none,0,0,datashare;metares;peerrev
+PMC8469366,34575290,2021,Journal of clinical medicine,review,none,other topic,none,0,0,metares
+PMC8473607,34589023,2021,Frontiers in psychology,review,none,other topic,none,0,0,metares
+PMC8474973,34631472,2021,World journal of virology,review,none,other topic,none,0,0,metares;reg;stats
+PMC8485337,34596349,2021,Journal of extracellular vesicles,review,none,other topic,none,0,0,metares;report
+PMC8516568,34667374,2021,AI & society,research,back-notes-type,other topic,declarative,0,1,metares
+PMC8522281,34607941,2021,Proceedings of the National Academy of Sciences of the United States of America,research,back-sec-type,other topic,actionable,1,1,metares
+PMC8542361,34720253,2021,Scientometrics,research,back-notes-type,other topic,actionable,1,1,metares;oa
+PMC8547645,34699558,2021,PloS one,research,front-notes-title,other topic,declarative,0,1,biblio;metares
+PMC8559914,34724980,2021,Systematic reviews,research,back-notes-type,other topic,declarative,0,1,metares
+PMC8562995,34726154,2021,eLife,research,back-sec-type,other topic,declarative,0,1,metares;repro
+PMC8562997,34726155,2021,eLife,comment,none,other topic,none,0,0,metares
+PMC8564260,33645334,2021,Perspectives on psychological science : a journal of the Association for Psychological Science,research,none,other topic,none,0,0,metares
+PMC8577005,34749778,2021,Trials,review,back-notes-type,other topic,declarative,0,1,metares
+PMC8607966,34809561,2021,BMC medical research methodology,research,back-notes-type,other topic,declarative,0,1,metares
+PMC8608432,34809637,2021,BMC medicine,research,back-notes-type,other topic,actionable,1,1,metares;report
+PMC8626083,34751133,2021,eLife,research,back-sec-type,other topic,actionable,1,1,metares
+PMC8647568,35047702,2021,BMJ open science,review,none,other topic,none,0,0,metares;reg;report
+PMC8647618,35047701,2021,BMJ open science,review,back-sec-type,other topic,declarative,0,1,metares
+PMC8654719,34966462,2021,Artery research,research,back-notes-type,other topic,actionable,1,1,metares
+PMC8698292,34944653,2021,Biomedicines,research,back-notes-type,other topic,declarative,0,1,metares
+PMC8699650,34944859,2021,Cancers,research,none,other topic,none,0,0,metares;report
+PMC8709576,34951588,2021,eLife,research,back-sec-type,other topic,actionable,1,1,biblio;metares
+PMC8724217,34599661,2021,European journal of clinical pharmacology,review,back-notes-type,other topic,declarative,0,1,metares
+PMC8724707,34980625,2022,BMJ open,research,back-sec-type,other topic,declarative,0,1,metares;stats
+PMC8738847,34989187,2021,Journal of menopausal medicine,research,none,other topic,none,0,0,metares;reg;stats
+PMC8749236,35047703,2021,BMJ open science,research,back-sec-type,other topic,declarative,0,1,metares;oa;peerrev
+PMC8755584,34779122,2021,Obesity reviews : an official journal of the International Association for the Study of Obesity,review,none,other topic,none,0,0,metares
+PMC8764684,34983876,2022,Proceedings of the National Academy of Sciences of the United States of America,research,back-sec-type,other topic,actionable,1,1,biblio;metares
+PMC8773950,35053815,2021,Brain sciences,comment,back-notes-type,other topic,declarative,0,1,metares
+PMC8785283,33682488,2021,Perspectives on psychological science : a journal of the Association for Psychological Science,research,none,other topic,none,0,0,coi;metares;reg;repro
+PMC8795185,35087178,2022,NPJ digital medicine,research,back-notes-type,other topic,declarative,0,1,metares
+PMC8830385,35210969,2022,Journal of the Medical Library Association : JMLA,research,back-sec-type,other topic,declarative,0,1,biblio;metares;oa
+PMC8830785,35100252,2022,PLoS biology,comment,none,other topic,none,0,0,metares
+PMC8832688,35144667,2022,BMC research notes,comment,back-notes-type,other topic,declarative,0,1,metares;repro;retract
+PMC8842915,35164834,2022,BMC research notes,comment,back-notes-type,other topic,declarative,0,1,metares;repro;retract
+PMC8863703,34173943,2021,Behavior research methods,review,back-notes-type,transparency topic,actionable,1,1,datashare;metares;repro
+PMC8864345,35223059,2022,Royal Society open science,research,none,other topic,none,0,0,metares;repro
+PMC8884412,35250242,2022,"Current psychology (New Brunswick, N.J.)",research,back-notes-type,other topic,actionable,1,1,metares;repro;stats
+PMC8894828,35246264,2022,Research integrity and peer review,research,back-notes-type,other topic,declarative,0,1,metares;peerrev
+PMC8901450,34597198,2021,Perspectives on psychological science : a journal of the Association for Psychological Science,research,none,other topic,none,0,0,metares
+PMC8902028,34283676,2021,Perspectives on psychological science : a journal of the Association for Psychological Science,research,none,other topic,none,0,0,metares
+PMC8921702,35290627,2022,Aging clinical and experimental research,comment,none,other topic,none,0,0,metares
+PMC8936466,35312695,2022,PloS one,research,front-notes-title,other topic,actionable,1,1,metares;repro
+PMC8942470,35293860,2022,eLife,research,back-sec-type,other topic,actionable,1,1,equity;metares
+PMC8961736,35360497,2022,Frontiers in robotics and AI,review,none,other topic,none,0,0,metares;repro
+PMC9005927,36911351,2022,Campbell systematic reviews,research,none,other topic,none,0,0,metares
+PMC9008744,35434719,2021,Personality science,research,none,other topic,none,0,0,metares;repro
+PMC9015816,33651310,2021,Neuroinformatics,research,none,transparency topic,none,0,0,datashare;metares;reg;repro
+PMC9038190,35373737,2022,eLife,research,back-sec-type,other topic,actionable,1,1,metares;peerrev
+PMC9058779,35487732,2022,BMJ open,research,none,other topic,none,0,0,metares;oa
+PMC9069113,35529420,2022,Frontiers in sports and active living,review,none,other topic,none,0,0,metares;report
+PMC9086284,35534064,2022,BMJ open,research,back-sec-type,other topic,declarative,0,1,metares;oa
+PMC9086409,35537738,2022,BMJ (Clinical research ed.),research,back-sec-type,other topic,declarative,0,1,metares
+PMC9086644,35534072,2022,BMJ open,research,back-sec-type,other topic,declarative,0,1,metares
+PMC9092682,35538478,2022,BMC medicine,research,back-notes-type,other topic,declarative,0,1,metares
+PMC9094518,35476675,2022,PLoS medicine,research,front-notes-title,other topic,declarative,0,1,metares;reg;report
+PMC9107730,35568961,2022,Clinical hypertension,research,back-notes-type,other topic,declarative,0,1,metares;reg;stats
+PMC9132873,34083212,2021,BMJ evidence-based medicine,review,back-sec-type,other topic,declarative,0,1,metares
+PMC9159543,35655791,2021,Journal of social and personal relationships,research,none,other topic,none,0,0,metares
+PMC9159687,35362161,2022,International journal of methods in psychiatric research,research,back-sec-type,other topic,declarative,0,1,metares
+PMC9169960,35446703,2022,Proceedings of the National Academy of Sciences of the United States of America,research,back-sec-type,other topic,declarative,0,1,biblio;metares
+PMC9174779,35722044,2022,BMJ open sport & exercise medicine,research,back-sec-type,transparency topic,actionable,1,1,coi;datashare;metares;oa;reg;repro
+PMC9191666,35658076,2022,Proceedings of the National Academy of Sciences of the United States of America,research,back-sec-type,other topic,actionable,1,1,metares
+PMC9200404,35703370,2022,eLife,research,back-sec-type,other topic,actionable,1,1,metares;reg;repro
+PMC9202161,35705904,2022,BMC medical research methodology,review,back-notes-type,other topic,declarative,0,1,metares;report
+PMC9203676,35362331,2022,"Clinical trials (London, England)",research,none,other topic,none,0,0,metares;reg
+PMC9210332,35727471,2022,Perspectives on medical education,research,none,other topic,none,0,0,biblio;metares;peerrev
+PMC9216417,35755928,2021,Comprehensive psychoneuroendocrinology,review,none,other topic,none,0,0,metares;repro
+PMC9231484,35700358,2022,Proceedings of the National Academy of Sciences of the United States of America,research,back-sec-type,other topic,actionable,1,1,metares;retract
+PMC9233092,35081448,2022,Journal of clinical epidemiology,review,none,other topic,none,0,0,metares;reg;report
+PMC9240132,33877586,2021,Perspectives on medical education,research,none,other topic,none,0,0,metares
+PMC9254584,35790902,2022,BMC medical research methodology,research,back-notes-type,other topic,actionable,1,1,metares;reg
+PMC9257590,35814910,2022,Royal Society open science,research,back-sec-type,other topic,actionable,1,1,metares;reg;repro
+PMC9274430,35759334,2022,Journal of medical Internet research,research,back-sec-type,transparency topic,declarative,0,1,datashare;metares;oa;report;repro
+PMC9279892,35844865,2022,Frontiers in public health,research,none,other topic,none,0,0,biblio;metares
+PMC9294417,35817308,2022,Briefings in bioinformatics,review,none,other topic,none,0,0,metares
+PMC9299651,34736291,2021,Global change biology,research,back-sec-type,other topic,actionable,1,1,metares;reg;repro;stats
+PMC9299837,35822694,2022,eLife,research,back-sec-type,other topic,actionable,1,1,equity;metares
+PMC9303867,34927388,2022,Research synthesis methods,research,back-sec-type,other topic,actionable,1,1,metares;repro;waste
+PMC9305903,35089627,2022,Journal of evaluation in clinical practice,research,back-sec-type,other topic,declarative,0,1,metares
+PMC9306503,35005784,2022,The International journal of eating disorders,comment,none,other topic,none,0,0,metares
+PMC9307914,35879943,2022,Clinical epidemiology,research,none,other topic,none,0,0,metares
+PMC9315349,35903740,2022,Frontiers in psychology,research,none,other topic,none,0,0,metares;repro
+PMC9326291,35911195,2022,Royal Society open science,research,back-sec-type,other topic,actionable,1,1,metares;peerrev;reg
+PMC9327179,35897110,2022,Trials,research,back-notes-type,other topic,declarative,0,1,metares;report
+PMC9351632,35922130,2022,eNeuro,research,none,other topic,none,0,0,metares;reg;report;repro;stats
+PMC9352996,35922097,2022,BMJ open,research,back-sec-type,other topic,actionable,1,1,biblio;metares;report
+PMC9364413,35940834,2022,BMJ open,research,back-sec-type,transparency topic,actionable,1,1,datashare;metares;reg;report
+PMC9366861,35822444,2022,"Clinical science (London, England : 1979)",research,back-sec-type,other topic,actionable,1,1,metares
+PMC9375528,35962776,2022,GigaScience,research,none,other topic,none,0,0,biblio;metares
+PMC9383655,35978325,2022,Trials,comment,back-notes-type,other topic,declarative,0,1,biblio;metares;oa;reg;report;retract
+PMC9399707,36039285,2022,Royal Society open science,research,back-sec-type,other topic,actionable,1,1,metares;peerrev
+PMC9413900,36014917,2022,Nutrients,review,back-notes-type,other topic,declarative,0,1,coi;metares
+PMC9416704,36015087,2022,"Pharmaceuticals (Basel, Switzerland)",research,back-notes-type,other topic,declarative,0,1,metares
+PMC9438103,36038176,2022,BMJ open,research,back-sec-type,other topic,declarative,0,1,metares
+PMC9445408,36082143,2022,Exploratory research in clinical and social pharmacy,research,none,other topic,none,0,0,biblio;metares
+PMC9446778,36064741,2022,Systematic reviews,research,back-notes-type,other topic,declarative,0,1,metares
+PMC9466657,36044639,2022,JMIR research protocols,research,back-sec-type,other topic,declarative,0,1,metares;reg
+PMC9474297,35882996,2022,Hypertension research : official journal of the Japanese Society of Hypertension,review,back-notes-type,other topic,actionable,1,1,metares
+PMC9509645,36153631,2022,BMC research notes,research,back-notes-type,other topic,declarative,0,1,metares;retract
+PMC9514002,36179937,2022,Journal of clinical epidemiology,review,none,other topic,none,0,0,metares;oa;waste
+PMC9517595,36141441,2022,International journal of environmental research and public health,review,back-notes-type,other topic,declarative,0,1,metares
+PMC9520399,36103217,2022,Journal of medical Internet research,review,none,other topic,none,0,0,metares;reg;stats
+PMC9524129,36175953,2022,BMC biology,research,back-notes-type,other topic,actionable,1,1,biblio;metares;report
+PMC9543956,36206207,2022,PloS one,research,front-notes-title,transparency topic,actionable,1,1,coi;datashare;metares;oa
+PMC9546584,36161888,2022,Proceedings of the National Academy of Sciences of the United States of America,research,back-sec-type,other topic,actionable,1,1,biblio;equity;metares
+PMC9552513,36217133,2022,BMC medicine,research,back-notes-type,other topic,declarative,0,1,metares;repro
+PMC9559483,36230407,2022,Animals : an open access journal from MDPI,research,back-notes-type,other topic,declarative,0,1,biblio;metares
+PMC9566752,36231555,2022,International journal of environmental research and public health,research,back-notes-type,other topic,declarative,0,1,metares
+PMC9583447,36270163,2022,Brazilian journal of physical therapy,review,none,other topic,none,0,0,metares;report
+PMC9586556,36125120,2022,eLife,research,back-sec-type,other topic,declarative,0,1,metares;repro
+PMC9587861,35633534,2022,Asian Pacific journal of cancer prevention : APJCP,review,none,other topic,none,0,0,metares;stats
+PMC9597295,36312829,2022,Frontiers in research metrics and analytics,research,none,other topic,none,0,0,metares
+PMC9615349,36303168,2022,Trials,research,back-notes-type,other topic,actionable,1,1,metares;oa
+PMC9621455,36315526,2022,PloS one,review,front-notes-title,other topic,declarative,0,1,metares
+PMC9636547,36345486,2022,Integrative medicine research,research,back-sec-type,other topic,declarative,0,1,metares
+PMC9636921,36306328,2022,Proceedings of the National Academy of Sciences of the United States of America,research,back-sec-type,other topic,actionable,1,1,metares;stats
+PMC9643948,36407486,2022,European journal for philosophy of science,research,none,other topic,none,0,0,metares
+PMC9667610,36380367,2022,Systematic reviews,review,back-notes-type,other topic,declarative,0,1,biblio;metares;waste
+PMC9669099,35924761,2022,Journal of clinical periodontology,research,none,other topic,none,0,0,biblio;metares;report
+PMC9679891,36414269,2022,BMJ (Clinical research ed.),review,back-sec-type,transparency topic,actionable,1,1,datashare;metares;report
+PMC9681751,36414712,2022,Scientific reports,review,back-notes-type,other topic,declarative,0,1,metares
+PMC9690675,36429987,2022,International journal of environmental research and public health,review,back-notes-type,other topic,declarative,0,1,metares
+PMC9708090,36444975,2022,eLife,research,back-sec-type,other topic,actionable,1,1,metares
+PMC9708915,36466989,2022,JHEP reports : innovation in hepatology,research,none,other topic,none,0,0,metares
+PMC9712353,36129664,2022,"Hormones (Athens, Greece)",review,back-notes-type,other topic,declarative,0,1,metares
+PMC9718103,36474753,2021,Osteoarthritis and cartilage open,review,none,other topic,none,0,0,metares;reg
+PMC9727931,36476329,2022,BMC medical research methodology,review,back-notes-type,other topic,declarative,0,1,metares
+PMC9734683,36530773,2022,Scientometrics,research,none,other topic,none,0,0,metares
+PMC9738552,36501193,2022,Nutrients,research,back-notes-type,other topic,declarative,0,1,metares;reg;report;repro;stats
+PMC9748376,36545378,2022,F1000Research,research,none,other topic,none,0,0,metares;oa
+PMC9749715,35383846,2022,International journal of epidemiology,research,back-sec-type,other topic,declarative,0,1,metares;report;repro
+PMC9771341,36511240,2022,eLife,research,back-sec-type,other topic,declarative,0,1,metares
+PMC9773496,36550405,2022,BMC medical research methodology,review,back-notes-type,other topic,declarative,0,1,metares
+PMC9796290,35679294,2022,Research synthesis methods,review,back-sec-type,other topic,declarative,0,1,metares;report
+PMC9801036,35331655,2021,Brazilian journal of otorhinolaryngology,research,none,other topic,none,0,0,metares;stats
+PMC9803107,36584067,2022,PloS one,review,front-notes-title,other topic,declarative,0,1,metares
+PMC9803138,36584134,2022,PloS one,review,front-notes-title,other topic,declarative,0,1,metares;reg
+PMC9806013,36572499,2022,BMJ open,research,none,other topic,none,0,0,metares;report;repro
+PMC9806718,36601624,2022,Brain communications,review,back-sec-type,other topic,actionable,1,1,metares;repro
+PMC9808270,34923810,2021,International journal of health policy and management,research,none,other topic,none,0,0,coi;metares
+PMC9831296,36626363,2023,PloS one,research,front-notes-title,other topic,declarative,0,1,coi;metares;retract
+PMC9835737,40477816,2023,Discover psychology,comment,back-notes-type,other topic,declarative,0,1,metares
+PMC9847155,36653834,2023,Systematic reviews,research,back-notes-type,other topic,declarative,0,1,biblio;metares
+PMC9858874,36662848,2023,PloS one,research,front-notes-title,other topic,declarative,0,1,metares;reg
+PMC9874500,36712414,2022,Journal of the Association for Information Science and Technology,research,back-sec-type,other topic,actionable,1,1,metares
+PMC9880919,36707766,2023,BMC medical research methodology,review,back-notes-type,other topic,declarative,0,1,metares;reg
+PMC9885807,36630537,2023,"Clinical science (London, England : 1979)",review,back-sec-type,other topic,actionable,1,1,metares
+PMC9887379,35853683,2022,BMJ evidence-based medicine,review,back-sec-type,other topic,declarative,0,1,metares
+PMC9890107,36756055,2023,Royal Society open science,research,back-sec-type,other topic,actionable,1,1,metares;repro;retract
+PMC9890123,36756064,2023,Royal Society open science,research,back-sec-type,other topic,declarative,0,1,metares;oa
+PMC9938611,36803891,2023,Systematic reviews,review,back-notes-type,other topic,declarative,0,1,metares;stats
+PMC9943874,36844805,2023,Royal Society open science,research,back-sec-type,other topic,declarative,0,1,metares;repro
+PMC9944654,36806135,2023,BMJ open,research,back-sec-type,other topic,declarative,0,1,metares;reg
+PMC9963456,36716367,2023,Proceedings of the National Academy of Sciences of the United States of America,research,back-sec-type,other topic,actionable,1,1,metares;repro
+PMC9971968,36865366,2023,Frontiers in psychology,research,none,other topic,none,0,0,metares;repro
+PMC9976600,36047034,2022,International journal of methods in psychiatric research,review,back-sec-type,other topic,declarative,0,1,metares;report
+PMC9984734,36879926,2023,Wellcome open research,review,back-sec-type,other topic,declarative,0,1,metares;peerrev
+PMC9991927,36893990,2023,Journal of clinical epidemiology,review,none,other topic,none,0,0,metares;reg
+PMC9993047,36908991,2023,Royal Society open science,research,back-sec-type,other topic,actionable,1,1,metares

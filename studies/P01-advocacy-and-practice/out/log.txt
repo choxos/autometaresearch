@@ -1,0 +1,120 @@
+== Retrieval == 
+records with a PMCID: 1088 
+retrieved from PMC:    1088 
+carrying full text:    999 
+excluded, no full text: 89 
+analysis set:           999 
+ 
+== Grading == 
+
+       none declarative  actionable 
+        425         356         218 
+ 
+== Exposure == 
+
+       other topic transparency topic 
+               956                 43 
+ 
+== Crosstab, grade by exposure == 
+                    
+                     none declarative actionable
+  other topic         411         349        196
+  transparency topic   14           7         22
+                    
+                      none declarative actionable
+  other topic        0.430       0.365      0.205
+  transparency topic 0.326       0.163      0.512
+ 
+== Detectable effect == 
+exposed n = 43, unexposed n = 956 
+baseline actionable rate in the unexposed arm = 0.205 
+smallest actionable rate in the exposed arm detectable at 80% power, alpha .05 = 0.489 
+that is a risk difference of 0.284, which is the floor on what a null result here can rule out 
+ 
+== Primary model: actionable ~ exposure + year + article type + (1 | journal) == 
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: binomial  ( logit )
+Formula: actionable ~ exposed + year_c + art_type + (1 | journal)
+   Data: d
+Control: glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e+05))
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+    816.7     846.1    -402.4     804.7       993 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.6374 -0.2714 -0.0238 -0.0068  6.0045 
+
+Random effects:
+ Groups  Name        Variance Std.Dev.
+ journal (Intercept) 87.69    9.364   
+Number of obs: 999, groups:  journal, 336
+
+Fixed effects:
+                          Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                -8.6855     0.8627 -10.068  < 2e-16 ***
+exposedtransparency topic   1.4814     0.4561   3.248  0.00116 ** 
+year_c                      0.3191     0.0489   6.525 6.81e-11 ***
+art_typecomment            -3.3150     1.1097  -2.987  0.00281 ** 
+art_typereview             -0.1148     0.3172  -0.362  0.71729    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) expsdt year_c art_typc
+expsdtrnspt -0.045                       
+year_c      -0.289  0.070                
+art_typcmmn  0.004  0.010 -0.016         
+art_typervw -0.222  0.016  0.079  0.068  
+ 
+Odds ratios: 
+                             OR lower  upper
+(Intercept)               0.000 0.000  0.001
+exposedtransparency topic 4.399 1.799 10.754
+year_c                    1.376 1.250  1.514
+art_typecomment           0.036 0.004  0.320
+art_typereview            0.892 0.479  1.660
+ 
+== Secondary, preregistered: ordinal model on none < declarative < actionable == 
+Cumulative Link Mixed Model fitted with the Laplace approximation
+
+formula: grade ~ exposed + year_c + art_type + (1 | journal)
+data:    d
+
+ link  threshold nobs logLik  AIC     niter     max.grad cond.H 
+ logit flexible  999  -842.93 1699.86 322(1757) 1.00e-03 3.2e+02
+
+Random effects:
+ Groups  Name        Variance Std.Dev.
+ journal (Intercept) 3.248    1.802   
+Number of groups:  journal 336 
+
+Coefficients:
+                          Estimate Std. Error z value Pr(>|z|)    
+exposedtransparency topic   0.9881     0.3885   2.543    0.011 *  
+year_c                      0.4032     0.0318  12.681  < 2e-16 ***
+art_typecomment            -2.1221     0.4514  -4.701 2.59e-06 ***
+art_typereview             -0.1302     0.1876  -0.694    0.488    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Threshold coefficients:
+                       Estimate Std. Error z value
+none|declarative         1.2347     0.1695   7.285
+declarative|actionable   3.9833     0.2284  17.440
+ 
+== Sensitivity: supplementary material counted as actionable == 
+actionable under this rule: 313 (primary rule: 218) 
+exposure OR = 2.576 (1.135 to 5.847) 
+ 
+== Sensitivity: publisher-typed routes only, no title matching == 
+records: 929 of 999; exposed: 36 
+exposure OR = 3.029 (1.115 to 8.227), p = 0.0297 
+ 
+== The author's own papers == 
+records whose statement names the author's repositories: 2 
+of which exposed: 2, actionable: 2 
+exposure OR excluding them = 4.104 (1.651 to 10.201) 
+ 
+Wrote out/graded.csv, out/rates.csv, out/by-year.csv, out/validation-sample.csv 
