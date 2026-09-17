@@ -155,8 +155,9 @@ instrument needing its own validation to measure something the query already app
 ### 6.1 Extraction
 
 The data availability statement is taken from the JATS full text by
-`studies/P01-advocacy-and-practice/extract.py` **as it stands at the commit this protocol is
-published in**, unchanged. That code searches `<front>` and `<back>` only, never `<body>`, in
+`studies/P01-advocacy-and-practice/extract.py` **as it stands at commit
+`158164be700a596610a074533e6509ce142a6774`**, unchanged. A prose pin is not a pin; that hash is the pin, and
+`git show 158164be700a596610a074533e6509ce142a6774:studies/P01-advocacy-and-practice/extract.py` is how a reader checks it. That code searches `<front>` and `<back>` only, never `<body>`, in
 this order: a section or notes block with a `sec-type` or `notes-type` naming data
 availability; a section or notes block whose title matches the data availability pattern; a
 `custom-meta` pair whose name matches it.
@@ -167,7 +168,7 @@ that contaminated 4 of 43 exposed records in R01 and is documented there.
 
 ### 6.2 Grading
 
-Three ordered levels, graded by the rule in `R/analyze.R` at the same commit, reproduced here
+Three ordered levels, graded by the rule in `studies/_shared/R/grade.R` at that same commit, reproduced here
 in full so that no later edit can pass unnoticed:
 
 | grade | definition |
@@ -380,6 +381,5 @@ computed. A deviation is not a failure; concealing one is.
 
 ## 13. Availability
 
-Protocol, code, extracted data and outputs are in the repository at the commit this page was
-published in. The analysis code that will run is already written and public; it is the code
+Protocol, code, extracted data and outputs are in the repository at commit `158164be700a596610a074533e6509ce142a6774`. The analysis code that will run is already written and public; it is the code
 that produced R01, and section 6 pins it.
