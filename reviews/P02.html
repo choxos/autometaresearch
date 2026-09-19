@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2026-09-19">
+<meta name="description" content="Independent adversarial review of P02. Verdict: blocked.">
+
+<title>Review of P02: blocked – Automated meta-research</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-5cc4517f93efc704f9e8f922f0fd1f56.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-8544745414cade1a69674f78a9fe5522.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-5cc4517f93efc704f9e8f922f0fd1f56.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": true,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Automated meta-research</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../agenda.html"> 
+<span class="menu-text">Agenda</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../results.html"> 
+<span class="menu-text">Results</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../reviews.html"> 
+<span class="menu-text">Reviews</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../landscape.html"> 
+<span class="menu-text">Landscape</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../corpus.html"> 
+<span class="menu-text">Corpus</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../methods.html"> 
+<span class="menu-text">How this was done</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/choxos/autometaresearch"> <i class="bi bi-github" role="img" aria-label="GitHub repository">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#votes" id="toc-votes" class="nav-link active" data-scroll-target="#votes">Votes</a></li>
+  <li><a href="#what-each-reviewer-said" id="toc-what-each-reviewer-said" class="nav-link" data-scroll-target="#what-each-reviewer-said">What each reviewer said</a>
+  <ul class="collapse">
+  <li><a href="#chatgpt" id="toc-chatgpt" class="nav-link" data-scroll-target="#chatgpt"><code>chatgpt</code></a></li>
+  <li><a href="#grok" id="toc-grok" class="nav-link" data-scroll-target="#grok"><code>grok</code></a></li>
+  </ul></li>
+  <li><a href="#fatal-findings" id="toc-fatal-findings" class="nav-link" data-scroll-target="#fatal-findings">Fatal findings</a>
+  <ul class="collapse">
+  <li><a href="#f1.-outcome-does-not-measure-citing-retracted-work-as-though-it-still-stands.-section-5-promises-context-classification-whi" id="toc-f1.-outcome-does-not-measure-citing-retracted-work-as-though-it-still-stands.-section-5-promises-context-classification-whi" class="nav-link" data-scroll-target="#f1.-outcome-does-not-measure-citing-retracted-work-as-though-it-still-stands.-section-5-promises-context-classification-whi">F1. Outcome does not measure citing retracted work as though it still stands. Section 5 promises context classification, whi</a></li>
+  <li><a href="#f2.-the-document-sells-a-test-of-whether-domain-expertise-in-retraction-citing-reduces-that-failure.-the-sample-is-p01v2s-f" id="toc-f2.-the-document-sells-a-test-of-whether-domain-expertise-in-retraction-citing-reduces-that-failure.-the-sample-is-p01v2s-f" class="nav-link" data-scroll-target="#f2.-the-document-sells-a-test-of-whether-domain-expertise-in-retraction-citing-reduces-that-failure.-the-sample-is-p01v2s-f">F2. The document sells a test of whether domain expertise in retraction citing reduces that failure. The sample is P01v2’s f</a></li>
+  <li><a href="#f3.-the-hypothesis-asks-for-a-matched-comparison-in-the-same-journals-and-years-and-the-description-asks-whether-the-field" id="toc-f3.-the-hypothesis-asks-for-a-matched-comparison-in-the-same-journals-and-years-and-the-description-asks-whether-the-field" class="nav-link" data-scroll-target="#f3.-the-hypothesis-asks-for-a-matched-comparison-in-the-same-journals-and-years-and-the-description-asks-whether-the-field">F3. The hypothesis asks for a matched comparison in the same journals and years, and the description asks whether the field</a></li>
+  </ul></li>
+  <li><a href="#major-findings" id="toc-major-findings" class="nav-link" data-scroll-target="#major-findings">Major findings</a>
+  <ul class="collapse">
+  <li><a href="#m1.-the-claimed-temporal-classification-is-incorrect.-probes.py-lines-119124-compare-years-assigning-every-same-year-match" id="toc-m1.-the-claimed-temporal-classification-is-incorrect.-probes.py-lines-119124-compare-years-assigning-every-same-year-match" class="nav-link" data-scroll-target="#m1.-the-claimed-temporal-classification-is-incorrect.-probes.py-lines-119124-compare-years-assigning-every-same-year-match">M1. The claimed temporal classification is incorrect. probes.py lines 119–124 compare years, assigning every same-year match</a></li>
+  <li><a href="#m2.-feasibility-is-calculated-on-a-different-population-from-the-proposed-study.-probes.py-scans-both-caches-without-applyin" id="toc-m2.-feasibility-is-calculated-on-a-different-population-from-the-proposed-study.-probes.py-scans-both-caches-without-applyin" class="nav-link" data-scroll-target="#m2.-feasibility-is-calculated-on-a-different-population-from-the-proposed-study.-probes.py-scans-both-caches-without-applyin">M2. Feasibility is calculated on a different population from the proposed study. probes.py scans both caches without applyin</a></li>
+  <li><a href="#m3.-the-promised-matched-comparison-is-not-operationalized.-no-matching-ratio-replacement-rule-treatment-of-unmatched-jour" id="toc-m3.-the-promised-matched-comparison-is-not-operationalized.-no-matching-ratio-replacement-rule-treatment-of-unmatched-jour" class="nav-link" data-scroll-target="#m3.-the-promised-matched-comparison-is-not-operationalized.-no-matching-ratio-replacement-rule-treatment-of-unmatched-jour">M3. The promised matched comparison is not operationalized. No matching ratio, replacement rule, treatment of unmatched jour</a></li>
+  <li><a href="#m4.-the-claim-that-arms-differ-on-exactly-one-axis-is-unsupported.-the-inherited-frame-covers-four-p01v2-topics-and-removes" id="toc-m4.-the-claim-that-arms-differ-on-exactly-one-axis-is-unsupported.-the-inherited-frame-covers-four-p01v2-topics-and-removes" class="nav-link" data-scroll-target="#m4.-the-claim-that-arms-differ-on-exactly-one-axis-is-unsupported.-the-inherited-frame-covers-four-p01v2-topics-and-removes">M4. The claim that arms differ on exactly one axis is unsupported. The inherited frame covers four P01v2 topics and removes</a></li>
+  <li><a href="#m5.-the-asserted-bias-direction-is-mathematically-wrong.-with-perfect-specificity-and-common-detection-sensitivity-s-observ" id="toc-m5.-the-asserted-bias-direction-is-mathematically-wrong.-with-perfect-specificity-and-common-detection-sensitivity-s-observ" class="nav-link" data-scroll-target="#m5.-the-asserted-bias-direction-is-mathematically-wrong.-with-perfect-specificity-and-common-detection-sensitivity-s-observ">M5. The asserted bias direction is mathematically wrong. With perfect specificity and common detection sensitivity s, observ</a></li>
+  <li><a href="#m6.-statistical-adequacy-is-asserted-rather-than-computed.-p02s-code-calculates-counts-not-power-or-precision.-seventy-out" id="toc-m6.-statistical-adequacy-is-asserted-rather-than-computed.-p02s-code-calculates-counts-not-power-or-precision.-seventy-out" class="nav-link" data-scroll-target="#m6.-statistical-adequacy-is-asserted-rather-than-computed.-p02s-code-calculates-counts-not-power-or-precision.-seventy-out">M6. Statistical adequacy is asserted rather than computed. P02’s code calculates counts, not power or precision. Seventy out</a></li>
+  <li><a href="#m7.-section-1-defines-the-failure-as-citing-a-retracted-paper-as-though-it-still-stands.-section-5-says-a-third-class-of-del" id="toc-m7.-section-1-defines-the-failure-as-citing-a-retracted-paper-as-though-it-still-stands.-section-5-says-a-third-class-of-del" class="nav-link" data-scroll-target="#m7.-section-1-defines-the-failure-as-citing-a-retracted-paper-as-though-it-still-stands.-section-5-says-a-third-class-of-del">M7. Section 1 defines the failure as citing a retracted paper as though it still stands. Section 5 says a third class of del</a></li>
+  <li><a href="#m8.-the-protocol-says-a-reference-is-a-failure-only-if-the-retraction-predates-the-citing-article.-probes.py-compares-retrac" id="toc-m8.-the-protocol-says-a-reference-is-a-failure-only-if-the-retraction-predates-the-citing-article.-probes.py-compares-retrac" class="nav-link" data-scroll-target="#m8.-the-protocol-says-a-reference-is-a-failure-only-if-the-retraction-predates-the-citing-article.-probes.py-compares-retrac">M8. The protocol says a reference is a failure only if the retraction predates the citing article. probes.py compares retrac</a></li>
+  <li><a href="#m9.-section-4-says-the-sample-is-the-p01v2-frame-with-every-tier-a-pmid-removed.-section-7-then-treats-papc-as-that-sample." id="toc-m9.-section-4-says-the-sample-is-the-p01v2-frame-with-every-tier-a-pmid-removed.-section-7-then-treats-papc-as-that-sample." class="nav-link" data-scroll-target="#m9.-section-4-says-the-sample-is-the-p01v2-frame-with-every-tier-a-pmid-removed.-section-7-then-treats-papc-as-that-sample.">M9. Section 4 says the sample is the P01v2 frame with every tier A PMID removed. Section 7 then treats PA–PC as that sample.</a></li>
+  <li><a href="#m10.-section-2-says-the-primary-null-is-a-rate-ratio-of-1-and-that-a-rate-ratio-at-or-above-1-would-falsify.-that-is-a-point-" id="toc-m10.-section-2-says-the-primary-null-is-a-rate-ratio-of-1-and-that-a-rate-ratio-at-or-above-1-would-falsify.-that-is-a-point-" class="nav-link" data-scroll-target="#m10.-section-2-says-the-primary-null-is-a-rate-ratio-of-1-and-that-a-rate-ratio-at-or-above-1-would-falsify.-that-is-a-point-">M10. Section 2 says the primary null is a rate ratio of 1 and that a rate ratio at or above 1 would falsify. That is a point-</a></li>
+  <li><a href="#m11.-the-table-says-a-missing-retraction-biases-both-arms-toward-the-null-equally.-that-is-true-only-if-both-arms-cite-the-sa" id="toc-m11.-the-table-says-a-missing-retraction-biases-both-arms-toward-the-null-equally.-that-is-true-only-if-both-arms-cite-the-sa" class="nav-link" data-scroll-target="#m11.-the-table-says-a-missing-retraction-biases-both-arms-toward-the-null-equally.-that-is-true-only-if-both-arms-cite-the-sa">M11. The table says a missing retraction biases both arms toward the null equally. That is true only if both arms cite the sa</a></li>
+  </ul></li>
+  <li><a href="#minor-findings" id="toc-minor-findings" class="nav-link" data-scroll-target="#minor-findings">Minor findings</a>
+  <ul class="collapse">
+  <li><a href="#m1.-numerator-and-denominator-use-different-counting-units.-probes.py-unions-extracted-dois-across-each-article-before-match" id="toc-m1.-numerator-and-denominator-use-different-counting-units.-probes.py-unions-extracted-dois-across-each-article-before-match" class="nav-link" data-scroll-target="#m1.-numerator-and-denominator-use-different-counting-units.-probes.py-unions-extracted-dois-across-each-article-before-match">M1. Numerator and denominator use different counting units. probes.py unions extracted DOIs across each article before match</a></li>
+  <li><a href="#m2.-the-60972-figure-counts-normalized-nonempty-field-values-not-exclusively-distinct-dois.-the-code-retains-the-sentinel" id="toc-m2.-the-60972-figure-counts-normalized-nonempty-field-values-not-exclusively-distinct-dois.-the-code-retains-the-sentinel" class="nav-link" data-scroll-target="#m2.-the-60972-figure-counts-normalized-nonempty-field-values-not-exclusively-distinct-dois.-the-code-retains-the-sentinel">M2. The 60,972 figure counts normalized nonempty field values, not exclusively distinct DOIs. The code retains the sentinel</a></li>
+  <li><a href="#m3.-section-8-calls-sensitivity-analyses-preregistered-despite-the-explicit-status-declaration-that-the-protocol-is-not-regi" id="toc-m3.-section-8-calls-sensitivity-analyses-preregistered-despite-the-explicit-status-declaration-that-the-protocol-is-not-regi" class="nav-link" data-scroll-target="#m3.-section-8-calls-sensitivity-analyses-preregistered-despite-the-explicit-status-declaration-that-the-protocol-is-not-regi">M3. Section 8 calls sensitivity analyses preregistered despite the explicit status declaration that the protocol is not regi</a></li>
+  <li><a href="#m4.-the-status-callout-says-the-protocol-is-not-registered.-agenda.qmd-says-nothing-here-is-registered.-section-8-still-call" id="toc-m4.-the-status-callout-says-the-protocol-is-not-registered.-agenda.qmd-says-nothing-here-is-registered.-section-8-still-call" class="nav-link" data-scroll-target="#m4.-the-status-callout-says-the-protocol-is-not-registered.-agenda.qmd-says-nothing-here-is-registered.-section-8-still-call">M4. The status callout says the protocol is not registered. Agenda.qmd says nothing here is registered. Section 8 still call</a></li>
+  <li><a href="#m5.-pmid-40156953-is-real-but-young-et-al.-found-3-retracted-publications-among-1617-unique-citations-0.2-percent-and-con" id="toc-m5.-pmid-40156953-is-real-but-young-et-al.-found-3-retracted-publications-among-1617-unique-citations-0.2-percent-and-con" class="nav-link" data-scroll-target="#m5.-pmid-40156953-is-real-but-young-et-al.-found-3-retracted-publications-among-1617-unique-citations-0.2-percent-and-con">M5. PMID 40156953 is real, but Young et al.&nbsp;found 3 retracted publications among 1617 unique citations (0.2 percent) and con</a></li>
+  </ul></li>
+  <li><a href="#the-raw-verdicts" id="toc-the-raw-verdicts" class="nav-link" data-scroll-target="#the-raw-verdicts">The raw verdicts</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/choxos/autometaresearch/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Review of P02: blocked</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">review</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Independent adversarial review of P02. Verdict: blocked.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 19, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Review of <strong><a href="../proposals/P02-citing-retracted-work.html">Does meta-research cite retracted work?</a></strong>.</p>
+<div class="callout callout-style-simple callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Verdict: blocked
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A reviewer produced a fatal finding backed by a verbatim quote and no reviewer rebutted it. Under the rule, evidence outranks votes, so this outcome does not depend on the tally.</p>
+<p>Adjudicated by <code>build/audit/adjudicate.py</code> at rule version 1. Coverage is <strong>complete</strong>: chatgpt, grok returned a verdict out of a roster of chatgpt, grok.</p>
+<p>3 fatal, 11 major, 5 minor. 14 of the severe findings carry a verbatim quote.</p>
+</div>
+</div>
+<section id="votes" class="level2">
+<h2 class="anchored" data-anchor-id="votes">Votes</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>reviewer</th>
+<th>vote</th>
+<th>confidence</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>chatgpt</code></td>
+<td><strong>unsound</strong></td>
+<td>0.99</td>
+</tr>
+<tr class="even">
+<td><code>grok</code></td>
+<td><strong>unsound</strong></td>
+<td>0.86</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="what-each-reviewer-said" class="level2">
+<h2 class="anchored" data-anchor-id="what-each-reviewer-said">What each reviewer said</h2>
+<section id="chatgpt" class="level3">
+<h3 class="anchored" data-anchor-id="chatgpt"><code>chatgpt</code></h3>
+<p>Reported cache totals reproduce, but their interpretation fails. Citation contexts demonstrate false failures; full publication dates reverse the claimed pre-retraction majority; feasibility counts include articles outside the proposed frame. Matching and power claims remain unsupported. Reviewed probe code, cached XML, CSV outputs, eligibility records, and primary literature. No exact published predecessor for the proposed matched comparison was established.</p>
+</section>
+<section id="grok" class="level3">
+<h3 class="anchored" data-anchor-id="grok"><code>grok</code></h3>
+<p>PA–PC counts match probes.json, matches.csv, and the Retraction Watch CSV (60972 distinct retracted OriginalPaperDOIs). The two caches do not overlap on PMCID. PMIDs 35779825 and 40156953 are real. No arm-by-outcome model has been fitted, so this is not the P01v2 peeking error. The protocol still does not measure the claim it opens with. The P01v2 frame has no retract block (methods.qmd: 637 qualified retract records sit outside datashare, report, reg, and repro), so the people with domain expertise in this failure are not the exposed arm. The comparison arm is screening exclusions from a query that retrieves clinical systematic reviews, which is the population already shown to cite retracted trials. Of 70 articles with a post-retraction citation, 22 are P01/tier A and are excluded by section 4; 48 remain on the stated frame, and most of those titles are clinical reviews. Same-year matches (41 of 190) are classed as pre by a year-only rule. I did not find a published two-arm rate comparison of meta-research versus other articles. Hsiao and Schneider 2021 already applied PMC XML, retraction dates, and citation context to biomedicine; P02 then drops the context half of that instrument.</p>
+</section>
+</section>
+<section id="fatal-findings" class="level2">
+<h2 class="anchored" data-anchor-id="fatal-findings">Fatal findings</h2>
+<section id="f1.-outcome-does-not-measure-citing-retracted-work-as-though-it-still-stands.-section-5-promises-context-classification-whi" class="level3">
+<h3 class="anchored" data-anchor-id="f1.-outcome-does-not-measure-citing-retracted-work-as-though-it-still-stands.-section-5-promises-context-classification-whi">F1. Outcome does not measure citing retracted work as though it still stands. Section 5 promises context classification, whi</h3>
+<p><strong>Reviewer</strong> <code>chatgpt</code> · <strong>Section</strong> 5. Measurement; 6. Outcome; 12. What this cannot show</p>
+<p>Outcome does not measure citing retracted work as though it still stands. Section 5 promises context classification, while section 12 explicitly abandons it. Concrete false positive: PMC7844597, present in the P01v2 frame, explicitly identifies its cited NEJM study as retracted, yet the probe counts that citation and the repository’s topic classifier assigns no retract label. The planned exclusion sensitivity therefore retains this false failure. This can penalize appropriate scientific criticism. See <a href="https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2775667">Danchev et al.&nbsp;(2021)</a>.</p>
+<blockquote class="blockquote">
+<p>A citation flagging a paper as retracted is counted as a failure unless the <code>retract</code> label catches it.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Adjudicate every matched reference’s citation contexts using a prespecified rubric distinguishing unacknowledged reliance, explicit warning or exclusion, research objects, and uncertain use. Validate annotation agreement and make inappropriate use the primary outcome. Alternatively, restrict the question and conclusions to descriptive citation frequency and remove the integrity-failure interpretation.</p>
+</section>
+<section id="f2.-the-document-sells-a-test-of-whether-domain-expertise-in-retraction-citing-reduces-that-failure.-the-sample-is-p01v2s-f" class="level3">
+<h3 class="anchored" data-anchor-id="f2.-the-document-sells-a-test-of-whether-domain-expertise-in-retraction-citing-reduces-that-failure.-the-sample-is-p01v2s-f">F2. The document sells a test of whether domain expertise in retraction citing reduces that failure. The sample is P01v2’s f</h3>
+<p><strong>Reviewer</strong> <code>grok</code> · <strong>Section</strong> 1. The question</p>
+<p>The document sells a test of whether domain expertise in retraction citing reduces that failure. The sample is P01v2’s four blocks: datashare, report, reg, and repro. methods.qmd measured a separate retract block the same day (11128 raw, 637 qualified) covering retraction, misconduct, and research integrity. Those records are not in this frame. YAML categories include retract, and the description names research integrity. The exposed arm is meta-research on sharing, reporting, registration, and reproducibility. It is not the field that documents this exact failure.</p>
+<blockquote class="blockquote">
+<p>A field with domain expertise in this exact failure, failing at the same rate as everyone else, would say something about how far knowing a problem gets you toward avoiding it.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Put the qualified retract block in the frame as the expertise arm, or rewrite section 1, the description, and the categories so the claim is only about meta-research on those four topics. Do not keep the research-integrity and domain-expertise argument on a sample that excluded the retract search.</p>
+</section>
+<section id="f3.-the-hypothesis-asks-for-a-matched-comparison-in-the-same-journals-and-years-and-the-description-asks-whether-the-field" class="level3">
+<h3 class="anchored" data-anchor-id="f3.-the-hypothesis-asks-for-a-matched-comparison-in-the-same-journals-and-years-and-the-description-asks-whether-the-field">F3. The hypothesis asks for a matched comparison in the same journals and years, and the description asks whether the field</h3>
+<p><strong>Reviewer</strong> <code>grok</code> · <strong>Section</strong> 4. Sample</p>
+<p>The hypothesis asks for a matched comparison in the same journals and years, and the description asks whether the field is better than average. The comparison arm is articles the shared P01v2 screen excludes from the same qualified query. That query ANDs reporting, registration, reproducibility, or data-sharing phrases with study-of-literature boilerplate, which is how ordinary clinical systematic reviews enter. On the stated P01v2 frame, 48 articles carry a post-retraction citation; 38 of them sit in P01v2’s report/reg/repro arm, and their titles are mostly clinical reviews and meta-analyses (ischemic stroke thrombectomy, breast cancer ultrasound, Ethiopian blood donation, Achilles tendinopathy, COVID clinical findings, and similar). Kataoka et al.&nbsp;(PMID 35779825), cited in section 1, already documented that this is the population that keeps citing retracted trials. The rate ratio therefore contrasts screened meta-research with clinical systematic reviews, not with average literature and not with journal-year matches. No matching procedure is specified.</p>
+<blockquote class="blockquote">
+<p>Comparison arm: articles from the same journals and years that screening excluded, which is to say articles that are not meta-research. This is a better comparison than a fresh PubMed sample because it is drawn from the same query frame and differs on exactly the axis of interest.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Draw the comparison as journal-year matched articles from the same journals that are not in the qualified frame, or match on the mix of cited fields. If the comparison is screening exclusions, rewrite the hypothesis to that contrast and drop matched, same journals and years, and better than average.</p>
+</section>
+</section>
+<section id="major-findings" class="level2">
+<h2 class="anchored" data-anchor-id="major-findings">Major findings</h2>
+<section id="m1.-the-claimed-temporal-classification-is-incorrect.-probes.py-lines-119124-compare-years-assigning-every-same-year-match" class="level3">
+<h3 class="anchored" data-anchor-id="m1.-the-claimed-temporal-classification-is-incorrect.-probes.py-lines-119124-compare-years-assigning-every-same-year-match">M1. The claimed temporal classification is incorrect. probes.py lines 119–124 compare years, assigning every same-year match</h3>
+<p><strong>Reviewer</strong> <code>chatgpt</code> · <strong>Section</strong> 5. Measurement — The classification that decides the result; 7. Feasibility; 9. Threats</p>
+<p>The claimed temporal classification is incorrect. probes.py lines 119–124 compare years, assigning every same-year match to pre-retraction. Of 107 reported pre-retraction matches, 41 are same-year and 17 demonstrably occurred after retraction. Reclassification using complete electronic publication dates gives 98 post, 86 pre, one same-day, and five without complete electronic dates. This reverses the claimed majority and disproves the claimed more-than-twofold inflation. For example, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7762449/">PMC7762449</a> appeared December 21, 2020, citing work retracted June 4, 2020.</p>
+<blockquote class="blockquote">
+<p><strong>The pre-retraction class is the majority.</strong></p>
+</blockquote>
+<p><strong>What would fix it.</strong> Specify and extract appropriate full publication dates, prioritizing first online publication over issue or collection dates. Compare full dates; retain same-day and insufficiently dated cases as uncertain. Recompute all timing counts and derived claims, and assess publication-lag sensitivity before interpreting citations as avoidable failures.</p>
+</section>
+<section id="m2.-feasibility-is-calculated-on-a-different-population-from-the-proposed-study.-probes.py-scans-both-caches-without-applyin" class="level3">
+<h3 class="anchored" data-anchor-id="m2.-feasibility-is-calculated-on-a-different-population-from-the-proposed-study.-probes.py-scans-both-caches-without-applyin">M2. Feasibility is calculated on a different population from the proposed study. probes.py scans both caches without applyin</h3>
+<p><strong>Reviewer</strong> <code>chatgpt</code> · <strong>Section</strong> 4. Sample; 7. Feasibility, computed</p>
+<p>Feasibility is calculated on a different population from the proposed study. probes.py scans both caches without applying P02 eligibility. Recalculation finds 998 articles from P01 and 3,950 from P01v2. P01 contributes 28 of 83 reported post-retraction matches and 22 of 70 positive articles; none of those 998 belongs to the P01v2 target list. Within that target list, the existing year-based rule gives only 55 matches in 48 articles, before screening, matching, or context adjudication. Cache totals cannot establish the proposed sample’s event yield.</p>
+<blockquote class="blockquote">
+<p>The same frame as P01v2: the qualified tier B blocks with every tier A PMID removed, screened to meta-research, restricted to PMC full text.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Construct an explicit eligible PMID/PMCID manifest, apply tier A exclusions, and calculate feasibility against that manifest. Report the pooled-cache exercise separately as a pilot. Recompute event availability after screening, matching, corrected timing, and context adjudication.</p>
+</section>
+<section id="m3.-the-promised-matched-comparison-is-not-operationalized.-no-matching-ratio-replacement-rule-treatment-of-unmatched-jour" class="level3">
+<h3 class="anchored" data-anchor-id="m3.-the-promised-matched-comparison-is-not-operationalized.-no-matching-ratio-replacement-rule-treatment-of-unmatched-jour">M3. The promised matched comparison is not operationalized. No matching ratio, replacement rule, treatment of unmatched jour</h3>
+<p><strong>Reviewer</strong> <code>chatgpt</code> · <strong>Section</strong> 2. Hypothesis; 4. Sample; 8. Analysis</p>
+<p>The promised matched comparison is not operationalized. No matching ratio, replacement rule, treatment of unmatched journal-years, or weighting scheme is specified. Drawing controls from journals and years represented among exposed articles does not itself balance their distributions. The proposed model includes neither journal nor matched-set effects and adjusts year only linearly. Its arm coefficient therefore cannot be assumed to estimate the promised within-journal-year comparison.</p>
+<blockquote class="blockquote">
+<p>glm.nb(n_post_retraction ~ arm + year_c + offset(log(n_matchable_refs)), data = d)</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Prespecify matching or standardization, common-support requirements, weights, and handling of unmatched records. Fit an estimator that respects that design, such as a count model with journal-year or matched-set effects and appropriate uncertainty estimation. Report balance and exclusions before interpreting the arm coefficient.</p>
+</section>
+<section id="m4.-the-claim-that-arms-differ-on-exactly-one-axis-is-unsupported.-the-inherited-frame-covers-four-p01v2-topics-and-removes" class="level3">
+<h3 class="anchored" data-anchor-id="m4.-the-claim-that-arms-differ-on-exactly-one-axis-is-unsupported.-the-inherited-frame-covers-four-p01v2-topics-and-removes">M4. The claim that arms differ on exactly one axis is unsupported. The inherited frame covers four P01v2 topics and removes</h3>
+<p><strong>Reviewer</strong> <code>chatgpt</code> · <strong>Section</strong> 1. The question; 4. Sample</p>
+<p>The claim that arms differ on exactly one axis is unsupported. The inherited frame covers four P01v2 topics and removes tier A records, including explicitly self-identified meta-research. Controls are non-meta-research articles that nevertheless satisfy this specialized search, not average articles in those journals. Search selection, article type, subject matter, and reference age can differ between arms and change exposure to retractable literature independently of citation-checking behavior. The noncausal disclaimer does not establish representativeness.</p>
+<blockquote class="blockquote">
+<p>This is a better comparison than a fresh PubMed sample because it is drawn from the same query frame and differs on exactly the axis of interest.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Explicitly restrict the target population and conclusions to the selected, non-tier-A PMC search frame. If the intended claim concerns meta-research versus average research, assemble an appropriate broader meta-research sample and independently sampled journal-year controls, addressing differences in reference opportunities and article type.</p>
+</section>
+<section id="m5.-the-asserted-bias-direction-is-mathematically-wrong.-with-perfect-specificity-and-common-detection-sensitivity-s-observ" class="level3">
+<h3 class="anchored" data-anchor-id="m5.-the-asserted-bias-direction-is-mathematically-wrong.-with-perfect-specificity-and-common-detection-sensitivity-s-observ">M5. The asserted bias direction is mathematically wrong. With perfect specificity and common detection sensitivity s, observ</h3>
+<p><strong>Reviewer</strong> <code>chatgpt</code> · <strong>Section</strong> 9. Threats; 10. Probes — PD</p>
+<p>The asserted bias direction is mathematically wrong. With perfect specificity and common detection sensitivity s, observed rates are s times true rates, so s cancels from their rate ratio; equal under-ascertainment does not necessarily attenuate that ratio toward 1. Unequal sensitivity can bias it in either direction. Likewise, equal DOI coverage does not establish equal outcome ascertainment, while unequal coverage alone need not bias rates specifically among DOI-bearing references. PD’s coverage comparison cannot resolve these problems.</p>
+<blockquote class="blockquote">
+<p>A missing retraction biases both arms toward the null equally</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Define whether the estimand concerns all references or only DOI-bearing references. Validate ascertainment and missingness across arms and relevant reference characteristics. Replace the guaranteed-null-bias claim with explicit assumptions and quantitative sensitivity analyses allowing differential detection.</p>
+</section>
+<section id="m6.-statistical-adequacy-is-asserted-rather-than-computed.-p02s-code-calculates-counts-not-power-or-precision.-seventy-out" class="level3">
+<h3 class="anchored" data-anchor-id="m6.-statistical-adequacy-is-asserted-rather-than-computed.-p02s-code-calculates-counts-not-power-or-precision.-seventy-out">M6. Statistical adequacy is asserted rather than computed. P02’s code calculates counts, not power or precision. Seventy out</h3>
+<p><strong>Reviewer</strong> <code>chatgpt</code> · <strong>Section</strong> 2. Hypothesis; 7. Feasibility, computed; 10. Probes</p>
+<p>Statistical adequacy is asserted rather than computed. P02’s code calculates counts, not power or precision. Seventy outcome-bearing articles in a pooled pilot cannot establish power for two screened, matched arms with unknown allocation, event rates, dispersion, and context exclusions. The approximately 30-match and 20-post-retraction stopping thresholds have no demonstrated operating characteristics. An estimated rate ratio at or above 1 also cannot, by itself, distinguish contradictory evidence from sampling noise.</p>
+<blockquote class="blockquote">
+<p><strong>70 articles carry the outcome.</strong> That is enough to fit a count model and not enough to slice finely; the design commits to one primary comparison and no subgroup analyses.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Specify a smallest scientifically meaningful rate ratio and an inferential decision rule incorporating uncertainty. Compute power or expected interval precision for the intended matched analysis across plausible screened sample sizes, offsets, and dispersion. Base feasibility gates on those calculations and allow an inconclusive or descriptive-only result.</p>
+</section>
+<section id="m7.-section-1-defines-the-failure-as-citing-a-retracted-paper-as-though-it-still-stands.-section-5-says-a-third-class-of-del" class="level3">
+<h3 class="anchored" data-anchor-id="m7.-section-1-defines-the-failure-as-citing-a-retracted-paper-as-though-it-still-stands.-section-5-says-a-third-class-of-del">M7. Section 1 defines the failure as citing a retracted paper as though it still stands. Section 5 says a third class of del</h3>
+<p><strong>Reviewer</strong> <code>grok</code> · <strong>Section</strong> 5. Measurement</p>
+<p>Section 1 defines the failure as citing a retracted paper as though it still stands. Section 5 says a third class of deliberate example citations is separated by the retract topic label and by citation context from the surrounding sentence. Section 12 then says the design does not read what each citation says, and counts a citation that flags the paper as retracted as a failure unless the retract label catches it. There is no code, probe, or pin for extracting the surrounding sentence. The retract label is an article-level search vocabulary, and the retract block is not in this frame, so sensitivity 1 is mostly empty unless describe.py is run on a sample it was not written for. Hsiao and Schneider 2021 (PMID 36186715) already classified 13252 post-retraction citation contexts in PMC OA XML and found only 5.4 percent acknowledged the retraction. That is the instrument for the stated construct. P02 claims novelty, then drops the context half. Heibi and Peroni 2021 (PMID 34376878; PMC8338205) is in matches.csv as a post-retraction hit on Wakefield; it is a scientometric study of citations to that retracted paper, which is an example citation the current rule would count as a failure.</p>
+<blockquote class="blockquote">
+<p>A citation flagging a paper as retracted is counted as a failure unless the <code>retract</code> label catches it.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Extract in-text citation sentences from PMC body xrefs, classify acknowledgment versus endorsement with a pinned rule and a human kappa gate, and make uncritical post-retraction citation the primary outcome. If that is not done, change section 1 so the estimand is any post-retraction DOI match, drop as though it still stands, and cite Hsiao and Schneider as the instrument being thinned, not as unused prior art.</p>
+</section>
+<section id="m8.-the-protocol-says-a-reference-is-a-failure-only-if-the-retraction-predates-the-citing-article.-probes.py-compares-retrac" class="level3">
+<h3 class="anchored" data-anchor-id="m8.-the-protocol-says-a-reference-is-a-failure-only-if-the-retraction-predates-the-citing-article.-probes.py-compares-retrac">M8. The protocol says a reference is a failure only if the retraction predates the citing article. probes.py compares retrac</h3>
+<p><strong>Reviewer</strong> <code>grok</code> · <strong>Section</strong> 5. Measurement</p>
+<p>The protocol says a reference is a failure only if the retraction predates the citing article. probes.py compares retraction calendar year with citing year: post if retraction year is strictly less than citing year, otherwise pre. Same-year matches are dumped into pre. matches.csv has 41 same-year rows (35 articles) out of 190. Those 41 are 38 percent of the 107 pre counts. The claim that pre is the majority is therefore an artifact of the year rule. PMC pub-date often has month and day; Retraction Watch supplies a full RetractionDate. article_year() also takes the first pub-date element in document order, which may be collection year rather than epub.</p>
+<blockquote class="blockquote">
+<p>A reference is only a failure if the retraction preceded the citing article.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Parse a citing date from PMC (prefer epub, then ppub). Classify post when retraction_date is before that citing date. Report same-calendar-year matches as their own class and as a sensitivity, not as pre by default. Recompute PC before claiming pre is the majority.</p>
+</section>
+<section id="m9.-section-4-says-the-sample-is-the-p01v2-frame-with-every-tier-a-pmid-removed.-section-7-then-treats-papc-as-that-sample." class="level3">
+<h3 class="anchored" data-anchor-id="m9.-section-4-says-the-sample-is-the-p01v2-frame-with-every-tier-a-pmid-removed.-section-7-then-treats-papc-as-that-sample.">M9. Section 4 says the sample is the P01v2 frame with every tier A PMID removed. Section 7 then treats PA–PC as that sample.</h3>
+<p><strong>Reviewer</strong> <code>grok</code> · <strong>Section</strong> 7. Feasibility, computed</p>
+<p>Section 4 says the sample is the P01v2 frame with every tier A PMID removed. Section 7 then treats PA–PC as that sample. The status callout says the probes ran on P01 and P01v2 caches. That is true: 998 P01 articles with refs plus 3950 P01v2 articles with refs equals 4948. Of 70 articles with a post-retraction citation, 22 are in the P01 cache and 48 are in the P01v2 cache (28 and 55 citation rows). The 70-is-enough claim is computed on a mixture that section 4 excludes. 48 is still above the PC stop of about 20, so the study does not die, but the published event count is not the analysis-sample event count. 62 percent and 1.41 are also in section 7 and are not in probes.json, despite the sentence that every number here is emitted by that file.</p>
+<blockquote class="blockquote">
+<p><strong>70 articles carry the outcome.</strong> That is enough to fit a count model and not enough to slice finely</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Re-run PA–PC on the P01v2 cache only, after the same PMID, publication-type, and language exclusions P01v2 uses. Replace 4948, 190, 152, 83, and 70 with those numbers. Restrict the emitted-by-probes.json sentence to cells that file actually contains.</p>
+</section>
+<section id="m10.-section-2-says-the-primary-null-is-a-rate-ratio-of-1-and-that-a-rate-ratio-at-or-above-1-would-falsify.-that-is-a-point-" class="level3">
+<h3 class="anchored" data-anchor-id="m10.-section-2-says-the-primary-null-is-a-rate-ratio-of-1-and-that-a-rate-ratio-at-or-above-1-would-falsify.-that-is-a-point-">M10. Section 2 says the primary null is a rate ratio of 1 and that a rate ratio at or above 1 would falsify. That is a point-</h3>
+<p><strong>Reviewer</strong> <code>grok</code> · <strong>Section</strong> 8. Analysis</p>
+<p>Section 2 says the primary null is a rate ratio of 1 and that a rate ratio at or above 1 would falsify. That is a point-estimate rule, not an interval, and it treats 1.01 with a wide interval as falsifying while treating 0.99 with an interval of 0.2 to 4 as confirming. There is no alpha, no smallest effect of interest, and no power calculation for glm.nb. PB’s about-30-matches line is not a detectable-RR grid. The hypothesis promises a matched comparison in the same journals and years; the model is arm plus year_c with no journal term and no matching. year_c is undefined. There is no analyze.R. After screening, events on the stated frame are 48 articles; most of those titles belong to the comparison side of P02, so the exposed cell may be very small.</p>
+<blockquote class="blockquote">
+<p>What would falsify it. A rate ratio at or above 1.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Falsify only if the 95 percent CI lies entirely at or above 1, or state a smallest rate ratio that would still matter and use an equivalence or CI-exclusion rule. Compute power for glm.nb at the P01v2-only event split, including journal clustering. Put journal in the primary model or actually match on journal-year. Write and pin the analysis script, and define year_c.</p>
+</section>
+<section id="m11.-the-table-says-a-missing-retraction-biases-both-arms-toward-the-null-equally.-that-is-true-only-if-both-arms-cite-the-sa" class="level3">
+<h3 class="anchored" data-anchor-id="m11.-the-table-says-a-missing-retraction-biases-both-arms-toward-the-null-equally.-that-is-true-only-if-both-arms-cite-the-sa">M11. The table says a missing retraction biases both arms toward the null equally. That is true only if both arms cite the sa</h3>
+<p><strong>Reviewer</strong> <code>grok</code> · <strong>Section</strong> 9. Threats, and what happened to each</p>
+<p>The table says a missing retraction biases both arms toward the null equally. That is true only if both arms cite the same underlying literature. They do not. Screening exclusions are enriched for clinical systematic reviews, which cite trials; screened meta-research cites methods papers, other meta-research, and a few famous retractions. Retraction Watch gaps in clinical trials then hit the comparison arm harder than the exposed arm, which can produce a rate ratio below 1 with no expertise effect. The same symmetry claim is made for late retraction dates.</p>
+<blockquote class="blockquote">
+<p>A missing retraction biases both arms toward the null equally</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Drop the equal-bias sentence. Treat missing retractions and date error as differential in the direction of the cited-literature mix. Probe cited article types or cited-journal fields by arm, or match on that mix, before claiming the bias is toward the null.</p>
+</section>
+</section>
+<section id="minor-findings" class="level2">
+<h2 class="anchored" data-anchor-id="minor-findings">Minor findings</h2>
+<section id="m1.-numerator-and-denominator-use-different-counting-units.-probes.py-unions-extracted-dois-across-each-article-before-match" class="level3">
+<h3 class="anchored" data-anchor-id="m1.-numerator-and-denominator-use-different-counting-units.-probes.py-unions-extracted-dois-across-each-article-before-match">M1. Numerator and denominator use different counting units. probes.py unions extracted DOIs across each article before match</h3>
+<p><strong>Reviewer</strong> <code>chatgpt</code> · <strong>Section</strong> 3. Design; 6. Outcome; 7. Feasibility</p>
+<p>Numerator and denominator use different counting units. probes.py unions extracted DOIs across each article before matching, so its numerator counts distinct article–DOI pairs; the offset counts reference entries. Recalculation finds 191 reference entries matching Retraction Watch but only 190 distinct article–DOI matches. The reported outcome is therefore not literally the stated reference-level count.</p>
+<blockquote class="blockquote">
+<p>The unit of analysis is one reference; the unit of modeling is one article, with its matchable reference count as the offset.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Preserve reference identifiers and count matched reference entries, deduplicating DOI aliases within each entry. Alternatively, explicitly define a distinct-work outcome and use a corresponding distinct-work denominator.</p>
+</section>
+<section id="m2.-the-60972-figure-counts-normalized-nonempty-field-values-not-exclusively-distinct-dois.-the-code-retains-the-sentinel" class="level3">
+<h3 class="anchored" data-anchor-id="m2.-the-60972-figure-counts-normalized-nonempty-field-values-not-exclusively-distinct-dois.-the-code-retains-the-sentinel">M2. The 60,972 figure counts normalized nonempty field values, not exclusively distinct DOIs. The code retains the sentinel</h3>
+<p><strong>Reviewer</strong> <code>chatgpt</code> · <strong>Section</strong> 5. Measurement</p>
+<p>The 60,972 figure counts normalized nonempty field values, not exclusively distinct DOIs. The code retains the sentinel ‘unavailable’ as a dictionary key. The cached retraction rows contain 3,369 case variants of this sentinel, plus two records with multiple DOI strings that are not split. Crossref explicitly documents unavailable as a missing-value marker in <a href="https://www.crossref.org/documentation/retrieve-metadata/retraction-watch/">its Retraction Watch schema</a>.</p>
+<blockquote class="blockquote">
+<p>Probe PB found 60972 distinct DOIs whose <code>RetractionNature</code> is <code>Retraction</code>;</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Exclude missing-value sentinels, parse multi-identifier fields, validate identifier structure, and deduplicate normalized individual DOIs before reporting registry size or matching references.</p>
+</section>
+<section id="m3.-section-8-calls-sensitivity-analyses-preregistered-despite-the-explicit-status-declaration-that-the-protocol-is-not-regi" class="level3">
+<h3 class="anchored" data-anchor-id="m3.-section-8-calls-sensitivity-analyses-preregistered-despite-the-explicit-status-declaration-that-the-protocol-is-not-regi">M3. Section 8 calls sensitivity analyses preregistered despite the explicit status declaration that the protocol is not regi</h3>
+<p><strong>Reviewer</strong> <code>chatgpt</code> · <strong>Section</strong> 8. Analysis; Status callout</p>
+<p>Section 8 calls sensitivity analyses preregistered despite the explicit status declaration that the protocol is not registered. Prospective plans following an inspected feasibility pilot can be legitimate, but they should not be described as already preregistered. No evidence found that P02’s arm-by-outcome model had already been fitted.</p>
+<blockquote class="blockquote">
+<p>Preregistered sensitivity analyses:</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Use ‘planned sensitivity analyses’ until registration exists. At registration, record the version and timestamp, disclose pilot data already inspected, and distinguish subsequent amendments from the frozen plan.</p>
+</section>
+<section id="m4.-the-status-callout-says-the-protocol-is-not-registered.-agenda.qmd-says-nothing-here-is-registered.-section-8-still-call" class="level3">
+<h3 class="anchored" data-anchor-id="m4.-the-status-callout-says-the-protocol-is-not-registered.-agenda.qmd-says-nothing-here-is-registered.-section-8-still-call">M4. The status callout says the protocol is not registered. Agenda.qmd says nothing here is registered. Section 8 still call</h3>
+<p><strong>Reviewer</strong> <code>grok</code> · <strong>Section</strong> 8. Analysis</p>
+<p>The status callout says the protocol is not registered. Agenda.qmd says nothing here is registered. Section 8 still calls the four sensitivities preregistered. In this project that word is being used to mean written before the model is fitted, which is not what preregistered means.</p>
+<blockquote class="blockquote">
+<p>Preregistered sensitivity analyses:</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Say specified here before the model is fitted, and keep Not registered in the status block.</p>
+</section>
+<section id="m5.-pmid-40156953-is-real-but-young-et-al.-found-3-retracted-publications-among-1617-unique-citations-0.2-percent-and-con" class="level3">
+<h3 class="anchored" data-anchor-id="m5.-pmid-40156953-is-real-but-young-et-al.-found-3-retracted-publications-among-1617-unique-citations-0.2-percent-and-con">M5. PMID 40156953 is real, but Young et al.&nbsp;found 3 retracted publications among 1617 unique citations (0.2 percent) and con</h3>
+<p><strong>Reviewer</strong> <code>grok</code> · <strong>Section</strong> 1. The question</p>
+<p>PMID 40156953 is real, but Young et al.&nbsp;found 3 retracted publications among 1617 unique citations (0.2 percent) and concluded that guideline recommendations are unlikely to be influenced. Section 1 cites it as showing that low-back-pain guidelines cite retracted and predatory work, which inverts the paper’s emphasis.</p>
+<blockquote class="blockquote">
+<p>guidelines for low back pain have been shown to cite retracted and predatory work (PMID 40156953).</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Quote the 3 of 1617 figure and the authors’ conclusion, or drop this citation as evidence of a widespread failure.</p>
+</section>
+</section>
+<section id="the-raw-verdicts" class="level2">
+<h2 class="anchored" data-anchor-id="the-raw-verdicts">The raw verdicts</h2>
+<p><code>data/audit/P02/</code> holds each reviewer’s verdict as returned, the prompt both were given, and <code>adjudicated.json</code>. Nothing on this page is summarized from anything the repository does not also carry in full.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/choxos\.github\.io\/autometaresearch\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Ahmad Sofi-Mahmudi</p>
+</div>   
+    <div class="nav-footer-center">
+<p>Every number is derived by a script. See <a href="../methods.html">How this was done</a>.</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/choxos/autometaresearch/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p><a href="https://github.com/choxos/autometaresearch">Source</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
