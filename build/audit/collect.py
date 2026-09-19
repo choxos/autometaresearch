@@ -25,8 +25,15 @@ VOTES = set(SCHEMA["properties"]["overall_vote"]["enum"])
 SEVERITIES = {"fatal", "major", "minor"}
 
 
-def first_json_object(text):
-    """The first balanced {...} in the text, ignoring braces inside strings."""
+def verdict_object(text):
+    """The LAST balanced {...} carrying an `overall_vote`, ignoring braces inside strings.
+
+    Last, and filtered on the key, because a reviewer transcript may contain the prompt it was
+    given, and the prompt carries the schema. Taking the first object found returned the
+    schema and failed validation on every required key at once, which is at least a loud
+    failure rather than a quiet one.
+    """
+    out = []
     start = text.find("{")
     while start != -1:
         depth, in_str, esc = 0, False, False
@@ -48,11 +55,14 @@ def first_json_object(text):
                 depth -= 1
                 if depth == 0:
                     try:
-                        return json.loads(text[start:i + 1])
+                        obj = json.loads(text[start:i + 1])
+                        if isinstance(obj, dict) and "overall_vote" in obj:
+                            out.append(obj)
                     except json.JSONDecodeError:
-                        break
+                        pass
+                    break
         start = text.find("{", start + 1)
-    return None
+    return out[-1] if out else None
 
 
 def validate(v, reviewer, doc_id):
@@ -89,12 +99,22 @@ def main():
     if len(sys.argv) != 4:
         sys.exit("usage: collect.py <raw_output_path> <reviewer> <document_id>")
     raw_path, reviewer, doc_id = sys.argv[1:4]
+    # A reviewer whose structured-output request was rejected writes no last-message file but
+    # still leaves a transcript, and the verdict is usually in it. Fall back rather than
+    # crashing with a traceback, which is what the first version did.
+    if not os.path.exists(raw_path):
+        alt = raw_path.replace("/raw-", "/transcript-")
+        if os.path.exists(alt):
+            print(f"note: {raw_path} absent, reading {alt}", file=sys.stderr)
+            raw_path = alt
+        else:
+            sys.exit(f"no output from this reviewer: neither {raw_path} nor {alt} exists")
     text = open(raw_path, encoding="utf8", errors="ignore").read()
     # Strip a fence if there is one; first_json_object handles the rest.
     text = re.sub(r"```(?:json)?", "", text)
-    v = first_json_object(text)
+    v = verdict_object(text)
     if v is None:
-        sys.exit(f"no parseable JSON object in {raw_path} ({len(text)} bytes)")
+        sys.exit(f"no JSON object carrying overall_vote in {raw_path} ({len(text)} bytes)")
     errs = validate(v, reviewer, doc_id)
     if errs:
         sys.exit("verdict failed validation:\n  " + "\n  ".join(errs))

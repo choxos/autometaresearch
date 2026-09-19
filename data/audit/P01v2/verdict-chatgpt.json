@@ -1,0 +1,79 @@
+{
+ "document_id": "P01v2",
+ "reviewer": "chatgpt",
+ "overall_vote": "unsound",
+ "confidence": 0.98,
+ "rationale": "Pinned outcome instruments demonstrably misclassify real disclosures, and validation cannot detect important extraction failures. Power and null-result interpretations also exceed what calculations establish. Frame counts and all 15 power-grid cells reproduced; no residual tier A overlap was found by PMID, DOI, or PMCID. Screening yields, human agreement, and power for the specified mixed model remain unverified. Python extractor functions were executed; R execution was blocked by read-only temporary-file restrictions, so grading was checked through source inspection and a Python translation reproducing all six P4 counts. Literature searches did not establish an exact prior study duplicating this comparison.",
+ "findings": [
+  {
+   "section": "6.1 Extraction; 9. Threats, and what happened to each",
+   "severity": "fatal",
+   "problem": "Outcome ascertainment confounds disclosure with publisher XML placement. Executing the pinned extractor on PMC5808091, an exposed article, and PMC6092896, a comparison article, returned empty statements and route 'none', although both contain their own repository disclosures inside <body>. Moving the identical sections into <back> in memory made extraction succeed. Their disclosures are independently visible in the [metabolomics article](https://pmc.ncbi.nlm.nih.gov/articles/PMC5808091/) and [predatory-journal review](https://f1000research.com/articles/7-1001/v1). Excluding body content removes some false positives by introducing demonstrable false negatives. The threat is not removed.",
+   "what_would_fix_it": "Identify articles' own availability statements across JATS locations while distinguishing disclosures from methods and results discussing availability. Validate extraction against complete articles across both arms and publisher formats, including records currently classified 'none', then freeze the corrected instrument.",
+   "quote": "That code searches `<front>` and `<back>` only, never `<body>`"
+  },
+  {
+   "section": "6.1 Extraction; 6.2 Grading",
+   "severity": "major",
+   "problem": "Pinned code does not implement the stated locator rule. The extractor's _text() retains visible text but discards xlink:href targets. For PMC10202448, it retains 'GitHub repository' while losing the repository URL; REPO matches github.com rather than the bare repository name, producing 'declarative' under the pinned rules. Separately, grade_one(s) receives no article DOI or canonical URL, so it cannot exclude the article's own identifiers. Its locator filter removes only an incomplete DOI-URL prefix, not matching article identifiers.",
+   "what_would_fix_it": "Preserve hyperlink targets and relevant data citations; pass normalized article identifiers into grading; distinguish article links from data/code locators. Verify these boundaries with real disclosures and negative examples before repinning.",
+   "quote": "a named repository, or a DOI or URL that is not the article's own"
+  },
+  {
+   "section": "5. Exposure; 9. Threats, and what happened to each",
+   "severity": "major",
+   "problem": "Query membership has no demonstrated validity as an instrument for research subject. The datashare query matches phrases such as 'code availability' and 'open data' in titles, abstracts, and keywords without distinguishing an article studying sharing from one describing its own sharing. P6 validates meta-research eligibility, not this distinction. Outcome-related sharing language could therefore increase the probability of exposure classification, producing differential error and potentially inflating the association. Reproducibility of a query establishes neither construct validity nor bias toward the null.",
+   "what_would_fix_it": "Validate exposure against a blinded human assessment of research subject, including incidental mentions and descriptions of authors' own sharing. Assess errors by outcome and arm. Alternatively, narrow the objective to association with query vocabulary and remove the asserted bias direction.",
+   "quote": "it is reproducible from a query string, and its misclassification is toward the null."
+  },
+  {
+   "section": "6.3 Validation of the grading rule; 10. The probes that must run before this is a protocol",
+   "severity": "major",
+   "problem": "P7 validates grading conditional on successful extraction, not ascertainment of the primary outcome. The supplied p7-grading-sample.csv contains 150 nonempty statements; the grading translation classifies 133 as declarative and 17 as actionable, with zero 'none' records. A person seeing only extracted text cannot discover omitted body statements or discarded hyperlink targets. Consequently, even perfect kappa could coexist with systematic, publisher-dependent false negatives in the analysis population.",
+   "what_would_fix_it": "Add an end-to-end validation sample of complete articles, including extraction negatives and each extraction route. Have humans independently identify and grade disclosures. Report actionable-outcome sensitivity and specificity by arm, alongside agreement, and make those results govern instrument acceptance.",
+   "quote": "150 statements, stratified by rule grade, are graded by the author, blind to the article's exposure and to the rule's grade."
+  },
+  {
+   "section": "6.3 Validation of the grading rule",
+   "severity": "major",
+   "problem": "The proposed hand-graded co-primary analysis changes the population and estimand. P7 excludes every article without an extracted statement, although those articles belong in the primary outcome's negative category. It also samples by rule grade. An unweighted analysis of these records does not reproduce the association among all eligible articles. The actual file contains only 19 exposed articles and 17 rule-positive outcomes before eligibility screening, so it cannot inherit section 7's power claims.",
+   "what_would_fix_it": "Use a representative, adequately sized hand-assessed article sample that includes extraction negatives. If sampling is stratified, specify nonzero inclusion probabilities and an appropriate analysis. Define the co-primary decision rule and calculate its power separately.",
+   "quote": "the primary analysis is repeated on the hand-graded subsample alone as a co-primary, with both reported together regardless of whether they agree."
+  },
+  {
+   "section": "8. Analysis, sensitivity analysis 6; 9. Threats, and what happened to each",
+   "severity": "major",
+   "problem": "Fully open-access publication does not imply complete PMC deposition. NCBI distinguishes full participation, NIH-portfolio participation, and selective deposit; even full participation starts at a specified publication date. Thus the proposed restriction does not establish equal or complete ascertainment. See [PMC participation agreements](https://pmc.ncbi.nlm.nih.gov/pub/agreements/). Moreover, higher marginal PMC coverage in the exposed arm does not identify the direction of selection bias in the exposure-outcome association, contrary to section 9's assertion that it favors the hypothesis.",
+   "what_would_fix_it": "Base this sensitivity on verified journal-year PMC coverage and usable XML availability, rather than open-access status alone. Remove the guarantee that selection cannot operate and the unsupported claim about its direction; state the restricted target population explicitly.",
+   "quote": "Within a fully open-access journal every article is in PMC, so the differential selection that P2 exposed cannot operate."
+  },
+  {
+   "section": "7. Sample size and power",
+   "severity": "major",
+   "problem": "Computed grid values do not establish the advertised power. probes.R solves an independent two-proportion normal approximation, whereas the primary analysis estimates a journal-conditional odds ratio with year adjustment. It does not model journal clustering, exposure concentration, or screening losses separately by arm. Even its own approximation contradicts detection across OR 1.5\u20133: the worst cell requires OR 2.18, and OR 1.5 has approximately 30.5% power at baseline 0.038 and yield 0.5. Comparing R01's 0.205 with this different frame's 0.0384 also does not establish a lower bound on the screened baseline.",
+   "what_would_fix_it": "Calculate power for the planned mixed model using journal composition and separately justified screening yields for each arm. Include uncertainty in the screened baseline and validation fallbacks. Select a smallest effect of interest and report scenarios that fail to achieve its target power.",
+   "quote": "The design detects effects across that entire band"
+  },
+  {
+   "section": "2. Objective and hypothesis; 7. Sample size and power",
+   "severity": "major",
+   "problem": "A confidence interval containing 1 neither falsifies a positive association nor establishes absence. The same interval can include substantial positive effects. Even a genuinely 80%-powered test fails to reject its null in about 20% of repetitions at the planning alternative. Power calculations do not turn nonsignificance into an equivalence test. The proposed rule could therefore label an inconclusive result as evidence against the hypothesis.",
+   "what_would_fix_it": "Prespecify a scientifically meaningful effect threshold and interpret the confidence interval against that threshold. Use an appropriate equivalence or effect-exclusion criterion for absence claims; classify sufficiently wide intervals as inconclusive.",
+   "quote": "An adjusted odds ratio whose 95 percent confidence interval includes 1, in a sample powered as in section 7."
+  },
+  {
+   "section": "Status callout; 1. Why this design exists; 7. Sample size and power; 8. Analysis",
+   "severity": "major",
+   "problem": "Outcome analysis has already occurred: P4 tabulates actionable outcomes by exposure, reporting 95/520 versus 132/3435, which reveals a crude odds ratio of approximately 5.59. Absence of a fitted regression does not make these outcomes unseen. Section 8 also calls analyses preregistered while the status says 'Not registered'. The earlier e725b073034c4a777acbd1c10a375291be65e314 version already specified the primary model, so this is not evidence that the primary hypothesis was invented afterward; it is evidence that the account of prior outcome access is inaccurate.",
+   "what_would_fix_it": "Provide an accurate timeline of specification, retrieval, arm-specific outcome summaries, and subsequent decisions. Distinguish pre-probe specifications from post-probe additions. Any decisions revised using these outcomes require an untouched evaluation sample for a prospective confirmatory claim, or explicit exploratory labeling.",
+   "quote": "No outcome has been analyzed under this protocol."
+  },
+  {
+   "section": "13. Availability; 8. Analysis",
+   "severity": "major",
+   "problem": "The claimed executable analysis does not implement P01v2. The pinned R01 analyze.R hardcodes R01 input paths, derives exposure from topic_datashare rather than the new frame's arm definition, retains article-type adjustment, and lacks P01v2 screening/validation branches and sensitivities 3, 5, and 6. The confirmatory directory contains probe code, not an analysis driver implementing the stated protocol. Running the identified analysis unchanged would analyze the wrong sample under the wrong specification.",
+   "what_would_fix_it": "Provide and pin a P01v2 analysis driver implementing the declared sample, exposure, validation contingencies, primary and secondary models, and all six sensitivities. Include reproducible sample-generation procedures and a documented command that consumes the confirmatory inputs.",
+   "quote": "The analysis code that will run is already written and public; it is the code that produced R01, and section 6 pins it."
+  }
+ ]
+}

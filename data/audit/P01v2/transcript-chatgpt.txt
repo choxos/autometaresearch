@@ -1,50 +1,162 @@
+Reading prompt from stdin...
+OpenAI Codex v0.155.1
+--------
+workdir: /Users/choxos/Documents/GitHub/autometaresearch
+model: gpt-6-astra
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: max
+reasoning summaries: none
+session id: 01a0babf-ab3c-7973-81a2-ed4b44b42011
+--------
+user
+You are reviewing a research document as an adversarial peer reviewer.
+
+Your job is to refute it. Assume it is wrong somewhere and find where. A review that returns
+no findings is a valid answer, but return it only after having genuinely tried to break the
+document, not as a default.
+
+What to attack, in rough order of how much damage each does if you are right:
+
+1. Does the design measure what it says it measures? Look hardest at the instruments: how the
+   exposure is defined, how the outcome is extracted, and whether either could be capturing
+   an artifact of the data source rather than the thing of interest.
+2. Is the sample what the document says it is? Check for overlap with a sample it claims to
+   be independent of, for selection that differs between arms, and for exclusions applied
+   after the data were seen.
+3. Are stated numbers computed or asserted? A number that appears in prose and in no code is
+   a number nobody checked. Say which ones you cannot verify.
+4. Does the analysis answer the stated hypothesis? Look for a model whose coefficient does
+   not mean what the prose says it means, for adjustment that absorbs the effect being
+   measured, and for a null that could not have been detected at the stated sample size.
+5. Is anything claimed as preregistered that was actually decided later?
+6. Is the prior literature represented fairly, and is the novelty claim true? If you can name
+   published work that already does this, that is the single most valuable finding you can
+   return.
+
+Rules that decide whether your findings count:
+
+- **Name the section** each finding is against. A finding with no section is downgraded to
+  minor by the adjudication rule, because an objection that does not attach to text cannot be
+  acted on.
+- **State what would fix it** for anything you mark fatal or major. Same downgrade otherwise.
+- **Quote the document verbatim** where you can. A quote is what distinguishes an evidenced
+  objection from an opinion, and under the adjudication rule an evidenced fatal finding blocks
+  the document even if the other reviewer votes it sound.
+- Do not invent a citation. If you believe prior work exists but cannot name it precisely,
+  say that in the rationale rather than inventing a reference.
+
+Return ONLY a JSON object matching this schema. No prose before or after, no markdown fence.
+
+
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Reviewer verdict on one document",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "document_id",
+  "reviewer",
+  "overall_vote",
+  "confidence",
+  "rationale",
+  "findings"
+ ],
+ "properties": {
+  "document_id": {
+   "type": "string"
+  },
+  "reviewer": {
+   "type": "string"
+  },
+  "overall_vote": {
+   "description": "Is the document sound as written?",
+   "enum": [
+    "sound",
+    "sound-with-required-changes",
+    "unsound",
+    "abstain"
+   ]
+  },
+  "confidence": {
+   "type": "number",
+   "minimum": 0,
+   "maximum": 1
+  },
+  "rationale": {
+   "type": "string"
+  },
+  "findings": {
+   "type": "array",
+   "description": "Every objection. An empty array is a valid and meaningful answer.",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "section",
+     "severity",
+     "problem",
+     "what_would_fix_it"
+    ],
+    "properties": {
+     "section": {
+      "type": "string",
+      "description": "The section number or heading the finding is against. A finding that cannot name one is downgraded to minor, because an objection that does not attach to text cannot be acted on."
+     },
+     "severity": {
+      "description": "fatal: the document cannot proceed as written. major: a stated conclusion would be wrong or unsupported. minor: it would be better changed. Anything at major or above must state what would fix it or it is downgraded.",
+      "enum": [
+       "fatal",
+       "major",
+       "minor"
+      ]
+     },
+     "problem": {
+      "type": "string"
+     },
+     "what_would_fix_it": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Required for fatal and major. A finding at those levels with null here is downgraded to minor by the adjudication rule."
+     },
+     "quote": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Verbatim text from the document the finding is against, or from a cited source that contradicts it. Optional, and it is what distinguishes an evidenced objection from an opinion."
+     }
+    }
+   }
+  }
+ }
+}
+
+Set "document_id" to exactly: P01v2
+
+==============================================================================
+THE DOCUMENT UNDER REVIEW
+==============================================================================
+
 ---
 title: "Advocacy and practice in meta-research: protocol"
 description: "Confirmatory protocol for P01 on an independent sample. Feasibility probes computed; two validation gates need human labels; awaiting peer review."
 id: P01v2
 supersedes: P01
-status: blocked-by-review
+status: protocol-pending-validation
 proposed_by: "Claude Opus 5"
 date: 2026-09-16
-reviewed: 2026-09-19, both reviewers, blocked
+reviewed: none
 unit: "Meta-research articles about research practice, with PMC full text"
 data_source: "PubMed and PMC via NCBI E-utilities; the qualified tier B frame"
 categories: [protocol, datashare, confirmatory]
 ---
 
 ::: {.callout-important appearance="simple"}
-## Status: BLOCKED BY REVIEW on 2026-09-19. Do not run this.
-
-Both reviewers returned **unsound**. Three fatal findings and nineteen major, every severe one
-carrying a verbatim quote. The full review is at [reviews/P01v2](../reviews/P01v2.qmd) and the
-verdict is `blocked`, which under the adjudication rule means an evidenced fatal finding stands
-unrebutted.
-
-**The two fatal findings were verified against primary source before publication, and both are
-correct.**
-
-1. **This is not a confirmatory protocol and calling it one was wrong.** Probe P4 tabulated the
-   primary outcome by arm on the confirmatory sample: 95 of 520 exposed against 132 of 3435
-   comparison, a crude odds ratio near 5.6. The hypothesis has already been looked at on this
-   data. Running the planned model now would be confirming something already seen. Both
-   reviewers found this independently, and it is the same class of error R01 was reclassified
-   for, made again one document later while explicitly trying to avoid it.
-
-2. **The outcome instrument has false negatives in both directions.** PMC5808091 and PMC6092896
-   both carry a data availability statement and the pinned extractor returns nothing for them,
-   because their statement is in `<body>` and extraction was restricted to `<front>` and
-   `<back>`. That restriction was added to fix the contamination artifact documented in R01,
-   and the cost of the fix was never measured. Separately, `_text()` keeps an `ext-link`'s
-   visible text and discards its `xlink:href`, so PMC10202448's statement reads
-   "on the associated GitHub repository (" with the URL gone, and a real deposit grades
-   declarative.
-
-The document below is left exactly as reviewed. It is the record of what was submitted, not a
-corrected version, and a successor protocol will be a new document.
-:::
-
-::: {.callout-note appearance="simple"}
-## What the document claimed when it was submitted
+## Status: protocol. Feasibility computed. Two validation gates outstanding. Not registered.
 
 Written against the sibling project's `studies/DESIGN-STANDARD.md`, whose governing rule is
 that **the difference between a design and a protocol is a set of computed numbers**. An
@@ -414,3 +526,64 @@ computed. A deviation is not a failure; concealing one is.
 
 Protocol, code, extracted data and outputs are in the repository at commit `158164be700a596610a074533e6509ce142a6774`. The analysis code that will run is already written and public; it is the code
 that produced R01, and section 6 pins it.
+
+
+warning: loading hooks from both /Users/choxos/.codex/hooks.json and /Users/choxos/.codex/config.toml; prefer a single representation for this layer
+warning: clamping SessionEnd hook timeout to 3s in /Users/choxos/.codex/plugins/cache/openai-codex/codex/1.0.6/hooks/hooks.json
+warning: Exceeded skills context budget. All skill descriptions were removed and 30 additional skills were not included in the model-visible skills list.
+hook: SessionStart
+hook: SessionStart
+hook: SessionStart
+hook: SessionStart
+hook: SessionStart
+hook: SessionStart
+hook: SessionStart
+hook: SessionStart
+hook: SessionStart
+hook: SessionStart
+hook: SessionStart
+hook: SessionStart
+hook: SessionStart Completed
+hook: SessionStart Completed
+hook: SessionStart Completed
+hook: SessionStart Completed
+hook: SessionStart Completed
+hook: SessionStart Completed
+hook: SessionStart Completed
+hook: SessionStart Completed
+hook: SessionStart Completed
+hook: SessionStart Completed
+hook: SessionStart Completed
+hook: SessionStart Completed
+hook: UserPromptSubmit
+hook: UserPromptSubmit
+hook: UserPromptSubmit
+hook: UserPromptSubmit
+hook: UserPromptSubmit
+hook: UserPromptSubmit
+hook: UserPromptSubmit Completed
+hook: UserPromptSubmit Completed
+hook: UserPromptSubmit Completed
+hook: UserPromptSubmit Completed
+hook: UserPromptSubmit Completed
+hook: UserPromptSubmit Completed
+ERROR: {
+  "type": "error",
+  "error": {
+    "type": "invalid_request_error",
+    "code": "invalid_json_schema",
+    "message": "Invalid schema for response_format 'codex_output_schema': In context=('properties', 'findings', 'items'), 'required' is required to be supplied and to be an array including every key in properties. Missing 'quote'.",
+    "param": "text.format.schema"
+  },
+  "status": 400
+}
+ERROR: {
+  "type": "error",
+  "error": {
+    "type": "invalid_request_error",
+    "code": "invalid_json_schema",
+    "message": "Invalid schema for response_format 'codex_output_schema': In context=('properties', 'findings', 'items'), 'required' is required to be supplied and to be an array including every key in properties. Missing 'quote'.",
+    "param": "text.format.schema"
+  },
+  "status": 400
+}

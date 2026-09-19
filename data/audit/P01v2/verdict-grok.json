@@ -1,0 +1,121 @@
+{
+ "document_id": "P01v2",
+ "reviewer": "grok",
+ "overall_vote": "unsound",
+ "confidence": 0.88,
+ "rationale": "PMID exclusion of the 205 tier A records is real. I found no leftover overlap by PMID, PMCID, DOI, or title, so the article set is not R01's. Section 4.1 block counts match the 2026-09-16 PubMed search log, and the section 7 n's match probes.json. The extractor is imported rather than copied. Those parts hold. The confirmatory claim does not. P3 and P4 already fetched and graded the confirmatory full-text frame by arm (95/520 versus 132/3435; crude odds ratio 5.59), and section 7 publishes both rates. That is an exposure-by-outcome look, even without glmer. Section 7 then overstates what a null can mean: the grid does not detect 1.5 in the worst cell, power is an unclustered two-proportion test rather than the mixed model, and it assumes the same screening yield in both arms. The unlabeled P6 titles are mostly clinical reviews in the comparison arm and database or resource papers in the exposed arm, so yield 0.5 is not a floor and yield is not common across arms. The written grading rule does not match grade.R, P7 is not stratified by grade, screening is unpinned, and section 13 points at R01's analyzer, which is a different model. I looked for a published empirical test of this same topic-versus-own-statement contrast and did not find one. Cristea, Naudet, and Caquelin 2022 (PMID 35623542) is a commentary that meta-researchers should evaluate their own sharing; it is not this analysis.",
+ "findings": [
+  {
+   "section": "Status: protocol",
+   "severity": "fatal",
+   "problem": "The document presents itself as a confirmatory protocol whose hypothesis has not been tested on this sample. Probes P3 and P4 already fetched PMC full text for the confirmatory frame, graded every full-text record under the pinned rule, and wrote per-arm counts into probes.json and p4-grades.csv. Section 7 then publishes both rates: 18.3 percent actionable among 520 exposed records versus 3.8 percent among 3435 comparison records (95/520 versus 132/3435; odds ratio 5.59). No mixed model is required for that to be a look at the exposure-outcome association. Section 10 describes P4 as the comparison-arm grade distribution; the code and the protocol both report the exposed arm as well. The author who will adjudicate screening disagreements has seen the direction and size of the association. Calling this a confirmatory protocol with unseen outcomes is false.",
+   "what_would_fix_it": "Drop the confirmatory label. State that P3 and P4 were an outcome-by-exposure pilot on the unscreened frame. Freeze any remaining screening or analysis choice that those rates could still influence. Register the revised protocol before P6 and P7 labeling and before screening the frame.",
+   "quote": "No outcome has been analyzed under this protocol. The probes measured the frame and the instruments; they did not test the hypothesis, and no exposure-by-outcome model has been fitted on this sample."
+  },
+  {
+   "section": "1. Why this design exists",
+   "severity": "fatal",
+   "problem": "Section 1 says this is a confirmatory test with every instrument fixed before any data are retrieved. The confirmatory sample has already been retrieved, extracted, and graded. What was frozen is the R01 extractor and grading rule. The data of this study were not unseen when this page was written. The same commit that pins the code also ran the probes.",
+   "what_would_fix_it": "Replace the sentence with the actual timeline: R01 instruments frozen, then this frame harvested and graded for feasibility, then this protocol written from those numbers. That is a protocol after a pilot, not a confirmatory test with unseen data.",
+   "quote": "This specifies a confirmatory test of the same hypothesis, on a sample R01 did not use, with every instrument fixed before any data are retrieved."
+  },
+  {
+   "section": "2. Objective and hypothesis",
+   "severity": "major",
+   "problem": "The protocol says a 95 percent CI that includes 1, in a sample powered as in section 7, can be read as evidence of absence. Power to detect an odds ratio of 2.18 at 80 percent is not power to rule out 1.5, and it is not an equivalence test. There is no smallest effect size of interest and no TOST or CI-exclusion rule against a margin. A CI that includes 1 can still include the 1.5 to 3 band the protocol calls consistent with R01. The mixed model in section 8 is also less powered than the two-proportion calculation in section 7, because data-availability statements cluster by journal. The objective also names 'research transparency' as the exposure, while section 5 puts reporting, registration, and reproducibility in the unexposed arm. Those are transparency topics. The estimand is data-and-code-sharing vocabulary versus three other quality topics, not transparency versus other research practice.",
+   "what_would_fix_it": "State a smallest odds ratio that would still matter. Falsify only if the 95 percent CI lies entirely below that margin, or run a preregistered equivalence test. Recompute power for glmer with (1 | journal) under a plausible ICC. Delete the claim that a null here is evidence of absence. Rewrite the objective to match the datashare-block exposure.",
+   "quote": "Section 7 fixes the power in advance so that a null can be read as evidence of absence rather than absence of evidence, which was not true of R01."
+  },
+  {
+   "section": "7. Sample size and power",
+   "severity": "major",
+   "problem": "Three power claims fail on the protocol's own numbers and files. First, section 2 says 1.5 to 3 would be consistent with R01 and section 7 says the design detects that entire band. On the protocol's grid, at yield 0.5 and baseline 0.038 the detectable OR is 2.18, so 1.5 is not detectable in the cell treated as worst case. Second, the grid never goes below yield 0.5 and applies the same yield to both arms. The unlabeled P6 titles are not a 50 percent meta-research sample, and the mix differs by arm: comparison titles are mostly clinical systematic reviews pulled by PRISMA/CONSORT phrases plus 'we searched PubMed'; exposed titles include database papers, resource descriptions, and clinical work that mentions data sharing. Scientific Data alone is 17 exposed and 1 comparison in the full-text frame. Screening that removes data journals from the exposed arm (lowering the exposed rate) and clinical reviews from the comparison arm (raising the comparison rate) moves the two rates in opposite directions. The power calculation never allows that. Third, probes.R solves an independent two-proportion normal approximation, not the primary glmer.",
+   "what_would_fix_it": "Treat the P6 file as a yield probe, including yield by arm, before claiming power. Rebuild the grid down to the observed yields. If the worst-case detectable OR exceeds the protocol's own P5 threshold of about 2.5, widen the frame or drop the claims that the design detects 1.5 and that a null rules something out. Compute power for the mixed model.",
+   "quote": "The design detects effects across that entire band, which is the property R01 lacked: its floor was roughly 3.7, so it could only ever have seen an effect as large as the one it reported."
+  },
+  {
+   "section": "5. Exposure",
+   "severity": "major",
+   "problem": "The protocol asserts that query misclassification is toward the null. That is true only if errors are independent of the outcome. The datashare block matches 'data sharing', 'open data', 'code availability', and 'data availability statement' in title, abstract, and keywords. Those phrases also appear when authors describe their own sharing rather than a study of sharing. P6 checks meta-research eligibility, not this distinction. Outcome-related sharing language can raise the chance of being classed exposed, which is differential error and can inflate the association. Reproducibility of a query is not construct validity and does not establish bias toward the null. R01 compared datashare labels with all other tier A topics. This protocol compares the datashare block with only report, reg, and repro, which is a different estimand.",
+   "what_would_fix_it": "Validate exposure against a blinded human judgment of subject, including incidental mentions of the authors' own sharing, and report error rates by outcome. If that is not done, narrow the objective to association with query membership and withdraw the toward-the-null claim. If the comparison is meant to be all other meta-research, include the other qualified blocks or say why they were dropped.",
+   "quote": "it is reproducible from a query string, and its misclassification is toward the null."
+  },
+  {
+   "section": "9. Threats, and what happened to each",
+   "severity": "major",
+   "problem": "Section 9 says report, reg, and repro were picked because they are the other large qualified blocks. That is false. methods.qmd, measured the same day, gives biblio 16265 qualified hits, larger than any of the three; oa (1050) and retract (637) are both larger than repro (229 in the frame, 241 in methods). The chosen comparison is three research-quality topics, not 'the other large' ones. R01's comparison was every other topic in tier A. A confirmatory test of the same hypothesis cannot silently change the control population and then misdescribe the reason.",
+   "what_would_fix_it": "State the estimand as datashare versus reporting, registration, and reproducibility, and give the real reason biblio, oa, retract, and peerrev were omitted. Add a preregistered sensitivity that uses the other qualified blocks, or stop calling this the same comparison as R01.",
+   "quote": "`report`, `reg` and `repro` were picked because they are the other large qualified blocks, not because of any result"
+  },
+  {
+   "section": "6.2 Grading",
+   "severity": "major",
+   "problem": "The written rule grades a DOI or URL as actionable only when it is not the article's own DOI, and it claims to reproduce grade.R in full. grade_one() takes only the statement string. It never receives the article DOI. The filter loc[!str_detect(loc, 'doi.org/10.[0-9]{4,9}/$')] drops only a DOI URL with an empty suffix, not this article's DOI and not the journal site, despite the comment in grade.R. On the confirmatory frame, 38 of 227 actionable grades are URL or DOI without a named repository (12 exposed, 26 comparison). Separately, extract._text() uses itertext() and discards xlink:href, so a 'GitHub repository' link whose visible text lacks github.com cannot match REPO. The numbered tests also omit the IN_ARTICLE check that the code runs after the URL test.",
+   "what_would_fix_it": "Pass each article's DOI and host into the grader and drop matching locators, or change test 4 to match the code. Preserve hyperlink targets in extraction. Pin the revised functions and re-run P4 and P7.",
+   "quote": "A DOI or URL present that is not the article's own DOI: **actionable**."
+  },
+  {
+   "section": "6.3 Validation of the grading rule",
+   "severity": "major",
+   "problem": "P7 is described as 150 statements stratified by rule grade. p7-grading-sample.csv has 150 non-empty statements, 0 empties, and under the pinned rule 17 actionable and 133 declarative. Equal strata on three grades would be about 50 each, including none. Equal strata on the two non-none grades would be about 75 and 75. 17/133 matches a simple random sample of extracted statements (frame: 227 actionable of 1688 statements, 13.4 percent; P7: 11.3 percent). The most common analysis grade, none, is unvalidated, so P7 cannot detect extraction false negatives. Kappa on 17 actionable items is a noisy gate for the 0.80 and 0.60 thresholds. No script in the repository produces this file.",
+   "what_would_fix_it": "Draw 50 none, 50 declarative, and 50 actionable, or draw a prevalence-weighted sample and say so. Put the sampler in the repo. Report kappa for the primary binary (actionable versus not) on a sample that includes none. Add an end-to-end check of complete articles so missing front/back statements can be found.",
+   "quote": "150 statements, stratified by rule grade, are graded by the author, blind to the article's exposure and to the rule's grade."
+  },
+  {
+   "section": "4.3 Screening",
+   "severity": "major",
+   "problem": "The screening instrument is not pinned. extract.py is pinned to a commit hash; screening is 'two models from different providers' with no model names, no prompt, no temperature, and no code path. Section 10 then allows P6 to use a single model while a reviewer is quota-blocked. Dual-review screening cannot run in that state, and single-model screening is not one of the stated fallbacks (the stated fallback is author screening of a subsample). The 200-record file is not a simple random sample across the four blocks: p6-key.csv is 60 exposed and 140 comparison, and by block it is datashare 60, report 47, reg 91, repro 4. Eligible counts are 704, 2234, 4263, and 207. Reproducibility screening is almost unmeasured. The author is not blind to arm or to the P4 association when adjudicating disagreements; outcomes already exist in frame-statements.csv.",
+   "what_would_fix_it": "Pin model names, the full screening prompt, and decoding settings at a commit hash, as was done for extract.py. Describe the actual P6 sampling rule. If only one model is available, use the written fallback (author-screened subsample, power recomputed). Keep author adjudication blind to arm and to P4 grades.",
+   "quote": "Screening is on title and abstract, by two models from different providers, each given the same written criterion and blind to the other."
+  },
+  {
+   "section": "8. Analysis",
+   "severity": "major",
+   "problem": "Sensitivity 6 is the analysis meant to block differential PMC selection, but 'fully open-access journal' is undefined, and the supporting sentence is false: gold OA is not the same as PMC deposit, and PMC also holds author manuscripts from hybrid journals. Sensitivity 3 restricts to journals with at least 10 articles in each arm. In the full-text frame that is 4 journals (BMJ Open, PLOS ONE, Journal of medical Internet research, F1000Research). Scientific Data, 17 exposed and 1 comparison, is dropped, so this is not a general within-journal estimate. Article type is omitted because comments were excluded; R01's remaining review-versus-research split is still in the data and is no longer adjusted. There is no P01v2 analyze.R. year_c is not defined (R01 used year minus 2020). Sensitivity 4 says authorship; R01 matched 'choxos|sofi-mahmudi' in the statement. The multiplicity paragraph says five sensitivities; there are six.",
+   "what_would_fix_it": "Write and pin the analysis script that implements section 8. Define sensitivity 6 with an operational PMC rule, for example journals whose articles in this frame are 100 percent PMC, and do not equate OA with PMC. Probe how many journals pass the 10-per-arm rule and either drop sensitivity 3 or use all journals that published both arms. Decide whether residual article type stays in the primary model. Count six sensitivities.",
+   "quote": "Within a fully open-access journal every article is in PMC, so the differential selection that P2 exposed cannot operate."
+  },
+  {
+   "section": "9. Threats, and what happened to each",
+   "severity": "major",
+   "problem": "Section 9 asserts that differential PMC coverage favors the hypothesis. Section 12 says the direction of bias on the between-arm comparison is not obvious and is not claimed toward the null. Both cannot stand. If topic and latent open-science practice both send papers into PMC, conditioning on PMC opens a collider path and typically biases the comparison toward the null, which is the opposite of section 9. The 20-point PMC gap is large enough that this is not a side issue. The same table marks the body-extraction artifact as Removed. Front and back only removes the false positives documented in R01; it leaves false negatives when the true statement lives in body, and _text() never reads hyperlink targets. That threat was traded, not removed.",
+   "what_would_fix_it": "Pick one account of the PMC bias and make the analysis that removes differential selection the primary, with the journal-year rule defined before seeing outcomes. Keep the current model as a sensitivity. Align sections 9 and 12. Change the extractor row from Removed to disclosed, and quantify body-only statements on this frame.",
+   "quote": "Arms are differentially selected into the analysis set and the direction favors the hypothesis."
+  },
+  {
+   "section": "12. What this design still cannot do",
+   "severity": "major",
+   "problem": "Section 12 calls the qualified frame a high-precision slice. The qualifier includes 'publications' and 'we searched PubMed', and the report block includes PRISMA and CONSORT phrases, which is how ordinary clinical reviews enter. That is a precision failure, not only the recall failure section 12 describes. The P6 titles are the evidence. High precision is what screening was supposed to earn, not a property of the harvested frame.",
+   "what_would_fix_it": "Describe the qualified frame as high-recall for papers that mention literature-search boilerplate and low-precision for meta-research. Put the precision claim only after screening, and only if P6 kappa and yield support it.",
+   "quote": "The sample is a high-precision slice of the field, not the field."
+  },
+  {
+   "section": "13. Availability",
+   "severity": "major",
+   "problem": "Section 13 says the analysis code that will run is already written and is the code that produced R01. studies/P01-advocacy-and-practice/R/analyze.R fits art_type, does not exclude comments and editorials up front, derives exposure from topic_datashare, does not implement sensitivities 3, 5, or 6, and flags the author's papers by a repository-name regex in the statement. There is no analyze.R under studies/P01v2-confirmatory/. The primary model in section 8 is a different model. Running the identified script would analyze the wrong sample under the wrong specification.",
+   "what_would_fix_it": "Write and pin the analysis script that implements section 8, including the six sensitivities, the eligibility rules, and an operational rule for the author's papers. Do not point at R01's analyzer as the code that will run.",
+   "quote": "The analysis code that will run is already written and public; it is the code that produced R01, and section 6 pins it."
+  },
+  {
+   "section": "10. The probes that must run before this is a protocol",
+   "severity": "major",
+   "problem": "P3's stated design-change rule is a route distribution unlike tier A's. R01 title-matching routes were about three times as common in the exposed arm. On this frame, among full-text records, title-matching routes are 5.0 percent exposed (26/520) and 9.3 percent comparison (318/3435): the imbalance reversed. The protocol never reports that comparison and does not say why it does not change the design. P4's stated output is the comparison-arm grade distribution; the probe and section 7 both emit the exposed arm as well.",
+   "what_would_fix_it": "Report the P3 route table against R01, and either justify keeping the design or add the journal-weight consequence P3 said would follow. Describe P4 as what it actually computed: both arms.",
+   "quote": "A route distribution unlike tier A's means publishers differ between frames and journal adjustment is carrying more weight than assumed"
+  },
+  {
+   "section": "8. Analysis",
+   "severity": "minor",
+   "problem": "The multiplicity paragraph refers to five sensitivity analyses. Section 8 lists six. Sensitivity 6 is the one added for the main selection threat, so undercounting it is not cosmetic.",
+   "what_would_fix_it": "Say six, or state that sensitivity 6 is exempt from the 'not used to claim significance' rule if it is to be interpreted as the deconfounded estimate.",
+   "quote": "The secondary and the five sensitivity analyses are not corrected for multiplicity and are not used to claim significance; they exist to show whether the primary estimate is fragile."
+  },
+  {
+   "section": "7. Sample size and power",
+   "severity": "minor",
+   "problem": "The realized-counts row labeled 'frame, after removing 205 tier A overlaps from 7617 records' gives 704 and 6526. Those are eligible_exposed and eligible_comparison after the further drop of 90 publication-type and 92 language records (7230 eligible). The numbers match probes.json; the row title does not. The sentence that every number in this section is emitted by probes.json is also false for 260, 4.40, 3.7, and 20.5 percent.",
+   "what_would_fix_it": "Label the row as after overlap, publication-type, and language exclusions. Restrict the 'not retyped' claim to the cells that actually come from probes.json.",
+   "quote": "frame, after removing 205 tier A overlaps from 7617 records"
+  }
+ ]
+}

@@ -1,0 +1,323 @@
+You are reviewing a research document as an adversarial peer reviewer.
+
+Your job is to refute it. Assume it is wrong somewhere and find where. A review that returns
+no findings is a valid answer, but return it only after having genuinely tried to break the
+document, not as a default.
+
+What to attack, in rough order of how much damage each does if you are right:
+
+1. Does the design measure what it says it measures? Look hardest at the instruments: how the
+   exposure is defined, how the outcome is extracted, and whether either could be capturing
+   an artifact of the data source rather than the thing of interest.
+2. Is the sample what the document says it is? Check for overlap with a sample it claims to
+   be independent of, for selection that differs between arms, and for exclusions applied
+   after the data were seen.
+3. Are stated numbers computed or asserted? A number that appears in prose and in no code is
+   a number nobody checked. Say which ones you cannot verify.
+4. Does the analysis answer the stated hypothesis? Look for a model whose coefficient does
+   not mean what the prose says it means, for adjustment that absorbs the effect being
+   measured, and for a null that could not have been detected at the stated sample size.
+5. Is anything claimed as preregistered that was actually decided later?
+6. Is the prior literature represented fairly, and is the novelty claim true? If you can name
+   published work that already does this, that is the single most valuable finding you can
+   return.
+
+Rules that decide whether your findings count:
+
+- **Name the section** each finding is against. A finding with no section is downgraded to
+  minor by the adjudication rule, because an objection that does not attach to text cannot be
+  acted on.
+- **State what would fix it** for anything you mark fatal or major. Same downgrade otherwise.
+- **Quote the document verbatim** where you can. A quote is what distinguishes an evidenced
+  objection from an opinion, and under the adjudication rule an evidenced fatal finding blocks
+  the document even if the other reviewer votes it sound.
+- Do not invent a citation. If you believe prior work exists but cannot name it precisely,
+  say that in the rationale rather than inventing a reference.
+
+Return ONLY a JSON object matching this schema. No prose before or after, no markdown fence.
+
+
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Reviewer verdict on one document",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "document_id",
+  "reviewer",
+  "overall_vote",
+  "confidence",
+  "rationale",
+  "findings"
+ ],
+ "properties": {
+  "document_id": {
+   "type": "string"
+  },
+  "reviewer": {
+   "type": "string"
+  },
+  "overall_vote": {
+   "description": "Is the document sound as written?",
+   "enum": [
+    "sound",
+    "sound-with-required-changes",
+    "unsound",
+    "abstain"
+   ]
+  },
+  "confidence": {
+   "type": "number",
+   "minimum": 0,
+   "maximum": 1
+  },
+  "rationale": {
+   "type": "string"
+  },
+  "findings": {
+   "type": "array",
+   "description": "Every objection. An empty array is a valid and meaningful answer.",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "section",
+     "severity",
+     "problem",
+     "what_would_fix_it",
+     "quote"
+    ],
+    "properties": {
+     "section": {
+      "type": "string",
+      "description": "The section number or heading the finding is against. A finding that cannot name one is downgraded to minor, because an objection that does not attach to text cannot be acted on."
+     },
+     "severity": {
+      "description": "fatal: the document cannot proceed as written. major: a stated conclusion would be wrong or unsupported. minor: it would be better changed. Anything at major or above must state what would fix it or it is downgraded.",
+      "enum": [
+       "fatal",
+       "major",
+       "minor"
+      ]
+     },
+     "problem": {
+      "type": "string"
+     },
+     "what_would_fix_it": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Required for fatal and major. A finding at those levels with null here is downgraded to minor by the adjudication rule."
+     },
+     "quote": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Verbatim text from the document the finding is against, or from a cited source that contradicts it. Pass null when there is none; the key must be present because OpenAI structured output requires every property to be listed as required. A quote is what distinguishes an evidenced objection from an opinion."
+     }
+    }
+   }
+  }
+ }
+}
+
+Set "document_id" to exactly: P02
+
+==============================================================================
+THE DOCUMENT UNDER REVIEW
+==============================================================================
+
+---
+title: "Does meta-research cite retracted work?"
+description: "Whether the field that studies research integrity is better than average at not citing retracted papers. Probes computed."
+id: P02
+status: protocol-pending-validation
+supersedes: P02-proposal
+proposed_by: "Claude Opus 5"
+date: 2026-09-16
+reviewed: none
+unit: "References in meta-research articles, matched against Retraction Watch"
+data_source: "PMC reference lists; Retraction Watch via Crossref Labs"
+categories: [protocol, retract, reflexive]
+---
+
+::: {.callout-important appearance="simple"}
+## Status: protocol. Feasibility computed. Screening gate outstanding. Not registered.
+
+Probes PA to PC ran on 2026-09-16 against full text already cached by P01 and P01v2, so they
+cost nothing to NCBI. Section 7 is written from `studies/P02-citing-retracted/out/probes.json`.
+
+The screening gate is shared with [P01v2](P01v2-advocacy-and-practice-protocol.qmd): both
+studies draw their comparison arm from the same frame and neither runs until screening
+agreement is measured against the author's labels.
+
+No exposure-by-outcome model has been fitted. Awaiting review by two models; the second is
+quota-blocked until 2026-09-20.
+:::
+
+## 1. The question
+
+Citing a retracted paper as though it still stands is a documented failure of the literature,
+and meta-research is the field that documents it. Retracted randomized trials have been shown
+to go on being cited uncorrected in systematic reviews and clinical guidelines (PMID 35779825),
+and guidelines for low back pain have been shown to cite retracted and predatory work
+(PMID 40156953).
+
+Nobody has turned that instrument on meta-research itself. A field with domain expertise in
+this exact failure, failing at the same rate as everyone else, would say something about how
+far knowing a problem gets you toward avoiding it.
+
+## 2. Hypothesis
+
+Meta-research articles cite retracted work, after retraction, at a lower rate than a matched
+comparison of articles in the same journals and years.
+
+**Primary null.** The rate ratio is 1.
+
+**What would falsify it.** A rate ratio at or above 1. The direction is stated because the
+alternative is the interesting one.
+
+**Prior expectation.** Nothing in the corpus estimates this, so the design has no anchor and
+does not pretend to one.
+
+## 3. Design
+
+Cross-sectional study of reference lists. The unit of analysis is one reference; the unit of
+modeling is one article, with its matchable reference count as the offset.
+
+## 4. Sample
+
+The same frame as P01v2: the qualified tier B blocks with every tier A PMID removed, screened
+to meta-research, restricted to PMC full text. Reusing it rather than building a third
+population means one screening effort, one independence argument, and one set of exclusions.
+
+**Exposed arm**: screened meta-research articles.
+**Comparison arm**: articles from the same journals and years that screening excluded, which
+is to say articles that are not meta-research. This is a better comparison than a fresh PubMed
+sample because it is drawn from the same query frame and differs on exactly the axis of
+interest.
+
+Both arms require a reference list in PMC. Probe PA found
+4948 of the cached articles carry one.
+
+## 5. Measurement
+
+Retraction Watch is retrieved as an open CSV through Crossref Labs. Probe PB found
+60972 distinct DOIs whose `RetractionNature` is `Retraction`;
+expressions of concern and corrections are excluded because they are not retractions and
+counting them would inflate every arm.
+
+A cited DOI counts as a citation of retracted work when it appears in `OriginalPaperDOI`.
+
+### The classification that decides the result
+
+A reference is only a failure if the retraction preceded the citing article. Every match is
+classified:
+
+| class | meaning | probe count |
+|---|---|---|
+| post-retraction | the retraction predates the citing article | 83 |
+| pre-retraction | the citing article came first | 107 |
+| undated | no usable retraction date | 0 |
+
+**The pre-retraction class is the majority.** 107 of
+190 matches are citations of work that had not yet been
+retracted, and a study that counted those as failures would report more than twice the true
+rate. The probe is what establishes that; it was not assumed.
+
+A third class, an article citing a retracted paper deliberately as an example, is separated by
+the `retract` topic label and by the citation context from the surrounding sentence, and every
+article carrying that label is additionally reported separately.
+
+## 6. Outcome
+
+Count of post-retraction citations per article, with the article's DOI-matchable reference
+count as the offset.
+
+## 7. Feasibility, computed
+
+**Every number here is emitted by `out/probes.json`.**
+
+| quantity | value |
+|---|---|
+| articles with a reference list in cache | 4948 |
+| total references | 268290 |
+| references carrying a DOI | 222730 |
+| **DOI coverage** | **83.0 percent** |
+| median references per article | 46 |
+| citations of retracted work, any timing | 190 |
+| articles citing at least one | 152 |
+| **post-retraction citations** | **83** |
+| articles with at least one post-retraction citation | 70 |
+
+DOI coverage is 83.0 percent, not the 62 percent the original one-page
+proposal estimated from three articles. The earlier figure came from a sample too small to
+estimate anything and is superseded.
+
+**70 articles carry the outcome.** That is enough
+to fit a count model and not enough to slice finely; the design commits to one primary
+comparison and no subgroup analyses.
+
+### A defect the probe caught
+
+A first version computed DOI coverage as distinct DOI-like strings per article divided by the
+reference count and reported **1.41**. A rate above 1 is impossible and is the only reason it
+was noticed: the plain-text fallback regex matches several times inside one reference, so the
+numerator was not a subset of the denominator. Coverage is now counted per reference.
+
+## 8. Analysis
+
+In R.
+
+```r
+glm.nb(n_post_retraction ~ arm + year_c + offset(log(n_matchable_refs)), data = d)
+```
+
+Negative binomial rather than Poisson, with the dispersion parameter reported rather than
+assumed. Preregistered sensitivity analyses:
+
+1. Excluding every article carrying the `retract` topic label from both arms.
+2. Poisson with robust standard errors, to show the distributional choice is not carrying the
+   result.
+3. Restricted to articles published from 2015, when Retraction Watch coverage is densest.
+4. Counting expressions of concern alongside retractions.
+
+## 9. Threats, and what happened to each
+
+| threat | what was done | removed or disclosed |
+|---|---|---|
+| Pre-retraction citations counted as failures | Classified by date; the probe shows they are the majority | Removed |
+| Papers about retraction cite retracted work deliberately | Separated by topic label and reported separately | Disclosed |
+| DOI coverage may differ between arms | Measured per arm before the model is fitted; the offset is biased if it differs | Disclosed |
+| Retraction Watch is incomplete | A missing retraction biases both arms toward the null equally | Disclosed |
+| Retraction dates are the database's, not always the publisher's | A late date misclassifies post as pre, in both arms | Disclosed |
+| Comparison arm is defined by screening exclusion | Depends entirely on the screening gate; the study cannot run before it | Disclosed |
+| Reference lists in `<back>` only | Articles whose references PMC does not structure are absent, not zero | Disclosed |
+
+## 10. Probes
+
+| probe | computes | goes to | what would change the design | status |
+|---|---|---|---|---|
+| **PA** | reference counts and DOI coverage | 7 | coverage below about 50 percent makes the offset unreliable | done |
+| **PB** | raw Retraction Watch matches | 7 | fewer than about 30 matches makes the study unpowered | done |
+| **PC** | the post and pre retraction split | 5, 7 | a post-retraction count under about 20 ends the study | done |
+| **PD** | DOI coverage separately per arm, after screening | 9 | a differential in coverage biases the offset and needs adjustment | outstanding, needs screening |
+| **PE** | screening agreement, shared with P01v2 probe P6 | 4 | below kappa 0.75 triggers the hand-screening fallback | outstanding, needs the author |
+
+## 11. Deviations
+
+Recorded in a `DEVIATIONS` section on the result page: what changed, when, why, and the
+estimate before and after where computable.
+
+## 12. What this cannot show
+
+- **It is not causal.** Meta-research authors may differ from other authors in ways unrelated
+  to their expertise in retraction.
+- **A citation is not an endorsement.** The design counts post-retraction citations and does
+  not read what each one says about the work it cites. A citation flagging a paper as retracted
+  is counted as a failure unless the `retract` label catches it.
+- **Retraction Watch is the ground truth and it is not.** Coverage is best for recent,
+  English-language, indexed work.
+

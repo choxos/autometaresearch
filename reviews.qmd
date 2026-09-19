@@ -1,0 +1,58 @@
+---
+title: "Reviews"
+subtitle: "Independent adversarial review, published whole"
+listing:
+  contents: reviews
+  type: table
+  fields: [title, document, verdict, coverage, date]
+  field-display-names:
+    document: "Document"
+    verdict: "Verdict"
+    coverage: "Coverage"
+  sort: "document"
+  sort-ui: false
+  filter-ui: false
+toc: true
+---
+
+Every document is reviewed by two models from different providers, each given the document and
+instructed to refute it, each blind to the other. Output is constrained to a schema, validated
+before it is accepted, and turned into a published verdict by the fixed rule in
+`build/audit/adjudicate.py`.
+
+Reviews are published whole. That includes the findings the rule downgraded, the ones the
+reviewers disagreed about, and the ones that blocked a document this project had already
+invested a day in.
+
+## The rule
+
+| rule | what it does | why |
+|---|---|---|
+| R1 | A fatal or major finding that names no section, or states no fix, is downgraded to minor | A severe objection that cannot be acted on is an impression, not a finding. Downgrading keeps it visible at the weight it earned |
+| R2 | Coverage is stated, never assumed | One returned verdict cannot produce agreement, and calling it agreement is the failure this process exists to prevent |
+| R3 | An unrebutted fatal finding carrying a verbatim quote blocks the document, whatever the votes say | A quote from the document is a fact about the document; a vote is a judgment about it |
+| R4 | Reviewers who disagree produce `contested`, not a winner | The disagreement is the information |
+
+Rule version 1, pinned by twelve golden cases in `tests/test_adjudicate.py`. A rule is changed
+only when a case fails under the old rule and passes under the new one, and both directions
+have been checked.
+
+## Verdicts
+
+| verdict | meaning |
+|---|---|
+| `sound` | no finding above minor |
+| `changes-required` | findings at major stand, none fatal survived |
+| `contested` | reviewers disagreed and neither side settled it |
+| `unsound` | every reviewer that voted judged it unsound |
+| `blocked` | an evidenced fatal finding stands unrebutted |
+| `no-verdict` | every reviewer abstained |
+
+## What review has cost so far
+
+The first document reviewed was blocked, on two fatal findings that were verified against
+primary source and are correct. One of them is that the protocol had already looked at its own
+outcome before claiming to be confirmatory. That is the second time in this project the same
+class of error occurred, the first having been the reason the protocol was written at all.
+
+A review process that never blocks anything is not a review process.

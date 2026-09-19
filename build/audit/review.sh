@@ -37,17 +37,32 @@ python3 "$ROOT/build/audit/make_prompt.py" "$DOC_PATH" "$DOC_ID" > "$PROMPT" || 
 echo "prompt: $(wc -c < "$PROMPT") bytes"
 
 run_one() {
-  local who="$1" out="$OUTDIR/verdict-$who.json"
+  # Two statements, not one. `local a="$1" b="...$a..."` expands every argument before it
+  # assigns any of them, so $a is still unset in b; under `set -u` that aborts the function
+  # before it does anything. Both reviewers failed identically on the first run because of it.
+  local who="$1"
+  local out="$OUTDIR/verdict-$who.json"
   if [ -s "$out" ]; then echo "$who: already has a verdict, skipping"; return 0; fi
   local raw="$OUTDIR/raw-$who.txt"
+  # Both CLIs constrain output to the schema and emit only the final message. The first
+  # version scraped the transcript instead, and that failed for a reason worth recording:
+  # codex echoes the prompt into its transcript, so the first balanced JSON object in the
+  # output was the SCHEMA the prompt carries, not the verdict. Asking the tool for structured
+  # output removes the parsing problem rather than making the parser cleverer.
+  #
+  # Both reviewers read the repository while they work, which is wanted: a reviewer that
+  # checks a pinned instrument against its source is doing the job. It also makes each call
+  # take many minutes, which is why these run detached.
+  local schema="$ROOT/build/audit/schema.json"
   case "$who" in
     chatgpt)
       codex exec -m gpt-6-astra -c model_reasoning_effort=max \
-        --sandbox read-only < "$PROMPT" > "$raw" 2>&1
+        --sandbox read-only --output-schema "$schema" \
+        --output-last-message "$raw" < "$PROMPT" > "$OUTDIR/transcript-$who.txt" 2>&1
       ;;
     grok)
       grok --model grok-4.6 --reasoning-effort xhigh --always-approve \
-        -p "$(cat "$PROMPT")" > "$raw" 2>&1
+        --json-schema "$(cat "$schema")" -p "$(cat "$PROMPT")" > "$raw" 2>&1
       ;;
     *) echo "unknown reviewer: $who" >&2; return 1 ;;
   esac
@@ -55,7 +70,7 @@ run_one() {
     echo "$who: verdict written"
   else
     rm -f "$out"
-    echo "$who: FAILED, see $OUTDIR/err-$who.txt and $raw" >&2
+    echo "$who: FAILED, see $OUTDIR/err-$who.txt and $OUTDIR/raw-$who.txt" >&2
   fi
 }
 
