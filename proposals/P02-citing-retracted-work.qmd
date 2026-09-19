@@ -2,18 +2,42 @@
 title: "Does meta-research cite retracted work?"
 description: "Whether the field that studies research integrity is better than average at not citing retracted papers. Probes computed."
 id: P02
-status: protocol-pending-validation
+status: blocked-by-review
 supersedes: P02-proposal
 proposed_by: "Claude Opus 5"
 date: 2026-09-16
-reviewed: none
+reviewed: 2026-09-19, both reviewers, blocked
 unit: "References in meta-research articles, matched against Retraction Watch"
 data_source: "PMC reference lists; Retraction Watch via Crossref Labs"
 categories: [protocol, retract, reflexive]
 ---
 
 ::: {.callout-important appearance="simple"}
-## Status: protocol. Feasibility computed. Screening gate outstanding. Not registered.
+## Status: BLOCKED BY REVIEW on 2026-09-19. Do not run this.
+
+Both reviewers returned **unsound**: three fatal findings and eleven major. Full review at
+[reviews/P02](../reviews/P02.qmd).
+
+The most concrete finding is verified and correct. **The temporal classification is wrong.**
+`probes.py` compares calendar years, so every same-year match falls into pre-retraction by
+default. Recounting: 83 strictly post, 66 strictly pre, and **41 same-year that the probe
+reported as pre-retraction and which are actually undetermined**. Section 5 of the document
+below presents 107 pre-retraction as a finding that justifies the whole design, and 41 of
+those 107 are an artifact of comparing years. Retraction Watch carries full dates; PubMed often
+carries only a year, so the honest fix produces three classes and not two.
+
+The reviewers also found, independently of each other, that the comparison arm does not exist:
+the document promises articles matched on journal and year, and what it actually specifies is
+whatever screening excludes, with no matching ratio, no replacement rule and no weighting. And
+that section 7's feasibility numbers were computed over both caches without applying this
+study's own eligibility criteria, so they describe a different population from the one the
+protocol defines.
+
+Left exactly as submitted. A successor will be a new document.
+:::
+
+::: {.callout-note appearance="simple"}
+## What the document claimed when it was submitted
 
 Probes PA to PC ran on 2026-09-16 against full text already cached by P01 and P01v2, so they
 cost nothing to NCBI. Section 7 is written from `studies/P02-citing-retracted/out/probes.json`.

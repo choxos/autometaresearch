@@ -1,0 +1,195 @@
+{
+ "rule_version": 1,
+ "verdict": "blocked",
+ "coverage": "complete",
+ "roster": [
+  "chatgpt",
+  "grok"
+ ],
+ "reviewers_returned": [
+  "chatgpt",
+  "grok"
+ ],
+ "votes": {
+  "chatgpt": "unsound",
+  "grok": "unsound"
+ },
+ "n_fatal": 3,
+ "n_major": 11,
+ "n_minor": 5,
+ "n_evidenced_severe": 14,
+ "downgraded": [],
+ "findings": [
+  {
+   "section": "5. Measurement; 6. Outcome; 12. What this cannot show",
+   "severity": "fatal",
+   "problem": "Outcome does not measure citing retracted work as though it still stands. Section 5 promises context classification, while section 12 explicitly abandons it. Concrete false positive: PMC7844597, present in the P01v2 frame, explicitly identifies its cited NEJM study as retracted, yet the probe counts that citation and the repository's topic classifier assigns no retract label. The planned exclusion sensitivity therefore retains this false failure. This can penalize appropriate scientific criticism. See [Danchev et al. (2021)](https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2775667).",
+   "what_would_fix_it": "Adjudicate every matched reference's citation contexts using a prespecified rubric distinguishing unacknowledged reliance, explicit warning or exclusion, research objects, and uncertain use. Validate annotation agreement and make inappropriate use the primary outcome. Alternatively, restrict the question and conclusions to descriptive citation frequency and remove the integrity-failure interpretation.",
+   "quote": "A citation flagging a paper as retracted\n  is counted as a failure unless the `retract` label catches it.",
+   "reviewer": "chatgpt",
+   "original_severity": "fatal"
+  },
+  {
+   "section": "5. Measurement \u2014 The classification that decides the result; 7. Feasibility; 9. Threats",
+   "severity": "major",
+   "problem": "The claimed temporal classification is incorrect. probes.py lines 119\u2013124 compare years, assigning every same-year match to pre-retraction. Of 107 reported pre-retraction matches, 41 are same-year and 17 demonstrably occurred after retraction. Reclassification using complete electronic publication dates gives 98 post, 86 pre, one same-day, and five without complete electronic dates. This reverses the claimed majority and disproves the claimed more-than-twofold inflation. For example, [PMC7762449](https://pmc.ncbi.nlm.nih.gov/articles/PMC7762449/) appeared December 21, 2020, citing work retracted June 4, 2020.",
+   "what_would_fix_it": "Specify and extract appropriate full publication dates, prioritizing first online publication over issue or collection dates. Compare full dates; retain same-day and insufficiently dated cases as uncertain. Recompute all timing counts and derived claims, and assess publication-lag sensitivity before interpreting citations as avoidable failures.",
+   "quote": "**The pre-retraction class is the majority.**",
+   "reviewer": "chatgpt",
+   "original_severity": "major"
+  },
+  {
+   "section": "4. Sample; 7. Feasibility, computed",
+   "severity": "major",
+   "problem": "Feasibility is calculated on a different population from the proposed study. probes.py scans both caches without applying P02 eligibility. Recalculation finds 998 articles from P01 and 3,950 from P01v2. P01 contributes 28 of 83 reported post-retraction matches and 22 of 70 positive articles; none of those 998 belongs to the P01v2 target list. Within that target list, the existing year-based rule gives only 55 matches in 48 articles, before screening, matching, or context adjudication. Cache totals cannot establish the proposed sample's event yield.",
+   "what_would_fix_it": "Construct an explicit eligible PMID/PMCID manifest, apply tier A exclusions, and calculate feasibility against that manifest. Report the pooled-cache exercise separately as a pilot. Recompute event availability after screening, matching, corrected timing, and context adjudication.",
+   "quote": "The same frame as P01v2: the qualified tier B blocks with every tier A PMID removed, screened\nto meta-research, restricted to PMC full text.",
+   "reviewer": "chatgpt",
+   "original_severity": "major"
+  },
+  {
+   "section": "2. Hypothesis; 4. Sample; 8. Analysis",
+   "severity": "major",
+   "problem": "The promised matched comparison is not operationalized. No matching ratio, replacement rule, treatment of unmatched journal-years, or weighting scheme is specified. Drawing controls from journals and years represented among exposed articles does not itself balance their distributions. The proposed model includes neither journal nor matched-set effects and adjusts year only linearly. Its arm coefficient therefore cannot be assumed to estimate the promised within-journal-year comparison.",
+   "what_would_fix_it": "Prespecify matching or standardization, common-support requirements, weights, and handling of unmatched records. Fit an estimator that respects that design, such as a count model with journal-year or matched-set effects and appropriate uncertainty estimation. Report balance and exclusions before interpreting the arm coefficient.",
+   "quote": "glm.nb(n_post_retraction ~ arm + year_c + offset(log(n_matchable_refs)), data = d)",
+   "reviewer": "chatgpt",
+   "original_severity": "major"
+  },
+  {
+   "section": "1. The question; 4. Sample",
+   "severity": "major",
+   "problem": "The claim that arms differ on exactly one axis is unsupported. The inherited frame covers four P01v2 topics and removes tier A records, including explicitly self-identified meta-research. Controls are non-meta-research articles that nevertheless satisfy this specialized search, not average articles in those journals. Search selection, article type, subject matter, and reference age can differ between arms and change exposure to retractable literature independently of citation-checking behavior. The noncausal disclaimer does not establish representativeness.",
+   "what_would_fix_it": "Explicitly restrict the target population and conclusions to the selected, non-tier-A PMC search frame. If the intended claim concerns meta-research versus average research, assemble an appropriate broader meta-research sample and independently sampled journal-year controls, addressing differences in reference opportunities and article type.",
+   "quote": "This is a better comparison than a fresh PubMed\nsample because it is drawn from the same query frame and differs on exactly the axis of\ninterest.",
+   "reviewer": "chatgpt",
+   "original_severity": "major"
+  },
+  {
+   "section": "9. Threats; 10. Probes \u2014 PD",
+   "severity": "major",
+   "problem": "The asserted bias direction is mathematically wrong. With perfect specificity and common detection sensitivity s, observed rates are s times true rates, so s cancels from their rate ratio; equal under-ascertainment does not necessarily attenuate that ratio toward 1. Unequal sensitivity can bias it in either direction. Likewise, equal DOI coverage does not establish equal outcome ascertainment, while unequal coverage alone need not bias rates specifically among DOI-bearing references. PD's coverage comparison cannot resolve these problems.",
+   "what_would_fix_it": "Define whether the estimand concerns all references or only DOI-bearing references. Validate ascertainment and missingness across arms and relevant reference characteristics. Replace the guaranteed-null-bias claim with explicit assumptions and quantitative sensitivity analyses allowing differential detection.",
+   "quote": "A missing retraction biases both arms toward the null equally",
+   "reviewer": "chatgpt",
+   "original_severity": "major"
+  },
+  {
+   "section": "2. Hypothesis; 7. Feasibility, computed; 10. Probes",
+   "severity": "major",
+   "problem": "Statistical adequacy is asserted rather than computed. P02's code calculates counts, not power or precision. Seventy outcome-bearing articles in a pooled pilot cannot establish power for two screened, matched arms with unknown allocation, event rates, dispersion, and context exclusions. The approximately 30-match and 20-post-retraction stopping thresholds have no demonstrated operating characteristics. An estimated rate ratio at or above 1 also cannot, by itself, distinguish contradictory evidence from sampling noise.",
+   "what_would_fix_it": "Specify a smallest scientifically meaningful rate ratio and an inferential decision rule incorporating uncertainty. Compute power or expected interval precision for the intended matched analysis across plausible screened sample sizes, offsets, and dispersion. Base feasibility gates on those calculations and allow an inconclusive or descriptive-only result.",
+   "quote": "**70 articles carry the outcome.** That is enough\nto fit a count model and not enough to slice finely; the design commits to one primary\ncomparison and no subgroup analyses.",
+   "reviewer": "chatgpt",
+   "original_severity": "major"
+  },
+  {
+   "section": "3. Design; 6. Outcome; 7. Feasibility",
+   "severity": "minor",
+   "problem": "Numerator and denominator use different counting units. probes.py unions extracted DOIs across each article before matching, so its numerator counts distinct article\u2013DOI pairs; the offset counts reference entries. Recalculation finds 191 reference entries matching Retraction Watch but only 190 distinct article\u2013DOI matches. The reported outcome is therefore not literally the stated reference-level count.",
+   "what_would_fix_it": "Preserve reference identifiers and count matched reference entries, deduplicating DOI aliases within each entry. Alternatively, explicitly define a distinct-work outcome and use a corresponding distinct-work denominator.",
+   "quote": "The unit of analysis is one reference; the unit of\nmodeling is one article, with its matchable reference count as the offset.",
+   "reviewer": "chatgpt",
+   "original_severity": "minor"
+  },
+  {
+   "section": "5. Measurement",
+   "severity": "minor",
+   "problem": "The 60,972 figure counts normalized nonempty field values, not exclusively distinct DOIs. The code retains the sentinel 'unavailable' as a dictionary key. The cached retraction rows contain 3,369 case variants of this sentinel, plus two records with multiple DOI strings that are not split. Crossref explicitly documents unavailable as a missing-value marker in [its Retraction Watch schema](https://www.crossref.org/documentation/retrieve-metadata/retraction-watch/).",
+   "what_would_fix_it": "Exclude missing-value sentinels, parse multi-identifier fields, validate identifier structure, and deduplicate normalized individual DOIs before reporting registry size or matching references.",
+   "quote": "Probe PB found\n60972 distinct DOIs whose `RetractionNature` is `Retraction`;",
+   "reviewer": "chatgpt",
+   "original_severity": "minor"
+  },
+  {
+   "section": "8. Analysis; Status callout",
+   "severity": "minor",
+   "problem": "Section 8 calls sensitivity analyses preregistered despite the explicit status declaration that the protocol is not registered. Prospective plans following an inspected feasibility pilot can be legitimate, but they should not be described as already preregistered. No evidence found that P02's arm-by-outcome model had already been fitted.",
+   "what_would_fix_it": "Use 'planned sensitivity analyses' until registration exists. At registration, record the version and timestamp, disclose pilot data already inspected, and distinguish subsequent amendments from the frozen plan.",
+   "quote": "Preregistered sensitivity analyses:",
+   "reviewer": "chatgpt",
+   "original_severity": "minor"
+  },
+  {
+   "section": "1. The question",
+   "severity": "fatal",
+   "problem": "The document sells a test of whether domain expertise in retraction citing reduces that failure. The sample is P01v2's four blocks: datashare, report, reg, and repro. methods.qmd measured a separate retract block the same day (11128 raw, 637 qualified) covering retraction, misconduct, and research integrity. Those records are not in this frame. YAML categories include retract, and the description names research integrity. The exposed arm is meta-research on sharing, reporting, registration, and reproducibility. It is not the field that documents this exact failure.",
+   "what_would_fix_it": "Put the qualified retract block in the frame as the expertise arm, or rewrite section 1, the description, and the categories so the claim is only about meta-research on those four topics. Do not keep the research-integrity and domain-expertise argument on a sample that excluded the retract search.",
+   "quote": "A field with domain expertise in this exact failure, failing at the same rate as everyone else, would say something about how far knowing a problem gets you toward avoiding it.",
+   "reviewer": "grok",
+   "original_severity": "fatal"
+  },
+  {
+   "section": "4. Sample",
+   "severity": "fatal",
+   "problem": "The hypothesis asks for a matched comparison in the same journals and years, and the description asks whether the field is better than average. The comparison arm is articles the shared P01v2 screen excludes from the same qualified query. That query ANDs reporting, registration, reproducibility, or data-sharing phrases with study-of-literature boilerplate, which is how ordinary clinical systematic reviews enter. On the stated P01v2 frame, 48 articles carry a post-retraction citation; 38 of them sit in P01v2's report/reg/repro arm, and their titles are mostly clinical reviews and meta-analyses (ischemic stroke thrombectomy, breast cancer ultrasound, Ethiopian blood donation, Achilles tendinopathy, COVID clinical findings, and similar). Kataoka et al. (PMID 35779825), cited in section 1, already documented that this is the population that keeps citing retracted trials. The rate ratio therefore contrasts screened meta-research with clinical systematic reviews, not with average literature and not with journal-year matches. No matching procedure is specified.",
+   "what_would_fix_it": "Draw the comparison as journal-year matched articles from the same journals that are not in the qualified frame, or match on the mix of cited fields. If the comparison is screening exclusions, rewrite the hypothesis to that contrast and drop matched, same journals and years, and better than average.",
+   "quote": "Comparison arm: articles from the same journals and years that screening excluded, which is to say articles that are not meta-research. This is a better comparison than a fresh PubMed sample because it is drawn from the same query frame and differs on exactly the axis of interest.",
+   "reviewer": "grok",
+   "original_severity": "fatal"
+  },
+  {
+   "section": "5. Measurement",
+   "severity": "major",
+   "problem": "Section 1 defines the failure as citing a retracted paper as though it still stands. Section 5 says a third class of deliberate example citations is separated by the retract topic label and by citation context from the surrounding sentence. Section 12 then says the design does not read what each citation says, and counts a citation that flags the paper as retracted as a failure unless the retract label catches it. There is no code, probe, or pin for extracting the surrounding sentence. The retract label is an article-level search vocabulary, and the retract block is not in this frame, so sensitivity 1 is mostly empty unless describe.py is run on a sample it was not written for. Hsiao and Schneider 2021 (PMID 36186715) already classified 13252 post-retraction citation contexts in PMC OA XML and found only 5.4 percent acknowledged the retraction. That is the instrument for the stated construct. P02 claims novelty, then drops the context half. Heibi and Peroni 2021 (PMID 34376878; PMC8338205) is in matches.csv as a post-retraction hit on Wakefield; it is a scientometric study of citations to that retracted paper, which is an example citation the current rule would count as a failure.",
+   "what_would_fix_it": "Extract in-text citation sentences from PMC body xrefs, classify acknowledgment versus endorsement with a pinned rule and a human kappa gate, and make uncritical post-retraction citation the primary outcome. If that is not done, change section 1 so the estimand is any post-retraction DOI match, drop as though it still stands, and cite Hsiao and Schneider as the instrument being thinned, not as unused prior art.",
+   "quote": "A citation flagging a paper as retracted is counted as a failure unless the `retract` label catches it.",
+   "reviewer": "grok",
+   "original_severity": "major"
+  },
+  {
+   "section": "5. Measurement",
+   "severity": "major",
+   "problem": "The protocol says a reference is a failure only if the retraction predates the citing article. probes.py compares retraction calendar year with citing year: post if retraction year is strictly less than citing year, otherwise pre. Same-year matches are dumped into pre. matches.csv has 41 same-year rows (35 articles) out of 190. Those 41 are 38 percent of the 107 pre counts. The claim that pre is the majority is therefore an artifact of the year rule. PMC pub-date often has month and day; Retraction Watch supplies a full RetractionDate. article_year() also takes the first pub-date element in document order, which may be collection year rather than epub.",
+   "what_would_fix_it": "Parse a citing date from PMC (prefer epub, then ppub). Classify post when retraction_date is before that citing date. Report same-calendar-year matches as their own class and as a sensitivity, not as pre by default. Recompute PC before claiming pre is the majority.",
+   "quote": "A reference is only a failure if the retraction preceded the citing article.",
+   "reviewer": "grok",
+   "original_severity": "major"
+  },
+  {
+   "section": "7. Feasibility, computed",
+   "severity": "major",
+   "problem": "Section 4 says the sample is the P01v2 frame with every tier A PMID removed. Section 7 then treats PA\u2013PC as that sample. The status callout says the probes ran on P01 and P01v2 caches. That is true: 998 P01 articles with refs plus 3950 P01v2 articles with refs equals 4948. Of 70 articles with a post-retraction citation, 22 are in the P01 cache and 48 are in the P01v2 cache (28 and 55 citation rows). The 70-is-enough claim is computed on a mixture that section 4 excludes. 48 is still above the PC stop of about 20, so the study does not die, but the published event count is not the analysis-sample event count. 62 percent and 1.41 are also in section 7 and are not in probes.json, despite the sentence that every number here is emitted by that file.",
+   "what_would_fix_it": "Re-run PA\u2013PC on the P01v2 cache only, after the same PMID, publication-type, and language exclusions P01v2 uses. Replace 4948, 190, 152, 83, and 70 with those numbers. Restrict the emitted-by-probes.json sentence to cells that file actually contains.",
+   "quote": "**70 articles carry the outcome.** That is enough to fit a count model and not enough to slice finely",
+   "reviewer": "grok",
+   "original_severity": "major"
+  },
+  {
+   "section": "8. Analysis",
+   "severity": "major",
+   "problem": "Section 2 says the primary null is a rate ratio of 1 and that a rate ratio at or above 1 would falsify. That is a point-estimate rule, not an interval, and it treats 1.01 with a wide interval as falsifying while treating 0.99 with an interval of 0.2 to 4 as confirming. There is no alpha, no smallest effect of interest, and no power calculation for glm.nb. PB's about-30-matches line is not a detectable-RR grid. The hypothesis promises a matched comparison in the same journals and years; the model is arm plus year_c with no journal term and no matching. year_c is undefined. There is no analyze.R. After screening, events on the stated frame are 48 articles; most of those titles belong to the comparison side of P02, so the exposed cell may be very small.",
+   "what_would_fix_it": "Falsify only if the 95 percent CI lies entirely at or above 1, or state a smallest rate ratio that would still matter and use an equivalence or CI-exclusion rule. Compute power for glm.nb at the P01v2-only event split, including journal clustering. Put journal in the primary model or actually match on journal-year. Write and pin the analysis script, and define year_c.",
+   "quote": "What would falsify it. A rate ratio at or above 1.",
+   "reviewer": "grok",
+   "original_severity": "major"
+  },
+  {
+   "section": "9. Threats, and what happened to each",
+   "severity": "major",
+   "problem": "The table says a missing retraction biases both arms toward the null equally. That is true only if both arms cite the same underlying literature. They do not. Screening exclusions are enriched for clinical systematic reviews, which cite trials; screened meta-research cites methods papers, other meta-research, and a few famous retractions. Retraction Watch gaps in clinical trials then hit the comparison arm harder than the exposed arm, which can produce a rate ratio below 1 with no expertise effect. The same symmetry claim is made for late retraction dates.",
+   "what_would_fix_it": "Drop the equal-bias sentence. Treat missing retractions and date error as differential in the direction of the cited-literature mix. Probe cited article types or cited-journal fields by arm, or match on that mix, before claiming the bias is toward the null.",
+   "quote": "A missing retraction biases both arms toward the null equally",
+   "reviewer": "grok",
+   "original_severity": "major"
+  },
+  {
+   "section": "8. Analysis",
+   "severity": "minor",
+   "problem": "The status callout says the protocol is not registered. Agenda.qmd says nothing here is registered. Section 8 still calls the four sensitivities preregistered. In this project that word is being used to mean written before the model is fitted, which is not what preregistered means.",
+   "what_would_fix_it": "Say specified here before the model is fitted, and keep Not registered in the status block.",
+   "quote": "Preregistered sensitivity analyses:",
+   "reviewer": "grok",
+   "original_severity": "minor"
+  },
+  {
+   "section": "1. The question",
+   "severity": "minor",
+   "problem": "PMID 40156953 is real, but Young et al. found 3 retracted publications among 1617 unique citations (0.2 percent) and concluded that guideline recommendations are unlikely to be influenced. Section 1 cites it as showing that low-back-pain guidelines cite retracted and predatory work, which inverts the paper's emphasis.",
+   "what_would_fix_it": "Quote the 3 of 1617 figure and the authors' conclusion, or drop this citation as evidence of a widespread failure.",
+   "quote": "guidelines for low back pain have been shown to cite retracted and predatory work (PMID 40156953).",
+   "reviewer": "grok",
+   "original_severity": "minor"
+  }
+ ]
+}

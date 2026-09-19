@@ -1,0 +1,277 @@
+You are reviewing a research document as an adversarial peer reviewer.
+
+Your job is to refute it. Assume it is wrong somewhere and find where. A review that returns
+no findings is a valid answer, but return it only after having genuinely tried to break the
+document, not as a default.
+
+What to attack, in rough order of how much damage each does if you are right:
+
+1. Does the design measure what it says it measures? Look hardest at the instruments: how the
+   exposure is defined, how the outcome is extracted, and whether either could be capturing
+   an artifact of the data source rather than the thing of interest.
+2. Is the sample what the document says it is? Check for overlap with a sample it claims to
+   be independent of, for selection that differs between arms, and for exclusions applied
+   after the data were seen.
+3. Are stated numbers computed or asserted? A number that appears in prose and in no code is
+   a number nobody checked. Say which ones you cannot verify.
+4. Does the analysis answer the stated hypothesis? Look for a model whose coefficient does
+   not mean what the prose says it means, for adjustment that absorbs the effect being
+   measured, and for a null that could not have been detected at the stated sample size.
+5. Is anything claimed as preregistered that was actually decided later?
+6. Is the prior literature represented fairly, and is the novelty claim true? If you can name
+   published work that already does this, that is the single most valuable finding you can
+   return.
+
+Rules that decide whether your findings count:
+
+- **Name the section** each finding is against. A finding with no section is downgraded to
+  minor by the adjudication rule, because an objection that does not attach to text cannot be
+  acted on.
+- **State what would fix it** for anything you mark fatal or major. Same downgrade otherwise.
+- **Quote the document verbatim** where you can. A quote is what distinguishes an evidenced
+  objection from an opinion, and under the adjudication rule an evidenced fatal finding blocks
+  the document even if the other reviewer votes it sound.
+- Do not invent a citation. If you believe prior work exists but cannot name it precisely,
+  say that in the rationale rather than inventing a reference.
+
+Return ONLY a JSON object matching this schema. No prose before or after, no markdown fence.
+
+
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Reviewer verdict on one document",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "document_id",
+  "reviewer",
+  "overall_vote",
+  "confidence",
+  "rationale",
+  "findings"
+ ],
+ "properties": {
+  "document_id": {
+   "type": "string"
+  },
+  "reviewer": {
+   "type": "string"
+  },
+  "overall_vote": {
+   "description": "Is the document sound as written?",
+   "enum": [
+    "sound",
+    "sound-with-required-changes",
+    "unsound",
+    "abstain"
+   ]
+  },
+  "confidence": {
+   "type": "number",
+   "minimum": 0,
+   "maximum": 1
+  },
+  "rationale": {
+   "type": "string"
+  },
+  "findings": {
+   "type": "array",
+   "description": "Every objection. An empty array is a valid and meaningful answer.",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "section",
+     "severity",
+     "problem",
+     "what_would_fix_it",
+     "quote"
+    ],
+    "properties": {
+     "section": {
+      "type": "string",
+      "description": "The section number or heading the finding is against. A finding that cannot name one is downgraded to minor, because an objection that does not attach to text cannot be acted on."
+     },
+     "severity": {
+      "description": "fatal: the document cannot proceed as written. major: a stated conclusion would be wrong or unsupported. minor: it would be better changed. Anything at major or above must state what would fix it or it is downgraded.",
+      "enum": [
+       "fatal",
+       "major",
+       "minor"
+      ]
+     },
+     "problem": {
+      "type": "string"
+     },
+     "what_would_fix_it": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Required for fatal and major. A finding at those levels with null here is downgraded to minor by the adjudication rule."
+     },
+     "quote": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Verbatim text from the document the finding is against, or from a cited source that contradicts it. Pass null when there is none; the key must be present because OpenAI structured output requires every property to be listed as required. A quote is what distinguishes an evidenced objection from an opinion."
+     }
+    }
+   }
+  }
+ }
+}
+
+Set "document_id" to exactly: P03
+
+==============================================================================
+THE DOCUMENT UNDER REVIEW
+==============================================================================
+
+---
+title: "Is bad news cited more?"
+description: "Whether meta-research reporting poor practice accrues more citations than meta-research reporting good practice. Citation probe computed; the classifier is the gate."
+id: P03
+status: protocol-pending-validation
+proposed_by: "Claude Opus 5"
+date: 2026-09-16
+reviewed: none
+unit: "Meta-research articles with OpenAlex citation counts"
+data_source: "OpenAlex; the tier A corpus"
+categories: [protocol, biblio, incentives]
+---
+
+::: {.callout-important appearance="simple"}
+## Status: protocol. Citation data retrieved. The classifier gate is outstanding. Not registered.
+
+The citation probe ran on 2026-09-16: 1790 of 1805
+tier A PMIDs resolved in OpenAlex, a match rate of 99.2 percent.
+
+**The exposure has not been measured and cannot be until 300 abstracts are classified by the
+author.** Section 6 carries a stopping rule written before any classification has been run.
+
+Awaiting review by two models; the second is quota-blocked until 2026-09-20.
+:::
+
+## 1. The question
+
+Meta-research reports on how well other research is done, and the answer is usually that it is
+done badly. If findings of failure are rewarded with citations more than findings that a
+practice is adequate, the field faces an incentive gradient pointing at one conclusion, and
+that gradient would be invisible within any single study.
+
+This is publication bias asked about the field that studies publication bias, and asked at the
+citation stage rather than at acceptance.
+
+## 2. Hypothesis
+
+Among meta-research articles, those concluding that the practice studied is inadequate accrue
+more citations than those concluding it is adequate, adjusted for age, journal and topic.
+
+**Primary null.** The incidence rate ratio for conclusion direction is 1.
+
+**What would falsify it.** An interval containing 1.
+
+## 3. Design
+
+Cross-sectional study of published articles with a count outcome.
+
+## 4. Sample
+
+The tier A corpus, all 1805 records carrying a PMID.
+1790 resolve in OpenAlex.
+
+Articles from 2025 and 2026 are retained and age is modeled, not trimmed; excluding recent work
+would drop 76 percent of the corpus.
+
+## 5. Outcome
+
+`cited_by_count` from OpenAlex, retrieved on 2026-09-16 and frozen at
+`data/lit/openalex-records.jsonl`. The date matters: citation counts move, and an analysis run
+against a live API is not reproducible.
+
+| quantity | value |
+|---|---|
+| median citations | 8 |
+| mean citations | 36.29 |
+| 90th percentile | 75 |
+| maximum | 2937 |
+| articles with zero citations | 284 |
+
+The distribution is heavily skewed, mean 36.29 against median
+8, which is why the model is negative binomial and why a quantile
+regression on the upper deciles is fitted alongside. The incentive argument lives in the tail
+and a mean effect would not find it.
+
+284 articles have zero citations. They are retained; a zero is informative
+about a paper nobody used and dropping them would condition on the outcome.
+
+## 6. Exposure, and the gate
+
+The exposure is the direction of the article's own conclusion, and no rule extracts it from an
+abstract. This is the one study of the set whose exposure needs a model to read text, and that
+is a liability rather than a convenience.
+
+Classification is therefore treated as an instrument that must be validated before it is used:
+
+1. A stratified random sample of **300 abstracts is classified by the author** into
+   inadequate, adequate, mixed, or not applicable. This is the reference standard. A model
+   does not produce it, for the reason R01 already demonstrated: a model checking a rule
+   another model wrote found a real defect and still left agreement with a person unknown.
+2. Two models from different providers classify the same 300, blind to the author's labels and
+   to each other.
+3. Agreement is reported as Cohen's kappa against the reference standard and between models.
+4. **If neither model reaches kappa 0.70 against the author's labels, the study stops and the
+   negative methodological result is published.** Whether a language model can read the
+   direction of a scientific conclusion is itself worth knowing.
+5. Only above the threshold does classification extend to the rest, with the measured
+   misclassification rate carried into a sensitivity analysis.
+
+The threshold is written here, before any classification has been run. A threshold chosen after
+seeing the agreement is not a threshold.
+
+## 7. Analysis
+
+In R.
+
+```r
+glm.nb(cited_by_count ~ direction + poly(years_since_pub, 2) + topic_block + journal_size,
+       data = d)
+```
+
+Age enters as a quadratic because citation accrual is not linear in time and the corpus spans
+1965 to 2026. Preregistered alongside: quantile regression at the 75th and 90th percentiles,
+and the same model with `direction` as measured by each classifier separately, so that a result
+that depends on which model read the abstracts is visible as such.
+
+## 8. Threats, and what happened to each
+
+| threat | what was done | removed or disclosed |
+|---|---|---|
+| Reverse causation | Not addressable in this design. A widely cited article may attract a negative framing rather than the other way round | Disclosed |
+| Topic confounds direction | Some topics almost never produce an adequate verdict, so adjusting for topic may absorb the effect. Reported adjusted and unadjusted, with the difference discussed rather than resolved | Disclosed |
+| Classifier error | Gated on kappa against the author's labels, with a stated stop | Disclosed |
+| Citation counts move | Frozen at a dated snapshot in the repository | Removed |
+| Self-citation and field size | Not in the primary model; OpenAlex exposes the data and it is a stated secondary | Disclosed |
+| Zero-citation articles | Retained; dropping them conditions on the outcome | Removed |
+
+## 9. Probes
+
+| probe | computes | goes to | what would change the design | status |
+|---|---|---|---|---|
+| **PA** | OpenAlex match rate and citation distribution | 4, 5 | a match rate below about 90 percent makes the sample unrepresentative | done |
+| **PB** | classifier agreement against 300 author labels | 6 | below kappa 0.70 stops the study | outstanding, needs the author |
+| **PC** | detectable rate ratio from the realized exposure split | 7 | computed once PB returns, because it depends on how many articles fall in each direction | outstanding, depends on PB |
+
+## 10. Deviations
+
+Recorded on the result page: what changed, when, why, and the estimate before and after.
+
+## 11. What this cannot show
+
+- It cannot show that negative findings are rewarded, only that they are cited more.
+- It cannot separate the effect of the finding from the effect of the topic that produced it.
+- OpenAlex citation counts include self-citations and citations from any source it indexes,
+  which is broader than PubMed and not identical to it.
+
