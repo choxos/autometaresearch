@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2026-09-19">
+<meta name="description" content="Independent adversarial review of P01v2. Verdict: blocked.">
+
+<title>Review of P01v2: blocked – Automated meta-research</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-5cc4517f93efc704f9e8f922f0fd1f56.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-8544745414cade1a69674f78a9fe5522.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-5cc4517f93efc704f9e8f922f0fd1f56.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": true,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Automated meta-research</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../agenda.html"> 
+<span class="menu-text">Agenda</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../results.html"> 
+<span class="menu-text">Results</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../reviews.html"> 
+<span class="menu-text">Reviews</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../landscape.html"> 
+<span class="menu-text">Landscape</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../corpus.html"> 
+<span class="menu-text">Corpus</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../methods.html"> 
+<span class="menu-text">How this was done</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/choxos/autometaresearch"> <i class="bi bi-github" role="img" aria-label="GitHub repository">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#votes" id="toc-votes" class="nav-link active" data-scroll-target="#votes">Votes</a></li>
+  <li><a href="#what-each-reviewer-said" id="toc-what-each-reviewer-said" class="nav-link" data-scroll-target="#what-each-reviewer-said">What each reviewer said</a>
+  <ul class="collapse">
+  <li><a href="#chatgpt" id="toc-chatgpt" class="nav-link" data-scroll-target="#chatgpt"><code>chatgpt</code></a></li>
+  <li><a href="#grok" id="toc-grok" class="nav-link" data-scroll-target="#grok"><code>grok</code></a></li>
+  </ul></li>
+  <li><a href="#fatal-findings" id="toc-fatal-findings" class="nav-link" data-scroll-target="#fatal-findings">Fatal findings</a>
+  <ul class="collapse">
+  <li><a href="#f1.-outcome-ascertainment-confounds-disclosure-with-publisher-xml-placement.-executing-the-pinned-extractor-on-pmc5808091-a" id="toc-f1.-outcome-ascertainment-confounds-disclosure-with-publisher-xml-placement.-executing-the-pinned-extractor-on-pmc5808091-a" class="nav-link" data-scroll-target="#f1.-outcome-ascertainment-confounds-disclosure-with-publisher-xml-placement.-executing-the-pinned-extractor-on-pmc5808091-a">F1. Outcome ascertainment confounds disclosure with publisher XML placement. Executing the pinned extractor on PMC5808091, a</a></li>
+  <li><a href="#f2.-the-document-presents-itself-as-a-confirmatory-protocol-whose-instruments-were-fixed-before-data-were-retrieved-and-whos" id="toc-f2.-the-document-presents-itself-as-a-confirmatory-protocol-whose-instruments-were-fixed-before-data-were-retrieved-and-whos" class="nav-link" data-scroll-target="#f2.-the-document-presents-itself-as-a-confirmatory-protocol-whose-instruments-were-fixed-before-data-were-retrieved-and-whos">F2. The document presents itself as a confirmatory protocol whose instruments were fixed before data were retrieved and whos</a></li>
+  <li><a href="#f3.-section-1-says-this-is-a-confirmatory-test-with-every-instrument-fixed-before-any-data-are-retrieved.-the-confirmatory-s" id="toc-f3.-section-1-says-this-is-a-confirmatory-test-with-every-instrument-fixed-before-any-data-are-retrieved.-the-confirmatory-s" class="nav-link" data-scroll-target="#f3.-section-1-says-this-is-a-confirmatory-test-with-every-instrument-fixed-before-any-data-are-retrieved.-the-confirmatory-s">F3. Section 1 says this is a confirmatory test with every instrument fixed before any data are retrieved. The confirmatory s</a></li>
+  </ul></li>
+  <li><a href="#major-findings" id="toc-major-findings" class="nav-link" data-scroll-target="#major-findings">Major findings</a>
+  <ul class="collapse">
+  <li><a href="#m1.-pinned-code-does-not-implement-the-stated-locator-rule.-the-extractors-_text-retains-visible-text-but-discards-xlink" id="toc-m1.-pinned-code-does-not-implement-the-stated-locator-rule.-the-extractors-_text-retains-visible-text-but-discards-xlink" class="nav-link" data-scroll-target="#m1.-pinned-code-does-not-implement-the-stated-locator-rule.-the-extractors-_text-retains-visible-text-but-discards-xlink">M1. Pinned code does not implement the stated locator rule. The extractor’s _text() retains visible text but discards xlink:</a></li>
+  <li><a href="#m2.-query-membership-has-no-demonstrated-validity-as-an-instrument-for-research-subject.-the-datashare-query-matches-phrases" id="toc-m2.-query-membership-has-no-demonstrated-validity-as-an-instrument-for-research-subject.-the-datashare-query-matches-phrases" class="nav-link" data-scroll-target="#m2.-query-membership-has-no-demonstrated-validity-as-an-instrument-for-research-subject.-the-datashare-query-matches-phrases">M2. Query membership has no demonstrated validity as an instrument for research subject. The datashare query matches phrases</a></li>
+  <li><a href="#m3.-p7-validates-grading-conditional-on-successful-extraction-not-ascertainment-of-the-primary-outcome.-the-supplied-p7-gra" id="toc-m3.-p7-validates-grading-conditional-on-successful-extraction-not-ascertainment-of-the-primary-outcome.-the-supplied-p7-gra" class="nav-link" data-scroll-target="#m3.-p7-validates-grading-conditional-on-successful-extraction-not-ascertainment-of-the-primary-outcome.-the-supplied-p7-gra">M3. P7 validates grading conditional on successful extraction, not ascertainment of the primary outcome. The supplied p7-gra</a></li>
+  <li><a href="#m4.-the-proposed-hand-graded-co-primary-analysis-changes-the-population-and-estimand.-p7-excludes-every-article-without-an-e" id="toc-m4.-the-proposed-hand-graded-co-primary-analysis-changes-the-population-and-estimand.-p7-excludes-every-article-without-an-e" class="nav-link" data-scroll-target="#m4.-the-proposed-hand-graded-co-primary-analysis-changes-the-population-and-estimand.-p7-excludes-every-article-without-an-e">M4. The proposed hand-graded co-primary analysis changes the population and estimand. P7 excludes every article without an e</a></li>
+  <li><a href="#m5.-fully-open-access-publication-does-not-imply-complete-pmc-deposition.-ncbi-distinguishes-full-participation-nih-portfol" id="toc-m5.-fully-open-access-publication-does-not-imply-complete-pmc-deposition.-ncbi-distinguishes-full-participation-nih-portfol" class="nav-link" data-scroll-target="#m5.-fully-open-access-publication-does-not-imply-complete-pmc-deposition.-ncbi-distinguishes-full-participation-nih-portfol">M5. Fully open-access publication does not imply complete PMC deposition. NCBI distinguishes full participation, NIH-portfol</a></li>
+  <li><a href="#m6.-computed-grid-values-do-not-establish-the-advertised-power.-probes.r-solves-an-independent-two-proportion-normal-approxi" id="toc-m6.-computed-grid-values-do-not-establish-the-advertised-power.-probes.r-solves-an-independent-two-proportion-normal-approxi" class="nav-link" data-scroll-target="#m6.-computed-grid-values-do-not-establish-the-advertised-power.-probes.r-solves-an-independent-two-proportion-normal-approxi">M6. Computed grid values do not establish the advertised power. probes.R solves an independent two-proportion normal approxi</a></li>
+  <li><a href="#m7.-a-confidence-interval-containing-1-neither-falsifies-a-positive-association-nor-establishes-absence.-the-same-interval-c" id="toc-m7.-a-confidence-interval-containing-1-neither-falsifies-a-positive-association-nor-establishes-absence.-the-same-interval-c" class="nav-link" data-scroll-target="#m7.-a-confidence-interval-containing-1-neither-falsifies-a-positive-association-nor-establishes-absence.-the-same-interval-c">M7. A confidence interval containing 1 neither falsifies a positive association nor establishes absence. The same interval c</a></li>
+  <li><a href="#m8.-outcome-analysis-has-already-occurred-p4-tabulates-actionable-outcomes-by-exposure-reporting-95520-versus-1323435-w" id="toc-m8.-outcome-analysis-has-already-occurred-p4-tabulates-actionable-outcomes-by-exposure-reporting-95520-versus-1323435-w" class="nav-link" data-scroll-target="#m8.-outcome-analysis-has-already-occurred-p4-tabulates-actionable-outcomes-by-exposure-reporting-95520-versus-1323435-w">M8. Outcome analysis has already occurred: P4 tabulates actionable outcomes by exposure, reporting 95/520 versus 132/3435, w</a></li>
+  <li><a href="#m9.-the-claimed-executable-analysis-does-not-implement-p01v2.-the-pinned-r01-analyze.r-hardcodes-r01-input-paths-derives-ex" id="toc-m9.-the-claimed-executable-analysis-does-not-implement-p01v2.-the-pinned-r01-analyze.r-hardcodes-r01-input-paths-derives-ex" class="nav-link" data-scroll-target="#m9.-the-claimed-executable-analysis-does-not-implement-p01v2.-the-pinned-r01-analyze.r-hardcodes-r01-input-paths-derives-ex">M9. The claimed executable analysis does not implement P01v2. The pinned R01 analyze.R hardcodes R01 input paths, derives ex</a></li>
+  <li><a href="#m10.-the-protocol-says-a-95-percent-ci-that-includes-1-in-a-sample-powered-as-in-section-7-can-be-read-as-evidence-of-absen" id="toc-m10.-the-protocol-says-a-95-percent-ci-that-includes-1-in-a-sample-powered-as-in-section-7-can-be-read-as-evidence-of-absen" class="nav-link" data-scroll-target="#m10.-the-protocol-says-a-95-percent-ci-that-includes-1-in-a-sample-powered-as-in-section-7-can-be-read-as-evidence-of-absen">M10. The protocol says a 95 percent CI that includes 1, in a sample powered as in section 7, can be read as evidence of absen</a></li>
+  <li><a href="#m11.-three-power-claims-do-not-survive-the-protocols-own-numbers-and-files.-first-section-2-says-1.5-to-3-would-be-consiste" id="toc-m11.-three-power-claims-do-not-survive-the-protocols-own-numbers-and-files.-first-section-2-says-1.5-to-3-would-be-consiste" class="nav-link" data-scroll-target="#m11.-three-power-claims-do-not-survive-the-protocols-own-numbers-and-files.-first-section-2-says-1.5-to-3-would-be-consiste">M11. Three power claims do not survive the protocol’s own numbers and files. First, section 2 says 1.5 to 3 would be consiste</a></li>
+  <li><a href="#m12.-section-9-asserts-that-differential-pmc-coverage-favors-the-hypothesis.-section-12-says-the-direction-of-bias-on-the-bet" id="toc-m12.-section-9-asserts-that-differential-pmc-coverage-favors-the-hypothesis.-section-12-says-the-direction-of-bias-on-the-bet" class="nav-link" data-scroll-target="#m12.-section-9-asserts-that-differential-pmc-coverage-favors-the-hypothesis.-section-12-says-the-direction-of-bias-on-the-bet">M12. Section 9 asserts that differential PMC coverage favors the hypothesis. Section 12 says the direction of bias on the bet</a></li>
+  <li><a href="#m13.-section-12-calls-the-qualified-frame-a-high-precision-slice.-the-qualifier-includes-we-searched-pubmed-publications" id="toc-m13.-section-12-calls-the-qualified-frame-a-high-precision-slice.-the-qualifier-includes-we-searched-pubmed-publications" class="nav-link" data-scroll-target="#m13.-section-12-calls-the-qualified-frame-a-high-precision-slice.-the-qualifier-includes-we-searched-pubmed-publications">M13. Section 12 calls the qualified frame a high-precision slice. The qualifier includes ‘we searched PubMed’, ‘publications’</a></li>
+  <li><a href="#m14.-the-written-rule-grades-a-doi-or-url-as-actionable-only-when-it-is-not-the-articles-own-doi.-grade_one-takes-only-the" id="toc-m14.-the-written-rule-grades-a-doi-or-url-as-actionable-only-when-it-is-not-the-articles-own-doi.-grade_one-takes-only-the" class="nav-link" data-scroll-target="#m14.-the-written-rule-grades-a-doi-or-url-as-actionable-only-when-it-is-not-the-articles-own-doi.-grade_one-takes-only-the">M14. The written rule grades a DOI or URL as actionable only when it is not the article’s own DOI. grade_one() takes only the</a></li>
+  <li><a href="#m15.-the-screening-instrument-is-not-pinned.-extract.py-is-pinned-to-a-commit-hash-screening-is-two-models-from-different-p" id="toc-m15.-the-screening-instrument-is-not-pinned.-extract.py-is-pinned-to-a-commit-hash-screening-is-two-models-from-different-p" class="nav-link" data-scroll-target="#m15.-the-screening-instrument-is-not-pinned.-extract.py-is-pinned-to-a-commit-hash-screening-is-two-models-from-different-p">M15. The screening instrument is not pinned. Extract.py is pinned to a commit hash; screening is ’two models from different p</a></li>
+  <li><a href="#m16.-p7-is-described-as-150-statements-stratified-by-rule-grade.-the-file-studiesp01v2-confirmatoryoutp7-grading-sample.cs" id="toc-m16.-p7-is-described-as-150-statements-stratified-by-rule-grade.-the-file-studiesp01v2-confirmatoryoutp7-grading-sample.cs" class="nav-link" data-scroll-target="#m16.-p7-is-described-as-150-statements-stratified-by-rule-grade.-the-file-studiesp01v2-confirmatoryoutp7-grading-sample.cs">M16. P7 is described as 150 statements stratified by rule grade. The file studies/P01v2-confirmatory/out/p7-grading-sample.cs</a></li>
+  <li><a href="#m17.-sensitivity-3-restricts-to-journals-with-at-least-10-articles-in-each-arm.-in-the-full-text-frame-that-is-4-journals-bm" id="toc-m17.-sensitivity-3-restricts-to-journals-with-at-least-10-articles-in-each-arm.-in-the-full-text-frame-that-is-4-journals-bm" class="nav-link" data-scroll-target="#m17.-sensitivity-3-restricts-to-journals-with-at-least-10-articles-in-each-arm.-in-the-full-text-frame-that-is-4-journals-bm">M17. Sensitivity 3 restricts to journals with at least 10 articles in each arm. In the full-text frame that is 4 journals (BM</a></li>
+  <li><a href="#m18.-p3s-stated-design-change-rule-is-a-route-distribution-unlike-tier-as.-r01-title-matching-routes-were-about-16-percent" id="toc-m18.-p3s-stated-design-change-rule-is-a-route-distribution-unlike-tier-as.-r01-title-matching-routes-were-about-16-percent" class="nav-link" data-scroll-target="#m18.-p3s-stated-design-change-rule-is-a-route-distribution-unlike-tier-as.-r01-title-matching-routes-were-about-16-percent">M18. P3’s stated design-change rule is a route distribution unlike tier A’s. R01 title-matching routes were about 16 percent</a></li>
+  <li><a href="#m19.-section-13-says-the-analysis-code-that-will-run-is-already-written-and-is-the-code-that-produced-r01.-studiesp01-advoca" id="toc-m19.-section-13-says-the-analysis-code-that-will-run-is-already-written-and-is-the-code-that-produced-r01.-studiesp01-advoca" class="nav-link" data-scroll-target="#m19.-section-13-says-the-analysis-code-that-will-run-is-already-written-and-is-the-code-that-produced-r01.-studiesp01-advoca">M19. Section 13 says the analysis code that will run is already written and is the code that produced R01. studies/P01-advoca</a></li>
+  </ul></li>
+  <li><a href="#minor-findings" id="toc-minor-findings" class="nav-link" data-scroll-target="#minor-findings">Minor findings</a>
+  <ul class="collapse">
+  <li><a href="#m1.-the-multiplicity-paragraph-refers-to-five-sensitivity-analyses.-section-8-lists-six.-sensitivity-6-is-the-one-added-for" id="toc-m1.-the-multiplicity-paragraph-refers-to-five-sensitivity-analyses.-section-8-lists-six.-sensitivity-6-is-the-one-added-for" class="nav-link" data-scroll-target="#m1.-the-multiplicity-paragraph-refers-to-five-sensitivity-analyses.-section-8-lists-six.-sensitivity-6-is-the-one-added-for">M1. The multiplicity paragraph refers to five sensitivity analyses. Section 8 lists six. Sensitivity 6 is the one added for</a></li>
+  <li><a href="#m2.-the-realized-counts-row-labeled-frame-after-removing-205-tier-a-overlaps-from-7617-records-gives-704-and-6526.-those" id="toc-m2.-the-realized-counts-row-labeled-frame-after-removing-205-tier-a-overlaps-from-7617-records-gives-704-and-6526.-those" class="nav-link" data-scroll-target="#m2.-the-realized-counts-row-labeled-frame-after-removing-205-tier-a-overlaps-from-7617-records-gives-704-and-6526.-those">M2. The realized-counts row labeled ‘frame, after removing 205 tier A overlaps from 7617 records’ gives 704 and 6526. Those</a></li>
+  </ul></li>
+  <li><a href="#the-raw-verdicts" id="toc-the-raw-verdicts" class="nav-link" data-scroll-target="#the-raw-verdicts">The raw verdicts</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/choxos/autometaresearch/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Review of P01v2: blocked</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">review</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Independent adversarial review of P01v2. Verdict: blocked.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 19, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Review of <strong><a href="../proposals/P01v2-advocacy-and-practice-protocol.html">Advocacy and practice in meta-research: protocol</a></strong>.</p>
+<div class="callout callout-style-simple callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Verdict: blocked
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A reviewer produced a fatal finding backed by a verbatim quote and no reviewer rebutted it. Under the rule, evidence outranks votes, so this outcome does not depend on the tally.</p>
+<p>Adjudicated by <code>build/audit/adjudicate.py</code> at rule version 1. Coverage is <strong>complete</strong>: chatgpt, grok returned a verdict out of a roster of chatgpt, grok.</p>
+<p>3 fatal, 19 major, 2 minor. 22 of the severe findings carry a verbatim quote.</p>
+</div>
+</div>
+<section id="votes" class="level2">
+<h2 class="anchored" data-anchor-id="votes">Votes</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>reviewer</th>
+<th>vote</th>
+<th>confidence</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>chatgpt</code></td>
+<td><strong>unsound</strong></td>
+<td>0.98</td>
+</tr>
+<tr class="even">
+<td><code>grok</code></td>
+<td><strong>unsound</strong></td>
+<td>0.86</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="what-each-reviewer-said" class="level2">
+<h2 class="anchored" data-anchor-id="what-each-reviewer-said">What each reviewer said</h2>
+<section id="chatgpt" class="level3">
+<h3 class="anchored" data-anchor-id="chatgpt"><code>chatgpt</code></h3>
+<p>Pinned outcome instruments demonstrably misclassify real disclosures, and validation cannot detect important extraction failures. Power and null-result interpretations also exceed what calculations establish. Frame counts and all 15 power-grid cells reproduced; no residual tier A overlap was found by PMID, DOI, or PMCID. Screening yields, human agreement, and power for the specified mixed model remain unverified. Python extractor functions were executed; R execution was blocked by read-only temporary-file restrictions, so grading was checked through source inspection and a Python translation reproducing all six P4 counts. Literature searches did not establish an exact prior study duplicating this comparison.</p>
+</section>
+<section id="grok" class="level3">
+<h3 class="anchored" data-anchor-id="grok"><code>grok</code></h3>
+<p>The PMID exclusion of the 205 tier A overlaps is real and applied first, so this is a non-overlapping set of articles. The section 4.1 block counts match the 2026-09-16 search log, and the section 7 realized n’s match probes.json. The extractor is imported from the pinned file rather than copied. Those parts hold. What does not hold is the confirmatory claim. P4 already graded the confirmatory frame by arm and the protocol publishes both rates (18.3 percent vs 3.8 percent, crude OR about 5.6). That is the hypothesis, inspected on the analysis set, before screening, by the person who will adjudicate screening disagreements. Section 7’s power story is also wrong as written: the grid does not detect 1.5 at the cells the protocol treats as worst case, the calculation is an unclustered two-proportion test rather than the mixed model in section 8, and the yield floor of 0.5 is contradicted by the unlabeled P6 titles, which are mostly clinical reviews and, in the exposed arm, database and resource papers. I looked for a published empirical test of this same topic-versus-own-DAS contrast and did not find one. Cristea, Naudet and Caquelin 2022 (PMID 35623542) is a commentary that meta-researchers should evaluate their own sharing; it is not this analysis and the protocol does not claim otherwise.</p>
+</section>
+</section>
+<section id="fatal-findings" class="level2">
+<h2 class="anchored" data-anchor-id="fatal-findings">Fatal findings</h2>
+<section id="f1.-outcome-ascertainment-confounds-disclosure-with-publisher-xml-placement.-executing-the-pinned-extractor-on-pmc5808091-a" class="level3">
+<h3 class="anchored" data-anchor-id="f1.-outcome-ascertainment-confounds-disclosure-with-publisher-xml-placement.-executing-the-pinned-extractor-on-pmc5808091-a">F1. Outcome ascertainment confounds disclosure with publisher XML placement. Executing the pinned extractor on PMC5808091, a</h3>
+<p><strong>Reviewer</strong> <code>chatgpt</code> · <strong>Section</strong> 6.1 Extraction; 9. Threats, and what happened to each</p>
+Outcome ascertainment confounds disclosure with publisher XML placement. Executing the pinned extractor on PMC5808091, an exposed article, and PMC6092896, a comparison article, returned empty statements and route ‘none’, although both contain their own repository disclosures inside
+
+<p>. Moving the identical sections into <back> in memory made extraction succeed. Their disclosures are independently visible in the <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5808091/">metabolomics article</a> and <a href="https://f1000research.com/articles/7-1001/v1">predatory-journal review</a>. Excluding body content removes some false positives by introducing demonstrable false negatives. The threat is not removed.</back></p>
+<blockquote class="blockquote">
+<p>That code searches <code>&lt;front&gt;</code> and <code>&lt;back&gt;</code> only, never <code>&lt;body&gt;</code></p>
+</blockquote>
+<p><strong>What would fix it.</strong> Identify articles’ own availability statements across JATS locations while distinguishing disclosures from methods and results discussing availability. Validate extraction against complete articles across both arms and publisher formats, including records currently classified ‘none’, then freeze the corrected instrument.</p>
+</section>
+<section id="f2.-the-document-presents-itself-as-a-confirmatory-protocol-whose-instruments-were-fixed-before-data-were-retrieved-and-whos" class="level3">
+<h3 class="anchored" data-anchor-id="f2.-the-document-presents-itself-as-a-confirmatory-protocol-whose-instruments-were-fixed-before-data-were-retrieved-and-whos">F2. The document presents itself as a confirmatory protocol whose instruments were fixed before data were retrieved and whos</h3>
+<p><strong>Reviewer</strong> <code>grok</code> · <strong>Section</strong> Status: protocol</p>
+<p>The document presents itself as a confirmatory protocol whose instruments were fixed before data were retrieved and whose hypothesis has not been tested on this sample. Probes P3 and P4 already fetched PMC full text for the confirmatory frame, graded every full-text record under the pinned rule, and wrote per-arm grade counts into probes.json and p4-grades.csv. Section 7 then publishes both rates. The unscreened 2x2 is 95/520 actionable in the exposed arm versus 132/3435 in the comparison arm (odds ratio 5.59). No glmer is required for that to be a look at the hypothesis. Section 10 describes P4 as the comparison arm only; the code and the protocol text both report the exposed arm as well. The author who will adjudicate screening disagreements has seen the direction and size of the association. A confirmatory protocol cannot be written after that look.</p>
+<blockquote class="blockquote">
+<p>No outcome has been analyzed under this protocol. The probes measured the frame and the instruments; they did not test the hypothesis, and no exposure-by-outcome model has been fitted on this sample.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Drop the confirmatory label. State that P3/P4 were an outcome-by-exposure pilot on the unscreened frame. Freeze any screening or analysis choice that could still be influenced by those rates. Do not claim that instruments were fixed before data retrieval. Register the revised protocol before P6/P7 labeling and before screening the frame.</p>
+</section>
+<section id="f3.-section-1-says-this-is-a-confirmatory-test-with-every-instrument-fixed-before-any-data-are-retrieved.-the-confirmatory-s" class="level3">
+<h3 class="anchored" data-anchor-id="f3.-section-1-says-this-is-a-confirmatory-test-with-every-instrument-fixed-before-any-data-are-retrieved.-the-confirmatory-s">F3. Section 1 says this is a confirmatory test with every instrument fixed before any data are retrieved. The confirmatory s</h3>
+<p><strong>Reviewer</strong> <code>grok</code> · <strong>Section</strong> 1. Why this design exists</p>
+<p>Section 1 says this is a confirmatory test with every instrument fixed before any data are retrieved. The confirmatory sample has already been retrieved, extracted, and graded. The instruments that were frozen are the R01 extractor and grading rule; the data of this study were not unseen when this page was written. The same commit that pins the code also ran the probes.</p>
+<blockquote class="blockquote">
+<p>This specifies a confirmatory test of the same hypothesis, on a sample R01 did not use, with every instrument fixed before any data are retrieved.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Replace the sentence with an accurate timeline: R01 instruments frozen, then this frame harvested and graded for feasibility, then this protocol written from those numbers. That is a protocol after a pilot, not a confirmatory test with unseen data.</p>
+</section>
+</section>
+<section id="major-findings" class="level2">
+<h2 class="anchored" data-anchor-id="major-findings">Major findings</h2>
+<section id="m1.-pinned-code-does-not-implement-the-stated-locator-rule.-the-extractors-_text-retains-visible-text-but-discards-xlink" class="level3">
+<h3 class="anchored" data-anchor-id="m1.-pinned-code-does-not-implement-the-stated-locator-rule.-the-extractors-_text-retains-visible-text-but-discards-xlink">M1. Pinned code does not implement the stated locator rule. The extractor’s _text() retains visible text but discards xlink:</h3>
+<p><strong>Reviewer</strong> <code>chatgpt</code> · <strong>Section</strong> 6.1 Extraction; 6.2 Grading</p>
+<p>Pinned code does not implement the stated locator rule. The extractor’s _text() retains visible text but discards xlink:href targets. For PMC10202448, it retains ‘GitHub repository’ while losing the repository URL; REPO matches github.com rather than the bare repository name, producing ‘declarative’ under the pinned rules. Separately, grade_one(s) receives no article DOI or canonical URL, so it cannot exclude the article’s own identifiers. Its locator filter removes only an incomplete DOI-URL prefix, not matching article identifiers.</p>
+<blockquote class="blockquote">
+<p>a named repository, or a DOI or URL that is not the article’s own</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Preserve hyperlink targets and relevant data citations; pass normalized article identifiers into grading; distinguish article links from data/code locators. Verify these boundaries with real disclosures and negative examples before repinning.</p>
+</section>
+<section id="m2.-query-membership-has-no-demonstrated-validity-as-an-instrument-for-research-subject.-the-datashare-query-matches-phrases" class="level3">
+<h3 class="anchored" data-anchor-id="m2.-query-membership-has-no-demonstrated-validity-as-an-instrument-for-research-subject.-the-datashare-query-matches-phrases">M2. Query membership has no demonstrated validity as an instrument for research subject. The datashare query matches phrases</h3>
+<p><strong>Reviewer</strong> <code>chatgpt</code> · <strong>Section</strong> 5. Exposure; 9. Threats, and what happened to each</p>
+<p>Query membership has no demonstrated validity as an instrument for research subject. The datashare query matches phrases such as ‘code availability’ and ‘open data’ in titles, abstracts, and keywords without distinguishing an article studying sharing from one describing its own sharing. P6 validates meta-research eligibility, not this distinction. Outcome-related sharing language could therefore increase the probability of exposure classification, producing differential error and potentially inflating the association. Reproducibility of a query establishes neither construct validity nor bias toward the null.</p>
+<blockquote class="blockquote">
+<p>it is reproducible from a query string, and its misclassification is toward the null.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Validate exposure against a blinded human assessment of research subject, including incidental mentions and descriptions of authors’ own sharing. Assess errors by outcome and arm. Alternatively, narrow the objective to association with query vocabulary and remove the asserted bias direction.</p>
+</section>
+<section id="m3.-p7-validates-grading-conditional-on-successful-extraction-not-ascertainment-of-the-primary-outcome.-the-supplied-p7-gra" class="level3">
+<h3 class="anchored" data-anchor-id="m3.-p7-validates-grading-conditional-on-successful-extraction-not-ascertainment-of-the-primary-outcome.-the-supplied-p7-gra">M3. P7 validates grading conditional on successful extraction, not ascertainment of the primary outcome. The supplied p7-gra</h3>
+<p><strong>Reviewer</strong> <code>chatgpt</code> · <strong>Section</strong> 6.3 Validation of the grading rule; 10. The probes that must run before this is a protocol</p>
+<p>P7 validates grading conditional on successful extraction, not ascertainment of the primary outcome. The supplied p7-grading-sample.csv contains 150 nonempty statements; the grading translation classifies 133 as declarative and 17 as actionable, with zero ‘none’ records. A person seeing only extracted text cannot discover omitted body statements or discarded hyperlink targets. Consequently, even perfect kappa could coexist with systematic, publisher-dependent false negatives in the analysis population.</p>
+<blockquote class="blockquote">
+<p>150 statements, stratified by rule grade, are graded by the author, blind to the article’s exposure and to the rule’s grade.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Add an end-to-end validation sample of complete articles, including extraction negatives and each extraction route. Have humans independently identify and grade disclosures. Report actionable-outcome sensitivity and specificity by arm, alongside agreement, and make those results govern instrument acceptance.</p>
+</section>
+<section id="m4.-the-proposed-hand-graded-co-primary-analysis-changes-the-population-and-estimand.-p7-excludes-every-article-without-an-e" class="level3">
+<h3 class="anchored" data-anchor-id="m4.-the-proposed-hand-graded-co-primary-analysis-changes-the-population-and-estimand.-p7-excludes-every-article-without-an-e">M4. The proposed hand-graded co-primary analysis changes the population and estimand. P7 excludes every article without an e</h3>
+<p><strong>Reviewer</strong> <code>chatgpt</code> · <strong>Section</strong> 6.3 Validation of the grading rule</p>
+<p>The proposed hand-graded co-primary analysis changes the population and estimand. P7 excludes every article without an extracted statement, although those articles belong in the primary outcome’s negative category. It also samples by rule grade. An unweighted analysis of these records does not reproduce the association among all eligible articles. The actual file contains only 19 exposed articles and 17 rule-positive outcomes before eligibility screening, so it cannot inherit section 7’s power claims.</p>
+<blockquote class="blockquote">
+<p>the primary analysis is repeated on the hand-graded subsample alone as a co-primary, with both reported together regardless of whether they agree.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Use a representative, adequately sized hand-assessed article sample that includes extraction negatives. If sampling is stratified, specify nonzero inclusion probabilities and an appropriate analysis. Define the co-primary decision rule and calculate its power separately.</p>
+</section>
+<section id="m5.-fully-open-access-publication-does-not-imply-complete-pmc-deposition.-ncbi-distinguishes-full-participation-nih-portfol" class="level3">
+<h3 class="anchored" data-anchor-id="m5.-fully-open-access-publication-does-not-imply-complete-pmc-deposition.-ncbi-distinguishes-full-participation-nih-portfol">M5. Fully open-access publication does not imply complete PMC deposition. NCBI distinguishes full participation, NIH-portfol</h3>
+<p><strong>Reviewer</strong> <code>chatgpt</code> · <strong>Section</strong> 8. Analysis, sensitivity analysis 6; 9. Threats, and what happened to each</p>
+<p>Fully open-access publication does not imply complete PMC deposition. NCBI distinguishes full participation, NIH-portfolio participation, and selective deposit; even full participation starts at a specified publication date. Thus the proposed restriction does not establish equal or complete ascertainment. See <a href="https://pmc.ncbi.nlm.nih.gov/pub/agreements/">PMC participation agreements</a>. Moreover, higher marginal PMC coverage in the exposed arm does not identify the direction of selection bias in the exposure-outcome association, contrary to section 9’s assertion that it favors the hypothesis.</p>
+<blockquote class="blockquote">
+<p>Within a fully open-access journal every article is in PMC, so the differential selection that P2 exposed cannot operate.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Base this sensitivity on verified journal-year PMC coverage and usable XML availability, rather than open-access status alone. Remove the guarantee that selection cannot operate and the unsupported claim about its direction; state the restricted target population explicitly.</p>
+</section>
+<section id="m6.-computed-grid-values-do-not-establish-the-advertised-power.-probes.r-solves-an-independent-two-proportion-normal-approxi" class="level3">
+<h3 class="anchored" data-anchor-id="m6.-computed-grid-values-do-not-establish-the-advertised-power.-probes.r-solves-an-independent-two-proportion-normal-approxi">M6. Computed grid values do not establish the advertised power. probes.R solves an independent two-proportion normal approxi</h3>
+<p><strong>Reviewer</strong> <code>chatgpt</code> · <strong>Section</strong> 7. Sample size and power</p>
+<p>Computed grid values do not establish the advertised power. probes.R solves an independent two-proportion normal approximation, whereas the primary analysis estimates a journal-conditional odds ratio with year adjustment. It does not model journal clustering, exposure concentration, or screening losses separately by arm. Even its own approximation contradicts detection across OR 1.5–3: the worst cell requires OR 2.18, and OR 1.5 has approximately 30.5% power at baseline 0.038 and yield 0.5. Comparing R01’s 0.205 with this different frame’s 0.0384 also does not establish a lower bound on the screened baseline.</p>
+<blockquote class="blockquote">
+<p>The design detects effects across that entire band</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Calculate power for the planned mixed model using journal composition and separately justified screening yields for each arm. Include uncertainty in the screened baseline and validation fallbacks. Select a smallest effect of interest and report scenarios that fail to achieve its target power.</p>
+</section>
+<section id="m7.-a-confidence-interval-containing-1-neither-falsifies-a-positive-association-nor-establishes-absence.-the-same-interval-c" class="level3">
+<h3 class="anchored" data-anchor-id="m7.-a-confidence-interval-containing-1-neither-falsifies-a-positive-association-nor-establishes-absence.-the-same-interval-c">M7. A confidence interval containing 1 neither falsifies a positive association nor establishes absence. The same interval c</h3>
+<p><strong>Reviewer</strong> <code>chatgpt</code> · <strong>Section</strong> 2. Objective and hypothesis; 7. Sample size and power</p>
+<p>A confidence interval containing 1 neither falsifies a positive association nor establishes absence. The same interval can include substantial positive effects. Even a genuinely 80%-powered test fails to reject its null in about 20% of repetitions at the planning alternative. Power calculations do not turn nonsignificance into an equivalence test. The proposed rule could therefore label an inconclusive result as evidence against the hypothesis.</p>
+<blockquote class="blockquote">
+<p>An adjusted odds ratio whose 95 percent confidence interval includes 1, in a sample powered as in section 7.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Prespecify a scientifically meaningful effect threshold and interpret the confidence interval against that threshold. Use an appropriate equivalence or effect-exclusion criterion for absence claims; classify sufficiently wide intervals as inconclusive.</p>
+</section>
+<section id="m8.-outcome-analysis-has-already-occurred-p4-tabulates-actionable-outcomes-by-exposure-reporting-95520-versus-1323435-w" class="level3">
+<h3 class="anchored" data-anchor-id="m8.-outcome-analysis-has-already-occurred-p4-tabulates-actionable-outcomes-by-exposure-reporting-95520-versus-1323435-w">M8. Outcome analysis has already occurred: P4 tabulates actionable outcomes by exposure, reporting 95/520 versus 132/3435, w</h3>
+<p><strong>Reviewer</strong> <code>chatgpt</code> · <strong>Section</strong> Status callout; 1. Why this design exists; 7. Sample size and power; 8. Analysis</p>
+<p>Outcome analysis has already occurred: P4 tabulates actionable outcomes by exposure, reporting 95/520 versus 132/3435, which reveals a crude odds ratio of approximately 5.59. Absence of a fitted regression does not make these outcomes unseen. Section 8 also calls analyses preregistered while the status says ‘Not registered’. The earlier e725b073034c4a777acbd1c10a375291be65e314 version already specified the primary model, so this is not evidence that the primary hypothesis was invented afterward; it is evidence that the account of prior outcome access is inaccurate.</p>
+<blockquote class="blockquote">
+<p>No outcome has been analyzed under this protocol.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Provide an accurate timeline of specification, retrieval, arm-specific outcome summaries, and subsequent decisions. Distinguish pre-probe specifications from post-probe additions. Any decisions revised using these outcomes require an untouched evaluation sample for a prospective confirmatory claim, or explicit exploratory labeling.</p>
+</section>
+<section id="m9.-the-claimed-executable-analysis-does-not-implement-p01v2.-the-pinned-r01-analyze.r-hardcodes-r01-input-paths-derives-ex" class="level3">
+<h3 class="anchored" data-anchor-id="m9.-the-claimed-executable-analysis-does-not-implement-p01v2.-the-pinned-r01-analyze.r-hardcodes-r01-input-paths-derives-ex">M9. The claimed executable analysis does not implement P01v2. The pinned R01 analyze.R hardcodes R01 input paths, derives ex</h3>
+<p><strong>Reviewer</strong> <code>chatgpt</code> · <strong>Section</strong> 13. Availability; 8. Analysis</p>
+<p>The claimed executable analysis does not implement P01v2. The pinned R01 analyze.R hardcodes R01 input paths, derives exposure from topic_datashare rather than the new frame’s arm definition, retains article-type adjustment, and lacks P01v2 screening/validation branches and sensitivities 3, 5, and 6. The confirmatory directory contains probe code, not an analysis driver implementing the stated protocol. Running the identified analysis unchanged would analyze the wrong sample under the wrong specification.</p>
+<blockquote class="blockquote">
+<p>The analysis code that will run is already written and public; it is the code that produced R01, and section 6 pins it.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Provide and pin a P01v2 analysis driver implementing the declared sample, exposure, validation contingencies, primary and secondary models, and all six sensitivities. Include reproducible sample-generation procedures and a documented command that consumes the confirmatory inputs.</p>
+</section>
+<section id="m10.-the-protocol-says-a-95-percent-ci-that-includes-1-in-a-sample-powered-as-in-section-7-can-be-read-as-evidence-of-absen" class="level3">
+<h3 class="anchored" data-anchor-id="m10.-the-protocol-says-a-95-percent-ci-that-includes-1-in-a-sample-powered-as-in-section-7-can-be-read-as-evidence-of-absen">M10. The protocol says a 95 percent CI that includes 1, in a sample powered as in section 7, can be read as evidence of absen</h3>
+<p><strong>Reviewer</strong> <code>grok</code> · <strong>Section</strong> 2. Objective and hypothesis</p>
+<p>The protocol says a 95 percent CI that includes 1, in a sample powered as in section 7, can be read as evidence of absence. Power to detect an odds ratio of 2.18 at 80 percent is not power to rule out 1.5, and it is not an equivalence test. There is no smallest effect size of interest and no TOST or CI-exclusion rule against a margin. Failure to reject OR=1 remains absence of evidence for anything smaller than the detectable value. The mixed model in section 8 is also less powered than the two-proportion calculation used in section 7, because data-availability statements cluster by journal.</p>
+<blockquote class="blockquote">
+<p>Section 7 fixes the power in advance so that a null can be read as evidence of absence rather than absence of evidence, which was not true of R01.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> State a smallest odds ratio that would still matter (for example 1.5). Falsify only if the 95 percent CI lies entirely below that margin, or run a preregistered equivalence test. Recompute power for glmer with (1|journal) under a plausible ICC. Delete the claim that a null here is evidence of absence.</p>
+</section>
+<section id="m11.-three-power-claims-do-not-survive-the-protocols-own-numbers-and-files.-first-section-2-says-1.5-to-3-would-be-consiste" class="level3">
+<h3 class="anchored" data-anchor-id="m11.-three-power-claims-do-not-survive-the-protocols-own-numbers-and-files.-first-section-2-says-1.5-to-3-would-be-consiste">M11. Three power claims do not survive the protocol’s own numbers and files. First, section 2 says 1.5 to 3 would be consiste</h3>
+<p><strong>Reviewer</strong> <code>grok</code> · <strong>Section</strong> 7. Sample size and power</p>
+<p>Three power claims do not survive the protocol’s own numbers and files. First, section 2 says 1.5 to 3 would be consistent with R01 and section 7 says the design detects that entire band. On the protocol’s own grid, at yield 0.5 and baseline 0.038 the detectable OR is 2.18, so 1.5 is not detectable in the cell treated as worst case. Second, the grid never goes below yield 0.5, but the unlabeled P6 title list is not a 50 percent meta-research sample. The comparison titles are mostly clinical systematic reviews and meta-analyses of patient outcomes (the report block’s PRISMA/CONSORT phrases and the qualifier ‘we searched PubMed’ retrieve ordinary reviews). The exposed titles include database papers, resource descriptions, and clinical studies that mention data sharing (Scientific Data alone is 17 exposed and 1 comparison in the full-text frame). A yield of 0.15 at baseline 0.038 gives a detectable OR of about 3.49, which trips the protocol’s own P5 rule that a detectable effect above about 2.5 means the frame must be widened. Third, the unscreened 18.3 percent vs 3.8 percent contrast is not a lower bound on the screened contrast: screening should remove data journals from the exposed arm (lowering the exposed rate) as well as clinical reviews from the comparison arm (raising the comparison rate). The power calculation never allows those rates to move in opposite directions.</p>
+<blockquote class="blockquote">
+<p>The design detects effects across that entire band, which is the property R01 lacked: its floor was roughly 3.7, so it could only ever have seen an effect as large as the one it reported.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Treat the P6 file as a yield probe before claiming power. Estimate yield (and yield by arm) from the 200 titles, or from a hand-screened subset, and rebuild the grid down to that yield. If the worst-case detectable OR exceeds 2.5, widen the frame or drop the claims that the design detects 1.5 and that a null rules something out. Separate the unscreened mixture rates from the screened target population.</p>
+</section>
+<section id="m12.-section-9-asserts-that-differential-pmc-coverage-favors-the-hypothesis.-section-12-says-the-direction-of-bias-on-the-bet" class="level3">
+<h3 class="anchored" data-anchor-id="m12.-section-9-asserts-that-differential-pmc-coverage-favors-the-hypothesis.-section-12-says-the-direction-of-bias-on-the-bet">M12. Section 9 asserts that differential PMC coverage favors the hypothesis. Section 12 says the direction of bias on the bet</h3>
+<p><strong>Reviewer</strong> <code>grok</code> · <strong>Section</strong> 9. Threats, and what happened to each</p>
+<p>Section 9 asserts that differential PMC coverage favors the hypothesis. Section 12 says the direction of bias on the between-arm comparison is not obvious and is not claimed toward the null. Both cannot stand. If section 9 is right, the primary glmer on the PMC full-text set is biased in the direction of a positive finding, and the analysis that was added to block that path is only sensitivity 6. If section 12 is right, section 9’s directional claim should be withdrawn. The 20-point PMC gap is large enough that this is not a side issue.</p>
+<blockquote class="blockquote">
+<p>Arms are differentially selected into the analysis set and the direction favors the hypothesis.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Pick one account of the bias and make the analysis that removes differential PMC selection the primary (for example, journals in which every sampled article is in PMC, with that rule defined before seeing outcomes). Keep the current model as a sensitivity. Align sections 9 and 12.</p>
+</section>
+<section id="m13.-section-12-calls-the-qualified-frame-a-high-precision-slice.-the-qualifier-includes-we-searched-pubmed-publications" class="level3">
+<h3 class="anchored" data-anchor-id="m13.-section-12-calls-the-qualified-frame-a-high-precision-slice.-the-qualifier-includes-we-searched-pubmed-publications">M13. Section 12 calls the qualified frame a high-precision slice. The qualifier includes ‘we searched PubMed’, ‘publications’</h3>
+<p><strong>Reviewer</strong> <code>grok</code> · <strong>Section</strong> 12. What this design still cannot do</p>
+<p>Section 12 calls the qualified frame a high-precision slice. The qualifier includes ‘we searched PubMed’, ‘publications’, and ‘PRISMA statement’ via the report block, which is how ordinary clinical reviews enter. That is a precision failure, not only the recall failure section 12 describes (papers that say ‘we examined 300 trials’ drop out). The P6 titles are the evidence. High precision is the claim that screening was supposed to earn, not a property of the harvested frame.</p>
+<blockquote class="blockquote">
+<p>The sample is a high-precision slice of the field, not the field.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Describe the qualified frame as high-recall for papers that mention literature-search boilerplate and low-precision for meta-research. Put the precision claim only after screening, and only if P6 kappa and yield support it.</p>
+</section>
+<section id="m14.-the-written-rule-grades-a-doi-or-url-as-actionable-only-when-it-is-not-the-articles-own-doi.-grade_one-takes-only-the" class="level3">
+<h3 class="anchored" data-anchor-id="m14.-the-written-rule-grades-a-doi-or-url-as-actionable-only-when-it-is-not-the-articles-own-doi.-grade_one-takes-only-the">M14. The written rule grades a DOI or URL as actionable only when it is not the article’s own DOI. grade_one() takes only the</h3>
+<p><strong>Reviewer</strong> <code>grok</code> · <strong>Section</strong> 6.2 Grading</p>
+<p>The written rule grades a DOI or URL as actionable only when it is not the article’s own DOI. grade_one() takes only the statement string. It never receives the article DOI. The filter loc[!str_detect(loc, ‘doi.org/10.[0-9]{4,9}/$’)] drops only a DOI URL with an empty path, not this article’s DOI and not the journal site. The comment in grade.R claims the journal site is excluded; that is not implemented either. On the confirmatory frame, 38 of 227 actionable grades are URL/DOI without a named repository (12 exposed, 26 comparison). Those are exactly the grades this clause is supposed to police.</p>
+<blockquote class="blockquote">
+<p>A DOI or URL present that is not the article’s own DOI: <strong>actionable</strong>.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Pass each article’s DOI (and host) into the grader and drop locators that match them, or change test 4 to match the code. Pin the revised function and re-run P4/P7.</p>
+</section>
+<section id="m15.-the-screening-instrument-is-not-pinned.-extract.py-is-pinned-to-a-commit-hash-screening-is-two-models-from-different-p" class="level3">
+<h3 class="anchored" data-anchor-id="m15.-the-screening-instrument-is-not-pinned.-extract.py-is-pinned-to-a-commit-hash-screening-is-two-models-from-different-p">M15. The screening instrument is not pinned. Extract.py is pinned to a commit hash; screening is ’two models from different p</h3>
+<p><strong>Reviewer</strong> <code>grok</code> · <strong>Section</strong> 4.3 Screening</p>
+<p>The screening instrument is not pinned. Extract.py is pinned to a commit hash; screening is ‘two models from different providers’ with no model identifiers, no prompt, no temperature, and no code path. Later in section 10 the protocol allows P6 to use a single model while a reviewer is quota-blocked. Dual-review screening then cannot run, and single-model screening is not one of the stated fallbacks (the stated fallback is author screening of a subsample). The author is also not blind to exposure or to the P4 association when adjudicating disagreements.</p>
+<blockquote class="blockquote">
+<p>Screening is on title and abstract, by two models from different providers, each given the same written criterion and blind to the other.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Pin model names, the full screening prompt, and decoding settings in the repository at a commit hash, as was done for extract.py. If only one model is available, use the written fallback (author-screened subsample, power recomputed) rather than an unlisted single-model screen. Keep the author’s adjudication blind to arm and to P4 rates.</p>
+</section>
+<section id="m16.-p7-is-described-as-150-statements-stratified-by-rule-grade.-the-file-studiesp01v2-confirmatoryoutp7-grading-sample.cs" class="level3">
+<h3 class="anchored" data-anchor-id="m16.-p7-is-described-as-150-statements-stratified-by-rule-grade.-the-file-studiesp01v2-confirmatoryoutp7-grading-sample.cs">M16. P7 is described as 150 statements stratified by rule grade. The file studies/P01v2-confirmatory/out/p7-grading-sample.cs</h3>
+<p><strong>Reviewer</strong> <code>grok</code> · <strong>Section</strong> 6.3 Validation of the grading rule</p>
+<p>P7 is described as 150 statements stratified by rule grade. The file studies/P01v2-confirmatory/out/p7-grading-sample.csv has 150 non-empty statements, 0 empties, and under the pinned rule 17 actionable and 133 declarative. Equal stratification on three grades would be about 50 each, including none. Equal stratification on the two non-none grades would be about 75/75. 17/133 matches a simple random sample of extracted statements (frame: 227 actionable of 1688 statements, 13.4 percent; P7: 11.3 percent). The most common analysis grade, none, is unvalidated. Kappa on 17 actionable items is a noisy gate for the 0.80 / 0.60 thresholds. No script in the repository produces this file, so the sampling is not itself pinned.</p>
+<blockquote class="blockquote">
+<p>150 statements, stratified by rule grade, are graded by the author, blind to the article’s exposure and to the rule’s grade.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Draw 50 none, 50 declarative, and 50 actionable, or draw a prevalence-weighted sample and say so. Put the sampler in the repo. Report kappa for the primary binary (actionable vs not) on a sample that includes none. Do not treat agreement on boilerplate declarative statements as agreement on the primary outcome.</p>
+</section>
+<section id="m17.-sensitivity-3-restricts-to-journals-with-at-least-10-articles-in-each-arm.-in-the-full-text-frame-that-is-4-journals-bm" class="level3">
+<h3 class="anchored" data-anchor-id="m17.-sensitivity-3-restricts-to-journals-with-at-least-10-articles-in-each-arm.-in-the-full-text-frame-that-is-4-journals-bm">M17. Sensitivity 3 restricts to journals with at least 10 articles in each arm. In the full-text frame that is 4 journals (BM</h3>
+<p><strong>Reviewer</strong> <code>grok</code> · <strong>Section</strong> 8. Analysis</p>
+<p>Sensitivity 3 restricts to journals with at least 10 articles in each arm. In the full-text frame that is 4 journals (BMJ Open, PLOS ONE, Journal of medical Internet research, F1000Research). Scientific Data, the journal that most confounds exposure with policy (17 exposed, 1 comparison), is dropped. That is not a general within-journal estimate. Sensitivity 6 is the analysis meant to block differential PMC selection, but ‘fully open-access journal’ is undefined, and the supporting sentence is false: gold OA is not the same as PMC deposit, and PMC also holds author manuscripts from non-OA journals. OpenAlex oa_status is already in data/lit/openalex-frame-P01v2-summary.json and is not used. The multiplicity paragraph says five sensitivities; there are six. There is no P01v2 analyze.R; year_c is not defined here (R01 used year minus 2020); sensitivity 4 says authorship but R01 used a repository-name regex in the statement.</p>
+<blockquote class="blockquote">
+<p>Within a fully open-access journal every article is in PMC, so the differential selection that P2 exposed cannot operate.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Probe how many journals pass the 10-per-arm rule and either drop sensitivity 3 or replace it with all journals that published both arms. Define sensitivity 6 with an operational OA/PMC rule (for example, journals whose articles in this frame are 100 percent PMC, or OpenAlex gold+diamond) and do not equate OA with PMC. Write the analysis script this protocol actually specifies. Count six sensitivities.</p>
+</section>
+<section id="m18.-p3s-stated-design-change-rule-is-a-route-distribution-unlike-tier-as.-r01-title-matching-routes-were-about-16-percent" class="level3">
+<h3 class="anchored" data-anchor-id="m18.-p3s-stated-design-change-rule-is-a-route-distribution-unlike-tier-as.-r01-title-matching-routes-were-about-16-percent">M18. P3’s stated design-change rule is a route distribution unlike tier A’s. R01 title-matching routes were about 16 percent</h3>
+<p><strong>Reviewer</strong> <code>grok</code> · <strong>Section</strong> 10. The probes that must run before this is a protocol</p>
+<p>P3’s stated design-change rule is a route distribution unlike tier A’s. R01 title-matching routes were about 16 percent of the exposed arm and 7 percent of the comparison arm. On this frame, among full-text records, title-matching routes are 5.0 percent exposed (26/520) and 9.3 percent comparison (318/3435): the imbalance reversed. The protocol never reports that comparison and does not say why it does not change the design. P4’s stated output is the comparison-arm grade distribution; the probe and section 7 both emit the exposed arm as well.</p>
+<blockquote class="blockquote">
+<p>A route distribution unlike tier A’s means publishers differ between frames and journal adjustment is carrying more weight than assumed</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Report the P3 route table against R01, and either justify keeping the design or add the journal-weight consequence P3 said would follow. Describe P4 as what it actually computed: both arms.</p>
+</section>
+<section id="m19.-section-13-says-the-analysis-code-that-will-run-is-already-written-and-is-the-code-that-produced-r01.-studiesp01-advoca" class="level3">
+<h3 class="anchored" data-anchor-id="m19.-section-13-says-the-analysis-code-that-will-run-is-already-written-and-is-the-code-that-produced-r01.-studiesp01-advoca">M19. Section 13 says the analysis code that will run is already written and is the code that produced R01. studies/P01-advoca</h3>
+<p><strong>Reviewer</strong> <code>grok</code> · <strong>Section</strong> 13. Availability</p>
+<p>Section 13 says the analysis code that will run is already written and is the code that produced R01. studies/P01-advocacy-and-practice/R/analyze.R fits art_type, does not exclude comments/editorials up front, does not implement sensitivities 3, 5, or 6, and flags the author’s papers by matching ‘choxos|sofi-mahmudi’ in the statement rather than by authorship. There is no analyze.R under studies/P01v2-confirmatory/. The primary model in section 8 is a different model.</p>
+<blockquote class="blockquote">
+<p>The analysis code that will run is already written and public; it is the code that produced R01, and section 6 pins it.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Write and pin the analysis script that implements section 8, including the six sensitivities and an operational rule for the author’s papers. Do not point at R01’s analyzer as the code that will run.</p>
+</section>
+</section>
+<section id="minor-findings" class="level2">
+<h2 class="anchored" data-anchor-id="minor-findings">Minor findings</h2>
+<section id="m1.-the-multiplicity-paragraph-refers-to-five-sensitivity-analyses.-section-8-lists-six.-sensitivity-6-is-the-one-added-for" class="level3">
+<h3 class="anchored" data-anchor-id="m1.-the-multiplicity-paragraph-refers-to-five-sensitivity-analyses.-section-8-lists-six.-sensitivity-6-is-the-one-added-for">M1. The multiplicity paragraph refers to five sensitivity analyses. Section 8 lists six. Sensitivity 6 is the one added for</h3>
+<p><strong>Reviewer</strong> <code>grok</code> · <strong>Section</strong> 8. Analysis</p>
+<p>The multiplicity paragraph refers to five sensitivity analyses. Section 8 lists six. Sensitivity 6 is the one added for the main selection threat, so undercounting it is not cosmetic.</p>
+<blockquote class="blockquote">
+<p>The secondary and the five sensitivity analyses are not corrected for multiplicity and are not used to claim significance; they exist to show whether the primary estimate is fragile.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Say six, or state that sensitivity 6 is exempt from the ‘not used to claim significance’ rule if it is to be interpreted as the deconfounded estimate.</p>
+</section>
+<section id="m2.-the-realized-counts-row-labeled-frame-after-removing-205-tier-a-overlaps-from-7617-records-gives-704-and-6526.-those" class="level3">
+<h3 class="anchored" data-anchor-id="m2.-the-realized-counts-row-labeled-frame-after-removing-205-tier-a-overlaps-from-7617-records-gives-704-and-6526.-those">M2. The realized-counts row labeled ‘frame, after removing 205 tier A overlaps from 7617 records’ gives 704 and 6526. Those</h3>
+<p><strong>Reviewer</strong> <code>grok</code> · <strong>Section</strong> 7. Sample size and power</p>
+<p>The realized-counts row labeled ‘frame, after removing 205 tier A overlaps from 7617 records’ gives 704 and 6526. Those are eligible_exposed and eligible_comparison after the further drop of 90 publication-type and 92 language records (7230 eligible). The label omits those exclusions. The numbers match probes.json; the row title does not.</p>
+<blockquote class="blockquote">
+<p>frame, after removing 205 tier A overlaps from 7617 records</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Label the row as after overlap, publication-type, and language exclusions.</p>
+</section>
+</section>
+<section id="the-raw-verdicts" class="level2">
+<h2 class="anchored" data-anchor-id="the-raw-verdicts">The raw verdicts</h2>
+<p><code>data/audit/P01v2/</code> holds each reviewer’s verdict as returned, the prompt both were given, and <code>adjudicated.json</code>. Nothing on this page is summarized from anything the repository does not also carry in full.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/choxos\.github\.io\/autometaresearch\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Ahmad Sofi-Mahmudi</p>
+</div>   
+    <div class="nav-footer-center">
+<p>Every number is derived by a script. See <a href="../methods.html">How this was done</a>.</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/choxos/autometaresearch/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p><a href="https://github.com/choxos/autometaresearch">Source</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

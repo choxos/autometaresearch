@@ -304,6 +304,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Results</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="../reviews.html"> 
+<span class="menu-text">Reviews</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="../landscape.html"> 
 <span class="menu-text">Landscape</span></a>
   </li>  
@@ -416,7 +420,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Status: protocol. Feasibility computed. Two validation gates outstanding. Not registered.
+<span class="screen-reader-only">Important</span>Status: BLOCKED BY REVIEW on 2026-09-19. Do not run this.
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Both reviewers returned <strong>unsound</strong>. Three fatal findings and nineteen major, every severe one carrying a verbatim quote. The full review is at <a href="../reviews/P01v2.html">reviews/P01v2</a> and the verdict is <code>blocked</code>, which under the adjudication rule means an evidenced fatal finding stands unrebutted.</p>
+<p><strong>The two fatal findings were verified against primary source before publication, and both are correct.</strong></p>
+<ol type="1">
+<li><p><strong>This is not a confirmatory protocol and calling it one was wrong.</strong> Probe P4 tabulated the primary outcome by arm on the confirmatory sample: 95 of 520 exposed against 132 of 3435 comparison, a crude odds ratio near 5.6. The hypothesis has already been looked at on this data. Running the planned model now would be confirming something already seen. Both reviewers found this independently, and it is the same class of error R01 was reclassified for, made again one document later while explicitly trying to avoid it.</p></li>
+<li><p><strong>The outcome instrument has false negatives in both directions.</strong> PMC5808091 and PMC6092896 both carry a data availability statement and the pinned extractor returns nothing for them, because their statement is in <code>&lt;body&gt;</code> and extraction was restricted to <code>&lt;front&gt;</code> and <code>&lt;back&gt;</code>. That restriction was added to fix the contamination artifact documented in R01, and the cost of the fix was never measured. Separately, <code>_text()</code> keeps an <code>ext-link</code>’s visible text and discards its <code>xlink:href</code>, so PMC10202448’s statement reads “on the associated GitHub repository (” with the URL gone, and a real deposit grades declarative.</p></li>
+</ol>
+<p>The document below is left exactly as reviewed. It is the record of what was submitted, not a corrected version, and a successor protocol will be a new document.</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>What the document claimed when it was submitted
 </div>
 </div>
 <div class="callout-body-container callout-body">

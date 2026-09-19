@@ -1,5 +1,11 @@
 [
   {
+    "listing": "/reviews.html",
+    "items": [
+      "/reviews/P01v2.html"
+    ]
+  },
+  {
     "listing": "/agenda.html",
     "items": [
       "/proposals/P01-advocacy-and-practice.html",
