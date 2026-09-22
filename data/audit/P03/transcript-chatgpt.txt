@@ -3581,3 +3581,242 @@ QUOTE_CHECKS [("If neither model reaches kappa 0.70 against the author's labels,
 
 hook: PostToolUse
 hook: PostToolUse Completed
+codex
+{
+  "document_id": "P03",
+  "reviewer": "ChatGPT",
+  "overall_vote": "unsound",
+  "confidence": 0.99,
+  "rationale": "Read-only checks reproduced the citation summaries for the 1,790 stored rows, but uncovered duplicate article identities, version mismatches, and a false recent-publication percentage. The classifier gate can pass despite complete failure to identify adequate conclusions. The proposed model also omits the promised journal adjustment, and the falsification rule misinterprets confidence intervals. These are repairable protocol defects. Classification and detectable-effect estimates remain unavailable, as disclosed. Literature searches found related precedents, but no verified study testing this exact within-meta-research contrast.",
+  "findings": [
+    {
+      "section": "6. Exposure, and the gate",
+      "severity": "major",
+      "problem": "Overall four-category kappa does not validate the primary inadequate-versus-adequate comparison. Computed counterexample: among 300 reference labels, let 210 be inadequate, 30 adequate, 30 mixed, and 30 not applicable. A classifier that labels every adequate article inadequate and classifies everything else correctly achieves kappa 0.762, exceeding the gate despite zero sensitivity for adequate conclusions. A single overall misclassification rate also cannot characterize these asymmetric errors.",
+      "what_would_fix_it": "Require prespecified class-specific sensitivity and precision for adequate and inadequate conclusions, with uncertainty and sufficient validation examples in both classes. Publish the complete confusion matrix, account for stratified sampling, and propagate category-specific classification uncertainty into the analysis.",
+      "quote": "If neither model reaches kappa 0.70 against the author's labels, the study stops and the\n   negative methodological result is published."
+    },
+    {
+      "section": "6. Exposure, and the gate",
+      "severity": "major",
+      "problem": "The reference standard lacks an operational coding rubric. No rule distinguishes negative background rhetoric from the focal conclusion, improvement from adequate absolute practice, or multiple conflicting practice assessments from one overall verdict. Author-model agreement on the same abstract measures agreement with one person's interpretation, not whether the instrument recovers the article's conclusion. Blinding to citation counts is also unspecified.",
+      "what_would_fix_it": "Freeze a coding manual with decision rules and examples before labeling. Blind reference coding to citation outcomes, independently double-code and adjudicate a validation subset, and check abstract labels against full text. Alternatively, explicitly restrict the exposure and claims to evaluative framing in abstracts. Freeze model versions, prompts, and the primary-classifier selection rule before validation.",
+      "quote": "The exposure is the direction of the article's own conclusion, and no rule extracts it from an\nabstract."
+    },
+    {
+      "section": "4. Sample; 5. Outcome",
+      "severity": "major",
+      "problem": "The retrieval script counts OpenAlex rows as resolved articles without enforcing one article per PMID. The frozen file contains 1,790 work IDs but only 1,789 distinct PMIDs, leaving 16 unmatched PMIDs and a unique-PMID match rate of 99.1%. PMID 42018420 appears as W4417119991 and W7155183362 with the same DOI but citation counts 3 and 0. Identity problems extend beyond duplication: PMID 33315211 is a correction whose corpus DOI differs from the original-article DOI returned by OpenAlex; PMIDs 41992899 and 41932597 resolve to preprint metadata. The reported distribution therefore describes returned database objects before article/version reconciliation.",
+      "what_would_fix_it": "Create and validate an explicit PMID-to-work linkage table. Resolve duplicates, corrections, and preprint/journal versions under a prespecified article-unit policy; investigate citation consolidation without blindly summing potentially overlapping citations. Recompute sample counts and outcome summaries after reconciliation.",
+      "quote": "The tier A corpus, all 1805 records carrying a PMID.\n1790 resolve in OpenAlex."
+    },
+    {
+      "section": "4. Sample; 6. Exposure, and the gate",
+      "severity": "major",
+      "problem": "The nominal sample cannot all enter the proposed abstract classifier. Of 1,805 PMID records, 112 lack abstracts; 108 of the 1,789 uniquely matched records lack abstracts, leaving 1,681 matched articles with available abstracts before other exclusions. The corpus is also unscreened: its publication types include comments, editorials, and 17 published errata. No rule distinguishes missing exposure information from genuinely not-applicable conclusions or specifies which publication types belong in the comparison. These decisions affect both eligibility and citation distributions.",
+      "what_would_fix_it": "Prespecify eligible article types and handling of absent or uninformative abstracts before classification. Retrieve full text where appropriate; otherwise record missing exposure separately from not applicable. Publish an eligibility flow and base power calculations on the resulting analyzable comparison groups.",
+      "quote": "A stratified random sample of **300 abstracts is classified by the author** into\n   inadequate, adequate, mixed, or not applicable. This is the reference standard."
+    },
+    {
+      "section": "4. Sample",
+      "severity": "major",
+      "problem": "The stated 76% is contradicted by the frozen corpus. In data/lit/records.jsonl, 254 PMID records date from 2025 and 230 from 2026: 484/1,805, or 26.8%. Using OpenAlex publication years also gives approximately 27%, not 76%. This false number supplies the stated justification for retaining immature citation histories.",
+      "what_would_fix_it": "Replace 76% with a reproducibly computed proportion and identify the denominator and publication-date source. Reassess the citation-window design using the correct age distribution; retaining recent articles remains possible, but this justification does not support it.",
+      "quote": "Articles from 2025 and 2026 are retained and age is modeled, not trimmed; excluding recent work\nwould drop 76 percent of the corpus."
+    },
+    {
+      "section": "2. Hypothesis; 9. Probes",
+      "severity": "major",
+      "problem": "An interval containing 1 neither falsifies the null IRR = 1 nor establishes absence of a positive association. An interval such as 0.5–3 contains 1 while remaining compatible with a threefold citation advantage. Because detectable-effect calculations remain outstanding, the proposed rule could declare the substantive hypothesis falsified precisely when the analysis is uninformative.",
+      "what_would_fix_it": "Specify confidence level and distinguish rejection, non-rejection, and evidence excluding a meaningful citation advantage. Define a smallest meaningful effect and an appropriate interval or equivalence criterion. Calculate precision or power using eligible group sizes, dispersion, covariate overlap, and classification error before interpreting a null result.",
+      "quote": "**Primary null.** The incidence rate ratio for conclusion direction is 1.\n\n**What would falsify it.** An interval containing 1."
+    },
+    {
+      "section": "2. Hypothesis; 7. Analysis",
+      "severity": "major",
+      "problem": "The hypothesis promises adjustment for journal, but the formula adjusts for journal_size. Journals of equal size can differ substantially in visibility, readership, editorial selection, and citation behavior. A size covariate neither supplies journal effects nor accounts for within-journal dependence. Its definition and measurement date are also absent.",
+      "what_would_fix_it": "Specify an actual journal adjustment, such as justified journal effects with suitable uncertainty estimation, and assess within-journal exposure overlap. If only journal size is intended, define its construction and revise the hypothesis and interpretation to acknowledge that journal identity remains uncontrolled.",
+      "quote": "glm.nb(cited_by_count ~ direction + poly(years_since_pub, 2) + topic_block + journal_size,\n       data = d)"
+    },
+    {
+      "section": "7. Analysis; 8. Threats, and what happened to each",
+      "severity": "major",
+      "problem": "Topic adjustment is neither operationalized nor checked for support. Among the 1,789 uniquely matched records, the existing label file gives 797 no substantive topic label beyond the generic metares label, while 380 have multiple substantive labels. P03 never defines how these become topic_block. Moreover, where topic determines direction, the adjusted contrast requires extrapolation or is unidentified within that topic. Presenting adjusted and unadjusted estimates does not resolve this problem.",
+      "what_would_fix_it": "Define and validate topic coding independently of conclusion direction, including unlabeled and multilabel records. Prespecify direction-by-topic overlap checks and handling of unsupported strata. State whether the target is a within-topic association or a broader descriptive difference, and restrict interpretation accordingly.",
+      "quote": "Some topics almost never produce an adequate verdict, so adjusting for topic may absorb the effect. Reported adjusted and unadjusted, with the difference discussed rather than resolved"
+    },
+    {
+      "section": "7. Analysis",
+      "severity": "minor",
+      "problem": "years_since_pub is undefined. Both frozen inputs retain publication year rather than a complete publication date, and PubMed-derived versus OpenAlex years disagree for 60 matched rows. A quadratic cannot repair inconsistent date definitions or recover within-year citation opportunity, which matters especially for recent articles.",
+      "what_would_fix_it": "Specify the publication event and date source, reconcile discrepancies, and freeze sufficient date precision to calculate elapsed time. Add a prespecified age-model or mature-publication-window sensitivity analysis.",
+      "quote": "Age enters as a quadratic because citation accrual is not linear in time and the corpus spans\n1965 to 2026."
+    },
+    {
+      "section": "5. Outcome; 7. Analysis",
+      "severity": "minor",
+      "problem": "The claim that a mean effect would miss a tail effect is mathematically false. Increasing citations only among the highest-cited 5% raises the mean while potentially leaving both the 75th and 90th percentiles unchanged. The proposed quantile regressions estimate particular conditional quantiles, not citation concentration or rewards accruing to the extreme tail.",
+      "what_would_fix_it": "Define the intended tail estimand. Retain quantile regression if those conditional percentiles answer the question, but remove the false claim about means. If extreme citation concentration is the target, prespecify a measure that actually captures it.",
+      "quote": "The incentive argument lives in the tail\nand a mean effect would not find it."
+    },
+    {
+      "section": "4. Sample; 9. Probes",
+      "severity": "minor",
+      "problem": "An OpenAlex resolution percentage is not a representativeness test. The repository's search protocol selects articles using self-identifying meta-research vocabulary in PubMed/PMC and explicitly excludes much older work lacking that vocabulary. Even complete linkage would not establish coverage of the field. Conversely, less than 90% linkage need not bias estimates if missingness is unrelated to the relevant variables.",
+      "what_would_fix_it": "Restrict the target population and claims to the defined retrieval frame unless broader coverage is assessed. Replace the blanket 90% interpretation with a prespecified audit of unmatched records and plausible selection mechanisms.",
+      "quote": "a match rate below about 90 percent makes the sample unrepresentative"
+    },
+    {
+      "section": "5. Outcome",
+      "severity": "minor",
+      "problem": "Zero indexed citations does not mean nobody used a paper. It can reflect limited follow-up, incomplete reference extraction or matching, database coverage, or use without citation. OpenAlex documents these citation-linkage limitations. [OpenAlex citation documentation](https://help.openalex.org/data/works/citations/). Retaining zeros is appropriate; the interpretation assigned to them is not.",
+      "what_would_fix_it": "Describe these as articles with no citations recorded by OpenAlex at the snapshot date. Remove the claim about nobody using them and distinguish recorded citations from research use.",
+      "quote": "284 articles have zero citations. They are retained; a zero is informative\nabout a paper nobody used and dropping them would condition on the outcome."
+    },
+    {
+      "section": "Status callout; 7. Analysis",
+      "severity": "minor",
+      "problem": "The status explicitly says Not registered, while Section 7 calls analyses Preregistered. A dated proposal and an actual preregistration are different provenance claims. The available history supports prior specification of the kappa threshold, but does not establish registration.",
+      "what_would_fix_it": "Use planned or prespecified until registration exists. Then provide its identifier, timestamp, frozen version, and a clear account of the citation data inspected before registration.",
+      "quote": "Preregistered alongside: quantile regression at the 75th and 90th percentiles,"
+    },
+    {
+      "section": "8. Threats, and what happened to each",
+      "severity": "minor",
+      "problem": "The promised self-citation secondary analysis cannot be reproduced from the frozen file alone. The retrieval SELECT retains target-article authorships and aggregate citation counts, but not the identities and authorships of citing works. Fetching those later would use a different citation graph from the primary snapshot.",
+      "what_would_fix_it": "Define self-citation and archive the citing-work identities and authorships needed for the same citation snapshot, or explicitly designate this as a separate later-snapshot analysis.",
+      "quote": "| Self-citation and field size | Not in the primary model; OpenAlex exposes the data and it is a stated secondary | Disclosed |"
+    },
+    {
+      "section": "1. The question",
+      "severity": "minor",
+      "problem": "The framing omits directly relevant precedents. Dubben and Beck-Bornholdt already investigated publication bias in studies of publication bias in 2005. Duyx et al. reviewed citation bias, including associations with authors' stated conclusions, in 2017. Neither establishes that this exact within-meta-research comparison has been done, so they do not refute its specific novelty; they do require a narrower account of its contribution. [Dubben and Beck-Bornholdt](https://pmc.ncbi.nlm.nih.gov/articles/PMC1188109/); [Duyx et al.](https://pubmed.ncbi.nlm.nih.gov/28603008/).",
+      "what_would_fix_it": "Cite these precedents and explain the specific extension to evaluative conclusion direction within meta-research. Distinguish citation bias from publication bias, and negative evaluations of practice from statistically negative or hypothesis-inconsistent results.",
+      "quote": "This is publication bias asked about the field that studies publication bias, and asked at the\ncitation stage rather than at acceptance."
+    }
+  ]
+}
+hook: Stop
+hook: Stop
+hook: Stop
+hook: Stop
+hook: Stop Completed
+hook: Stop Completed
+hook: Stop Completed
+hook: Stop Completed
+tokens used
+170,014
+{
+  "document_id": "P03",
+  "reviewer": "ChatGPT",
+  "overall_vote": "unsound",
+  "confidence": 0.99,
+  "rationale": "Read-only checks reproduced the citation summaries for the 1,790 stored rows, but uncovered duplicate article identities, version mismatches, and a false recent-publication percentage. The classifier gate can pass despite complete failure to identify adequate conclusions. The proposed model also omits the promised journal adjustment, and the falsification rule misinterprets confidence intervals. These are repairable protocol defects. Classification and detectable-effect estimates remain unavailable, as disclosed. Literature searches found related precedents, but no verified study testing this exact within-meta-research contrast.",
+  "findings": [
+    {
+      "section": "6. Exposure, and the gate",
+      "severity": "major",
+      "problem": "Overall four-category kappa does not validate the primary inadequate-versus-adequate comparison. Computed counterexample: among 300 reference labels, let 210 be inadequate, 30 adequate, 30 mixed, and 30 not applicable. A classifier that labels every adequate article inadequate and classifies everything else correctly achieves kappa 0.762, exceeding the gate despite zero sensitivity for adequate conclusions. A single overall misclassification rate also cannot characterize these asymmetric errors.",
+      "what_would_fix_it": "Require prespecified class-specific sensitivity and precision for adequate and inadequate conclusions, with uncertainty and sufficient validation examples in both classes. Publish the complete confusion matrix, account for stratified sampling, and propagate category-specific classification uncertainty into the analysis.",
+      "quote": "If neither model reaches kappa 0.70 against the author's labels, the study stops and the\n   negative methodological result is published."
+    },
+    {
+      "section": "6. Exposure, and the gate",
+      "severity": "major",
+      "problem": "The reference standard lacks an operational coding rubric. No rule distinguishes negative background rhetoric from the focal conclusion, improvement from adequate absolute practice, or multiple conflicting practice assessments from one overall verdict. Author-model agreement on the same abstract measures agreement with one person's interpretation, not whether the instrument recovers the article's conclusion. Blinding to citation counts is also unspecified.",
+      "what_would_fix_it": "Freeze a coding manual with decision rules and examples before labeling. Blind reference coding to citation outcomes, independently double-code and adjudicate a validation subset, and check abstract labels against full text. Alternatively, explicitly restrict the exposure and claims to evaluative framing in abstracts. Freeze model versions, prompts, and the primary-classifier selection rule before validation.",
+      "quote": "The exposure is the direction of the article's own conclusion, and no rule extracts it from an\nabstract."
+    },
+    {
+      "section": "4. Sample; 5. Outcome",
+      "severity": "major",
+      "problem": "The retrieval script counts OpenAlex rows as resolved articles without enforcing one article per PMID. The frozen file contains 1,790 work IDs but only 1,789 distinct PMIDs, leaving 16 unmatched PMIDs and a unique-PMID match rate of 99.1%. PMID 42018420 appears as W4417119991 and W7155183362 with the same DOI but citation counts 3 and 0. Identity problems extend beyond duplication: PMID 33315211 is a correction whose corpus DOI differs from the original-article DOI returned by OpenAlex; PMIDs 41992899 and 41932597 resolve to preprint metadata. The reported distribution therefore describes returned database objects before article/version reconciliation.",
+      "what_would_fix_it": "Create and validate an explicit PMID-to-work linkage table. Resolve duplicates, corrections, and preprint/journal versions under a prespecified article-unit policy; investigate citation consolidation without blindly summing potentially overlapping citations. Recompute sample counts and outcome summaries after reconciliation.",
+      "quote": "The tier A corpus, all 1805 records carrying a PMID.\n1790 resolve in OpenAlex."
+    },
+    {
+      "section": "4. Sample; 6. Exposure, and the gate",
+      "severity": "major",
+      "problem": "The nominal sample cannot all enter the proposed abstract classifier. Of 1,805 PMID records, 112 lack abstracts; 108 of the 1,789 uniquely matched records lack abstracts, leaving 1,681 matched articles with available abstracts before other exclusions. The corpus is also unscreened: its publication types include comments, editorials, and 17 published errata. No rule distinguishes missing exposure information from genuinely not-applicable conclusions or specifies which publication types belong in the comparison. These decisions affect both eligibility and citation distributions.",
+      "what_would_fix_it": "Prespecify eligible article types and handling of absent or uninformative abstracts before classification. Retrieve full text where appropriate; otherwise record missing exposure separately from not applicable. Publish an eligibility flow and base power calculations on the resulting analyzable comparison groups.",
+      "quote": "A stratified random sample of **300 abstracts is classified by the author** into\n   inadequate, adequate, mixed, or not applicable. This is the reference standard."
+    },
+    {
+      "section": "4. Sample",
+      "severity": "major",
+      "problem": "The stated 76% is contradicted by the frozen corpus. In data/lit/records.jsonl, 254 PMID records date from 2025 and 230 from 2026: 484/1,805, or 26.8%. Using OpenAlex publication years also gives approximately 27%, not 76%. This false number supplies the stated justification for retaining immature citation histories.",
+      "what_would_fix_it": "Replace 76% with a reproducibly computed proportion and identify the denominator and publication-date source. Reassess the citation-window design using the correct age distribution; retaining recent articles remains possible, but this justification does not support it.",
+      "quote": "Articles from 2025 and 2026 are retained and age is modeled, not trimmed; excluding recent work\nwould drop 76 percent of the corpus."
+    },
+    {
+      "section": "2. Hypothesis; 9. Probes",
+      "severity": "major",
+      "problem": "An interval containing 1 neither falsifies the null IRR = 1 nor establishes absence of a positive association. An interval such as 0.5–3 contains 1 while remaining compatible with a threefold citation advantage. Because detectable-effect calculations remain outstanding, the proposed rule could declare the substantive hypothesis falsified precisely when the analysis is uninformative.",
+      "what_would_fix_it": "Specify confidence level and distinguish rejection, non-rejection, and evidence excluding a meaningful citation advantage. Define a smallest meaningful effect and an appropriate interval or equivalence criterion. Calculate precision or power using eligible group sizes, dispersion, covariate overlap, and classification error before interpreting a null result.",
+      "quote": "**Primary null.** The incidence rate ratio for conclusion direction is 1.\n\n**What would falsify it.** An interval containing 1."
+    },
+    {
+      "section": "2. Hypothesis; 7. Analysis",
+      "severity": "major",
+      "problem": "The hypothesis promises adjustment for journal, but the formula adjusts for journal_size. Journals of equal size can differ substantially in visibility, readership, editorial selection, and citation behavior. A size covariate neither supplies journal effects nor accounts for within-journal dependence. Its definition and measurement date are also absent.",
+      "what_would_fix_it": "Specify an actual journal adjustment, such as justified journal effects with suitable uncertainty estimation, and assess within-journal exposure overlap. If only journal size is intended, define its construction and revise the hypothesis and interpretation to acknowledge that journal identity remains uncontrolled.",
+      "quote": "glm.nb(cited_by_count ~ direction + poly(years_since_pub, 2) + topic_block + journal_size,\n       data = d)"
+    },
+    {
+      "section": "7. Analysis; 8. Threats, and what happened to each",
+      "severity": "major",
+      "problem": "Topic adjustment is neither operationalized nor checked for support. Among the 1,789 uniquely matched records, the existing label file gives 797 no substantive topic label beyond the generic metares label, while 380 have multiple substantive labels. P03 never defines how these become topic_block. Moreover, where topic determines direction, the adjusted contrast requires extrapolation or is unidentified within that topic. Presenting adjusted and unadjusted estimates does not resolve this problem.",
+      "what_would_fix_it": "Define and validate topic coding independently of conclusion direction, including unlabeled and multilabel records. Prespecify direction-by-topic overlap checks and handling of unsupported strata. State whether the target is a within-topic association or a broader descriptive difference, and restrict interpretation accordingly.",
+      "quote": "Some topics almost never produce an adequate verdict, so adjusting for topic may absorb the effect. Reported adjusted and unadjusted, with the difference discussed rather than resolved"
+    },
+    {
+      "section": "7. Analysis",
+      "severity": "minor",
+      "problem": "years_since_pub is undefined. Both frozen inputs retain publication year rather than a complete publication date, and PubMed-derived versus OpenAlex years disagree for 60 matched rows. A quadratic cannot repair inconsistent date definitions or recover within-year citation opportunity, which matters especially for recent articles.",
+      "what_would_fix_it": "Specify the publication event and date source, reconcile discrepancies, and freeze sufficient date precision to calculate elapsed time. Add a prespecified age-model or mature-publication-window sensitivity analysis.",
+      "quote": "Age enters as a quadratic because citation accrual is not linear in time and the corpus spans\n1965 to 2026."
+    },
+    {
+      "section": "5. Outcome; 7. Analysis",
+      "severity": "minor",
+      "problem": "The claim that a mean effect would miss a tail effect is mathematically false. Increasing citations only among the highest-cited 5% raises the mean while potentially leaving both the 75th and 90th percentiles unchanged. The proposed quantile regressions estimate particular conditional quantiles, not citation concentration or rewards accruing to the extreme tail.",
+      "what_would_fix_it": "Define the intended tail estimand. Retain quantile regression if those conditional percentiles answer the question, but remove the false claim about means. If extreme citation concentration is the target, prespecify a measure that actually captures it.",
+      "quote": "The incentive argument lives in the tail\nand a mean effect would not find it."
+    },
+    {
+      "section": "4. Sample; 9. Probes",
+      "severity": "minor",
+      "problem": "An OpenAlex resolution percentage is not a representativeness test. The repository's search protocol selects articles using self-identifying meta-research vocabulary in PubMed/PMC and explicitly excludes much older work lacking that vocabulary. Even complete linkage would not establish coverage of the field. Conversely, less than 90% linkage need not bias estimates if missingness is unrelated to the relevant variables.",
+      "what_would_fix_it": "Restrict the target population and claims to the defined retrieval frame unless broader coverage is assessed. Replace the blanket 90% interpretation with a prespecified audit of unmatched records and plausible selection mechanisms.",
+      "quote": "a match rate below about 90 percent makes the sample unrepresentative"
+    },
+    {
+      "section": "5. Outcome",
+      "severity": "minor",
+      "problem": "Zero indexed citations does not mean nobody used a paper. It can reflect limited follow-up, incomplete reference extraction or matching, database coverage, or use without citation. OpenAlex documents these citation-linkage limitations. [OpenAlex citation documentation](https://help.openalex.org/data/works/citations/). Retaining zeros is appropriate; the interpretation assigned to them is not.",
+      "what_would_fix_it": "Describe these as articles with no citations recorded by OpenAlex at the snapshot date. Remove the claim about nobody using them and distinguish recorded citations from research use.",
+      "quote": "284 articles have zero citations. They are retained; a zero is informative\nabout a paper nobody used and dropping them would condition on the outcome."
+    },
+    {
+      "section": "Status callout; 7. Analysis",
+      "severity": "minor",
+      "problem": "The status explicitly says Not registered, while Section 7 calls analyses Preregistered. A dated proposal and an actual preregistration are different provenance claims. The available history supports prior specification of the kappa threshold, but does not establish registration.",
+      "what_would_fix_it": "Use planned or prespecified until registration exists. Then provide its identifier, timestamp, frozen version, and a clear account of the citation data inspected before registration.",
+      "quote": "Preregistered alongside: quantile regression at the 75th and 90th percentiles,"
+    },
+    {
+      "section": "8. Threats, and what happened to each",
+      "severity": "minor",
+      "problem": "The promised self-citation secondary analysis cannot be reproduced from the frozen file alone. The retrieval SELECT retains target-article authorships and aggregate citation counts, but not the identities and authorships of citing works. Fetching those later would use a different citation graph from the primary snapshot.",
+      "what_would_fix_it": "Define self-citation and archive the citing-work identities and authorships needed for the same citation snapshot, or explicitly designate this as a separate later-snapshot analysis.",
+      "quote": "| Self-citation and field size | Not in the primary model; OpenAlex exposes the data and it is a stated secondary | Disclosed |"
+    },
+    {
+      "section": "1. The question",
+      "severity": "minor",
+      "problem": "The framing omits directly relevant precedents. Dubben and Beck-Bornholdt already investigated publication bias in studies of publication bias in 2005. Duyx et al. reviewed citation bias, including associations with authors' stated conclusions, in 2017. Neither establishes that this exact within-meta-research comparison has been done, so they do not refute its specific novelty; they do require a narrower account of its contribution. [Dubben and Beck-Bornholdt](https://pmc.ncbi.nlm.nih.gov/articles/PMC1188109/); [Duyx et al.](https://pubmed.ncbi.nlm.nih.gov/28603008/).",
+      "what_would_fix_it": "Cite these precedents and explain the specific extension to evaluative conclusion direction within meta-research. Distinguish citation bias from publication bias, and negative evaluations of practice from statistically negative or hypothesis-inconsistent results.",
+      "quote": "This is publication bias asked about the field that studies publication bias, and asked at the\ncitation stage rather than at acceptance."
+    }
+  ]
+}

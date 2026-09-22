@@ -1,0 +1,287 @@
+You are reviewing a research document as an adversarial peer reviewer.
+
+Your job is to refute it. Assume it is wrong somewhere and find where. A review that returns
+no findings is a valid answer, but return it only after having genuinely tried to break the
+document, not as a default.
+
+What to attack, in rough order of how much damage each does if you are right:
+
+1. Does the design measure what it says it measures? Look hardest at the instruments: how the
+   exposure is defined, how the outcome is extracted, and whether either could be capturing
+   an artifact of the data source rather than the thing of interest.
+2. Is the sample what the document says it is? Check for overlap with a sample it claims to
+   be independent of, for selection that differs between arms, and for exclusions applied
+   after the data were seen.
+3. Are stated numbers computed or asserted? A number that appears in prose and in no code is
+   a number nobody checked. Say which ones you cannot verify.
+4. Does the analysis answer the stated hypothesis? Look for a model whose coefficient does
+   not mean what the prose says it means, for adjustment that absorbs the effect being
+   measured, and for a null that could not have been detected at the stated sample size.
+5. Is anything claimed as preregistered that was actually decided later?
+6. Is the prior literature represented fairly, and is the novelty claim true? If you can name
+   published work that already does this, that is the single most valuable finding you can
+   return.
+
+Rules that decide whether your findings count:
+
+- **Name the section** each finding is against. A finding with no section is downgraded to
+  minor by the adjudication rule, because an objection that does not attach to text cannot be
+  acted on.
+- **State what would fix it** for anything you mark fatal or major. Same downgrade otherwise.
+- **Quote the document verbatim** where you can. A quote is what distinguishes an evidenced
+  objection from an opinion, and under the adjudication rule an evidenced fatal finding blocks
+  the document even if the other reviewer votes it sound.
+- Do not invent a citation. If you believe prior work exists but cannot name it precisely,
+  say that in the rationale rather than inventing a reference.
+
+Return ONLY a JSON object matching this schema. No prose before or after, no markdown fence.
+
+
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Reviewer verdict on one document",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "document_id",
+  "reviewer",
+  "overall_vote",
+  "confidence",
+  "rationale",
+  "findings"
+ ],
+ "properties": {
+  "document_id": {
+   "type": "string"
+  },
+  "reviewer": {
+   "type": "string"
+  },
+  "overall_vote": {
+   "description": "Is the document sound as written?",
+   "enum": [
+    "sound",
+    "sound-with-required-changes",
+    "unsound",
+    "abstain"
+   ]
+  },
+  "confidence": {
+   "type": "number",
+   "minimum": 0,
+   "maximum": 1
+  },
+  "rationale": {
+   "type": "string"
+  },
+  "findings": {
+   "type": "array",
+   "description": "Every objection. An empty array is a valid and meaningful answer.",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "section",
+     "severity",
+     "problem",
+     "what_would_fix_it",
+     "quote"
+    ],
+    "properties": {
+     "section": {
+      "type": "string",
+      "description": "The section number or heading the finding is against. A finding that cannot name one is downgraded to minor, because an objection that does not attach to text cannot be acted on."
+     },
+     "severity": {
+      "description": "fatal: the document cannot proceed as written. major: a stated conclusion would be wrong or unsupported. minor: it would be better changed. Anything at major or above must state what would fix it or it is downgraded.",
+      "enum": [
+       "fatal",
+       "major",
+       "minor"
+      ]
+     },
+     "problem": {
+      "type": "string"
+     },
+     "what_would_fix_it": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Required for fatal and major. A finding at those levels with null here is downgraded to minor by the adjudication rule."
+     },
+     "quote": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Verbatim text from the document the finding is against, or from a cited source that contradicts it. Pass null when there is none; the key must be present because OpenAI structured output requires every property to be listed as required. A quote is what distinguishes an evidenced objection from an opinion."
+     }
+    }
+   }
+  }
+ }
+}
+
+Set "document_id" to exactly: P05
+
+==============================================================================
+THE DOCUMENT UNDER REVIEW
+==============================================================================
+
+---
+title: "Does the link actually resolve?"
+description: "Whether data availability statements graded actionable point at anything retrievable. Probes computed on a sample."
+id: P05
+status: protocol-pending-validation
+proposed_by: "Claude Opus 5"
+date: 2026-09-16
+reviewed: none
+unit: "Locators extracted from data availability statements"
+data_source: "Statements already extracted by P01 and P01v2; HTTP"
+categories: [protocol, datashare, reflexive]
+---
+
+::: {.callout-important appearance="simple"}
+## Status: protocol. Probes computed on a sample of 150. One defect to fix before the full run. Not registered.
+
+This study measures the thing P01 and P01v2 assume. Both grade a statement `actionable` when
+it names a repository or carries a locator; that is a claim about the statement, not about the
+data. P05 asks whether the thing the statement points at is there.
+
+A defect found by the probe must be fixed first: 2
+of 150 checks failed with a Unicode encoding error, which is a bug in the requester
+and not a dead link. Counting those as breakage would overstate the result. See section 9.
+
+Awaiting review by two models; the second is quota-blocked until 2026-09-20.
+:::
+
+## 1. The question
+
+A data availability statement naming an OSF project is treated, by every study that grades
+statements including this project's own, as evidence that data are available. That inference
+has a missing step. The statement is a promise; whether the promise was kept is a separate fact
+and it is checkable.
+
+## 2. Hypothesis
+
+A material fraction of statements graded `actionable` do not resolve, and the fraction rises
+with the age of the article.
+
+**Primary null.** The proportion of non-resolving locators does not vary with article age.
+
+**What would falsify the hypothesis.** A flat or declining relationship with age. A high but
+age-invariant failure rate would mean statements are wrong on arrival rather than decaying,
+which is a different problem and a more serious one.
+
+## 3. Design
+
+Cross-sectional study of locators, with a nested age analysis.
+
+## 4. Sample
+
+Every statement extracted by P01 and P01v2 that carries at least one locator. Probe PA:
+
+| quantity | value |
+|---|---|
+| statements examined | 2262 |
+| statements carrying a locator | 431 |
+| locators found | 721 |
+| of which URLs | 644 |
+| of which bare DOIs | 77 |
+| on a known repository host | 504 |
+
+The three hosts that dominate are OSF, GitHub and doi.org. That concentration is itself a
+finding and it constrains the design: a result here is substantially a result about three
+services, and section 8 carries that.
+
+## 5. Measurement
+
+HEAD first, falling back to a ranged GET when a host answers 403, 405 or 501, since several
+repositories refuse HEAD but serve GET. One request per locator, throttled per host, with a
+User-Agent naming the project and a contact address. This is a read-only availability check of
+the kind these hosts exist to serve.
+
+**Resolution is not the same as the data being there.** A repository landing page for a project
+with no files attached returns 200. The primary outcome is therefore HTTP resolution, which is
+a lower bound on breakage, and a hand-checked subsample of 100 resolving locators establishes
+how often a 200 corresponds to retrievable data. That subsample needs the author.
+
+## 6. Feasibility, computed
+
+On a sample of 150 locators, one per article:
+
+| outcome | n |
+|---|---|
+| resolved, HTTP 2xx or 3xx | 133 |
+| HTTP error | 9 |
+| network or requester error | 8 |
+| **resolve rate** | **88.7 percent** |
+
+Status detail: `{'200': 123, '202': 10, '404': 7, 'error:UnicodeEncodeError': 2, '403': 2, 'error:TimeoutError': 3, 'error:URLError': 3}`
+
+7 hard 404s in 150 is the cleanest signal: those
+are locators that a reader following the statement would not find. The study is feasible and
+the effect is large enough to measure.
+
+## 7. Outcome and analysis
+
+**Primary**: locator resolves, yes or no.
+
+In R, logistic regression of resolution on article age, with host as a random intercept because
+three hosts carry most of the sample and their reliability differs.
+
+```r
+glmer(resolved ~ years_since_pub + kind + (1 | host), family = binomial, data = d)
+```
+
+Preregistered sensitivity analyses:
+
+1. Restricted to repository hosts, excluding personal and institutional URLs.
+2. Excluding doi.org, which resolves through a redirection layer that may mask a dead target.
+3. Treating a 403 as resolved rather than failed, since a paywall is not link rot.
+4. Re-running every failure once, at least 48 hours later, so a transient outage is not
+   recorded as permanent breakage.
+
+## 8. Threats, and what happened to each
+
+| threat | what was done | removed or disclosed |
+|---|---|---|
+| **A requester bug counted as link rot** | Found by the probe; must be fixed before the full run. See section 9 | Removed, once fixed |
+| Transient outages | Every failure retried at least 48 hours later; sensitivity 4 | Removed |
+| A 200 does not mean data are present | Primary outcome is explicitly a lower bound; hand-checked subsample of 100 quantifies the gap | Disclosed |
+| Three hosts dominate | Host as a random intercept, and sensitivity 1 restricts to repositories | Disclosed |
+| Trailing punctuation stripped from locators | A wrongly stripped locator fails and is counted as breakage, biasing toward finding MORE | Disclosed |
+| Age and host are confounded | Older articles use different services; not separable in this design | Disclosed |
+| We are requesting third-party services | One request per locator, throttled per host, identified User-Agent | Disclosed |
+
+## 9. The defect the probe found
+
+2 checks raised `UnicodeEncodeError`.
+That is not a dead link; it is the requester failing to encode a non-ASCII URL, which needs
+IDNA on the host and percent-encoding on the path. Counting those as breakage would inflate the
+headline rate.
+
+It is recorded here rather than quietly fixed because the same class of error, a tool failure
+scored as a property of the world, is exactly what this study is about.
+
+## 10. Probes
+
+| probe | computes | goes to | what would change the design | status |
+|---|---|---|---|---|
+| **PA** | locators available, by kind and host | 4 | fewer than about 200 locators makes the study unpowered | done |
+| **PB** | resolve rate on a sample of 150 | 6 | a resolve rate above about 98 percent means there is nothing to study | done |
+| **PC** | resolve rate on all 721 locators, after the encoding fix | 6, 7 | this is the outcome, not a probe result | outstanding, needs the fix |
+| **PD** | how often a 200 corresponds to retrievable data, on 100 hand-checked locators | 5 | a large gap makes HTTP resolution a poor proxy and the outcome must change | outstanding, needs the author |
+
+## 11. Deviations
+
+Recorded on the result page.
+
+## 12. What this cannot show
+
+- It cannot show whether data that are retrievable are usable, documented or correct.
+- It cannot distinguish a repository that deleted a project from an author who mistyped a URL.
+- It measures a moment. A locator that resolves today may not next year, which is the study's
+  own point turned against it.
+

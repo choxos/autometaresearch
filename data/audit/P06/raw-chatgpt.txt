@@ -1,0 +1,86 @@
+{
+  "document_id": "P06",
+  "reviewer": "Codex",
+  "overall_vote": "unsound",
+  "confidence": 0.99,
+  "rationale": "Repository checks reproduce individual probe counts, but refute combined and restricted totals. More seriously, linkage code counts datasets and standalone preprints as publication pairs. Retained sample includes nonbiomedical research and ordinary clinical reviews. Outcome definition, statistical test, validation gate, and null interpretation also need repair. Published work already examines preprint conclusion changes; an exact predecessor studying criticism specifically within meta-research was not verified.",
+  "findings": [
+    {
+      "section": "4. Sample; 8. Probes; Status callout",
+      "severity": "fatal",
+      "problem": "Probe does not establish preprint–journal pairs. studies/_shared/openalex_probe.py:80–93 counts any matching source name, including primary locations, without verifying a journal counterpart or manuscript identity. Concrete false positive: W4383058151 links article DOI 10.7554/elife.84658 to Zenodo 10722193, which is the PHI-base dataset, not a preprint ([deposit](https://zenodo.org/records/10722193)). After deduplication and arXiv/SSRN exclusion, 32 of 101 candidate works have no journal location in stored metadata; only 69 do. This does not prove counterparts cannot be found elsewhere, but the completed probes cannot establish the claimed minimum of 80 usable pairs. Full-text retrieval remains outstanding.",
+      "what_would_fix_it": "Build an auditable pair manifest containing distinct manuscript and journal identifiers, verified document identities, dates, and retrievable texts. Exclude datasets and repository copies lacking a verified prepublication manuscript. Reapply the decision rule to unique, eligible, scoreable pairs before declaring reduced-protocol feasibility.",
+      "quote": "Meta-research articles with both a preprint and a published version, identified from OpenAlex\n`locations` where a source is a named preprint server."
+    },
+    {
+      "section": "4. Sample",
+      "severity": "major",
+      "problem": "Server exclusion does not establish biomedical meta-research eligibility. Retained candidates include a social-science transparency study, DOI 10.1098/rsos.190806, and a butterfly-distribution data paper, DOI 10.3897/zookeys.585.8019. Their abstracts in data/lit/records.jsonl:1342 and data/lit/frame-P01v2.jsonl:688 confirm those populations. The tier B candidates also include clinical evidence syntheses. The borrowed frame is an unscreened keyword search, not a verified meta-research sample. Consequently, criticism of research practices could be mixed with conclusions about clinical effects, ecological data, or other disciplines.",
+      "what_would_fix_it": "Define biomedical scope and empirical meta-research eligibility at article level. Screen all candidates before scoring, with explicit rules for clinical systematic reviews, protocols, commentaries, and nonbiomedical studies. Publish exclusions and recompute feasibility after screening.",
+      "quote": "the primary analysis is restricted to biomedical preprint servers"
+    },
+    {
+      "section": "4. Sample; Status callout",
+      "severity": "major",
+      "problem": "Combined and restricted counts are wrong. Recomputing data/lit/openalex-records.jsonl and data/lit/openalex-frame-P01v2.jsonl gives 66 and 75 candidate rows, but three works occur in both: W2771978614, W2910487802, and W4413010120. Combined total is therefore 138 unique OpenAlex works, not 141. Canonical arXiv/SSRN sources identify 37 distinct candidates for exclusion, leaving 101 unique candidates, not 108. Individual rates of 3.7% and 1.0% reproduce; asserted totals 33 and 108 do not. These are candidate counts, still subject to the eligibility failures above.",
+      "what_would_fix_it": "Deduplicate across frames using persistent identifiers, resolve multiple records representing the same article, and compute exclusions from the resulting manifest. Generate every reported count from code rather than adding marginal summaries.",
+      "quote": "arXiv and SSRN contribute 33 of the 141 pairs and are mostly science-of-science\nrather than biomedical meta-research."
+    },
+    {
+      "section": "4. Sample; 5. Exposure and outcome",
+      "severity": "major",
+      "problem": "Which preprint version supplies the baseline is unspecified. Stored locations include Research Square URLs ending in /latest.pdf. Retrieving those can select a revision incorporating review or publication-stage changes, making real changes disappear. A server name also does not establish that posting preceded journal publication. Even correctly linked manuscripts therefore lack a reproducible before-and-after contrast.",
+      "what_would_fix_it": "Specify an immutable baseline, such as the earliest posted manuscript preceding journal publication, and a defined journal version. Record version identifiers, posting/publication dates, retrieval dates, and text hashes. Prespecify handling of postpublication deposits and ambiguous chronology.",
+      "quote": "There is no exposure; the contrast is version."
+    },
+    {
+      "section": "2. Hypothesis; 5. Exposure and outcome; 6. Analysis, in the reduced form",
+      "severity": "major",
+      "problem": "Prose and code define different outcomes. A pair-level indicator of becoming less critical cannot directly supply preprint_critical and published_critical. McNemar instead compares opposite transitions between two binary states ([R documentation](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/mcnemar.test.html)). No critical/not-critical threshold is specified. Strongly critical becoming moderately critical satisfies the hypothesis but remains invisible if both versions are classified critical. Conversely, collapsing strengthening and unchanged into one 'no' category cannot identify net directional change. McNemar's null is balanced opposing transitions, not absence of changes within articles.",
+      "what_would_fix_it": "Choose one estimand and align labels, null, and code. For directional softening, record less critical, unchanged, and more critical; compare opposing directions and report their difference using all eligible pairs as denominator. Alternatively, define binary states and explicitly narrow the hypothesis to crossing that threshold.",
+      "quote": "The outcome is binary: did the concluding claim become less\ncritical, yes or no, with unchanged pairs retained as \"no\"."
+    },
+    {
+      "section": "5. Exposure and outcome; 7. Threats, and what happened to each",
+      "severity": "major",
+      "problem": "Single-version agreement does not validate directional change. Referenced P03 uses inadequate/adequate/mixed/not-applicable abstract labels, whereas P06 requires a different instrument and supplies no rule for reconciling abstract and discussion conclusions. A computed counterexample demonstrates the gate's weakness: among 100 truly unchanged pairs, with 50 critical and 50 noncritical, classify preprints perfectly but misclassify 15 critical published versions as noncritical. Published-version kappa is 0.70 and pooled kappa is 0.85, yet all 15 discordances falsely indicate softening; exact two-sided p=0.000061. Metadata stripping does not establish absence of such version-dependent errors, so calling that threat 'Removed' is unsupported.",
+      "what_would_fix_it": "Define a P06-specific claim-extraction and scoring rubric. Validate change direction on independently adjudicated, blinded pairs, with held-out validation, transition-specific errors, and sensitivity to asymmetric misclassification. Assess residual version recognition and describe blinding as a safeguard unless its effectiveness is demonstrated.",
+      "quote": "the study does not proceed unless a model\nreaches kappa 0.70 against the author."
+    },
+    {
+      "section": "2. Hypothesis; 4. Sample decision rule; 6. Analysis, in the reduced form",
+      "severity": "major",
+      "problem": "Total-pair thresholds do not establish power for a discordance-based test. No minimum meaningful shift, discordance assumption, power calculation, or equivalence margin supports 80 or 200. Illustrative exact calculations: with five discordant pairs, even five changes toward softening give two-sided p=0.0625; with ten discordant pairs and a true 3:1 softening-to-strengthening ratio, power at alpha=0.05 is only 24.4%. A nonsignificant result under this plan cannot establish the proposed falsifier of no net shift.",
+      "what_would_fix_it": "Compute power and attainable precision across plausible discordance rates using the verified sample size. Prespecify a meaningful effect and confidence interval; use equivalence testing if absence of meaningful softening is intended as falsification. Otherwise label inconclusive null results accordingly.",
+      "quote": "What would falsify the hypothesis.** No net shift, or a shift toward more criticism."
+    },
+    {
+      "section": "7. Threats, and what happened to each",
+      "severity": "major",
+      "problem": "The 3.7% figure measures flagged records divided by all resolved tier A records. It does not measure linkage completeness: the denominator of genuine preprint-bearing articles is unknown, and false positives are demonstrably present. Therefore neither missed-pair frequency nor selection bias has been measured. Changes in titles, identifiers, or hosting can affect linkage and could track manuscript revision. Complete-text availability adds another unassessed selection step.",
+      "what_would_fix_it": "Distinguish observed detection yield from sensitivity and positive predictive value. Audit matched and unmatched records against independent server/publication links, report retrieval attrition, and assess selection sensitivity. Restrict generalization to verified linked and retrievable pairs unless broader representativeness is supported.",
+      "quote": "Measured, not assumed: 3.7 percent in tier A."
+    },
+    {
+      "section": "Status callout; 4. Sample — The decision rule",
+      "severity": "minor",
+      "problem": "Claimed pre-probe chronology cannot be verified from available history. Earliest tracked P06 and both probe summaries appear together in commit ddc788dd25f3c3dece6f787e5fb767b53952dbaf. That establishes neither an earlier decision rule nor its timing relative to probe execution. This is not evidence of outcome-driven manipulation: feasibility-informed choices can still precede outcome analysis. It does leave the emphatic historical claim unsupported.",
+      "what_would_fix_it": "Link a timestamped pre-probe version or execution record establishing chronology. Otherwise remove the unverifiable claim and distinguish post-feasibility, outcome-blind specification from decisions demonstrably fixed before probing.",
+      "quote": "The decision rule, written before either probe returned"
+    },
+    {
+      "section": "1. The question",
+      "severity": "minor",
+      "problem": "Relevant methodological precedent is absent. Brierley et al., 'Tracking changes between preprint posting and journal publication during a pandemic,' PLOS Biology 2022, already compared 184 pairs and manually annotated strengthening and softening of conclusions ([article](https://doi.org/10.1371/journal.pbio.3001285)). This does not establish that criticism specifically within meta-research has already been studied, but the general paired comparison and semantic-change instrument are established prior work.",
+      "what_would_fix_it": "Discuss existing preprint–publication comparisons, their scoring instruments and limitations, and define the narrower contribution concerning criticism of research practices.",
+      "quote": "This is measurable because meta-research increasingly appears as a preprint first, and both\nversions persist."
+    },
+    {
+      "section": "What this cannot show",
+      "severity": "minor",
+      "problem": "Invisibility to every design is false. Archived drafts, journal submissions, reviewer requests, and author revision histories can expose changes preceding public posting. Lazarus et al. studied submitted manuscripts and reviewer-requested changes to spin using a retrospective before-and-after design ([J Clin Epidemiol, 2016](https://doi.org/10.1016/j.jclinepi.2016.04.012)). Calling preposting removal the censorship 'most likely to matter' also lacks supporting evidence.",
+      "what_would_fix_it": "Limit the statement to what this public-version design cannot observe. Remove the unsupported ranking of censorship mechanisms and acknowledge designs using earlier manuscript histories.",
+      "quote": "It cannot see criticism removed before the preprint was posted, which is the censorship most\n  likely to matter and is invisible to every design."
+    }
+  ]
+}

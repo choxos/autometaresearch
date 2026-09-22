@@ -1,0 +1,58 @@
+{
+ "document_id": "P05",
+ "reviewer": "grok",
+ "overall_vote": "unsound",
+ "confidence": 0.88,
+ "rationale": "PA and PB counts match studies/P05-does-the-link-resolve/out/probes.json (2262, 431, 721, 644/77, 504, 150, 133, 88.7 percent). There is no PMCID overlap between the P01 and P01v2 statement files, so pooling them does not double-count articles. The UnicodeEncodeError defect in section 9 is real. The protocol still does not measure what it says it measures. Five of the seven probe 404s that section 6 calls the cleanest signal are glued next-sentence tokens from the same _text() join that already failed P01v2, not dead deposits. Many regex hits are search-database and homepage URLs, so a 200 is not evidence the study's data are there. The primary null is an age slope, but 529 of 721 locators are from 2022 or later and only 49 are from 2018 or earlier, and a cross-sectional age coefficient cannot separate decay from cohort. Federer 2022 (PLoS ONE e0272845) and Briney 2024 (PLoS ONE e0304781) already resolved DAS or shared-data locators over HTTP, hand-checked live pages, and tested age. Section 7 calls the sensitivities preregistered while the status callout says the study is not registered.",
+ "findings": [
+  {
+   "section": "6. Feasibility, computed",
+   "severity": "fatal",
+   "problem": "The primary failure signal in the probe is an artifact of locator extraction, not a dead deposit. studies/P05-does-the-link-resolve/out/resolve-sample.csv records the seven 404s as: 10.17605/OSF.IO/T8B6G20 (OSF GUIDs are five characters; 20 is the glued year), https://github.com/tstoeger/plos_biology_2018_ignored_genes.The, https://doi.org/10.1101/2023.06.16.23291488.17All, http://doi.org/10.5281/zenodo.3891055.The, and https://doi.org/10.5523/bris.2voc5xy13adqs2rimeateez14yand, plus one generic portal and one figshare id. Those glued suffixes come from build/lit/search.py _text(), which joins JATS element text without inserting a space, the same instrument P01v2 review already found drops xlink:href. OSF still returns 200 for https://osf.io/cpv2m/.The, so the artifact is host-dependent and will leak into the host random intercept and the age slope. Section 9 correctly refuses to count UnicodeEncodeError as breakage. Counting glued 404s as breakage is the same error and it is larger. After removing those artifacts the hard-404 rate is a few percent, which is near the protocol's own 'nothing to study' gate of about 98 percent resolution. The claim that the effect is large enough to measure is not supported by the probe once the instrument is not scoring its own parse failures.",
+   "what_would_fix_it": "Extract href targets and visible-text locators separately. Split on sentence punctuation before the URL regex. Validate OSF GUIDs and DOI syntax, and drop a candidate that is the next English word glued on. Re-run PB on the repaired locators. Do not treat a 404 on a glued string as link rot, and do not run PC until that repair is in the requester.",
+   "quote": "7 hard 404s in 150 is the cleanest signal: those are locators that a reader following the statement would not find. The study is feasible and the effect is large enough to measure."
+  },
+  {
+   "section": "5. Measurement",
+   "severity": "major",
+   "problem": "Resolution is scored on any http(s) or DOI regex hit in the extracted statement. That is not a check that the article's data exist. In the 150-row probe, resolving 200s include https://www.microsoft.com/en-us/research/project/microsoft-academic-graph/, https://clarivate.com/webofsciencegroup/solutions/web-of-science/contact-us/, https://clinicaltrials.gov/, https://www.crd.york.ac.uk/PROSPERO, https://research.monash.edu/en/publications/the-reprise-project-protocol-for-an-evaluation-of-reproducibility, and https://www.humanconnectome.org/. A remaining 403 is https://www.embase.com/ from a statement that lists literature-search sources. A 200 on those hosts is not 'the thing the statement points at' in the sense of shared analysis data. Including them inflates the resolve rate and dilutes any age contrast. The document already notes that a repository landing page with no files returns 200; it does not note that the regex also captures search engines, publisher homepages, and the article's own identifiers.",
+   "what_would_fix_it": "Classify each locator's role (data or code deposit, literature-search source, article identifier, homepage, other) before requesting it. Restrict the primary analysis to deposit locators, or report the classes as separate outcomes. Hand-check PD on that restricted set, not on a mixed bag of 200s.",
+   "quote": "P05 asks whether the thing the statement points at is there."
+  },
+  {
+   "section": "2. Hypothesis",
+   "severity": "major",
+   "problem": "The primary null is that non-resolution does not vary with article age, and a rising slope is treated as decay. That coefficient is not identified in this design, and the sample has almost no age. From the P01 and P01v2 statement files used by probes.py, locator years run 2014 to 2026 with 6 locators in 2014-2015, 49 in 2018 or earlier, and 529 of 721 in 2022 or later. Section 8 already says age and host are not separable, then still makes age the primary analysis. A cross-sectional slope can be cohort (newer papers use OSF and GitHub) rather than decay. Probe PA's 'about 200 locators' cutoff is asserted, not computed, and it is a count for an overall rate, not power for years_since_pub in glmer with a host random intercept. Vines et al., Curr Biol 2014 (doi:10.1016/j.cub.2013.11.014) estimated age-related data loss over 2 to 22 years by requesting files from authors; this HTTP sample does not have that range.",
+   "what_would_fix_it": "Either drop decay as the primary claim and test a single proportion of non-resolution, or restrict to one long-lived host and pre-specify how a within-host age slope will be separated from cohort. Compute power for the age coefficient from the observed year distribution before calling the study powered. State that a rising slope does not mean the links died after publication.",
+   "quote": "A high but age-invariant failure rate would mean statements are wrong on arrival rather than decaying, which is a different problem and a more serious one."
+  },
+  {
+   "section": "1. The question",
+   "severity": "major",
+   "problem": "The document presents retrieval of DAS locators as a missing step that every study which grades statements skips. That work is already published. Federer, PLoS ONE 2022 (doi:10.1371/journal.pone.0272845) extracted 8503 URLs and DOIs from nearly 50000 PLOS ONE data availability statements, retrieved them automatically (about 80 percent) and by hand on 350 URLs and 350 DOIs (78 percent and 98 percent), and tested whether older papers were less available. Briney, PLoS ONE 2024 (doi:10.1371/journal.pone.0304781) tested 2166 shared-data links, found 5.4 percent gone, and estimated 2.6 percent loss per year. P05 can still be a replication on this project's extracted statements. It cannot be written as discovering that the promise in a DAS is unchecked.",
+   "what_would_fix_it": "Cite Federer 2022 and Briney 2024 in section 1. Recast the study as a replication on locators from P01 and P01v2, including what would differ (meta-research PMC full text, host mix, the hand-check PD). Remove the claim that every grading study treats a named repository as proof the data are there.",
+   "quote": "A data availability statement naming an OSF project is treated, by every study that grades statements including this project's own, as evidence that data are available. That inference has a missing step."
+  },
+  {
+   "section": "7. Outcome and analysis",
+   "severity": "major",
+   "problem": "The sensitivities are labeled preregistered. The status callout says the study is not registered, and agenda.qmd states that nothing in the project is registered. Calling unregistered planned checks preregistered is false. The same section also fits a locator-level glmer of resolved on years_since_pub, while the hypothesis is about a material fraction of statements graded actionable. 'Material' is never given a number. The model has no article clustering, although 721 locators come from 431 statements. Probe PB sampled one locator per article so that a paper with twelve links would not dominate; the planned analysis puts all 721 locators in. Those are different estimands.",
+   "what_would_fix_it": "Delete the word Preregistered, or actually register before PC. Define the primary unit as the statement or the locator and keep PB, PC, and the model on that unit. If locators stay nested in articles, add an article cluster. Give a numeric threshold for a material non-resolve rate, separate from the age test.",
+   "quote": "Preregistered sensitivity analyses:"
+  },
+  {
+   "section": "4. Sample",
+   "severity": "major",
+   "problem": "The hypothesis is about statements graded actionable. The sample is every P01 or P01v2 extracted statement that matches a URL or DOI regex. probes.py never calls grade.R. Actionable statements that only name a repository, the case P01 treats as a deposit without a checkable link, are excluded. Statements that are not deposits but contain a URL (search sources, reporting-guideline DOIs, 'no data are associated with this article' plus a checklist DOI) are included. YAML unit 'Locators extracted from data availability statements' matches the code. The hypothesis and the status callout do not.",
+   "what_would_fix_it": "Either grade first and restrict to actionable deposits, or rewrite the hypothesis and status text so the study is about regex locators in extracted DAS text, including the named-repository-without-URL slice as out of scope.",
+   "quote": "A material fraction of statements graded `actionable` do not resolve, and the fraction rises with the age of the article."
+  },
+  {
+   "section": "6. Feasibility, computed",
+   "severity": "minor",
+   "problem": "The reported 88.7 percent resolve rate still treats the two UnicodeEncodeError rows as non-resolution (network_error = 8 includes those two plus three timeouts and three URLErrors). Section 9 says counting them as breakage would inflate the headline rate, then section 6 publishes that headline anyway.",
+   "what_would_fix_it": "Report resolution among requests that the requester actually completed, and keep encoding failures in a separate row until the fix in section 9 is in.",
+   "quote": "Counting those as breakage would inflate the headline rate."
+  }
+ ]
+}

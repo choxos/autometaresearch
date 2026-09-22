@@ -1,0 +1,287 @@
+You are reviewing a research document as an adversarial peer reviewer.
+
+Your job is to refute it. Assume it is wrong somewhere and find where. A review that returns
+no findings is a valid answer, but return it only after having genuinely tried to break the
+document, not as a default.
+
+What to attack, in rough order of how much damage each does if you are right:
+
+1. Does the design measure what it says it measures? Look hardest at the instruments: how the
+   exposure is defined, how the outcome is extracted, and whether either could be capturing
+   an artifact of the data source rather than the thing of interest.
+2. Is the sample what the document says it is? Check for overlap with a sample it claims to
+   be independent of, for selection that differs between arms, and for exclusions applied
+   after the data were seen.
+3. Are stated numbers computed or asserted? A number that appears in prose and in no code is
+   a number nobody checked. Say which ones you cannot verify.
+4. Does the analysis answer the stated hypothesis? Look for a model whose coefficient does
+   not mean what the prose says it means, for adjustment that absorbs the effect being
+   measured, and for a null that could not have been detected at the stated sample size.
+5. Is anything claimed as preregistered that was actually decided later?
+6. Is the prior literature represented fairly, and is the novelty claim true? If you can name
+   published work that already does this, that is the single most valuable finding you can
+   return.
+
+Rules that decide whether your findings count:
+
+- **Name the section** each finding is against. A finding with no section is downgraded to
+  minor by the adjudication rule, because an objection that does not attach to text cannot be
+  acted on.
+- **State what would fix it** for anything you mark fatal or major. Same downgrade otherwise.
+- **Quote the document verbatim** where you can. A quote is what distinguishes an evidenced
+  objection from an opinion, and under the adjudication rule an evidenced fatal finding blocks
+  the document even if the other reviewer votes it sound.
+- Do not invent a citation. If you believe prior work exists but cannot name it precisely,
+  say that in the rationale rather than inventing a reference.
+
+Return ONLY a JSON object matching this schema. No prose before or after, no markdown fence.
+
+
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Reviewer verdict on one document",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "document_id",
+  "reviewer",
+  "overall_vote",
+  "confidence",
+  "rationale",
+  "findings"
+ ],
+ "properties": {
+  "document_id": {
+   "type": "string"
+  },
+  "reviewer": {
+   "type": "string"
+  },
+  "overall_vote": {
+   "description": "Is the document sound as written?",
+   "enum": [
+    "sound",
+    "sound-with-required-changes",
+    "unsound",
+    "abstain"
+   ]
+  },
+  "confidence": {
+   "type": "number",
+   "minimum": 0,
+   "maximum": 1
+  },
+  "rationale": {
+   "type": "string"
+  },
+  "findings": {
+   "type": "array",
+   "description": "Every objection. An empty array is a valid and meaningful answer.",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "section",
+     "severity",
+     "problem",
+     "what_would_fix_it",
+     "quote"
+    ],
+    "properties": {
+     "section": {
+      "type": "string",
+      "description": "The section number or heading the finding is against. A finding that cannot name one is downgraded to minor, because an objection that does not attach to text cannot be acted on."
+     },
+     "severity": {
+      "description": "fatal: the document cannot proceed as written. major: a stated conclusion would be wrong or unsupported. minor: it would be better changed. Anything at major or above must state what would fix it or it is downgraded.",
+      "enum": [
+       "fatal",
+       "major",
+       "minor"
+      ]
+     },
+     "problem": {
+      "type": "string"
+     },
+     "what_would_fix_it": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Required for fatal and major. A finding at those levels with null here is downgraded to minor by the adjudication rule."
+     },
+     "quote": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Verbatim text from the document the finding is against, or from a cited source that contradicts it. Pass null when there is none; the key must be present because OpenAI structured output requires every property to be listed as required. A quote is what distinguishes an evidenced objection from an opinion."
+     }
+    }
+   }
+  }
+ }
+}
+
+Set "document_id" to exactly: P06
+
+==============================================================================
+THE DOCUMENT UNDER REVIEW
+==============================================================================
+
+---
+title: "Do meta-research conclusions soften between preprint and journal?"
+description: "Whether peer review blunts criticism of the literature. Preprint linkage probe computed; the answer constrains the design."
+id: P06
+status: protocol-reduced
+proposed_by: "Claude Opus 5"
+date: 2026-09-16
+reviewed: none
+unit: "Preprint and published version pairs of the same meta-research article"
+data_source: "OpenAlex locations; bioRxiv, medRxiv and OSF preprint servers"
+categories: [protocol, oa, peerrev]
+---
+
+::: {.callout-important appearance="simple"}
+## Status: reduced protocol, by the decision rule this document wrote before the number was known.
+
+Both linkage probes have run. **66 of 1790 tier A
+records and 75 of 7572 frame records have a preprint
+version: 141 pairs, a rate of 3.7 and 1.0 percent
+respectively.**
+
+Section 4 stated, before either number was known, that 200 or more pairs makes this a full
+protocol, 80 to 200 makes it a reduced one with a single binary outcome and no subgroup
+analyses, and under 80 makes it an agenda item. **141 falls in the middle band, so the reduced
+form is what this document now specifies.** The rule is applied as written rather than
+renegotiated, which is the only thing that made writing it in advance worth doing.
+
+Restricting to biomedical preprint servers, excluding arXiv and SSRN, leaves 108 pairs, which
+is still inside the 80 to 200 band. **The biomedical restriction is therefore the primary
+analysis, not a subgroup**, because this project is about biomedical meta-research and a
+result carried by arXiv preprints would not be about that.
+
+A first draft of this section asserted that 108 was "below the 80 the rule requires" and used
+that to justify keeping arXiv in the primary analysis. 108 is not below 80. The claim
+contradicted the number printed two sentences above it, and it is recorded here rather than
+silently corrected because it is the third time in this project that a sentence reasoning
+about a computed value came out backwards.
+:::
+
+## 1. The question
+
+Meta-research criticizes the literature, and peer reviewers are drawn from the literature being
+criticized. If review systematically blunts that criticism, the published record understates
+what the field found, and the preprint is the only place the original claim survives.
+
+This is measurable because meta-research increasingly appears as a preprint first, and both
+versions persist.
+
+## 2. Hypothesis
+
+The conclusion of a meta-research article is less critical of the practice it studied in the
+published version than in the preprint.
+
+**Primary null.** Conclusion direction does not change between versions.
+
+**What would falsify the hypothesis.** No net shift, or a shift toward more criticism. Either
+is publishable and the second would be the more interesting.
+
+## 3. Design
+
+Paired before-and-after comparison within article. Each article is its own control, which
+removes the between-article confounding that every other design here has to manage.
+
+## 4. Sample
+
+Meta-research articles with both a preprint and a published version, identified from OpenAlex
+`locations` where a source is a named preprint server.
+
+| frame | resolved in OpenAlex | with a preprint | rate |
+|---|---|---|---|
+| tier A | 1790 | 66 | 3.7 percent |
+| tier B frame | 7572 | 75 | 1.0 percent |
+| **combined** | | **141** | |
+
+Servers, tier A: `[['osf preprints (osf preprints)', 31], ['arxiv (cornell university)', 24], ['medrxiv', 4], ['research square', 3], ['biorxiv (cold spring harbor laboratory)', 3], ['metarxiv (osf preprints)', 2], ['psyarxiv (osf preprints)', 1], ['zenodo (cern european organization for nuclear research)', 1]]`
+
+Servers, frame: `[['osf preprints (osf preprints)', 19], ['zenodo (cern european organization for nuclear research)', 17], ['medrxiv', 16], ['arxiv (cornell university)', 10], ['research square', 6], ['biorxiv (cold spring harbor laboratory)', 5], ['ssrn electronic journal', 3]]`
+
+**arXiv and SSRN contribute 33 of the 141 pairs and are mostly science-of-science
+rather than biomedical meta-research.** Excluding them leaves 108, still within the 80 to 200
+band, so **the primary analysis is restricted to biomedical preprint servers** and the full
+141 pairs are reported as a preregistered secondary. Neither is a subgroup fished for after
+the fact: both counts were known before either analysis was specified, and both are published.
+
+### The decision rule, written before either probe returned
+
+- **200 or more pairs**: full protocol, five-point ordinal outcome, subgroup analyses.
+- **80 to 200**: reduced protocol, single binary outcome, no subgroups.
+- **Below 80**: agenda item, like [P04](P04-observational-about-itself.qmd).
+
+**Observed: 141. The reduced form applies.**
+
+## 5. Exposure and outcome
+
+There is no exposure; the contrast is version. The outcome is the direction and strength of the
+concluding claim, extracted from the abstract conclusion and the discussion of each version and
+scored on a five-point scale from strongly critical to endorsing.
+
+Scoring is by the same gated procedure as [P03](P03-bad-news-citation.qmd): the author labels a
+reference sample, two models label it blind, and the study does not proceed unless a model
+reaches kappa 0.70 against the author.
+
+**The scorer must be blind to version.** The two texts are presented in random order with
+dates, venue and version labels stripped, because a scorer who knows which text is the preprint
+knows which direction the hypothesis predicts.
+
+## 6. Analysis, in the reduced form
+
+The five-point ordinal outcome is **not** used. At 141 pairs it would spread the sample across
+five levels and two directions. The outcome is binary: did the concluding claim become less
+critical, yes or no, with unchanged pairs retained as "no".
+
+```r
+# McNemar on the paired binary shift. No covariates, no subgroups: at this sample
+# size every added term is a term the data cannot support.
+mcnemar.test(table(d$preprint_critical, d$published_critical))
+```
+
+Reported alongside: the raw 2x2 table, an exact binomial test on the discordant pairs, and the
+count of pairs by preprint server so a reader can see the arXiv concentration for themselves.
+
+Had the probes returned 200 or more pairs, section 6 would have specified `clmm(score ~ version
++ (1 | article))` on the ordinal score. It did not, so it does not.
+
+## 7. Threats, and what happened to each
+
+| threat | what was done | removed or disclosed |
+|---|---|---|
+| Scorer knows which version is which | Version-blinded presentation, randomized order, stripped metadata | Removed |
+| Between-article confounding | Paired design; each article is its own control | Removed |
+| Articles that post preprints are unusual | They are, and the result generalizes only to them | Disclosed |
+| Peer review is not the only difference | Authors revise for many reasons; the design attributes nothing to review specifically | Disclosed |
+| Preprint linkage via OpenAlex is incomplete | Measured, not assumed: 3.7 percent in tier A. A missed pair is a missing observation, not a biased one, unless linkage failure correlates with revision | Disclosed |
+| arXiv dominates the tier A pairs | Would make the result about science-of-science rather than biomedical meta-research; restricted in the primary analysis | Disclosed |
+
+## 8. Probes
+
+| probe | computes | goes to | what would change the design | status |
+|---|---|---|---|---|
+| **PA** | preprint linkage rate in tier A | 4 | below about 100 pairs the tier A frame alone is unusable | done: 66 of 1790 |
+| **PB** | the same for the tier B frame | 4 | decides protocol, reduced protocol, or agenda item, by the rule in section 4 | done: 75 of 7572, giving 141 pairs, the reduced form |
+| **PC** | how many pairs have both full texts retrievable | 5 | a pair whose preprint text cannot be fetched cannot be scored | outstanding, depends on PB |
+| **PD** | scorer agreement against the author's labels | 5 | below kappa 0.70 stops the study | outstanding, needs the author |
+
+## Deviations
+
+Recorded on the result page: what changed, when, why, and the estimate before and after where
+that can be computed. A deviation is not a failure; concealing one is.
+
+## What this cannot show
+
+- It cannot attribute a change to peer review rather than to time, new data, or an author's
+  own second thoughts.
+- It cannot see criticism removed before the preprint was posted, which is the censorship most
+  likely to matter and is invisible to every design.
+
