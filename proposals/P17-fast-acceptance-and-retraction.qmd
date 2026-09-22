@@ -1,0 +1,123 @@
+---
+title: "Does a fast acceptance predict retraction for misconduct?"
+description: "Whether a short interval from submission to acceptance is associated with later retraction for misconduct, but not with retraction for honest error."
+id: P17
+status: design
+proposed_by: "Claude Opus 5.5"
+date: 2026-09-22
+reviewed: none
+unit: "An article, in a matched case-control set"
+data_source: "PubMed History dates; Retraction Watch"
+instrument: "PubMed received and accepted dates; Retraction Watch reason field"
+categories: [design, retract, integrity]
+---
+
+::: {.callout-important appearance="simple"}
+## Status: design. No probe has run.
+
+Written against [the design standard](../studies/DESIGN-STANDARD.md). The author maintains
+retraction trackers (XeraRetractionTracker, RetractionPollution) that study post-retraction
+citation, reasons and geography. Acceptance speed is not among what they cover.
+:::
+
+## 1. The question
+
+A paper mill needs its product accepted, and a manipulated or absent peer review is quick. If
+that mechanism is real, a short time from submission to acceptance should be associated with
+retraction for misconduct, and not with retraction for honest error, which has no reason to
+depend on review speed. The second half is what makes this a test rather than a correlation.
+
+## 2. Prior work, and the search behind the novelty claim
+
+Log key `P17`.
+
+```
+corpus regex: (peer review (time|duration|speed)|time to acceptance|acceptance (time|interval)
+              |submission.to.acceptance).{0,80}(retract|misconduct|paper mill)
+PubMed:       ("time to acceptance"[tiab] OR "submission to acceptance"[tiab]
+              OR "peer review duration"[tiab] OR "review time"[tiab] OR "acceptance time"[tiab])
+              AND (retract*[tiab] OR "paper mill*"[tiab] OR misconduct[tiab])
+```
+
+Seven PubMed records, none in the corpus. The closest is a study of publication speed and
+retraction among COVID-19 articles (PMID 35432503), and a study of retracted chemistry manuscripts
+by error versus misconduct (PMID 37692206). This design extends the speed question beyond one
+pandemic topic and adds the reason contrast, which is the part that tests a mechanism.
+
+## 3. Hypothesis
+
+A shorter submission-to-acceptance interval is associated with retraction for misconduct-class
+reasons, and not with retraction for honest-error reasons.
+
+**Null.** The odds ratio per halving of the interval is 1 for misconduct-class retractions.
+
+**What would falsify it.** An odds ratio at or below 1 for misconduct, or an association of the
+same size for honest error, which would mean speed marks something about the journal rather than
+about the fraud.
+
+## 4. Design and unit
+
+Matched case-control, run twice: once with misconduct-class cases, once with honest-error cases,
+each with its own controls. One article is one unit.
+
+## 5. Sample
+
+**Cases**: articles in Retraction Watch with `RetractionNature` equal to Retraction, a DOI and a
+PMID, and PubMed History dates for both received and accepted. Classified into misconduct-class
+(paper mill, fake peer review, fabrication, falsification, plagiarism, manipulated images) and
+honest-error class (error in data, analysis or results by the authors, with no misconduct reason)
+using Retraction Watch's reason codes, with the mapping published before classification.
+
+**Controls**: four per case, from the same journal and the same publication month, not in
+Retraction Watch, with both History dates. Sampled without replacement; a case with fewer than
+four eligible controls keeps those it has and the set is weighted (S9).
+
+## 6. Exposure
+
+Days from received to accepted, from PubMed `History/PubMedPubDate` with `PubStatus` "received"
+and "accepted", using full dates (S7). Analyzed on the log scale.
+
+## 7. Outcome
+
+Case or control status, by reason class.
+
+## 8. Validation gate
+
+Reason-class mapping is checked by the author on 150 cases against the retraction notices
+themselves. **Below 90 percent agreement on the two classes, the mapping is revised and the check
+repeated before any model is fitted.**
+
+## 9. Analysis
+
+In R.
+
+```r
+clogit(case ~ log2(days_to_accept) + strata(match_set), data = d)
+```
+
+Fitted separately for each reason class; the contrast between the two coefficients is the test.
+Preregistered alongside: a model with the interval in categories, and one excluding special
+issues, where editorial handling differs.
+
+## 10. Threats
+
+| threat | handling | removed or disclosed | standard |
+|---|---|---|---|
+| History dates are missing for many publishers | Complete-case within matched sets; missingness reported by publisher | Disclosed | |
+| Misconduct retractions cluster in a few journals | Matching on journal and month holds the journal constant | Removed | S9 |
+| Reason codes are Retraction Watch's, not the publisher's | Mapping checked against notices on 150 cases | Disclosed | S8 |
+| Retraction lag means recent fraud is not yet retracted | Cases are what has been retracted; biases toward the null | Disclosed | S10 |
+| Same-day received and accepted dates are a data artifact | Flagged and analyzed separately rather than entered as zero | Disclosed | S7 |
+
+## 11. Probes
+
+| probe | computes | goes to | what would change the design | status |
+|---|---|---|---|---|
+| **PA** | proportion of retracted and of all PubMed articles with both History dates, by publisher | 5 | under 40 percent coverage among cases makes the sample unrepresentative of retractions | not run |
+| **PB** | case counts per reason class after the date requirement | 5 | fewer than 300 honest-error cases makes the contrast imprecise | not run |
+| **PC** | the author's 150 reason checks | 8 | below 90 percent the mapping is revised | needs the author |
+
+## 12. What this cannot show
+
+- That fast review caused anything. Journals that review quickly may simply attract fraud.
+- Anything about fraud that has not been retracted.

@@ -1,0 +1,130 @@
+---
+title: "Are old prevalence estimates cited as if they were current?"
+description: "Whether citing papers present meta-research prevalence figures in the present tense regardless of their age, and whether meta-research citers are more careful."
+id: P12
+status: design
+proposed_by: "Claude Opus 5.5"
+date: 2026-09-22
+reviewed: none
+unit: "A citation sentence citing a meta-research prevalence estimate"
+data_source: "PMC full text of citing articles; OpenAlex citation links"
+instrument: "Citation-sentence framing classifier, gated on the author's labels"
+categories: [design, biblio, reflexive]
+---
+
+::: {.callout-important appearance="simple"}
+## Status: design. No probe has run.
+
+Written against [the design standard](../studies/DESIGN-STANDARD.md).
+:::
+
+## 1. The question
+
+"Only 12 percent of trials share their data" is a sentence that can be true in the year it was
+measured and misleading ten years later. Meta-research produces prevalence estimates that other
+papers then quote. Whether the quotation carries the estimate's date, or presents an old number
+as the current state of the world, has not been measured.
+
+## 2. Prior work, and the search behind the novelty claim
+
+Log key `P12`.
+
+```
+corpus regex: (outdated|stale|obsolete).{0,40}(citation|cited|evidence)
+              |citation.{0,30}(accuracy|context).{0,40}(prevalence|estimate)
+PubMed:       ("citation accuracy"[tiab] OR "quotation accuracy"[tiab]
+              OR "citation context"[tiab] OR "outdated evidence"[tiab])
+              AND (prevalence[tiab] OR estimate*[tiab])
+```
+
+Ten PubMed records, none in the corpus. Quotation accuracy is established territory: a systematic
+review and meta-analysis of quotation accuracy in medical journals (PMID 26528420), a review of
+methods for checking cited facts (PMID 28910404), and a study of citation inaccuracies in surgical
+literature (PMID 35130090). Those ask whether a citation misstates what the source says. This asks
+something they do not: whether a correctly quoted number is presented as current when it is not.
+
+## 3. Hypothesis
+
+Citation sentences written by meta-research authors date the estimate they cite more often than
+citation sentences written by other authors, adjusted for the estimate's age.
+
+**Null.** The odds ratio for dated framing, meta-research citers against other citers, is 1.
+
+**What would falsify it.** An odds ratio at or below 1: the field that produces the estimates is
+no more careful about their age than anyone else.
+
+The descriptive quantity reported alongside, but not tested, is the proportion of citations
+presenting an estimate more than ten years old in the present tense.
+
+## 4. Design and unit
+
+Cross-sectional study of citation sentences. One citation sentence is one unit; the citing
+article is the cluster.
+
+## 5. Sample
+
+**Cited set**: tier A articles whose abstract reports a prevalence of a research practice (a
+proportion of articles, trials or reviews with a property). Identified by a classifier gated on
+the author's labels, because a regex for "percent of" retrieves results of every kind.
+
+**Citing set**: PMC open-access articles that cite a member of the cited set, from OpenAlex, one
+citation sentence per citing-cited pair. Where an article cites the same estimate twice, the
+first mention is used.
+
+## 6. Exposure
+
+Whether the citing article is itself meta-research, by the tier A vocabulary match on the citing
+article. This is a label, not a judgment, and misclassification here is toward the null.
+
+## 7. Outcome and instrument
+
+**Dated framing**: the sentence gives the estimate's year, its study period, or an explicit
+temporal qualifier ("in 2014", "at the time", "an earlier study found"). **Current framing**:
+present tense with no temporal qualifier. Mixed or unclear sentences are a third class, analyzed
+separately.
+
+The citation sentence is located through the JATS `xref` pointing at the reference, not by
+searching text for an author name (S2).
+
+## 8. Validation gate
+
+The author labels 250 citation sentences against a written rubric with examples of each class.
+A model classifies them blind. **Kappa is computed on the dated-versus-current contrast that
+enters the model; below 0.75 the study stops at the author-labeled sample** and is reported as a
+descriptive study of that sample.
+
+## 9. Analysis
+
+In R.
+
+```r
+glmer(dated ~ citer_is_metaresearch + ns(estimate_age, 3) + (1 | citing_article)
+      + (1 | cited_article), family = binomial, data = d)
+```
+
+Crossed random effects, because both citing and cited articles recur. Estimate age is the years
+between the cited study's data collection end, or its publication if that is not stated, and the
+citing article's publication date.
+
+## 10. Threats
+
+| threat | handling | removed or disclosed | standard |
+|---|---|---|---|
+| Sentence extraction picks the wrong sentence | Located by `xref`, not by text search | Removed | S2 |
+| Classifier error | Gated on the analyzed contrast, fallback to the author-labeled sample | Disclosed | S8 |
+| PMC open access is not all citers | Stated; see P13, which measures what that restriction costs | Disclosed | |
+| Estimate age is unknown when the study period is not reported | Publication date used, and the fallback is flagged in the data | Disclosed | S7 |
+| Citer type is a vocabulary label | Misclassification toward the null | Disclosed | S3 |
+
+## 11. Probes
+
+| probe | computes | goes to | what would change the design | status |
+|---|---|---|---|---|
+| **PA** | how many tier A articles report a practice prevalence, on a 100-record author-labeled pilot removed from the sample | 5 | fewer than 100 cited estimates makes the cited set too small | not run |
+| **PB** | citing PMC articles per cited estimate, and how many citation sentences the `xref` route recovers | 5, 7 | a recovery rate under 70 percent changes the extraction route | not run |
+| **PC** | the author's 250 rubric labels | 8 | below kappa 0.75 the study becomes descriptive | needs the author |
+
+## 12. What this cannot show
+
+- Whether a current-framed old number is wrong. The practice may not have changed.
+- Whether readers are misled; the design reads text, not readers.

@@ -1,0 +1,58 @@
+---
+title: "Do trials quietly cut their enrollment target?"
+description: "Whether trials that lower their planned enrollment after starting are less likely to report results. An agenda item: the registry's change history is not programmatically reachable."
+id: P30
+status: agenda
+proposed_by: "Claude Opus 5.5"
+date: 2026-09-22
+reviewed: none
+unit: "A registered trial's version history"
+data_source: "ClinicalTrials.gov change history, which is not currently reachable"
+instrument: "none yet"
+categories: [agenda, reg]
+---
+
+::: {.callout-important appearance="simple"}
+## Status: agenda. The data source is not reachable, and that is recorded rather than worked around.
+
+On 2026-09-22 the ClinicalTrials.gov history endpoint returned HTTP 403 for two tested requests, with
+and without an identifying User-Agent. The AACT database, which offers archived copies of the
+registry, needs an account and a database restore; the URL tried for its snapshot listing returned
+404. Neither was pursued further.
+:::
+
+## The question
+
+A trial registration carries a planned enrollment that can be revised. A trial that starts, struggles
+to recruit, and lowers its target has not failed in any registry field: the final record shows the new
+target as if it had always been the plan. Whether trials that revise downward after starting are less
+likely to post results, and whether they report their shortfall when they do, needs the history of the
+record, not its current state.
+
+## Novelty
+
+Log key `P30`.
+
+```
+corpus regex: (anticipated|target|planned|estimated) (enrollment|sample size).{0,80}
+              (change|revis|reduc|modif)
+PubMed:       ("sample size"[tiab] OR enrollment[tiab] OR enrolment[tiab])
+              AND ("ClinicalTrials.gov"[tiab] OR registry[tiab]) AND ("history of changes"[tiab]
+              OR "archived versions"[tiab] OR "registry changes"[tiab]
+              OR "changes to registration"[tiab] OR "registration changes"[tiab])
+```
+
+One PubMed record: a 2011 study of completeness and changes in registered data in intensive care trials
+(PMID 21957485). The question is open. The data are the obstacle.
+
+## What would make it runnable
+
+Programmatic access to registry change history at scale, by one of:
+
+1. an AACT account and a restore of monthly archived snapshots, compared version against version;
+2. written permission to retrieve the public History of Changes pages at a rate the registry accepts;
+3. a data release of registry histories from the registry itself.
+
+Any of the three turns this into a design. The hypothesis, sample and analysis would follow the
+structure of [P28](P28-ipd-pledge-and-results-reporting.qmd), which uses the same registry fields that
+are reachable.

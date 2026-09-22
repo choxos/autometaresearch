@@ -1,0 +1,142 @@
+---
+title: "Do meta-epidemiology's bias estimates shrink over time?"
+description: "Whether estimates of how much trial design flaws exaggerate treatment effects decline with publication year, beyond what sample size explains."
+id: P19
+status: design
+proposed_by: "Claude Opus 5.5"
+date: 2026-09-22
+reviewed: none
+unit: "A meta-epidemiological estimate of bias for one trial characteristic"
+data_source: "Meta-epidemiological studies in the tier A corpus and their reference lists"
+instrument: "Extraction of ratios of odds ratios, gated on the author's double extraction"
+categories: [design, repro, reflexive]
+---
+
+::: {.callout-important appearance="simple"}
+## Status: design. No probe has run.
+
+Written against [the design standard](../studies/DESIGN-STANDARD.md).
+:::
+
+## 1. The question
+
+Meta-epidemiology produces the field's flagship quantitative claims: trials without blinding,
+without allocation concealment, or without adequate randomization exaggerate treatment effects,
+by an amount expressed as a ratio of odds ratios. Those claims underpin every risk of bias tool.
+
+They have been re-estimated repeatedly. The MetaBLIND study (PMID 31964641), 142 meta-analyses and
+1153 trials, reported ratios of odds ratios close to 1 for lack of blinding: 0.91 (95 percent
+credible interval 0.61 to 1.34) for patients with patient-reported outcomes and 1.01 (0.86 to 1.18)
+for observers with subjective outcomes. It drew a published exchange (PMIDs 34875934, 37038625,
+31851427). Whether that is one discordant study or the latest point on a decline, the pattern the
+field describes as a warning sign when it sees it in others, has not been tested.
+
+## 2. Prior work, and the search behind the novelty claim
+
+Log key `P19`, two searches.
+
+```
+corpus regex: (decline effect|diminish.{0,30}over time|attenuat.{0,40}(later|subsequent
+              |over time)).{0,80}(meta-epidemiolog|bias|blinding|allocation concealment)
+PubMed:       ("meta-epidemiological"[tiab] OR "meta-epidemiology"[tiab])
+              AND ("decline effect"[tiab] OR "time trend*"[tiab] OR "over time"[tiab])
+              AND (blinding[tiab] OR "allocation concealment"[tiab]
+              OR "ratio of odds ratios"[tiab])
+```
+
+A second search, run to locate the MetaBLIND study and any response to it:
+
+```
+corpus regex: MetaBLIND|(blinding|masking).{0,60}(no|little) (association|evidence)
+              .{0,60}(effect estimates|treatment effects)
+PubMed:       (MetaBLIND[tiab] OR ("blinding"[tiab] AND "meta-epidemiological"[tiab]
+              AND ("no evidence"[tiab] OR "not associated"[tiab])))
+```
+
+Four and five PubMed records. The first search finds a study reporting that bias and sample sizes
+in intensive care trials were unchanged over time (PMID 31150836), which measures trials over time
+rather than the meta-epidemiological estimates. The second finds the MetaBLIND study and its
+exchange. Neither tests a decline in the bias estimates themselves.
+
+## 3. Hypothesis
+
+For each trial characteristic, the log ratio of odds ratios moves toward zero with the publication
+year of the meta-epidemiological study that estimated it, after adjusting for the number of trials
+contributing.
+
+**Null.** The slope of log ratio of odds ratios on publication year is 0.
+
+**What would falsify it.** A slope at or away from zero. The field's bias estimates would then be
+stable, which is the outcome its tools assume.
+
+## 4. Design and unit
+
+Meta-regression across meta-epidemiological studies. One estimate is one unit: a ratio of odds
+ratios, or a difference in standardized mean differences, for one characteristic in one study.
+Studies contribute several estimates and trials recur across studies, and both dependencies are
+in the model.
+
+## 5. Sample
+
+Meta-epidemiological studies in the tier A corpus and in the reference lists of those studies,
+estimating the effect of: lack of participant or personnel blinding, lack of outcome assessor
+blinding, inadequate or unclear allocation concealment, inadequate or unclear sequence generation.
+Estimates for other characteristics are extracted and reported but not tested.
+
+## 6. Exposure
+
+Publication year of the meta-epidemiological study, full date where available (S7).
+
+## 7. Outcome and instrument
+
+Log ratio of odds ratios with its standard error, derived from the reported interval. Direction is
+harmonized so that values below zero mean the flawed trials show larger benefit. Binary and
+continuous outcomes are analyzed separately; they are not pooled onto one scale.
+
+Extraction is by a model from the full text where available, and from the abstract otherwise, with
+the source recorded.
+
+## 8. Validation gate
+
+The author double-extracts 60 estimates against a written rubric covering direction, which
+comparison is reported, and which of several estimates in a study is the primary one. **An
+extraction counts as correct when the point estimate and both limits match to the reported
+precision. Below 90 percent correct, the author extracts every estimate.** Numbers are either right
+or wrong, which is why the threshold is higher than a kappa for judgments.
+
+## 9. Analysis
+
+In R.
+
+```r
+rma.mv(yi = log_ror, V = var_log_ror,
+       mods = ~ pub_year_c * characteristic + log(n_trials),
+       random = ~ 1 | study / estimate, data = d)
+```
+
+Preregistered alongside: cumulative meta-analysis by characteristic in order of publication, and a
+sensitivity analysis restricted to studies whose trial samples are known not to overlap.
+
+## 10. Threats
+
+| threat | handling | removed or disclosed | standard |
+|---|---|---|---|
+| Later studies reuse earlier studies' trials | Overlap coded where reported; sensitivity restricted to non-overlapping samples | Disclosed | |
+| Methods changed: later studies model heterogeneity differently | Method coded as a covariate in a sensitivity analysis | Disclosed | |
+| Publication bias among meta-epidemiological studies | Cannot be removed; a decline is also what publication bias in early studies would produce, and that is part of the point | Disclosed | |
+| Extraction error | Gated at 90 percent exact numeric agreement | Disclosed | S8 |
+| Year is confounded with the trials being studied, which improved | Mean publication year of the included trials entered as a covariate where reported | Disclosed | |
+
+## 11. Probes
+
+| probe | computes | goes to | what would change the design | status |
+|---|---|---|---|---|
+| **PA** | meta-epidemiological studies per characteristic, from titles and abstracts, without extracting estimates | 5 | fewer than 8 studies for a characteristic drops it from testing | not run |
+| **PB** | how many report an interval from which a standard error can be derived | 7 | under 70 percent reporting makes extraction selective | not run |
+| **PC** | the author's 60 double extractions | 8 | below 90 percent the author extracts all | needs the author |
+
+## 12. What this cannot show
+
+- Which estimate is right. A decline is consistent with early exaggeration and with later
+  studies that dilute a real effect.
+- Anything about characteristics too rarely studied to have a trend.

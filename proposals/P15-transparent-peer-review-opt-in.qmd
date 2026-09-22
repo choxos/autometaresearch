@@ -1,0 +1,120 @@
+---
+title: "Do authors who publish their peer review get corrected less?"
+description: "Within journals where publishing the peer review file is optional, whether opting in predicts fewer corrections and retractions."
+id: P15
+status: design
+proposed_by: "Claude Opus 5.5"
+date: 2026-09-22
+reviewed: none
+unit: "An article in a journal with optional transparent peer review"
+data_source: "PMC full text; PubMed correction and retraction links; Crossref updates"
+instrument: "Peer review file detection in JATS; PubMed CommentsCorrections"
+categories: [design, peerrev]
+---
+
+::: {.callout-important appearance="simple"}
+## Status: design. No probe has run.
+
+Written against [the design standard](../studies/DESIGN-STANDARD.md).
+:::
+
+## 1. The question
+
+Some journals let authors choose whether their peer review reports are published alongside the
+article. That choice creates two groups within one journal, under one editorial process, with the
+same reviewers: articles whose review can be read and articles whose review cannot. Whether the
+first group is corrected or retracted less often has not been measured.
+
+Two mechanisms predict the same direction and cannot be separated here: authors confident in
+their work opt in, or published review deters sloppiness. The design says so.
+
+## 2. Prior work, and the search behind the novelty claim
+
+Log key `P15`.
+
+```
+corpus regex: (transparent peer review|open peer review|published peer review
+              |peer review reports? (were|are) published)
+PubMed:       ("transparent peer review"[tiab] OR "open peer review"[tiab]
+              OR "published peer review reports"[tiab]) AND (correction*[tiab]
+              OR retraction*[tiab] OR "data sharing"[tiab] OR citation*[tiab] OR quality[tiab])
+```
+
+Seventy-four PubMed records. The relevant ones argue for transparent review (PMID 36261430) and
+survey journal policies and editors' opinions (PMID 33211009). The search found no within-journal
+comparison of opted-in and opted-out articles on post-publication outcomes. The author has written
+on post-publication peer review (PMID 34686787), a different stage of the process.
+
+## 3. Hypothesis
+
+Within journals where it is optional, articles that publish their peer review file have a lower
+hazard of correction or retraction in the 36 months after publication.
+
+**Null.** The hazard ratio, opted in against not, stratified by journal and year, is 1.
+
+**What would falsify it.** A hazard ratio at or above 1.
+
+## 4. Design and unit
+
+Retrospective cohort within journal. One article is one unit; follow-up from publication date,
+censored at 36 months or at the data snapshot (S10).
+
+## 5. Sample
+
+Research articles in journals where publication of the review file is at the authors' option,
+identified by probe PA from journal policy pages and from the presence of both groups in PMC.
+Articles published before a journal made review optional, or after it made it mandatory, are
+excluded because the choice did not exist for them.
+
+## 6. Exposure
+
+Opt-in, detected in JATS as a supplementary material or related-object element whose label or
+title identifies a peer review file, read from markup rather than text (S2).
+
+## 7. Outcome
+
+First correction or retraction, from PubMed `CommentsCorrections` of type `ErratumIn` or
+`RetractionIn`, cross-checked against Crossref `update-to` relations. Dated by the notice's
+publication date (S7). Corrections and retractions are also analyzed separately, because a
+correction can be the opposite of a failure: an error found and fixed.
+
+## 8. Validation gate
+
+Opt-in detection is checked by the author against the journal-hosted article page for 100
+articles, 50 per group. **Below 0.95 sensitivity or specificity, the detection rule changes before
+the study proceeds**; an exposure this simple should be near perfect.
+
+## 9. Analysis
+
+In R.
+
+```r
+coxph(Surv(months, event) ~ opted_in + strata(journal, pub_year), data = d)
+```
+
+Preregistered alongside: separate models for corrections and for retractions; a competing-risks
+analysis treating retraction as competing with correction.
+
+## 10. Threats
+
+| threat | handling | removed or disclosed | standard |
+|---|---|---|---|
+| Selection versus deterrence | Not separable in this design; stated as association | Disclosed | |
+| A correction may reflect diligence, not error | Corrections and retractions analyzed separately | Disclosed | |
+| Opt-in detection error | Gate on 100 articles, near-perfect threshold | Disclosed | S2 |
+| Follow-up length differs by publication date | Fixed 36-month window with censoring | Removed | S10 |
+| Journal policy changed during the window | Articles outside the optional period excluded | Removed | S5 |
+
+## 11. Probes
+
+| probe | computes | goes to | what would change the design | status |
+|---|---|---|---|---|
+| **PA** | journals with optional transparent review, and their optional periods | 5 | fewer than two journals with both groups makes this a single-journal case study | not run |
+| **PB** | opted-in and opted-out article counts per journal-year, exposure only | 5 | an opt-in share near 0 or 1 leaves no comparison | not run |
+| **PC** | power by simulation at the realized counts and a stated correction rate from the literature, not from this sample | 9 | a detectable hazard ratio above 2 makes the study uninformative | not run |
+| **PD** | the author's 100 checks of opt-in detection | 8 | below 0.95 the detection rule changes | needs the author |
+
+## 12. What this cannot show
+
+- Whether publishing review improves articles.
+- Anything about journals where transparent review is mandatory or absent.

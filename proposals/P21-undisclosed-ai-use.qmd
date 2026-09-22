@@ -1,0 +1,113 @@
+---
+title: "How much generative AI use goes undisclosed?"
+description: "In journals that require disclosure, whether articles without a disclosure show language-model vocabulary more often than a calibrated false-positive rate allows."
+id: P21
+status: design
+proposed_by: "Claude Opus 5.5"
+date: 2026-09-22
+reviewed: none
+unit: "A PMC article in a journal that requires AI-use disclosure"
+data_source: "PMC full text; journal author instructions"
+instrument: "rtransparency::rt_ai_pmc for disclosure; the P20 vocabulary score"
+categories: [design, aitext, integrity]
+---
+
+::: {.callout-important appearance="simple"}
+## Status: design. No probe has run.
+
+Written against [the design standard](../studies/DESIGN-STANDARD.md). The disclosure detector is
+maintained by the author and, unlike the other `rtransparency` detectors, has no published
+accuracy estimate, so this design validates it.
+:::
+
+## 1. The question
+
+Most journals now require authors to disclose use of generative AI. Compliance with the rule is
+visible: a disclosure is there or it is not. Use is not visible, but it leaves a signature in
+vocabulary. Combining the two gives a lower bound on undisclosed use, provided the signature is
+calibrated against a period in which no one could have used the tools.
+
+## 2. Prior work, and the search behind the novelty claim
+
+Log key `P21`.
+
+```
+corpus regex: (disclos|declar).{0,40}(generative AI|ChatGPT|large language model
+              |AI.assisted|use of AI)
+PubMed:       (disclos*[tiab] OR declaration*[tiab] OR undisclosed[tiab])
+              AND ("generative AI"[tiab] OR ChatGPT[tiab] OR "large language model*"[tiab])
+              AND (manuscript*[tiab] OR articles[tiab] OR "scientific writing"[tiab]
+              OR publications[tiab])
+```
+
+Ninety PubMed records. The relevance-ordered top ten discusses disclosure as policy
+(PMID 37541729, PMID 41748337) and tools for integrity screening (PMID 40964145). None estimates
+undisclosed use against a calibrated baseline.
+
+## 3. Hypothesis
+
+In journals requiring disclosure, the calibrated lower bound on the share of non-disclosing articles
+that show language-model vocabulary exceeds the share of articles that disclose.
+
+**Null.** The lower bound does not exceed the disclosure rate.
+
+**What would falsify it.** A lower bound below the disclosure rate, meaning disclosure captures
+most detectable use.
+
+## 4. Design and unit
+
+Cross-sectional estimation with a calibration period. One article is one unit.
+
+## 5. Sample
+
+PMC open-access research articles published after each journal's disclosure requirement took
+effect, in journals whose author instructions require disclosure, identified by probe PA. The
+calibration set is articles from the same journals published in 2021, before the tools existed.
+
+## 6. Exposure and outcome
+
+**Disclosure**: `rtransparency::rt_ai_pmc`, validated in section 8.
+
+**Signature**: the P20 vocabulary-excess score, built on P20's development slice and frozen. The
+threshold is set so that 1 percent of 2021 articles in these journals exceed it: the calibrated
+false-positive rate.
+
+**Lower bound on undisclosed use**: the share of non-disclosing articles above the threshold, minus
+1 percent, with a confidence interval from the binomial on both the analysis and calibration counts.
+It is a lower bound because light use leaves little signature.
+
+## 7. Validation gate
+
+The author labels 200 articles for the presence of an AI-use disclosure, against a rubric that says
+whether a statement of no use counts as a disclosure (it does, and is classed separately). **Below
+0.90 sensitivity or specificity for `rt_ai_pmc`, the disclosure rate is corrected for measured
+error and the uncorrected rate is not reported** (S3).
+
+## 8. Analysis
+
+In R. The estimand is a difference of proportions with a calibrated subtraction, computed per
+journal and pooled with a random-effects model (`metafor::rma`) so that a few large journals do not
+dominate. Preregistered alongside: the same estimate at calibrated false-positive rates of 0.5 and
+2 percent, to show how much the conclusion depends on the threshold.
+
+## 9. Threats
+
+| threat | handling | removed or disclosed | standard |
+|---|---|---|---|
+| Disclosure detector has no published accuracy | Validated here with a correction rule | Disclosed | S3 |
+| Vocabulary drift unrelated to AI | Calibration uses the same journals before the tools existed; drift after 2021 from other causes inflates the bound | Disclosed | |
+| Editing tools that are not generative still change wording | Counted as use by the signature; the rubric records whether journals exempt grammar tools | Disclosed | S8 |
+| Journals adopted requirements at different dates | Each journal's own start date defines its window | Removed | S7 |
+
+## 10. Probes
+
+| probe | computes | goes to | what would change the design | status |
+|---|---|---|---|---|
+| **PA** | journals with a disclosure requirement and its start date, from author instructions | 5 | fewer than 10 journals with PMC coverage narrows the scope | not run |
+| **PB** | articles per journal in the window and in 2021 | 5 | under 100 calibration articles per journal makes the threshold unstable | not run |
+| **PC** | the author's 200 disclosure labels | 7 | below 0.90 the disclosure rate is corrected | needs the author |
+
+## 11. What this cannot show
+
+- Whether any individual non-disclosing article used AI.
+- Use that leaves no vocabulary signature, which is why the estimate is a lower bound.

@@ -1,0 +1,121 @@
+---
+title: "Does rtransparency see what a person sees in meta-research articles?"
+description: "Whether the published accuracy of rtransparency's detectors holds on the meta-research literature this project studies."
+id: P22
+status: design
+proposed_by: "Claude Opus 5.5"
+date: 2026-09-22
+reviewed: none
+unit: "A tier A article with PMC full text"
+data_source: "The tier A corpus; PMC full text"
+instrument: "rtransparency::rt_all_pmc against the author's blind coding"
+categories: [design, datashare, methods]
+---
+
+::: {.callout-important appearance="simple"}
+## Status: design. No probe has run.
+
+Written against [the design standard](../studies/DESIGN-STANDARD.md).
+
+**Disclosure.** The author maintains `rtransparency` and would code the reference standard. A tool's
+maintainer validating the tool is a conflict. The mitigation is blind coding, a second coder on a
+subset, and publication of every disagreement. It is stated here because it cannot be removed.
+:::
+
+## 1. The question
+
+P13, P14, P23 and P27 in this program, and any successor to P01v2, use `rtransparency` as their
+instrument. Its published accuracy comes from a benchmark of the general biomedical literature:
+for data sharing, sensitivity 0.765 and specificity 0.990 (`rt_accuracy`). Whether those numbers
+hold on meta-research articles, which is the literature most of these studies read, is unmeasured.
+A detector can transport badly: meta-research authors may write data statements in a more
+conventional form, and their articles discuss data sharing as a topic, which a detector can mistake
+for the article's own statement. The second of those is the artifact that contaminated R01.
+
+This design is infrastructure. Every study that uses the instrument needs its answer.
+
+## 2. Prior work, and the search behind the novelty claim
+
+Log key `P22`.
+
+```
+corpus regex: (rtransparent|rtransparency|automated (detection|assessment)|text.mining)
+              .{0,80}(transparen|data sharing|indicator).{0,80}(valid|accura|sensitiv)
+PubMed:       (rtransparent[tiab] OR rtransparency[tiab] OR ODDPub[tiab]
+              OR "automated detection"[tiab] OR "text mining"[tiab]
+              OR "natural language processing"[tiab]) AND ("data sharing"[tiab]
+              OR "transparency indicators"[tiab] OR "open data"[tiab])
+              AND (validation[tiab] OR accuracy[tiab] OR sensitivity[tiab])
+```
+
+Thirty-six PubMed records. The relevant ones apply transparency indicators to other literatures:
+infectious disease models (PMID 36206207), space medicine (PMID 38564591), infectious disease journals
+(PMID 37132475). The original validation is Serghiou and colleagues 2021, PLOS Biology,
+doi:10.1371/journal.pbio.3001107, taken from the package's own citation record rather than from
+memory. The search found no validation on meta-research articles.
+
+## 3. Hypothesis
+
+On meta-research articles, `rtransparency`'s specificity for data sharing is lower than its published
+0.990, because these articles discuss data sharing as their subject.
+
+**Null.** Specificity on meta-research articles equals 0.990.
+
+**What would falsify it.** Specificity whose interval includes 0.990. The detector would then
+transport without this failure, and the studies that depend on it could say so.
+
+Sensitivity, and the accuracy of the other six detectors, are estimated and reported without a
+directional hypothesis.
+
+## 4. Design and unit
+
+Diagnostic accuracy study against a reference standard. One article is one unit.
+
+## 5. Sample
+
+Tier A articles with PMC full text. A stratified random sample of 300, stratified on the detector's
+own prediction for data sharing so that both sensitivity and specificity are estimated with useful
+precision; stratum weights are the inverse sampling fractions. Articles whose subject is data
+sharing, by the `datashare` label, are oversampled within strata, because they are where the
+hypothesized failure lives. This P22 sample must not overlap any study's analysis sample, and the
+sampled PMCIDs are published so later studies can exclude them.
+
+## 6. Reference standard
+
+The author codes each article for the seven indicators against the definitions in Serghiou 2021,
+without seeing the detector's output, from the full text as a reader would see it. A written rubric
+specifies, among other things, that an article's discussion of other articles' data sharing is not
+its own data sharing statement.
+
+A second coder independently codes 60 of the 300. Inter-coder kappa is reported per indicator.
+
+## 7. Analysis
+
+In R. Weighted sensitivity and specificity per indicator, with the sampling weights, and bootstrap
+confidence intervals resampling within strata. Estimates are reported beside `rt_accuracy`'s
+published values.
+
+Preregistered alongside: accuracy separately for articles with and without the `datashare` label,
+and a list of every disagreement between detector and reference, with the text that caused it.
+
+## 8. Threats
+
+| threat | handling | removed or disclosed | standard |
+|---|---|---|---|
+| The tool's maintainer codes the reference | Blind coding, a second coder on 60, every disagreement published | Disclosed | |
+| The rubric could be written to favor the tool | The rubric uses the published Serghiou definitions and is published before coding | Disclosed | S8 |
+| Stratifying on the prediction distorts naive accuracy | Inverse-probability weights restore population estimates | Removed | |
+| Validation sample leaks into later analyses | Sampled PMCIDs are published and excluded downstream | Removed | S1 |
+
+## 9. Probes
+
+| probe | computes | goes to | what would change the design | status |
+|---|---|---|---|---|
+| **PA** | detector-positive and detector-negative counts in tier A for data sharing, to set stratum sizes | 5 | a positive stratum under 60 articles limits sensitivity precision | not run |
+| **PB** | detector runtime on 999 PMC files | 7 | none; cost only | not run |
+| **PC** | the author's 300 blind codings and a second coder's 60 | 6 | inter-coder kappa below 0.80 on data sharing means the rubric needs revising first | needs the author |
+
+## 10. What this cannot show
+
+- Accuracy on literatures other than meta-research.
+- Accuracy on text converted from PDF, which P13 measures separately.

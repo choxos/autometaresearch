@@ -1,0 +1,140 @@
+---
+title: "Does meta-research have a file drawer?"
+description: "Whether published meta-research protocols are followed by a results paper less often than trial protocols in the same journals."
+id: P10
+status: design
+proposed_by: "Claude Opus 5.5"
+date: 2026-09-22
+reviewed: none
+unit: "A protocol published in a journal, followed for 36 months"
+data_source: "PubMed; OpenAlex citing works and authorships"
+instrument: "Protocol-to-results linkage, validated against the author's hand linkage"
+categories: [design, reg, reflexive]
+---
+
+::: {.callout-important appearance="simple"}
+## Status: design. No probe has run.
+
+Written against [the design standard](../studies/DESIGN-STANDARD.md). Every number below that
+is not a search count is a plan, not a measurement. Paired with [P11](P11-outcome-switching-in-meta-research.qmd),
+which uses the protocol and results pairs this study constructs.
+:::
+
+## 1. The question
+
+Meta-research measures non-publication in other fields and treats it as waste. It publishes
+its own protocols in journals such as BMJ Open and Systematic Reviews, and nobody has checked
+how many of those protocols are followed by the study they describe. If the field's own
+protocols go unpublished at a high rate, it has the file drawer it documents elsewhere.
+
+## 2. Prior work, and the search behind the novelty claim
+
+Log key `P10` in `data/lit/novelty-log.json`, relevance-ordered.
+
+```
+corpus regex: (meta-research|methodological|meta-epidemiolog).{0,60}protocol.{0,80}
+              (publish|non-publication|results)
+PubMed:       (protocol*[ti]) AND ("publication rate"[tiab] OR "non-publication"[tiab]
+              OR "subsequently published"[tiab]) AND ("systematic review*"[tiab]
+              OR "meta-research"[tiab] OR "methodological"[tiab])
+```
+
+Six PubMed records and five corpus records. The closest are a 2013 protocol for a systematic
+review of non-publication of research in general (PMID 23302739) and a 2026 study of how
+evidence-synthesis protocols report software (PMID 42035815). The corpus holds a study of what
+evidence syntheses reveal about registries such as PROSPERO and OSF (PMID 41847079). None follows
+meta-research protocols forward to their results.
+
+## 3. Hypothesis
+
+A meta-research protocol published in a journal is followed by a results paper within 36 months
+less often than a trial protocol published in the same journal in the same year.
+
+**Null.** The hazard ratio for results publication, meta-research against trial protocols, is 1.
+
+**What would falsify it.** A hazard ratio at or above 1. Meta-research has no regulatory
+obligation to publish and much of it is student work, which is the reasoning behind the
+direction. The reverse finding would be as publishable.
+
+## 4. Design and unit
+
+Retrospective cohort of published protocols. The unit is one protocol, and the event is the
+first results paper linked to it. Follow-up starts at the protocol's publication date and is
+censored at 36 months or at 2026-09-22, whichever comes first (S10).
+
+## 5. Sample
+
+**Exposed**: protocols published 2012 to 2022 whose title contains "protocol" and whose title
+or abstract names a meta-research design (meta-research, meta-epidemiological, methodological
+study, research on research, cross-sectional analysis of published articles).
+
+**Comparison**: trial protocols (title contains "protocol" and publication type or abstract
+names a randomized trial) from the same journal and publication year, sampled 2 to 1 without
+replacement (S9). A journal-year with fewer than two trial protocols contributes all it has and
+is weighted accordingly; a journal-year with none drops its exposed protocols, and the count is
+reported.
+
+The window ends in 2022 so that every protocol has had at least 36 months in which to be
+followed by results.
+
+## 6. Exposure
+
+Protocol type, meta-research or trial, from the eligibility rules in section 5.
+
+## 7. Outcome and instrument
+
+A results paper counts as linked when it (a) cites the protocol, or shares at least one author
+with it and (b) has title token similarity above a threshold fixed in probe PB, and (c) is
+published after the protocol. Candidates come from OpenAlex citing works and from each protocol
+author's later works.
+
+The linkage is an instrument with two error modes: missing a results paper whose title changed
+and which does not cite the protocol, and pairing a protocol with an unrelated later paper by
+the same group.
+
+## 8. Validation gate
+
+The author links 150 protocols by hand, stratified by type and by whether the algorithm found a
+match, against a written rubric published with the protocol. Sensitivity and specificity of the
+linkage are computed separately for each protocol type, because differential linkage error
+between arms would bias the hazard ratio directly (S3). **If sensitivity differs between arms by
+more than 0.10, the study reports arm-specific corrected estimates and does not report an
+uncorrected hazard ratio.**
+
+## 9. Analysis
+
+In R.
+
+```r
+coxph(Surv(months, published) ~ type + strata(match_set), data = d)
+```
+
+Stratification on the match set conditions on journal and year. Preregistered alongside:
+cumulative incidence curves by type, a logistic model on publication by 36 months, and a
+probabilistic bias analysis using the linkage error measured in section 8.
+
+## 10. Threats
+
+| threat | handling | removed or disclosed | standard |
+|---|---|---|---|
+| Linkage misses renamed results papers | Measured per arm by the gate; corrected estimates when arms differ | Disclosed | S3 |
+| Results published outside indexed journals | Theses and reports are invisible to OpenAlex and are not events | Disclosed | |
+| Trial protocols are pushed by registration law | That is the contrast being studied, not a confounder of it | Disclosed | |
+| Protocol window chosen to allow follow-up | Fixed before any data retrieved | Removed | S10 |
+| Journal differences | Matched on journal and year, stratified analysis | Removed | S9 |
+
+## 11. Probes
+
+None of these tabulates the outcome by the exposure (S1).
+
+| probe | computes | goes to | what would change the design | status |
+|---|---|---|---|---|
+| **PA** | exposed and comparison protocol counts per journal-year, after eligibility | 5 | fewer than 200 meta-research protocols makes the hazard ratio imprecise; the window widens to 2010 | not run |
+| **PB** | linkage on a pilot slice of 40 protocols removed from the sample, to set the title-similarity threshold | 7 | a threshold that cannot separate linked from unlinked pairs means linkage needs the author throughout | not run |
+| **PC** | power by simulation for the stratified Cox model at the realized counts | 9 | a detectable hazard ratio above 1.5 makes the study uninformative | not run |
+| **PD** | the author's 150 hand linkages | 8 | arm-differential linkage error triggers the corrected-estimate rule | needs the author |
+
+## 12. What this cannot show
+
+- Why a protocol went unpublished. Abandonment, rejection and a changed question look the same.
+- Whether the results that were published are the ones promised; that is P11.

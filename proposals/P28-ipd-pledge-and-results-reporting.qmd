@@ -1,0 +1,117 @@
+---
+title: "Do trials that pledge to share data report their results?"
+description: "Whether trials declaring a plan to share individual participant data in ClinicalTrials.gov post results on time more often than trials that decline to share."
+id: P28
+status: design
+proposed_by: "Claude Opus 5.5"
+date: 2026-09-22
+reviewed: none
+unit: "An interventional trial registered in ClinicalTrials.gov"
+data_source: "ClinicalTrials.gov API v2"
+instrument: "Registry fields: IPD sharing statement, results dates, completion date"
+categories: [design, datashare, reg]
+---
+
+::: {.callout-important appearance="simple"}
+## Status: design. One source check has run; no probe has.
+
+Written against [the design standard](../studies/DESIGN-STANDARD.md). On 2026-09-22 the API v2 query
+`AREA[IPDSharing]YES` returned 54887 registered trials, and the fields this design needs were present
+in the returned record. That is a check that the source answers, not a feasibility probe.
+:::
+
+## 1. The question
+
+A trial registration asks whether individual participant data will be shared. The answer is a pledge
+made before anyone knows what the trial will find. Results posting is a later, observable act of
+openness. Whether trials that pledged openness then behave openly, or whether the pledge is costless
+signaling, is a test of stated against revealed transparency on a very large sample.
+
+## 2. Prior work, and the search behind the novelty claim
+
+Log key `P28`.
+
+```
+corpus regex: (individual (participant|patient) data|IPD).{0,60}
+              (sharing (plan|statement)|plan to share).{0,120}(results (posting|reporting)|publication)
+PubMed:       ("IPD sharing"[tiab] OR "individual participant data sharing"[tiab]
+              OR "data sharing statement*"[tiab] OR "plan to share"[tiab])
+              AND ("ClinicalTrials.gov"[tiab] OR registry[tiab]) AND ("results reporting"[tiab]
+              OR "results posting"[tiab] OR "results posted"[tiab] OR publication[tiab] OR timely[tiab])
+```
+
+Six PubMed records, none in the corpus. Two describe data sharing intentions in COVID-19 trials, at
+registration and at publication (PMIDs 33602275, 35182738); one describes sharing implementation in
+ophthalmology journals (PMID 37493649). None tests whether the pledge predicts results reporting.
+
+## 3. Hypothesis
+
+Trials that answer yes to the IPD sharing question post results within 12 months of primary completion
+more often than trials that answer no, adjusted for sponsor class, phase, and whether US law requires
+posting.
+
+**Null.** The adjusted odds ratio is 1.
+
+**What would falsify it.** An odds ratio at or below 1: the pledge carries no information about later
+behavior.
+
+## 4. Design and unit
+
+Retrospective cohort. One registered trial is one unit.
+
+## 5. Sample
+
+Interventional trials of phase 2, 3 or 4 with an actual primary completion date from 2017 to 2022, so
+that every trial has at least 36 months since completion by the data snapshot. Trials answering
+"undecided" are a third group, reported separately. Trials whose IPD answer was entered after primary
+completion cannot be identified without the registry's change history, which is not accessible (see
+[P30](P30-registry-change-history.qmd)); this is carried as a threat.
+
+## 6. Exposure
+
+The IPD sharing answer as recorded at the data snapshot.
+
+## 7. Outcome
+
+Results first posted within 12 months of primary completion, from `resultsFirstPostDate` and
+`primaryCompletionDate`, full dates (S7). Posting by 36 months is a secondary outcome.
+
+## 8. Validation gate
+
+Registry fields are the record, not a judgment, so no human labeling gate. The gate is structural: for
+100 trials the author compares the API values with the public record page. **Any systematic mismatch
+halts the study until it is explained.**
+
+## 9. Analysis
+
+In R.
+
+```r
+glmer(posted_12m ~ ipd_share + sponsor_class + phase + applicable_law
+      + log(enrollment) + (1 | lead_sponsor), family = binomial, data = d)
+```
+
+Preregistered alongside: a Cox model on time to posting, censored at 36 months, and the same model
+within industry sponsors only, where the pledge and the posting obligation interact most.
+
+## 10. Threats
+
+| threat | handling | removed or disclosed | standard |
+|---|---|---|---|
+| The IPD answer can be edited after results are known | Not observable without change history; stated as the main limitation | Disclosed | |
+| Sponsors differ in both pledging and posting | Sponsor class adjusted, lead sponsor random intercept | Disclosed | |
+| US law requires posting for some trials only | Applicability entered as a covariate and stratified in a sensitivity analysis | Disclosed | |
+| Completion dates are revised | The snapshot's actual date is used | Disclosed | S7 |
+
+## 11. Probes
+
+| probe | computes | goes to | what would change the design | status |
+|---|---|---|---|---|
+| **PA** | eligible trials by IPD answer, exposure only | 5 | under 3000 yes-answers in the window narrows it | not run |
+| **PB** | completeness of `resultsFirstPostDate`, sponsor class and phase, marginally | 7 | missing law-applicability for most trials drops that covariate to a sensitivity analysis | not run |
+| **PC** | the author's 100 record-page checks | 8 | a systematic mismatch halts the study | needs the author |
+
+## 12. What this cannot show
+
+- Whether trials that pledged sharing actually shared individual data.
+- Whether a trial changed its pledge after seeing its results.

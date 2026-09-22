@@ -1,0 +1,119 @@
+---
+title: "Does meta-research switch its own outcomes?"
+description: "Whether meta-research results papers depart from their published protocols less often than trials in the same journals."
+id: P11
+status: design
+proposed_by: "Claude Opus 5.5"
+date: 2026-09-22
+reviewed: none
+unit: "A protocol and results paper pair"
+data_source: "The linked pairs constructed by P10; PMC full text"
+instrument: "Discrepancy coding against a written rubric, author reference standard"
+categories: [design, reg, reflexive]
+---
+
+::: {.callout-important appearance="simple"}
+## Status: design. Depends on P10's linkage. No probe has run.
+
+Written against [the design standard](../studies/DESIGN-STANDARD.md).
+:::
+
+## 1. The question
+
+Outcome switching is one of meta-research's best known findings about trials: the primary
+outcome in the paper is not the one in the protocol, and the paper does not say so. Meta-research
+publishes protocols too. Whether it keeps to them has not been asked.
+
+## 2. Prior work, and the search behind the novelty claim
+
+Log key `P11`.
+
+```
+corpus regex: (meta-research|methodological (review|stud)|meta-epidemiolog).{0,80}
+              (discrepanc|switch|deviat).{0,40}protocol
+PubMed:       ("outcome switching"[tiab] OR "discrepancies between protocol"[tiab]
+              OR "protocol deviations"[tiab]) AND ("meta-research"[tiab]
+              OR "methodological studies"[tiab] OR "meta-epidemiological"[tiab]
+              OR "research on research"[tiab])
+```
+
+Six PubMed records, one corpus record. The search finds outcome switching studied in cohort
+studies of interventions (PMID 42203255) and in follow-up publications of randomized trials
+(PMID 34004339), and a corpus study of repeated changes to prespecified primary outcomes in
+trials (PMID 37906614). None examines meta-research's own protocols.
+
+## 3. Hypothesis
+
+A meta-research results paper contains an undisclosed discrepancy from its protocol's primary
+outcome less often than a trial results paper from the same journal and year.
+
+**Null.** The odds ratio for an undisclosed primary-outcome discrepancy, meta-research against
+trials, is 1.
+
+**What would falsify it.** An odds ratio at or above 1. The field that named the problem may be
+expected to avoid it; finding otherwise is the more consequential result.
+
+## 4. Design and unit
+
+Cross-sectional comparison of linked protocol and results pairs. One pair is one unit.
+
+## 5. Sample
+
+Every pair P10 links, in both arms, restricted to pairs where the protocol states a primary
+outcome. Protocols that name no primary outcome are counted and reported, since not naming one
+is itself a finding, but cannot enter the primary comparison.
+
+## 6. Exposure
+
+Pair type: meta-research or trial, inherited from P10.
+
+## 7. Outcome and instrument
+
+A discrepancy is any of: primary outcome added, omitted, replaced, demoted to secondary, or
+redefined (different measure, timepoint or unit of analysis). It is **undisclosed** when the
+results paper does not state the change. For meta-research, a primary outcome is the principal
+estimand the protocol names, for example the proportion of trials sharing data, not a clinical
+endpoint; the rubric gives worked examples of both.
+
+Each pair is coded by a model and by the author, blind to each other. The rubric is published
+with the protocol before coding starts (S8).
+
+## 8. Validation gate
+
+Agreement is computed on the contrast that enters the model: undisclosed discrepancy, yes or no.
+**Below kappa 0.70 between model and author on the first 60 pairs, the model is dropped and the
+author codes every pair.** The pair count may make that feasible; probe PA says whether it does.
+
+## 9. Analysis
+
+In R.
+
+```r
+glmer(undisclosed ~ type + (1 | journal), family = binomial, data = d)
+```
+
+Preregistered alongside: the same model for any discrepancy, disclosed or not, and a breakdown by
+discrepancy type, reported descriptively without significance tests.
+
+## 10. Threats
+
+| threat | handling | removed or disclosed | standard |
+|---|---|---|---|
+| Linkage error inherited from P10 | Only pairs the P10 gate validates enter; linkage error is reported per arm | Disclosed | S3 |
+| A meta-research "primary outcome" is harder to define than a trial's | The rubric defines it with examples; coders flag ambiguous protocols and they are analyzed separately | Disclosed | S8 |
+| Survivorship: only published results can be compared | Conditional on publication, by construction; P10 measures the unconditional side | Disclosed | |
+| Coders see which arm a pair is in | Unavoidable: the text reveals the design. Stated | Disclosed | |
+
+## 11. Probes
+
+| probe | computes | goes to | what would change the design | status |
+|---|---|---|---|---|
+| **PA** | linked pairs per arm from P10, and how many protocols name a primary outcome | 5 | fewer than 60 meta-research pairs makes the comparison uninformative and the study becomes descriptive | not run, needs P10 |
+| **PB** | the author's rubric and 60 double-coded pairs | 8 | below kappa 0.70 the author codes all pairs | needs the author |
+| **PC** | precision of the odds ratio at the realized pair counts, by simulation | 9 | an interval wider than 0.3 to 3 at the expected rate makes the comparison uninformative | not run |
+
+## 12. What this cannot show
+
+- Whether a switch changed the conclusion.
+- Why a switch happened. A defensible change and a convenient one look the same in the text
+  unless the paper explains itself, which is what "undisclosed" measures.

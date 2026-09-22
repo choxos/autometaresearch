@@ -1,0 +1,118 @@
+---
+title: "Do null results stay preprints?"
+description: "Whether medRxiv preprints reporting a null primary result reach journal publication more slowly, or not at all."
+id: P24
+status: design
+proposed_by: "Claude Opus 5.5"
+date: 2026-09-22
+reviewed: none
+unit: "A medRxiv preprint reporting a primary hypothesis test"
+data_source: "medRxiv API; OpenAlex and Crossref for the published version"
+instrument: "Result-direction classifier gated on the author's labels"
+categories: [design, oa, reg]
+---
+
+::: {.callout-important appearance="simple"}
+## Status: design. No probe has run.
+
+Written against [the design standard](../studies/DESIGN-STANDARD.md). The review of P06 found that
+a preprint-to-journal link must be constructed, not inferred from any repository location; this
+design uses medRxiv's own published-version field for that reason (S4).
+:::
+
+## 1. The question
+
+Publication bias is usually measured as studies that never appear. Preprints make a new measurement
+possible: a study that did appear, publicly, and then did or did not make it into a journal. If null
+results reach journals less often or more slowly, the preprint server is holding part of the file
+drawer in public, and the journal literature is biased by exactly the mechanism meta-research
+documents in trials.
+
+## 2. Prior work, and the search behind the novelty claim
+
+Log key `P24`.
+
+```
+corpus regex: preprint.{0,100}(null|negative|non.significant|positive) (result|finding)
+PubMed:       preprint*[tiab] AND ("null results"[tiab] OR "negative results"[tiab]
+              OR "non-significant"[tiab] OR "positive results"[tiab])
+              AND (publication[tiab] OR published[tiab])
+```
+
+Sixteen PubMed records. The relevant ones concern delays in publishing important oncology trial
+findings (PMID 29710325), a tool to move unpublished results out of the file drawer (PMID 33111948),
+and unfinished registered reports in the cancer biology replication project (PMID 34874009). None
+follows preprints to publication by result direction.
+
+## 3. Hypothesis
+
+Preprints reporting a null primary result have a lower hazard of journal publication within 36
+months than preprints reporting a statistically significant primary result.
+
+**Null.** The hazard ratio, null against significant, is 1.
+
+**What would falsify it.** A hazard ratio at or above 1.
+
+## 4. Design and unit
+
+Retrospective cohort. One preprint is one unit, followed from its first posting date.
+
+## 5. Sample
+
+medRxiv preprints first posted 2019 to 2023, so that each has at least 36 months of follow-up by the
+data snapshot, whose abstract reports a primary hypothesis test in a clinical or epidemiological
+study. Preprints on COVID-19 are a stratum, not an exclusion, because they were published under
+different pressures.
+
+## 6. Exposure
+
+Result direction of the primary finding: statistically significant in the stated direction, null, or
+unclassifiable. Classified from the abstract by a model gated on the author's labels (section 8).
+
+## 7. Outcome
+
+Time to journal publication, from medRxiv's own published-DOI field, confirmed in Crossref. Where
+medRxiv records no published version, OpenAlex is searched for a work with the same title and
+overlapping authors; matches found that way are flagged and the analysis is repeated without them.
+Withdrawal is a competing event.
+
+## 8. Validation gate
+
+The author labels 250 abstracts against a rubric that defines the primary finding and what counts as
+null (a confidence interval including the null value, or a stated non-significant result), with
+worked examples. **Kappa on the null-versus-significant contrast; below 0.75 the study runs on the
+author-labeled subsample and is labeled underpowered.**
+
+## 9. Analysis
+
+In R.
+
+```r
+coxph(Surv(months, published) ~ direction + strata(covid, category) + posted_year, data = d)
+```
+
+Preregistered alongside: a Fine-Gray model with withdrawal as a competing risk, and the same
+analysis restricted to medRxiv-recorded publications only.
+
+## 10. Threats
+
+| threat | handling | removed or disclosed | standard |
+|---|---|---|---|
+| Pairs inferred from repository locations | Uses medRxiv's own published field; inferred matches flagged | Removed | S4 |
+| Classifier error on direction | Gated on the analyzed contrast | Disclosed | S8 |
+| Null studies may be smaller and weaker | Sample size extracted and entered where reported | Disclosed | |
+| Follow-up differs by posting date | Fixed 36-month window | Removed | S10 |
+| Authors may not submit null results at all | Indistinguishable from rejection here; the outcome is publication, not submission | Disclosed | |
+
+## 11. Probes
+
+| probe | computes | goes to | what would change the design | status |
+|---|---|---|---|---|
+| **PA** | medRxiv API reachability and published-field coverage by posting year | 7 | a published field missing for most preprints forces OpenAlex matching as primary | not run |
+| **PB** | share of abstracts reporting a primary hypothesis test, on an author-labeled pilot of 100 removed from the sample | 5 | under 30 percent shrinks the eligible cohort sharply | not run |
+| **PC** | the author's 250 direction labels | 8 | below 0.75 the study shrinks to the labeled subsample | needs the author |
+
+## 12. What this cannot show
+
+- Whether journals rejected null results or authors never sent them.
+- Anything about bioRxiv, whose basic-science results rarely take the form of a single primary test.

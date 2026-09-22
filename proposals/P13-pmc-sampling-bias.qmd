@@ -1,0 +1,136 @@
+---
+title: "Does sampling PubMed Central inflate transparency estimates?"
+description: "Whether text-mined meta-research, which samples open-access full text, overstates how transparent the literature is."
+id: P13
+status: design
+proposed_by: "Claude Opus 5.5"
+date: 2026-09-22
+reviewed: none
+unit: "An article, compared within journal and year"
+data_source: "PubMed XML metadata; PMC open-access subset; legally obtainable non-PMC full text"
+instrument: "PubMed metadata fields; rtransparency on the full-text subsample"
+categories: [design, datashare, methods]
+---
+
+::: {.callout-important appearance="simple"}
+## Status: design. No probe has run.
+
+Written against [the design standard](../studies/DESIGN-STANDARD.md).
+
+**Disclosure.** This study could show that estimates from studies built on PMC full text are
+biased upward. That includes this project's own P01, P01v2 and P02, and the author's published
+transparency studies (PMIDs 36482006, 37494359), which used the same kind of sample. The
+instrument, `rtransparency`, is maintained by the author.
+:::
+
+## 1. The question
+
+Text-mining meta-research, this project included, reads full text from the PMC open-access
+subset because that is the full text a script can legally fetch. Being open access is itself a
+transparency behavior. If openly available articles are also likelier to disclose conflicts, name
+funders and share data, then every prevalence estimated from PMC full text is too high, and the
+field's picture of its own progress is flattering.
+
+This project found the first sign of it. Probe P2 of P01v2 measured PMC coverage at 77.7 percent
+among articles about data sharing against 57.8 percent among others: which articles reach PMC
+depends on what they are about.
+
+## 2. Prior work, and the search behind the novelty claim
+
+Log key `P13`.
+
+```
+corpus regex: (open access|PubMed Central|PMC).{0,80}(sampl|selection).{0,40}
+              (bias|represent).{0,80}(transparen|disclos|sharing)
+PubMed:       ("open access"[tiab] OR "PubMed Central"[tiab]) AND ("selection bias"[tiab]
+              OR representativeness[tiab] OR "sampling bias"[tiab]) AND (transparency[tiab]
+              OR "conflict of interest"[tiab] OR "data sharing"[tiab] OR funding[tiab])
+              AND (meta-research[tiab] OR "research on research"[tiab] OR bibliometric*[tiab]
+              OR "text mining"[tiab])
+```
+
+**Zero** PubMed records and zero corpus records.
+
+## 3. Hypothesis
+
+Within the same journal and year, articles in the PMC open-access subset carry transparency
+indicators more often than articles that are not.
+
+**Null.** The within-journal-year odds ratio, PMC open access against not, is 1.
+
+**What would falsify it.** An odds ratio at or below 1, which would mean PMC-based estimates are
+not biased upward on this axis and the field's samples are safer than feared.
+
+## 4. Design and unit
+
+Cross-sectional comparison, matched on journal and publication year. One article is one unit.
+
+## 5. Sample
+
+Journals indexed in PubMed that publish both PMC open-access and non-PMC articles in the same
+year, 2018 to 2024. Within each journal-year, every PMC open-access article and an equal number
+of non-PMC articles sampled at random; a journal-year with fewer non-PMC articles contributes all
+of them and is weighted (S9).
+
+## 6. Exposure
+
+Membership of the PMC open-access subset, from the PMC OA file list at a dated snapshot.
+
+## 7. Outcome and instrument
+
+Two tiers, because the comparison arm has no PMC full text by definition.
+
+**Tier 1, every article.** Indicators PubMed records in metadata for any article whatever its
+access: a `CoiStatement` element, a `GrantList`, and a registry identifier in `DataBankList`.
+These are read from PubMed XML and do not depend on full text. That makes the comparison fair and
+also narrow: PubMed metadata records what publishers deposit, and deposit practice may differ by
+access status, which is a threat in its own right (section 10).
+
+**Tier 2, a subsample.** Full-text indicators from `rtransparency::rt_all` on non-PMC articles
+whose full text is legally obtainable elsewhere: publisher-hosted open access outside PMC, and
+author manuscripts in institutional repositories. PDFs are converted with `rt_read_pdf`. This is
+the route to data and code sharing, which metadata does not carry.
+
+## 8. Validation gate
+
+`rtransparency` accuracy on PDFs converted to text is not the published accuracy on PMC XML. The
+author codes 100 tier 2 articles blind to the detector's output. **Detector sensitivity is
+computed separately for XML and PDF input; if they differ by more than 0.10, tier 2 comparisons
+report input-specific corrected estimates only** (S3).
+
+## 9. Analysis
+
+In R.
+
+```r
+clogit(indicator ~ in_pmc_oa + strata(journal_year), data = d)
+```
+
+One model per indicator. Preregistered alongside: a probabilistic bias analysis for tier 2 using
+the section 8 accuracies, and the implied inflation of a PMC-only prevalence estimate,
+computed as the difference between the PMC-only and the reweighted all-access prevalence.
+
+## 10. Threats
+
+| threat | handling | removed or disclosed | standard |
+|---|---|---|---|
+| Publishers deposit metadata differently by access status | The central threat to tier 1; tier 2 exists partly to check it | Disclosed | |
+| PDF text degrades detection | Accuracy measured per input type; corrected estimates when they differ | Disclosed | S3 |
+| Non-PMC full text that is obtainable is itself selected | Tier 2 compares PMC against the obtainable part of non-PMC, which is a lower bound on the gap | Disclosed | |
+| Journal and year confound access and practice | Matched and conditioned on journal-year | Removed | S9 |
+| The author maintains the instrument and his own results are at stake | Stated at the top; the gate's coding is blind to detector output | Disclosed | |
+
+## 11. Probes
+
+| probe | computes | goes to | what would change the design | status |
+|---|---|---|---|---|
+| **PA** | journal-years with both PMC OA and non-PMC articles, and article counts | 5 | too few mixed journal-years forces a between-journal design with its confounding | not run |
+| **PB** | presence rate of each PubMed metadata field, marginally, not by access | 7 | a field present in under 20 percent of all records cannot carry the comparison | not run |
+| **PC** | legally obtainable non-PMC full text for 200 sampled articles | 7 | under 30 percent obtainable makes tier 2 a small, selected subsample and it is labeled exploratory | not run |
+| **PD** | the author's 100 blind codings | 8 | input-specific accuracy triggers corrected estimates | needs the author |
+
+## 12. What this cannot show
+
+- The size of the bias for indicators neither tier can see.
+- Whether the bias has changed over time, which would matter for trend studies; a stated
+  extension, not part of this design.

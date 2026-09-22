@@ -1,0 +1,125 @@
+---
+title: "Does meta-research on conflicts of interest disclose its own?"
+description: "Whether meta-research about funding bias and conflicts of interest discloses its own funding and conflicts more specifically than other meta-research."
+id: P23
+status: design
+proposed_by: "Claude Opus 5.5"
+date: 2026-09-22
+reviewed: none
+unit: "A tier A article with PMC full text"
+data_source: "The tier A corpus; PMC full text"
+instrument: "rtransparency::rt_coi_pmc and rt_fund_pmc"
+categories: [design, coi, reflexive]
+---
+
+::: {.callout-important appearance="simple"}
+## Status: design. No probe has run.
+
+Written against [the design standard](../studies/DESIGN-STANDARD.md).
+
+**This has the same structure as [P01v2](P01v2-advocacy-and-practice-protocol.qmd), which review
+blocked**: does advocating a practice predict practicing it. It is written to avoid the instrument
+failures that blocked P01v2, and it will be reviewed as a sibling of that document. The author's
+transparency studies (PMIDs 36482006, 37494359) measured conflict-of-interest disclosure prevalence;
+this asks a relational question rather than a prevalence, which is why it is not a re-run.
+:::
+
+## 1. The question
+
+Meta-research on funding bias and conflicts of interest asks other researchers to declare their ties.
+Whether it declares its own with more care than meta-research on other subjects is a direct test of
+whether a field's subject shapes its conduct, with better instruments than P01v2 had: `rtransparency`
+detects conflict and funding statements with published sensitivity and specificity above 0.98.
+
+## 2. Prior work, and the search behind the novelty claim
+
+Log key `P23`.
+
+```
+corpus regex: (meta-research|methodological).{0,80}(own|their) (conflict|funding|competing)
+PubMed:       ("conflict of interest"[tiab] OR "conflicts of interest"[tiab]
+              OR "competing interests"[tiab]) AND ("meta-research"[tiab]
+              OR "research on research"[tiab]) AND (disclosure[tiab] OR "own"[tiab]
+              OR reflexive[tiab])
+```
+
+Eight PubMed records, none in the corpus. They include a study of policy mechanisms against funding
+bias (PMID 40361202), open science practices at imaging journals (PMID 37997809) and the author's COVID
+transparency study (PMID 37494359). None compares meta-research's own disclosures by its subject.
+
+## 3. Hypothesis
+
+Meta-research whose subject is funding or conflicts of interest carries a specific conflict-of-interest
+statement, one that names ties or states their absence with a scope, more often than other
+meta-research in the same journals.
+
+**Null.** The within-journal odds ratio is 1.
+
+**What would falsify it.** An odds ratio at or below 1.
+
+## 4. Design and unit
+
+Cross-sectional, within journal. One article is one unit.
+
+## 5. Sample
+
+Tier A articles with PMC full text, excluding the P22 validation sample (S1).
+
+## 6. Exposure
+
+Subject is funding or conflicts of interest. The `coi` vocabulary label is too coarse on its own, and
+P01v2's review showed what a vocabulary exposure costs, so the exposure is a classifier gated on the
+author's labels (section 8), with the vocabulary label as a sensitivity analysis.
+
+## 7. Outcome and instrument
+
+A mere presence outcome would sit at the ceiling: most journals print a conflict section on every
+article. The outcome is therefore **specificity**: a statement that names ties, or states their
+absence with a scope such as a time window or categories of interest, against a bare "none declared".
+The statement is located by `rt_coi_pmc`; its specificity is coded from the extracted text by a rule
+published with the protocol. Funding statements are analyzed the same way with `rt_fund_pmc`, where
+specificity means naming a funder and a grant number.
+
+## 8. Validation gate
+
+Two gates, because both exposure and outcome involve a judgment.
+
+- **Exposure.** The author labels 200 abstracts for subject. Kappa on the binary contrast that enters
+  the model; below 0.75 the exposure is the author's labels on a smaller sample.
+- **Outcome specificity rule.** The author codes 150 extracted statements. Below 0.90 agreement with
+  the rule, the rule is revised before any model is fitted.
+
+## 9. Analysis
+
+In R.
+
+```r
+glmer(specific_coi ~ subject_coi + year_c + (1 | journal), family = binomial, data = d)
+```
+
+Power is simulated for this model at the realized exposure count before fitting (S12). The exposed
+group is expected to be small, and probe PC decides whether the study is worth running.
+
+## 10. Threats
+
+| threat | handling | removed or disclosed | standard |
+|---|---|---|---|
+| Journal policy dictates statement form | Journal random intercept; the estimate is within journal | Disclosed | |
+| Ceiling on presence | Outcome is specificity, not presence | Removed | |
+| Exposure misclassification | Gated classifier; vocabulary label only as sensitivity | Disclosed | S8 |
+| Small exposed group | Power simulated before fitting; study may stop | Disclosed | S12 |
+| Same structure as a blocked design | Stated; reviewed as its sibling | Disclosed | |
+
+## 11. Probes
+
+| probe | computes | goes to | what would change the design | status |
+|---|---|---|---|---|
+| **PA** | marginal share of tier A PMC articles whose conflict statement is a bare "none declared", not by exposure | 7 | under 20 or over 80 percent leaves little variation to explain | not run |
+| **PB** | classifier-positive count for the exposure on the author's pilot labels | 6 | fewer than 60 exposed articles makes the study uninformative | not run |
+| **PC** | power by simulation for the specified model | 9 | a detectable odds ratio above 3 stops the study | not run |
+| **PD** | the author's 200 exposure labels and 150 statement codings | 8 | failing either gate changes that instrument first | needs the author |
+
+## 12. What this cannot show
+
+- Whether any declared tie is complete or true.
+- Why the difference exists, if there is one.

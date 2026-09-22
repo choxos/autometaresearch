@@ -1,0 +1,129 @@
+---
+title: "Did the NIH data sharing policy change what papers share?"
+description: "A concurrent-control comparison of articles from awards covered by the 2023 NIH Data Management and Sharing Policy against articles from awards that were not."
+id: P14
+status: design
+proposed_by: "Claude Opus 5.5"
+date: 2026-09-22
+reviewed: none
+unit: "A PMC article linked to one NIH award"
+data_source: "NIH RePORTER API; PMC open-access full text"
+instrument: "rtransparency::rt_data_code_pmc"
+categories: [design, datashare, policy]
+---
+
+::: {.callout-important appearance="simple"}
+## Status: design. No probe has run.
+
+Written against [the design standard](../studies/DESIGN-STANDARD.md). The instrument is
+maintained by the author, which is disclosed here.
+:::
+
+## 1. The question
+
+The NIH Data Management and Sharing Policy took effect on 25 January 2023 and applies to
+competing applications received from that date. It is the largest funder mandate for data
+sharing in biomedicine. Whether papers from covered awards share data more than papers from
+uncovered awards published at the same time is an empirical question the policy's own
+documentation cannot answer.
+
+The policy creates a comparison that is rare in this field: in any given month, papers are being
+published both from awards the policy covers and from older awards it does not.
+
+## 2. Prior work, and the search behind the novelty claim
+
+Log key `P14`.
+
+```
+corpus regex: (NIH|National Institutes of Health).{0,60}
+              (data management and sharing|DMS policy|data sharing policy)
+PubMed:       ("data management and sharing policy"[tiab] OR "DMS policy"[tiab]
+              OR ("NIH"[tiab] AND "data sharing policy"[tiab]))
+```
+
+Forty-two PubMed records. The relevant ones describe or advise on the policy: a commentary on
+open data and the 2023 policy (PMID 36862609), one on building on it (PMID 38753788), rules for
+writing a sharing plan (PMID 35921268), and an evaluation of sharing-plan templates
+(PMID 41445711). The search found none that measures sharing in the resulting publications
+against a concurrent control.
+
+## 3. Hypothesis
+
+Articles from awards covered by the policy carry a data sharing statement that `rtransparency`
+detects as open data more often than articles from uncovered awards published in the same month.
+
+**Null.** The odds ratio, covered against uncovered, adjusted for month, is 1.
+
+**What would falsify it.** An odds ratio at or below 1: the mandate produced plans without
+producing shared data in papers. That result would matter more than the positive one.
+
+## 4. Design and unit
+
+Concurrent-control comparison with month fixed effects, and an event-time analysis by months
+since award. One article linked to one award is one unit; the award is the cluster.
+
+## 5. Sample
+
+PMC open-access articles published from February 2023 to the latest complete month, each linked
+to an NIH award through the RePORTER publications endpoint. **Covered**: the linked award is a
+new or competing renewal application received on or after 2023-01-25. **Uncovered**: the linked
+award's latest competing application predates the policy. An article linked to awards of both
+kinds is excluded and counted, since its exposure is not defined.
+
+## 6. Exposure
+
+Policy coverage of the linked award, from RePORTER application type and dates.
+
+## 7. Outcome and instrument
+
+`rtransparency::rt_data_code_pmc` on the PMC XML, `is_open_data` as primary and `is_open_code`
+as secondary. Published accuracy for open data: sensitivity 0.765, specificity 0.990
+(`rt_accuracy`).
+
+**The threat that matters most is differential misclassification.** The detector was built on
+statements written before the policy. If covered awards produce statements in a new style, such
+as a pointer to a sharing plan or to a controlled-access repository, sensitivity may differ by
+arm, and a difference in detected sharing could be a difference in detection.
+
+## 8. Validation gate
+
+The author codes 200 articles, 100 per arm, blind to arm and to detector output, against the
+rtransparent definitions. **Sensitivity is estimated per arm. If it differs by more than 0.10,
+the uncorrected odds ratio is not reported** and only the arm-corrected estimate is (S3).
+
+## 9. Analysis
+
+In R.
+
+```r
+glmer(open_data ~ covered + factor(pub_month) + (1 | award) + (1 | journal),
+      family = binomial, data = d)
+```
+
+Preregistered alongside: an event-time model on months from award start to publication, and a
+probabilistic bias analysis using the arm-specific accuracies. Power is simulated for this model
+at the realized counts before it is fitted (S12).
+
+## 10. Threats
+
+| threat | handling | removed or disclosed | standard |
+|---|---|---|---|
+| Detector sensitivity differs by arm | Measured per arm by the gate; uncorrected estimate withheld if it does | Disclosed | S3 |
+| Covered awards are newer, and early papers from any award differ | Event-time analysis compares papers at the same months since award | Disclosed | |
+| Institute and field composition differs by arm | Institute as a covariate; journal random effect | Disclosed | |
+| Controlled-access deposit is sharing the detector may not count | Coded explicitly in the gate's rubric as sharing | Disclosed | S8 |
+| RePORTER links papers by author report and may mislink | Linkage error measured on the gate sample | Disclosed | |
+
+## 11. Probes
+
+| probe | computes | goes to | what would change the design | status |
+|---|---|---|---|---|
+| **PA** | RePORTER publications endpoint reachability and link fields | 5 | no usable award-to-paper link ends the design | not run |
+| **PB** | covered and uncovered article counts by month, exposure only | 5 | fewer than 500 covered articles delays the study | not run |
+| **PC** | power by simulation for the specified model | 9 | detectable odds ratio above 1.5 means waiting for more covered papers | not run |
+| **PD** | the author's 200 blind codings | 8 | arm-differential sensitivity triggers the corrected-only rule | needs the author |
+
+## 12. What this cannot show
+
+- Whether shared data are usable. `rfair` could measure that in a follow-up.
+- The policy's effect on research that was never published.

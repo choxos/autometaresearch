@@ -1,0 +1,117 @@
+---
+title: "Does meta-research do parachute research?"
+description: "Whether meta-research evaluating research from low- and middle-income countries includes authors from the evaluated country less often than meta-research evaluating high-income countries."
+id: P26
+status: design
+proposed_by: "Claude Opus 5.5"
+date: 2026-09-22
+reviewed: none
+unit: "A tier A article whose sample is defined by country or region"
+data_source: "The tier A corpus; OpenAlex affiliations; World Bank income groups"
+instrument: "Target-country extraction gated on the author's labels; OpenAlex institution countries"
+categories: [design, equity, reflexive]
+---
+
+::: {.callout-important appearance="simple"}
+## Status: design. No probe has run.
+
+Written against [the design standard](../studies/DESIGN-STANDARD.md). The author's own work on
+Cochrane authorship found it gender-diverse but geographically concentrated (PMID 39947447), and
+another of his studies examined gender among dental faculty authors (PMID 38935641). Both concern who
+authors research. This asks a different question: whether the people evaluated are among the
+evaluators.
+:::
+
+## 1. The question
+
+Parachute research, in which investigators from wealthy countries study populations elsewhere without
+local collaborators, is criticized in global health. Meta-research has its own version: studies that
+grade the transparency, reporting or integrity of research from a named country. Whether such studies
+include anyone from the country whose research they are grading, and whether that depends on the
+country's income, has not been asked of the field that asks it of everyone else.
+
+## 2. Prior work, and the search behind the novelty claim
+
+Log key `P26`.
+
+```
+corpus regex: (parachute|helicopter) research|(authorship|authors).{0,60}
+              (low.and middle.income|LMIC).{0,80}(meta-research|systematic review)
+PubMed:       ("parachute research"[tiab] OR "helicopter research"[tiab]
+              OR "local authorship"[tiab] OR "local authors"[tiab])
+              AND ("low- and middle-income"[tiab] OR LMIC*[tiab] OR "global health"[tiab])
+```
+
+Twenty PubMed records, none in the corpus. They concern parachute research in global health
+(PMID 30103996), in microbial genomics (PMID 34704921) and authorship of global oncology research
+(PMID 35696623). All concern primary research; none turns the question on meta-research.
+
+## 3. Hypothesis
+
+Meta-research evaluating research from a low- or middle-income country includes at least one author
+affiliated with that country less often than meta-research evaluating research from a high-income
+country includes one from that country.
+
+**Null.** The odds ratio, low- or middle-income against high-income target, is 1.
+
+**What would falsify it.** An odds ratio at or above 1.
+
+## 4. Design and unit
+
+Cross-sectional. One article whose sample is defined by a single country is one unit. Multi-country
+samples are analyzed separately with the outcome defined per country.
+
+## 5. Sample
+
+Tier A articles whose studied literature is restricted to research from a named country, identified by
+a classifier on title and abstract gated on the author's labels.
+
+## 6. Exposure
+
+World Bank income group of the target country in the article's publication year: low and
+middle-income against high-income.
+
+## 7. Outcome and instrument
+
+At least one author with an affiliation in the target country, from OpenAlex institution country
+codes, dated to the article. Authors with no country in OpenAlex are counted, and the analysis is
+repeated treating them as local and as not local, to bound the effect of the gap.
+
+## 8. Validation gate
+
+The author labels 200 abstracts for whether the sample is country-defined and which country. **Kappa
+on country-defined or not, and exact agreement on the country; below 0.80 or 90 percent the author
+labels the full eligible set.**
+
+## 9. Analysis
+
+In R.
+
+```r
+glmer(local_author ~ lmic_target + year_c + log(n_authors) + (1 | journal),
+      family = binomial, data = d)
+```
+
+Author count enters because larger teams include local authors more often for reasons of size alone.
+
+## 10. Threats
+
+| threat | handling | removed or disclosed | standard |
+|---|---|---|---|
+| Missing affiliation countries | Bounded by treating missing as local and as not local | Disclosed | S3 |
+| Diaspora authors abroad count as not local | Stated; affiliation measures institutional presence, not nationality | Disclosed | |
+| High-income targets are mostly studied from home | That is part of the contrast, not a confounder | Disclosed | |
+| Target-country extraction | Gated classifier with full-labeling fallback | Disclosed | S8 |
+
+## 11. Probes
+
+| probe | computes | goes to | what would change the design | status |
+|---|---|---|---|---|
+| **PA** | country-defined articles on an author-labeled pilot of 100 removed from the sample, and their income mix | 5 | fewer than 60 low- or middle-income targets in the full set makes the comparison imprecise | not run |
+| **PB** | OpenAlex affiliation-country completeness for tier A authors, marginally | 7 | over 25 percent missing makes the bounds too wide to use | not run |
+| **PC** | the author's 200 labels | 8 | below the thresholds the author labels everything | needs the author |
+
+## 12. What this cannot show
+
+- Whether local authors had real influence on the work.
+- Whether the absence of local authors changed any conclusion.

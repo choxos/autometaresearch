@@ -1,0 +1,120 @@
+---
+title: "Is privacy invoked to withhold data that involve no people?"
+description: "How often data availability statements cite privacy or ethics to restrict access in studies with no human participant data, and whether those statements are journal boilerplate."
+id: P27
+status: design
+proposed_by: "Claude Opus 5.5"
+date: 2026-09-22
+reviewed: none
+unit: "A PMC article whose data availability statement restricts access"
+data_source: "PMC full text"
+instrument: "rtransparency::rt_data_code_pmc for the statement; a human-data classifier gated on the author's labels"
+categories: [design, datashare, integrity]
+---
+
+::: {.callout-important appearance="simple"}
+## Status: design. No probe has run.
+
+Written against [the design standard](../studies/DESIGN-STANDARD.md). Related work of the author's
+examined the phrase "data not shown" in dental research (PMID 35944050), another form of withholding
+in plain sight.
+:::
+
+## 1. The question
+
+"Data cannot be shared publicly because of ethical and privacy restrictions" is a legitimate sentence
+when a study holds identifiable data about people. In a study of mice, cell lines, or published
+articles it is a sentence with no referent. If such statements appear in studies with no human data,
+the justification is being used as a formula rather than a reason, and the rate at which it happens is
+a direct measure of pretext.
+
+## 2. Prior work, and the search behind the novelty claim
+
+Log key `P27`.
+
+```
+corpus regex: (data availability statement|data sharing statement).{0,120}
+              (privacy|confidential|ethic|restrict)
+PubMed:       ("data availability statement*"[tiab] OR "data sharing statement*"[tiab])
+              AND (privacy[tiab] OR confidentiality[tiab] OR restrict*[tiab]
+              OR justification*[tiab])
+```
+
+Twenty PubMed records, three in the corpus. The relevant ones find trial authors unwilling to share raw
+data (PMID 30738169), describe sharing practices among Canadian funded publications (PMID 42116839), and
+describe data statements in medRxiv preprints (PMID 33983972). None tests whether a privacy justification
+fits the data it is attached to.
+
+## 3. Hypothesis
+
+**Primary.** Privacy or ethics is invoked to restrict access in studies with no human participant data,
+at a rate whose 95 percent lower confidence bound exceeds 1 percent of restricting statements.
+
+**Secondary, relational.** Within journal, privacy-justified statements in studies without human data
+are more similar to the journal's most common statement text than privacy-justified statements in
+studies with human data are, which is what boilerplate predicts.
+
+**What would falsify them.** A lower bound at or below 1 percent for the primary. No difference in
+similarity for the secondary.
+
+## 4. Design and unit
+
+Cross-sectional. One article with a restricting statement is one unit.
+
+## 5. Sample
+
+PMC open-access research articles 2019 to 2025 whose data availability statement, located by
+`rt_data_code_pmc`, restricts access (on request, controlled access, or not available). Statements that
+share data openly are excluded because they restrict nothing.
+
+## 6. Classification of the study
+
+**No human participant data**: animal, in vitro, in silico, and studies of published literature.
+**Human data**: any identifiable or de-identified individual-level human data. Classified from methods
+text by a model gated on the author's labels, with MeSH `Humans` as a sensitivity check rather than the
+primary rule, because MeSH tags human relevance, not human data.
+
+## 7. Outcome
+
+The statement invokes privacy, confidentiality, ethics approval, or consent as a reason. Coded from the
+statement text by a rule published with the protocol, and gated.
+
+## 8. Validation gate
+
+The author labels 200 articles for human data and 200 statements for privacy justification, each against
+a written rubric. **Kappa on each binary contrast; below 0.80 the author labels every article in the
+no-human-data group**, which is expected to be small and is where the primary estimate lives.
+
+## 9. Analysis
+
+In R. The primary is a proportion with a Wilson interval, reported with its numerator and denominator.
+The secondary compares cosine similarity to the journal modal statement between groups with a linear
+mixed model:
+
+```r
+lmer(sim_to_modal ~ human_data + (1 | journal), data = subset(d, privacy_reason))
+```
+
+## 10. Threats
+
+| threat | handling | removed or disclosed | standard |
+|---|---|---|---|
+| Some non-human studies do hold sensitive data, such as location data for endangered species | The rubric records these as a legitimate-restriction class | Disclosed | S8 |
+| Journal templates may state privacy for every article | That is what the secondary tests | Disclosed | |
+| Statement detection misses some statements | Detector sensitivity 0.765 for data sharing; missed statements reduce the denominator, not the rate, unless missing differs by class | Disclosed | S3 |
+| Human-data classification | Gated, with full labeling of the key group on failure | Disclosed | S8 |
+
+## 11. Probes
+
+| probe | computes | goes to | what would change the design | status |
+|---|---|---|---|---|
+| **P0** | whether `rt_data_code_pmc` returns statement text for restricting statements, not only a sharing flag, on 50 known restricting articles | 5, 7 | if it does not, statements are read from JATS data-availability sections in `<front>`, `<back>` and `<body>` by markup, with the P01v2 false-negative audit applied to that route | not run |
+| **PA** | count of restricting statements, marginally | 5 | fewer than 2000 makes the no-human group too small | not run |
+| **PB** | share of studies classed as no human data on an author-labeled pilot of 100 removed from the sample | 6 | under 5 percent makes the primary denominator tiny | not run |
+| **PC** | the author's two sets of 200 labels | 8 | failing either gate triggers full labeling | needs the author |
+
+## 12. What this cannot show
+
+- Why a statement was written as it was. A template, an editor, and an author reluctant to share
+  produce the same text.
+- Whether the data, if requested, would be provided.

@@ -15,20 +15,22 @@ and the disagreements between those reviews are all published here, in the order
 
 ## Where this currently stands
 
-The literature has been harvested and described, four studies have been proposed against the
-map, and the first has been run. Nothing has been reviewed.
-
 | stage | state |
 |---|---|
 | Search the literature | done, tier A only. [1830 records](corpus.qmd) |
 | Map what the field studies | done. [The landscape](landscape.qmd) |
-| Propose studies against the gaps | done. [Four protocols](agenda.qmd), three runnable |
-| Independent review by two models | waiting. One reviewer is quota-blocked until 2026-09-20 |
-| Run them in R | one of three. [R01](results.qmd) |
-| Publish results with the reviews | results published, reviews pending |
+| Propose studies against the gaps | [the agenda](agenda.qmd) lists every document with its status, read from the document itself |
+| Independent review by two models | five documents reviewed, all five blocked. [Reviews](reviews.qmd) |
+| Run them in R | one exploratory analysis, run before review and labeled as such. [R01](results.qmd) |
+| Publish results with the reviews | pending registered protocols |
 
 The review row sits above the run row on purpose. A protocol is published and reviewed before
-the analysis is run, not after, so that the reviewers see a design rather than a finding.
+the analysis is run, not after, so that the reviewers see a design rather than a finding. R01 is
+the exception that established the rule: it ran first, and is published as exploratory for that
+reason.
+
+The standard every new design is written against, and the review findings that produced each of
+its requirements, is [the design standard](studies/DESIGN-STANDARD.md).
 
 ## The pipeline
 

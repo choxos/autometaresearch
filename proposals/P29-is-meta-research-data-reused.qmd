@@ -1,0 +1,120 @@
+---
+title: "Is the data meta-research deposits ever reused?"
+description: "Whether datasets deposited by meta-research articles are cited, and whether FAIRer deposits are cited more."
+id: P29
+status: design
+proposed_by: "Claude Opus 5.5"
+date: 2026-09-22
+reviewed: none
+unit: "A dataset deposited by a meta-research article"
+data_source: "Tier A and frame PMC full text; DataCite and OpenAlex for dataset citations"
+instrument: "rfair::id_parse and assess_fair; dataset citation events"
+categories: [design, datashare, reflexive]
+---
+
+::: {.callout-important appearance="simple"}
+## Status: design. No probe has run.
+
+Written against [the design standard](../studies/DESIGN-STANDARD.md). The FAIR instrument, `rfair`,
+is maintained by the author. His published work measured FAIRness of shared data in dental research
+(PMID 35656591) and COVID-19 research (PMID 39556553) as a prevalence; this asks whether FAIRness is
+associated with use.
+:::
+
+## 1. The question
+
+Meta-research argues that shared data are valuable because others can reuse them, and it deposits its
+own data on OSF, Zenodo and similar services. Whether anyone reuses those deposits, and whether the
+FAIR properties the field recommends make a difference to reuse, has not been measured for the field's
+own data.
+
+## 2. Prior work, and the search behind the novelty claim
+
+Log key `P29`.
+
+```
+corpus regex: (data (reuse|citation)|dataset citation|reuse of (shared|deposited) data)
+PubMed:       ("data reuse"[tiab] OR "dataset citation*"[tiab] OR "data citation*"[tiab]
+              OR "reuse of shared data"[tiab]) AND (repository[tiab] OR repositories[tiab]
+              OR Zenodo[tiab] OR "Open Science Framework"[tiab] OR Dryad[tiab] OR figshare[tiab])
+```
+
+One hundred and thirty-two PubMed records, forty-two in the corpus. The relevant ones relate data
+properties, curation and funding to reuse in general (PMID 36246529), survey scientists' sharing and
+reuse practices (PMID 32160189), and set out a data citation roadmap for repositories (PMID 30971690).
+None measures reuse of meta-research datasets.
+
+## 3. Hypothesis
+
+Meta-research datasets with a higher FAIR score receive more citations as datasets, per year since
+deposit.
+
+**Null.** The rate ratio per 10-point FAIR score increase is 1.
+
+**What would falsify it.** A rate ratio at or below 1: FAIRness, as scored, does not predict use.
+
+The share of deposits never cited is reported descriptively. A very high share is a finding in its own
+right, and it is also a precision problem the analysis has to handle (section 9).
+
+## 4. Design and unit
+
+Retrospective cohort of deposits. One dataset identifier is one unit.
+
+## 5. Sample
+
+Dataset identifiers cited in data availability statements of tier A and frame articles with PMC full
+text, read from `ext-link` `xlink:href` and parsed with `rfair::id_parse` (S2), restricted to repository
+hosts that mint DOIs. A deposit cited by several articles is one unit, deduplicated by DOI (S5).
+
+## 6. Exposure
+
+FAIR score from `rfair::assess_fair`, run once at a dated snapshot, with the metric version recorded
+(`rfair_metric_versions`).
+
+## 7. Outcome and instrument
+
+Citations to the dataset DOI, from DataCite event data and OpenAlex, excluding citations from the
+depositing article and from other articles by its authors. Exposure time is months since deposit,
+censored at the snapshot (S10).
+
+## 8. Validation gate
+
+The author checks 60 deposits by hand: whether the DOI resolves to the data described, and whether the
+recorded citations are genuine uses. **If fewer than 80 percent of recorded citations are genuine, the
+outcome is restricted to hand-verified citations on a sample.**
+
+## 9. Analysis
+
+In R.
+
+```r
+glmmTMB(n_cites ~ I(fair_score / 10) + host + offset(log(months_since_deposit)),
+        ziformula = ~ 1, family = nbinom2, data = d)
+```
+
+A zero-inflated negative binomial, because most deposits are expected never to be cited and a model
+that ignores that would let the zeros dominate the rate ratio.
+
+## 10. Threats
+
+| threat | handling | removed or disclosed | standard |
+|---|---|---|---|
+| Dataset citation is badly recorded in general | Gate on genuine citations; a sample-based fallback | Disclosed | S8 |
+| Identifiers read from text lose characters | Read from markup and parsed with `rfair` | Removed | S2 |
+| Host determines both FAIR score and visibility | Host as a covariate | Disclosed | |
+| The author maintains the FAIR instrument | Stated at the top | Disclosed | |
+| Self-citation inflates reuse | Depositing article and its authors' citations removed | Removed | |
+
+## 11. Probes
+
+| probe | computes | goes to | what would change the design | status |
+|---|---|---|---|---|
+| **PA** | dataset DOIs recoverable from markup across tier A and frame, deduplicated | 5 | fewer than 200 deposits makes the rate ratio imprecise | not run |
+| **PB** | `rfair::assess_fair` success rate and runtime on 50 deposits | 6 | failure on more than 20 percent changes the metric version or host scope | not run |
+| **PC** | DataCite event data reachability and coverage for those DOIs, marginally | 7 | no events recorded for any host makes the outcome unmeasurable | not run |
+| **PD** | the author's 60 hand checks | 8 | under 80 percent genuine triggers the restricted outcome | needs the author |
+
+## 12. What this cannot show
+
+- Reuse that does not cite the dataset, which is common and invisible here.
+- Whether FAIRness causes reuse; FAIR deposits may come from groups whose work is more used anyway.

@@ -1,0 +1,126 @@
+---
+title: "Do papers that read like a language model cite references that do not exist?"
+description: "Whether excess language-model vocabulary in a published article predicts references that resolve to nothing, after 2023 and not before."
+id: P20
+status: design
+proposed_by: "Claude Opus 5.5"
+date: 2026-09-22
+reviewed: none
+unit: "A PMC article and its reference list"
+data_source: "PMC full text; Crossref and OpenAlex reference resolution"
+instrument: "A vocabulary-excess score built on a held-out slice; DOI and title resolution"
+categories: [design, aitext, integrity]
+---
+
+::: {.callout-important appearance="simple"}
+## Status: design. No probe has run.
+
+Written against [the design standard](../studies/DESIGN-STANDARD.md). The author maintains
+Citicious, a browser extension that flags retracted and possibly hallucinated citations; this
+design tests a relation in the published literature rather than building a detector, and may reuse
+its matching logic, which would be disclosed.
+:::
+
+## 1. The question
+
+Language models invent references, and that is documented for chatbot output. Whether invented
+references have reached the published literature, and whether they concentrate in articles whose
+prose shows the vocabulary that language models overuse, is a different question. It asks about
+what has been published, not what a chatbot produces when asked.
+
+## 2. Prior work, and the search behind the novelty claim
+
+Log key `P20`.
+
+```
+corpus regex: (hallucinat|fabricat|fake|nonexistent|non-existent).{0,40}(reference|citation)
+PubMed:       ("hallucinated"[tiab] OR "fabricated"[tiab] OR "nonexistent"[tiab]
+              OR "non-existent"[tiab] OR fake[tiab]) AND (reference*[tiab] OR citation*[tiab])
+              AND ("large language model*"[tiab] OR ChatGPT[tiab] OR "generative AI"[tiab])
+```
+
+One hundred and seventy-six PubMed records. The relevant ones measure fabricated references in
+chatbot output: for systematic review queries (PMID 38776130) and for medical content
+(PMID 37337480). The relevance-ordered top ten contains no study relating vocabulary in published
+articles to reference validity.
+
+## 3. Hypothesis
+
+In articles published from 2023, a higher vocabulary-excess score is associated with a larger share
+of references that cannot be resolved; in articles published before 2023 it is not.
+
+**Null.** The interaction between vocabulary excess and period is 0.
+
+**What would falsify it.** No interaction: an association of the same size before 2023 would mean
+the score measures something other than model use, such as field or writing style, and the
+pre-2023 period is included precisely as that negative control.
+
+## 4. Design and unit
+
+Cross-sectional with a pre-period negative control. One article is one unit.
+
+## 5. Sample
+
+PMC open-access research articles from 2019 to 2025, sampled evenly by year. A development slice
+of 10 percent, drawn first and never analyzed, is used only to build the vocabulary score (S1).
+
+## 6. Exposure
+
+**Vocabulary-excess score.** On the development slice, the words whose frequency per million
+tokens in 2024 exceeds their 2021 frequency by a ratio fixed in advance form the marker list. The
+score for an article is the marker frequency in its body. Built once, frozen, and published with
+the protocol before the analysis slice is touched.
+
+## 7. Outcome and instrument
+
+The proportion of an article's references that cannot be resolved. A reference with a DOI in
+`pub-id[@pub-id-type='doi']` is resolved against Crossref. A reference without one is matched on
+title against Crossref and OpenAlex with a similarity threshold. Unresolved references are further
+split into malformed DOIs, well-formed DOIs that resolve to nothing, and titles with no match.
+
+The denominator is references the method can attempt. Book chapters, reports and web pages are
+counted and excluded, since failing to match a report is not evidence it does not exist.
+
+## 8. Validation gate
+
+The author checks 200 unresolved references by hand against library catalogues and search engines,
+coding each as real, garbled real, or nonexistent. **The primary outcome is recomputed as the
+proportion coded nonexistent; if fewer than 20 percent of unresolved references are nonexistent,
+unresolvability measures metadata quality rather than invention and the hypothesis is tested on
+the hand-checked subset only.**
+
+## 9. Analysis
+
+In R.
+
+```r
+glmmTMB(cbind(unresolved, attempted - unresolved) ~ score * post2023 + (1 | journal),
+        family = betabinomial, data = d)
+```
+
+Preregistered alongside: the same model using the hand-coded nonexistent share on the validation
+subset, and a model excluding journals with fewer than 20 sampled articles.
+
+## 10. Threats
+
+| threat | handling | removed or disclosed | standard |
+|---|---|---|---|
+| Score built on the data it is tested on | Built on a held-out development slice only | Removed | S1 |
+| Unresolvable is not the same as invented | Hand-checked subset defines the true outcome; fallback rule | Disclosed | S8 |
+| References read from text lose their DOIs | Read from JATS `pub-id`, not from flattened text | Removed | S2 |
+| Field differences in vocabulary and citation practice | Journal random intercept and the pre-2023 negative control | Disclosed | |
+| Non-native English writers use some marker words | The pre-2023 control absorbs a stable style difference, not a change | Disclosed | |
+
+## 11. Probes
+
+| probe | computes | goes to | what would change the design | status |
+|---|---|---|---|---|
+| **PA** | reference DOI coverage and resolvable-type share, by year, marginally | 7 | under 60 percent attemptable references makes the outcome noisy | not run |
+| **PB** | the marker list and its stability across two halves of the development slice | 6 | an unstable list means the score is not a measurement | not run |
+| **PC** | Crossref resolution rate for a sample of known-good references, to measure false failures | 7 | a false-failure rate over 2 percent swamps the signal | not run |
+| **PD** | the author's 200 hand checks | 8 | under 20 percent nonexistent triggers the subset-only rule | needs the author |
+
+## 12. What this cannot show
+
+- Whether any individual article used a language model.
+- Invented references that happen to resolve to a real but irrelevant paper.

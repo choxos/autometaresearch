@@ -1,0 +1,123 @@
+---
+title: "Do senior authors get listed for reviewing rather than doing?"
+description: "Whether an author's seniority predicts a CRediT role set that contains no substantive contribution, conditional on team size and author position."
+id: P16
+status: design
+proposed_by: "Claude Opus 5.5"
+date: 2026-09-22
+reviewed: none
+unit: "An author on an article that declares CRediT roles"
+data_source: "PMC JATS contributor roles; OpenAlex author records"
+instrument: "JATS role elements with the CRediT vocabulary"
+categories: [design, biblio]
+---
+
+::: {.callout-important appearance="simple"}
+## Status: design. No probe has run.
+
+Written against [the design standard](../studies/DESIGN-STANDARD.md).
+:::
+
+## 1. The question
+
+Honorary authorship has been studied mostly by asking authors. The CRediT taxonomy now records,
+in machine-readable form, what each author says they did. An author whose only declared role is
+"Writing: review and editing" appears on the byline without a declared hand in the work. Whether
+that pattern concentrates among senior authors is a direct, behavioral test of the gift
+authorship hypothesis, using the authors' own declarations.
+
+## 2. Prior work, and the search behind the novelty claim
+
+Log key `P16`.
+
+```
+corpus regex: CRediT|contributor roles? taxonomy
+PubMed:       ("CRediT"[tiab] OR "contributor roles taxonomy"[tiab]
+              OR "contributor role taxonomy"[tiab]) AND (authorship[tiab]
+              OR "gift authorship"[tiab] OR "honorary authorship"[tiab] OR seniority[tiab])
+```
+
+Two hundred and eighty PubMed records, twenty-six in the corpus. The relevance-ordered top ten
+are about authorship and credit in general, such as the gendered nature of authorship
+(PMID 34516891), shared first authorship (PMID 31607826) and authorship and contributorship
+(PMID 24644440). None in the top ten relates declared roles to author seniority. This is the
+weakest novelty claim of this set and says so: the space is large and the top ten is not the whole
+of it. Probe PD widens the search before any data are retrieved.
+
+## 3. Hypothesis
+
+The probability that an author's declared roles contain no substantive contribution rises with
+the author's seniority, conditional on author position and team size.
+
+**Null.** The coefficient on seniority is 0.
+
+**What would falsify it.** A coefficient at or below 0.
+
+## 4. Design and unit
+
+Cross-sectional, author-level. One author on one article is one unit; articles and authors both
+recur, and the model treats them as crossed.
+
+## 5. Sample
+
+PMC open-access research articles, 2020 to 2025, whose JATS carries `role` elements with the
+CRediT vocabulary for every listed author. Articles where only some authors have roles are
+excluded and counted, because a missing role cannot be read as no contribution.
+
+## 6. Exposure
+
+Seniority at the article's publication date: years since the author's first indexed publication
+in OpenAlex. OpenAlex author disambiguation merges and splits people; section 10 carries this.
+
+## 7. Outcome
+
+**Minimal role set**: every declared role is in {Writing: review and editing, Funding acquisition,
+Resources}. Every other CRediT role, including Supervision, counts as substantive. Counting
+Supervision as substantive works against the hypothesis, because supervision is a legitimately
+senior role; the choice is made so that a positive result cannot be produced by it.
+
+Roles are read from JATS `role` elements and their `vocab-term` attributes, not from free-text
+contribution statements (S2).
+
+## 8. Validation gate
+
+The author checks role extraction against the article's own contribution section for 100
+articles. **Extraction must match the article on at least 98 percent of author-role pairs**; this
+is parsing, not judgment, and should be near perfect.
+
+## 9. Analysis
+
+In R.
+
+```r
+glmer(minimal ~ ns(seniority_years, 3) + position + log(team_size)
+      + (1 | article) + (1 | author), family = binomial, data = d)
+```
+
+Position is first, last, or middle. Preregistered alongside: the same model restricted to middle
+authors, where position carries least information, and a sensitivity analysis dropping authors
+whose OpenAlex record implies a career longer than 50 years at the article date, which marks
+records that probably merge more than one person.
+
+## 10. Threats
+
+| threat | handling | removed or disclosed | standard |
+|---|---|---|---|
+| OpenAlex author disambiguation | Implausible careers excluded in sensitivity; merged identities bias seniority upward for common names | Disclosed | S3 |
+| Journals that require CRediT differ from those that do not | Result generalizes to CRediT-declaring articles only | Disclosed | |
+| Self-reported roles can themselves be generous | Biases toward the null for the hypothesis, since inflated roles hide minimal ones | Disclosed | |
+| Team size and seniority are correlated | Team size in the model | Removed | |
+
+## 11. Probes
+
+| probe | computes | goes to | what would change the design | status |
+|---|---|---|---|---|
+| **PA** | PMC articles with complete CRediT roles, per year | 5 | fewer than 5000 articles narrows the window | not run |
+| **PB** | OpenAlex author match rate for those authors | 6 | under 90 percent matched makes the exposure unreliable | not run |
+| **PC** | the author's 100 extraction checks | 8 | under 98 percent the parser is fixed first | needs the author |
+| **PD** | a second, wider novelty search on author seniority and contribution statements | 2 | an existing study of this relation makes this a replication, labeled as one | not run |
+
+## 12. What this cannot show
+
+- Whether any given author deserved authorship.
+- Anything about articles that do not declare roles, which are most of the literature.

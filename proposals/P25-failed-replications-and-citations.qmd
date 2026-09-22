@@ -1,0 +1,133 @@
+---
+title: "Did cancer biology stop citing what failed to replicate?"
+description: "Whether original papers whose findings failed to replicate in the Reproducibility Project: Cancer Biology lost citations relative to those that replicated. A replication of the psychology finding in a new field."
+id: P25
+status: design
+proposed_by: "Claude Opus 5.5"
+date: 2026-09-22
+reviewed: none
+unit: "An original paper examined by the Reproducibility Project: Cancer Biology"
+data_source: "The project's published replication outcomes; OpenAlex citations by year"
+instrument: "The project's own replication criteria; OpenAlex counts_by_year"
+categories: [design, repro, replication]
+---
+
+::: {.callout-important appearance="simple"}
+## Status: design. No probe has run.
+
+Written against [the design standard](../studies/DESIGN-STANDARD.md).
+
+**This is a replication in a new field, not a new question.** The psychology version exists and is
+cited below. What is new is the field and the data: preclinical cancer biology, and a replication
+project whose outcomes were published in December 2021.
+:::
+
+## 1. The question
+
+In psychology, papers whose findings failed to replicate lost citations afterwards. Biomedicine has
+one replication project of comparable seriousness, the Reproducibility Project: Cancer Biology,
+which published its summary in 2021 (PMID 34874005). Whether cancer biology responded the way
+psychology did is a direct test of whether the field corrects itself when told to.
+
+## 2. Prior work, and the search behind the novelty claim
+
+Log key `P25`, three searches.
+
+```
+corpus regex: (failed|unsuccessful|non.?replicat).{0,60}(cit(ed|ation))
+              |(cit(ed|ation)).{0,60}(failed replication|non.?replicable)
+PubMed:       ("failed replication*"[tiab] OR "non-replicable"[tiab]
+              OR "replication failure*"[tiab] OR "Reproducibility Project"[tiab])
+              AND (citation*[tiab] OR cited[tiab])
+```
+
+The two further searches, restricted to the cancer biology project:
+
+```
+PubMed:       "Reproducibility Project: Cancer Biology"[tiab] AND (citation*[tiab] OR cited[tiab]
+              OR "citation trajector*"[tiab])
+PubMed:       ("Reproducibility Project: Cancer Biology"[tiab]
+              OR "replicability of preclinical cancer biology"[tiab])
+              AND (Errington[au] OR replicability[ti] OR "effect sizes"[tiab])
+```
+
+The relevant results of the first search are about psychology: a study of citations before and after
+successful and failed replications (PMID 35713980), and a discipline-wide investigation of psychology's
+replicability (PMID 36716367). The two cancer biology searches returned the project's
+registered reports, its summary (PMID 34874005), its account of the challenges it met
+(PMID 34874008) and its founding description (PMID 25490932). None of these analyzes citations of the
+originals after the project reported.
+
+## 3. Hypothesis
+
+After December 2021, original papers whose findings did not replicate lose citations relative to
+original papers whose findings did.
+
+**Null.** The difference in citation trend after December 2021, failed against replicated, is 0.
+
+**What would falsify it.** A difference at or above 0: cancer biology did not respond as psychology
+did.
+
+## 4. Design and unit
+
+Difference in differences on annual citation counts. One original paper is one unit, observed yearly
+from 2016 to 2025.
+
+## 5. Sample
+
+Every original paper the project examined for which it published a replication outcome. The project
+reports outcomes per experiment and a paper can contain several; a paper is classed as failed when
+the majority of its replicated effects failed on the project's own primary criterion, and papers with
+a tie are a third group, reported but not tested.
+
+## 6. Exposure
+
+Replication outcome, on the project's own criterion, as published. This project does not judge any
+replication; it takes the project's classification.
+
+## 7. Outcome
+
+Citations per year from OpenAlex `counts_by_year`, frozen at a dated snapshot. Self-citations by any
+author of the original are removed using OpenAlex authorships, and the analysis is repeated with
+them retained.
+
+## 8. Validation gate
+
+No human classification enters the exposure. The gate is on the outcome: for 20 papers, the author
+compares OpenAlex yearly counts with a second index. **If the two disagree by more than 15 percent on
+the post-2021 trend for more than a quarter of papers, the study reports both.**
+
+## 9. Analysis
+
+In R.
+
+```r
+glmer.nb(cites ~ post2021 * failed + factor(year) + (1 | paper), data = d)
+```
+
+A negative binomial mixed model with paper random intercepts and year fixed effects. With a few dozen
+papers, power is low and is not claimed. The design states a precision target instead: the study is
+reported as informative only if the interval on the interaction excludes a halving and a doubling of
+the relative trend (S12).
+
+## 10. Threats
+
+| threat | handling | removed or disclosed | standard |
+|---|---|---|---|
+| Few papers | Precision target stated in advance; the result may be uninformative and will be reported as such | Disclosed | S12 |
+| Citation of a failed paper can be critical citation | Counts do not distinguish; stated | Disclosed | |
+| The project was itself highly cited and cited its originals | Citations from the project's own papers removed | Removed | |
+| Pre-existing trend differences | Year fixed effects and a pre-period trend test | Disclosed | |
+
+## 11. Probes
+
+| probe | computes | goes to | what would change the design | status |
+|---|---|---|---|---|
+| **PA** | the list of original papers and their published outcomes, from the project's summary and data | 5 | fewer than 15 papers in either group makes the comparison uninformative before it starts | not run |
+| **PB** | OpenAlex match for each original and completeness of yearly counts | 7 | missing years for more than 10 percent of papers changes the source | not run |
+| **PC** | the author's 20-paper cross-index check | 8 | disagreement triggers dual reporting | needs the author |
+
+## 12. What this cannot show
+
+- Whether any original finding is false. A failed replication is evidence, not a verdict.
+- The effect of replication on anything other than citation.

@@ -28,16 +28,20 @@ and a result page will link back to the protocol as it stood.
 ## Status values
 
 The distinction between a design and a protocol is not cosmetic. It comes from the sibling
-project's `studies/DESIGN-STANDARD.md` and it is the rule this project now works to: **the
-difference between a design and a protocol is a set of computed numbers.** A document that
-asserts its sample size, its power or its feasibility rather than measuring them is a design,
-whatever it calls itself.
+project's design standard and it is the rule this project works to: **the difference between a
+design and a protocol is a set of computed numbers.** A document that asserts its sample size,
+its power or its feasibility rather than measuring them is a design, whatever it calls itself.
+
+Every document from P10 onward is written against this project's own
+[design standard](studies/DESIGN-STANDARD.md), twelve requirements each traced to the review
+finding that produced it.
 
 | status | meaning |
 |---|---|
 | `design` | the question, hypothesis, threats and probes are written. Feasibility is not yet measured |
 | `protocol-pending-validation` | probes computed and written in. One or more validation gates need human labels before it runs |
 | `protocol-reduced` | probes computed, and they came back small enough that a pre-written rule cut the analysis down |
+| `blocked-by-review` | two reviewers found an evidenced fatal flaw that stands unrebutted. Left as submitted |
 | `agenda` | a real gap that public data cannot answer, recorded rather than skipped |
 | `reported` | result published with the protocol and, when they exist, the reviews |
 
@@ -46,33 +50,29 @@ passed, and two reviews attached. No document has all three.
 
 ## Where each one stands
 
-| | question | status | what is blocking it |
-|---|---|---|---|
-| **P01v2** | Does advocating transparency predict practicing it? | protocol | screening and grading labels, then review |
-| **P02** | Does meta-research cite retracted work? | protocol | shares P01v2's screening gate |
-| **P03** | Is bad news cited more? | protocol | 300 abstracts classified by the author |
-| **P05** | Do the links actually resolve? | protocol | a requester bug, then 100 hand checks |
-| **P06** | Do conclusions soften between preprint and journal? | protocol, reduced | 141 pairs found, so the ordinal outcome was cut to binary by a pre-written rule |
-| **P07** | When two studies measure the same thing, do they agree? | design | nobody has counted the pairs yet |
-| **P08** | Do meta-research studies follow the guidelines they audit by? | design | scoring STROBE needs a human reading 150 articles |
-| **P09** | Does meta-research change the practice it documents? | design | the author must choose which documented problems count |
-| **P04** | The field is observational about itself | agenda | needs a journal or funder willing to randomize |
+The table at the top of this page is the only status table, and it is read from each document's
+front matter when the site is built. An earlier version of this page also kept a hand-written
+table; it drifted from the documents twice, once miscounting them and once still listing blocked
+protocols as ready, so it was removed rather than maintained.
 
 ## Review
 
-Nothing here has been reviewed. Review is by two models from different providers, each given the
-document and instructed to refute it, with output validated against a schema and adjudicated by
-the fixed rule in `build/audit/adjudicate.py`. That rule downgrades an unsubstantiated severe
-finding rather than counting it, lets a lone reviewer holding a verbatim quote block a document
-two others called sound, and publishes a contested document as contested rather than picking a
-winner. Twelve golden cases pin it.
+Review is by two models from different providers, each given the document and instructed to
+refute it, with output validated against a schema and adjudicated by the fixed rule in
+`build/audit/adjudicate.py`. That rule downgrades an unsubstantiated severe finding rather than
+counting it, lets a lone reviewer holding a verbatim quote block a document two others called
+sound, and publishes a contested document as contested rather than picking a winner. Twelve
+golden cases pin it. No document is reviewed by one model alone.
 
-No document is reviewed by one model alone. The Codex account's usage limit was exhausted on
-2026-09-16 and resets on 2026-09-20, so reviews begin then.
+**Five documents have been reviewed and all five were blocked**: P01v2, P02, P03, P05 and P06,
+each on evidenced fatal findings. The findings for P01v2 and P02 were checked against primary
+source and are published at [the reviews page](reviews.qmd). The verdicts for P03, P05 and P06 are
+recorded in `data/audit/` and have not yet been acted on or published as pages; that is pending.
 
-The five documents at protocol stage go first. The three designs are reviewed when their probes
-complete, because a reviewer asked to assess feasibility numbers that do not exist yet is being
-asked to review a wish.
+**P10 to P29 have not been reviewed.** They were written after those five reviews, against a
+standard distilled from them, and their review is scheduled for later. The designs are reviewed
+when their probes have run, because a reviewer asked to assess feasibility numbers that do not
+exist yet is being asked to review a wish.
 
 ## How these were chosen
 
@@ -86,11 +86,27 @@ one more specialty is a rate in a new population, and rates in new populations a
 corpus already holds in quantity. Every document here has an exposure, an outcome and a
 direction, and every one can come out the other way.
 
-One candidate was dropped for lack of novelty rather than lack of interest: a study relating a
-journal's transparency policy score to the transparency of the meta-research it publishes. The
-corpus search found PMID 37433624, a systematic review with individual participant data
-meta-analysis of predictors of data and code sharing, which covers it. It is recorded here
-because a dropped idea and the reason it was dropped are part of the trail.
+The second round, P10 to P29, kept that rule where it applied and widened it where the author's
+own tools made a sharper question possible: `rtransparency` and `rfair` are validated
+instruments, and several designs exist because a validated instrument turns a vague question into
+a measurable one. Candidates were dropped when a relevance-ordered search found the question
+already answered; the table below lists them.
 
-P04 is not runnable and says so. P09 is the most important question of the set and is the least
+P04 and P30 are not runnable and say so. P09 is the most important question of the set and is the least
 far along, which is a fact about difficulty rather than about priority.
+
+## Candidates dropped for lack of novelty
+
+A dropped idea and the reason it was dropped are part of the trail. Each reason below is a record
+in `data/lit/novelty-log.json`.
+
+| candidate | why it was dropped | log key |
+|---|---|---|
+| Journal transparency policy against the transparency of the meta-research it publishes | An individual participant data meta-analysis of predictors of data and code sharing covers it (PMID 37433624) | earlier round |
+| Articles that share data are corrected more often | Tested at policy level and titled with its answer: "No evidence that mandatory open data policies increase error correction" (PMID 36109655) | `dropped-open-data-corrections` |
+| Articles that share data or code contain fewer numerical errors | The data-sharing and reporting-error relation is established in psychology, including a replication (PMID 37053137); the numeric checks it relies on also fit biomedical reporting poorly | `dropped-sharing-numeric-consistency` |
+| Retrospectively registered trials report larger effects | Three corpus studies test it (PMIDs 27377062, 41921890, 40334717) | `dropped-registration-effect-size` |
+| Preprint versions of retracted articles go unflagged | Surveyed for COVID-19 (PMID 37035368), and inside the author's own retraction-tracking work | `dropped-preprints-of-retracted` |
+| Novelty claims and promotional language earn citations | "Scientific publications that use promotional language in the abstract receive more citations" (PMID 40764759) | `dropped-hype-citation` |
+| Whether reviews using language models report their validation | The literature is too crowded to claim novelty from a top-ten search | `dropped-llm-screening-validation` |
+

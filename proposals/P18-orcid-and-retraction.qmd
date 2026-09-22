@@ -1,0 +1,112 @@
+---
+title: "Do misconduct retractions have fewer verified authors?"
+description: "Whether retracted articles have a smaller share of publisher-verified ORCID identifiers than matched articles, for misconduct and not for honest error."
+id: P18
+status: design
+proposed_by: "Claude Opus 5.5"
+date: 2026-09-22
+reviewed: none
+unit: "An article, in a matched case-control set"
+data_source: "Retraction Watch; Crossref author metadata; OpenAlex authorships"
+instrument: "Crossref ORCID with the authenticated flag"
+categories: [design, retract, integrity]
+---
+
+::: {.callout-important appearance="simple"}
+## Status: design. No probe has run.
+
+Written against [the design standard](../studies/DESIGN-STANDARD.md). Shares its case
+definitions and reason mapping with [P17](P17-fast-acceptance-and-retraction.qmd).
+:::
+
+## 1. The question
+
+An ORCID identifier that a publisher has authenticated ties a byline to a person who logged in to
+claim it. A paper mill selling authorship slots, or inventing authors, has less reason to produce
+that link. The share of a paper's authors carrying an authenticated ORCID is therefore a
+candidate integrity signal that is cheap to compute for every article ever published.
+
+## 2. Prior work, and the search behind the novelty claim
+
+Log key `P18`.
+
+```
+corpus regex: ORCID.{0,80}(retract|misconduct|integrity|paper mill)
+PubMed:       ORCID[tiab] AND (retract*[tiab] OR "paper mill*"[tiab]
+              OR misconduct[tiab] OR "research integrity"[tiab])
+```
+
+Seven PubMed records, none in the corpus. The closest proposes recording retractions on ORCID
+profiles (PMID 38815635); another discusses author name ambiguity (PMID 38704656). None measures
+ORCID coverage as a marker of retraction risk.
+
+## 3. Hypothesis
+
+Articles retracted for misconduct-class reasons have a smaller share of authors with an
+authenticated ORCID than matched controls; articles retracted for honest error do not.
+
+**Null.** The odds ratio per 10-point increase in authenticated share is 1 for misconduct cases.
+
+**What would falsify it.** No association for misconduct, or an equal association for honest
+error, which would point to journal-level practice rather than to fraud.
+
+## 4. Design and unit
+
+Matched case-control, run separately for the two reason classes, as in P17.
+
+## 5. Sample
+
+Cases and reason classes as defined in P17, from Retraction Watch with a DOI, published 2016 or
+later, when publisher ORCID deposit to Crossref became common. Controls: four per case, same
+journal and publication month, not in Retraction Watch (S9).
+
+## 6. Exposure
+
+The share of an article's authors whose Crossref author record carries an ORCID with
+`authenticated-orcid` true. OpenAlex attaches ORCIDs by inference as well as from publisher
+deposit, and an inferred ORCID says nothing about whether the author claimed the paper, so
+OpenAlex is used only for a sensitivity analysis and never for the primary exposure (S3).
+
+## 7. Outcome
+
+Case or control status, by reason class.
+
+## 8. Validation gate
+
+The reason mapping is validated in P17. Here, the author checks for 100 articles that the
+Crossref record's authenticated ORCIDs match the ORCIDs printed on the publisher page.
+**Below 95 percent agreement, the exposure is recomputed from the source that agrees with the
+article.**
+
+## 9. Analysis
+
+In R.
+
+```r
+clogit(case ~ I(auth_share * 10) + log(n_authors) + strata(match_set), data = d)
+```
+
+Fitted per reason class. Author count enters because a single-author paper has a share of 0 or 1
+and large teams have intermediate shares for reasons unrelated to fraud.
+
+## 10. Threats
+
+| threat | handling | removed or disclosed | standard |
+|---|---|---|---|
+| Publishers differ in whether they deposit ORCIDs | Matching on journal and month holds the publisher constant | Removed | S9 |
+| OpenAlex infers ORCIDs | Primary exposure uses only publisher-authenticated ORCIDs | Removed | S3 |
+| Journals changed ORCID policy over time | Matching on month; window from 2016 | Disclosed | |
+| Paper mills may adapt by registering ORCIDs | Would bias toward the null; the result is a snapshot of a moving target | Disclosed | |
+
+## 11. Probes
+
+| probe | computes | goes to | what would change the design | status |
+|---|---|---|---|---|
+| **PA** | share of cases and of controls whose Crossref record carries any author ORCID, marginally | 5 | under 30 percent of articles with any deposit makes the exposure mostly zero | not run |
+| **PB** | case counts per reason class from 2016 | 5 | fewer than 300 honest-error cases makes the contrast imprecise | not run |
+| **PC** | the author's 100 publisher-page checks | 8 | below 95 percent the exposure source changes | needs the author |
+
+## 12. What this cannot show
+
+- Whether requiring ORCIDs would prevent anything.
+- Anything about fraud that has not been retracted.
