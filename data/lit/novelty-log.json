@@ -1,0 +1,2555 @@
+[
+ {
+  "design": "P10",
+  "date": "2026-09-22",
+  "corpus_regex": "(meta-research|methodological|meta-epidemiolog).{0,60}protocol.{0,80}(publish|non-publication|results)",
+  "corpus_hits": 5,
+  "corpus_sample": [
+   {
+    "pmid": "41847079",
+    "year": "2026",
+    "title": "What evidence syntheses reveal about PROSPERO, INPLASY, OSF, the Research Registry, and protocols.io: a meta-research study."
+   },
+   {
+    "pmid": "39297397",
+    "year": "2024",
+    "title": "Methodological and reporting quality of systematic reviews on aesthetics and reconstructive breast surgery: A meta-research."
+   },
+   {
+    "pmid": "38795681",
+    "year": "2024",
+    "title": "Reporting completeness of nutrition and diet-related randomised controlled trials protocols."
+   },
+   {
+    "pmid": "36572499",
+    "year": "2022",
+    "title": "Protocol for a meta-research study of protocols for diet or nutrition-related trials published in indexed journals: general aspects of study design, rationale and reporting limitations."
+   },
+   {
+    "pmid": "31700654",
+    "year": "2019",
+    "title": "The reporting of progression criteria in protocols of pilot trials designed to assess the feasibility of main trials is insufficient: a meta-epidemiological study."
+   }
+  ],
+  "pubmed_query": "(protocol*[ti]) AND (\"publication rate\"[tiab] OR \"non-publication\"[tiab] OR \"subsequently published\"[tiab]) AND (\"systematic review*\"[tiab] OR \"meta-research\"[tiab] OR \"methodological\"[tiab])",
+  "pubmed_total": 6,
+  "pubmed_top": [
+   {
+    "pmid": "23302739",
+    "year": "2013",
+    "title": "Protocol for a systematic review on the extent of non-publication of research studies and associated study characteristics.",
+    "journal": "Syst Rev"
+   },
+   {
+    "pmid": "23885765",
+    "year": "2013",
+    "title": "Detecting, quantifying and adjusting for publication bias in meta-analyses: protocol of a systematic review on methods.",
+    "journal": "Syst Rev"
+   },
+   {
+    "pmid": "23692820",
+    "year": "2013",
+    "title": "Defining publication bias: protocol for a systematic review of highly cited articles and proposal for a new framework.",
+    "journal": "Syst Rev"
+   },
+   {
+    "pmid": "42035815",
+    "year": "2026",
+    "title": "Reporting software tools and automation in the protocols of evidence syntheses: meta-research study.",
+    "journal": "J Clin Epidemiol"
+   },
+   {
+    "pmid": "33115541",
+    "year": "2020",
+    "title": "Rationale and design of repeated cross-sectional studies to evaluate the reporting quality of trial protocols: the Adherence to SPIrit REcommendations (ASPIRE) study and associated projects.",
+    "journal": "Trials"
+   },
+   {
+    "pmid": "42210669",
+    "year": "2026",
+    "title": "Digital Cognitive Behavioral Treatment of Insomnia in Youth: Protocol for an RCT Examining Feasibility, Acceptability, and Efficacy of LAMBI.",
+    "journal": "Behav Sleep Med"
+   }
+  ]
+ },
+ {
+  "design": "P11",
+  "date": "2026-09-22",
+  "corpus_regex": "(meta-research|methodological (review|stud)|meta-epidemiolog).{0,80}(discrepanc|switch|deviat).{0,40}protocol",
+  "corpus_hits": 1,
+  "corpus_sample": [
+   {
+    "pmid": "37906614",
+    "year": "2023",
+    "title": "Frequency of multiple changes to prespecified primary outcomes of clinical trials completed between 2009 and 2017 in German university medical centers: A meta-research study."
+   }
+  ],
+  "pubmed_query": "(\"outcome switching\"[tiab] OR \"discrepancies between protocol\"[tiab] OR \"protocol deviations\"[tiab]) AND (\"meta-research\"[tiab] OR \"methodological studies\"[tiab] OR \"meta-epidemiological\"[tiab] OR \"research on research\"[tiab])",
+  "pubmed_total": 6,
+  "pubmed_top": [
+   {
+    "pmid": "42203255",
+    "year": "2026",
+    "title": "Outcome switching in cohort studies of interventions: meta-epidemiological study.",
+    "journal": "BMJ"
+   },
+   {
+    "pmid": "34004339",
+    "year": "2021",
+    "title": "High incidence of outcome switching observed in follow-up publications of randomized controlled trials: Meta-research study.",
+    "journal": "J Clin Epidemiol"
+   },
+   {
+    "pmid": "35911195",
+    "year": "2022",
+    "title": "Discrepancy review: a feasibility study of a novel peer review intervention to reduce undisclosed discrepancies between registrations and publications.",
+    "journal": "R Soc Open Sci"
+   },
+   {
+    "pmid": "29186879",
+    "year": "2017",
+    "title": "The Weak Spots in Contemporary Science (and How to Fix Them).",
+    "journal": "Animals (Basel)"
+   },
+   {
+    "pmid": "39746037",
+    "year": "2025",
+    "title": "Assessment of the methodological quality of studies on core outcome sets for respiratory diseases: A systematic review and meta-research study.",
+    "journal": "PLoS One"
+   },
+   {
+    "pmid": "37684502",
+    "year": "2024",
+    "title": "The Perils of Misinterpreting and Misusing \"Publication Bias\" in Meta-analyses: An Education Review on Funnel Plot-Based Methods.",
+    "journal": "Sports Med"
+   }
+  ]
+ },
+ {
+  "design": "P12",
+  "date": "2026-09-22",
+  "corpus_regex": "(outdated|stale|obsolete).{0,40}(citation|cited|evidence)|citation.{0,30}(accuracy|context).{0,40}(prevalence|estimate)",
+  "corpus_hits": 0,
+  "corpus_sample": [],
+  "pubmed_query": "(\"citation accuracy\"[tiab] OR \"quotation accuracy\"[tiab] OR \"citation context\"[tiab] OR \"outdated evidence\"[tiab]) AND (prevalence[tiab] OR estimate*[tiab])",
+  "pubmed_total": 10,
+  "pubmed_top": [
+   {
+    "pmid": "38252436",
+    "year": "2024",
+    "title": "Cardiovascular, Neurological, and Immunological Adverse Events and the 23-Valent Pneumococcal Polysaccharide Vaccine.",
+    "journal": "JAMA Netw Open"
+   },
+   {
+    "pmid": "28910404",
+    "year": "2017",
+    "title": "Accuracy of cited \"facts\" in medical research articles: A review of study methodology and recalculation of quotation error rate.",
+    "journal": "PLoS One"
+   },
+   {
+    "pmid": "35130090",
+    "year": "2022",
+    "title": "Evaluation of Citation Inaccuracies in Surgical Literature by Journal Type, Study Design, and Level of Evidence: Towards Safeguarding the Peer-Review Process.",
+    "journal": "Am Surg"
+   },
+   {
+    "pmid": "41051844",
+    "year": "2025",
+    "title": "Why citation accuracy matters in psychological science: A commentary on Marcus et al. (2025) and call to the field.",
+    "journal": "Am Psychol"
+   },
+   {
+    "pmid": "42174195",
+    "year": "2026",
+    "title": "Evaluating large language models for diagnostic reasoning from unstructured clinical narratives in epilepsy.",
+    "journal": "Commun Med (Lond)"
+   },
+   {
+    "pmid": "41296641",
+    "year": "2026",
+    "title": "Evaluating the Quality and Reliability of Large Language Models for Plastic Surgery Patient Education: A Comparative Analysis of ChatGPT and OpenEvidence.",
+    "journal": "Aesthet Surg J"
+   },
+   {
+    "pmid": "26528420",
+    "year": "2015",
+    "title": "Quotation accuracy in medical journal articles-a systematic review and meta-analysis.",
+    "journal": "PeerJ"
+   },
+   {
+    "pmid": "15376293",
+    "year": "2004",
+    "title": "Citation and quotation accuracy in three anatomy journals.",
+    "journal": "Clin Anat"
+   },
+   {
+    "pmid": "35915571",
+    "year": "2023",
+    "title": "Analysis of the Evidence Underpinning the American Academy of Orthopedic Surgeons Knee Osteoarthritis Clinical Practice Guidelines.",
+    "journal": "Sports Health"
+   },
+   {
+    "pmid": "42768814",
+    "year": "2026",
+    "title": "When meta-analyses mislead: Promises and pitfalls in teratology counselling.",
+    "journal": "Br J Clin Pharmacol"
+   }
+  ]
+ },
+ {
+  "design": "dropped-open-data-corrections",
+  "date": "2026-09-22",
+  "corpus_regex": "(data sharing|open data|data availability).{0,80}(correction|erratum|errata|retraction)",
+  "corpus_hits": 0,
+  "corpus_sample": [],
+  "pubmed_query": "(\"data sharing\"[tiab] OR \"open data\"[tiab] OR \"data availability\"[tiab]) AND (correction*[tiab] OR erratum[tiab] OR errata[tiab]) AND (articles[tiab] OR publications[tiab])",
+  "pubmed_total": 15,
+  "pubmed_top": [
+   {
+    "pmid": "35232526",
+    "year": "2022",
+    "title": "Reproducible Spectrum and Hyperspectrum Data Analysis Using NeXL.",
+    "journal": "Microsc Microanal"
+   },
+   {
+    "pmid": "36109655",
+    "year": "2022",
+    "title": "No evidence that mandatory open data policies increase error correction.",
+    "journal": "Nat Ecol Evol"
+   },
+   {
+    "pmid": "42676606",
+    "year": "2026",
+    "title": "A dataset of publications and patents on quantum error correction (1995-2025).",
+    "journal": "Data Brief"
+   },
+   {
+    "pmid": "41027703",
+    "year": "2025",
+    "title": "MINMON-J: a hybrid implementation pilot study evaluating a low-barrier hepatitis C treatment model in a jail setting.",
+    "journal": "BMJ Open"
+   },
+   {
+    "pmid": "32558931",
+    "year": "2020",
+    "title": "Tracing open data in emergencies: The case of the COVID-19 pandemic.",
+    "journal": "Eur J Clin Invest"
+   },
+   {
+    "pmid": "33293578",
+    "year": "2020",
+    "title": "Expanded dataset of mechanical properties and observed phases of multi-principal element alloys.",
+    "journal": "Sci Data"
+   },
+   {
+    "pmid": "30789346",
+    "year": "2019",
+    "title": "Digital Trespass: Ethical and Terms-of-Use Violations by Researchers Accessing Data From an Online Patient Community.",
+    "journal": "J Med Internet Res"
+   },
+   {
+    "pmid": "27881524",
+    "year": "2016",
+    "title": "Why articles are retracted: a retrospective cross-sectional study of retraction notices at BioMed Central.",
+    "journal": "BMJ Open"
+   },
+   {
+    "pmid": "34648981",
+    "year": "2022",
+    "title": "Artificial Intelligence Applications in Pediatric Brain Tumor Imaging: A Systematic Review.",
+    "journal": "World Neurosurg"
+   },
+   {
+    "pmid": "41613939",
+    "year": "2026",
+    "title": "Mapping International Collaboration and Research Trends in Artificial Intelligence Applications for Liver and Kidney Transplantation.",
+    "journal": "J Transplant"
+   }
+  ]
+ },
+ {
+  "design": "P14",
+  "date": "2026-09-22",
+  "corpus_regex": "(NIH|National Institutes of Health).{0,60}(data management and sharing|DMS policy|data sharing policy)",
+  "corpus_hits": 10,
+  "corpus_sample": [
+   {
+    "pmid": "41856594",
+    "year": "2026",
+    "title": "Real-world effectiveness of perinatal RSV immunoprophylaxis: protocol for a test-negative case-control study."
+   },
+   {
+    "pmid": "39353677",
+    "year": "2024",
+    "title": "Descemet Endothelial Thickness Comparison Trial II (DETECT II): multicentre, outcome assessor-masked, placebo-controlled trial comparing Descemet membrane endothelial keratoplasty (DMEK) to Descemet stripping only (DSO) with adjunctive ripasudil for Fuchs dystrophy."
+   },
+   {
+    "pmid": "39192339",
+    "year": "2024",
+    "title": "A double-masked, sham-controlled trial of rose bengal photodynamic therapy for the treatment of fungal and acanthamoeba keratitis: Rose Bengal Electromagnetic Activation with Green Light for Infection Reduction (REAGIR) study."
+   },
+   {
+    "pmid": "39044498",
+    "year": "2024",
+    "title": "Maximizing the Utility of Alzheimer's Disease Trial Data: Sharing of Baseline A4 and LEARN Data."
+   },
+   {
+    "pmid": "39011096",
+    "year": "2024",
+    "title": "A double-masked, sham-controlled trial of rose bengal photodynamic therapy for the treatment of fungal and acanthameoba keratitis: Rose Bengal Electromagnetic Activation with Green Light for Infection Reduction (REAGIR) Study."
+   },
+   {
+    "pmid": "38286566",
+    "year": "2024",
+    "title": "Descemet Endothelial Thickness Comparison Trial 1 (DETECT 1): outcome masked, placebo-controlled trial comparing two types of corneal transplant surgeries and effect of rho kinase inhibitors on endothelial cell loss protocol."
+   },
+   {
+    "pmid": "40800001",
+    "year": "2023",
+    "title": "Establishing an early indicator for data sharing and reuse."
+   },
+   {
+    "pmid": "37062144",
+    "year": "2023",
+    "title": "Data sharing in the context of community-engaged research partnerships."
+   },
+   {
+    "pmid": "34901464",
+    "year": "2021",
+    "title": "Double-masked, sham and placebo-controlled trial of corneal cross-linking and topical difluprednate in the treatment of bacterial keratitis: Steroids and Cross-linking for Ulcer Treatment Trial (SCUT II) study protocol."
+   },
+   {
+    "pmid": "25162809",
+    "year": "2014",
+    "title": "Data use under the NIH GWAS data sharing policy and future directions."
+   }
+  ],
+  "pubmed_query": "(\"data management and sharing policy\"[tiab] OR \"DMS policy\"[tiab] OR (\"NIH\"[tiab] AND \"data sharing policy\"[tiab]))",
+  "pubmed_total": 42,
+  "pubmed_top": [
+   {
+    "pmid": "36862609",
+    "year": "2023",
+    "title": "Open Data and the 2023 NIH Data Management and Sharing Policy.",
+    "journal": "Med Ref Serv Q"
+   },
+   {
+    "pmid": "38753788",
+    "year": "2024",
+    "title": "Building on NIH's data sharing policy.",
+    "journal": "Science"
+   },
+   {
+    "pmid": "35921268",
+    "year": "2022",
+    "title": "Ten simple rules for maximizing the recommendations of the NIH data management and sharing plan.",
+    "journal": "PLoS Comput Biol"
+   },
+   {
+    "pmid": "41445711",
+    "year": "2025",
+    "title": "Structured Data Management and Sharing Plan (DMSP) templates outperformed non-structured ones in an institutional implementation of the NIH Data Management and Sharing (DMS) policy.",
+    "journal": "J Clin Transl Sci"
+   },
+   {
+    "pmid": "25162809",
+    "year": "2014",
+    "title": "Data use under the NIH GWAS data sharing policy and future directions.",
+    "journal": "Nat Genet"
+   },
+   {
+    "pmid": "25477121",
+    "year": "2014",
+    "title": "NIH broadens genomic data-sharing policy.",
+    "journal": "Cancer Discov"
+   },
+   {
+    "pmid": "39353677",
+    "year": "2024",
+    "title": "Descemet Endothelial Thickness Comparison Trial II (DETECT II): multicentre, outcome assessor-masked, placebo-controlled trial comparing Descemet membrane endothelial keratoplasty (DMEK) to Descemet stripping only (DSO) with adjunctive ripasudil for Fuchs dystrophy.",
+    "journal": "BMJ Open Ophthalmol"
+   },
+   {
+    "pmid": "40176961",
+    "year": "2025",
+    "title": "The quest to share data.",
+    "journal": "Front Neuroinform"
+   },
+   {
+    "pmid": "39119154",
+    "year": "2024",
+    "title": "The DMPTool NIH DMSP Templates Project.",
+    "journal": "J Med Libr Assoc"
+   },
+   {
+    "pmid": "39119172",
+    "year": "2024",
+    "title": "Generalized overview infographic: a customizable library instructional material on the NIH Data Management and Sharing Policy.",
+    "journal": "J Med Libr Assoc"
+   }
+  ]
+ },
+ {
+  "design": "P15",
+  "date": "2026-09-22",
+  "corpus_regex": "(transparent peer review|open peer review|published peer review|peer review reports? (were|are) published)",
+  "corpus_hits": 10,
+  "corpus_sample": [
+   {
+    "pmid": "41432059",
+    "year": "2025",
+    "title": "Are peer reviewers influenced by their work being cited?"
+   },
+   {
+    "pmid": "37922198",
+    "year": "2023",
+    "title": "ChatGPT identifies gender disparities in scientific peer review."
+   },
+   {
+    "pmid": "35047703",
+    "year": "2021",
+    "title": "Misinformation: an empirical study with scientists and communicators during the COVID-19 pandemic."
+   },
+   {
+    "pmid": "33211009",
+    "year": "2020",
+    "title": "Journal policies and editors' opinions on peer review."
+   },
+   {
+    "pmid": "29556422",
+    "year": "2018",
+    "title": "Research Integrity and Peer Review-past highlights and future directions."
+   },
+   {
+    "pmid": "39580391",
+    "year": "2024",
+    "title": "Do randomised clinical trials on dental caries adopt Open Science practices?"
+   },
+   {
+    "pmid": "37440550",
+    "year": "2023",
+    "title": "Habits and perceptions regarding open science by researchers from Spanish institutions."
+   },
+   {
+    "pmid": "34712910",
+    "year": "2021",
+    "title": "Converting Access Microbiology to an open research platform: community survey results."
+   },
+   {
+    "pmid": "40602628",
+    "year": "2025",
+    "title": "Peer review reports of randomized controlled trials in oncology can be short and superficial."
+   },
+   {
+    "pmid": "22486064",
+    "year": "2012",
+    "title": "[Publication bias--the Achilles' heel of medical research]."
+   }
+  ],
+  "pubmed_query": "(\"transparent peer review\"[tiab] OR \"open peer review\"[tiab] OR \"published peer review reports\"[tiab]) AND (correction*[tiab] OR retraction*[tiab] OR \"data sharing\"[tiab] OR citation*[tiab] OR quality[tiab])",
+  "pubmed_total": 74,
+  "pubmed_top": [
+   {
+    "pmid": "37201508",
+    "year": "2023",
+    "title": "Reproducibility metrics for context-specific CRISPR screens.",
+    "journal": "Cell Syst"
+   },
+   {
+    "pmid": "36261430",
+    "year": "2022",
+    "title": "Transparent peer review\u00a0for all.",
+    "journal": "Nat Commun"
+   },
+   {
+    "pmid": "33211009",
+    "year": "2020",
+    "title": "Journal policies and editors' opinions on peer review.",
+    "journal": "Elife"
+   },
+   {
+    "pmid": "41380680",
+    "year": "2025",
+    "title": "A reconstruction of the mammalian secretory pathway identifies mechanisms regulating antibody production.",
+    "journal": "Cell Syst"
+   },
+   {
+    "pmid": "30797567",
+    "year": "2019",
+    "title": "Peer Review Bias: A Critical Review.",
+    "journal": "Mayo Clin Proc"
+   },
+   {
+    "pmid": "35047703",
+    "year": "2021",
+    "title": "Misinformation: an empirical study with scientists and communicators during the COVID-19 pandemic.",
+    "journal": "BMJ Open Sci"
+   },
+   {
+    "pmid": "37922198",
+    "year": "2023",
+    "title": "ChatGPT identifies gender disparities in scientific peer review.",
+    "journal": "Elife"
+   },
+   {
+    "pmid": "33085678",
+    "year": "2020",
+    "title": "Peer review and preprint policies are unclear at most major journals.",
+    "journal": "PLoS One"
+   },
+   {
+    "pmid": "29556422",
+    "year": "2018",
+    "title": "Research Integrity and Peer Review-past highlights and future directions.",
+    "journal": "Res Integr Peer Rev"
+   },
+   {
+    "pmid": "35085252",
+    "year": "2022",
+    "title": "Peer review analyze: A novel benchmark resource for computational analysis of peer reviews.",
+    "journal": "PLoS One"
+   }
+  ]
+ },
+ {
+  "design": "dropped-sharing-numeric-consistency",
+  "date": "2026-09-22",
+  "corpus_regex": "(statcheck|GRIM|inconsisten.{0,20}p.values?|reporting errors?).{0,80}(code|data) (sharing|availab)",
+  "corpus_hits": 1,
+  "corpus_sample": [
+   {
+    "pmid": "30225032",
+    "year": "2018",
+    "title": "Data availability, reusability, and analytic reproducibility: evaluating the impact of a mandatory open data policy at the journal Cognition."
+   }
+  ],
+  "pubmed_query": "(statcheck[tiab] OR \"GRIM test\"[tiab] OR \"statistical reporting errors\"[tiab] OR \"inconsistent p-values\"[tiab] OR \"p-value inconsistencies\"[tiab])",
+  "pubmed_total": 19,
+  "pubmed_top": [
+   {
+    "pmid": "29649220",
+    "year": "2018",
+    "title": "Statistical reporting inconsistencies in experimental philosophy.",
+    "journal": "PLoS One"
+   },
+   {
+    "pmid": "31903199",
+    "year": "2019",
+    "title": "Research practices and statistical reporting quality in 250 economic psychology master's theses: a meta-research investigation.",
+    "journal": "R Soc Open Sci"
+   },
+   {
+    "pmid": "32275351",
+    "year": "2020",
+    "title": "\"statcheck\": Automatically detect statistical reporting inconsistencies to increase reproducibility of meta-analyses.",
+    "journal": "Res Synth Methods"
+   },
+   {
+    "pmid": "26497820",
+    "year": "2016",
+    "title": "The prevalence of statistical reporting errors in psychology (1985-2013).",
+    "journal": "Behav Res Methods"
+   },
+   {
+    "pmid": "39081190",
+    "year": "2024",
+    "title": "The GRIM Test could be useful in detecting fabricated data.",
+    "journal": "Minerva Anestesiol"
+   },
+   {
+    "pmid": "37498056",
+    "year": "2025",
+    "title": "Research anomalies in criminology: How serious? How extensive over time? And who was responsible?",
+    "journal": "Account Res"
+   },
+   {
+    "pmid": "34593888",
+    "year": "2021",
+    "title": "Evaluation of JATSdecoder as an automated text extraction tool for statistical results in scientific reports.",
+    "journal": "Sci Rep"
+   },
+   {
+    "pmid": "32087312",
+    "year": "2020",
+    "title": "Does attention bias modification induce structural brain changes? A commentary on Abend et al. (2019).",
+    "journal": "Biol Psychol"
+   },
+   {
+    "pmid": "37053137",
+    "year": "2023",
+    "title": "Data sharing upon request and statistical consistency errors in psychology: A replication of Wicherts, Bakker and Molenaar (2011).",
+    "journal": "PLoS One"
+   },
+   {
+    "pmid": "40792081",
+    "year": "2025",
+    "title": "Transparency, quality, and statistical consistency of meta-analytic systematic reviews in clinical child and adolescent psychology (2022-2024): study protocol for a meta-review.",
+    "journal": "Front Psychol"
+   }
+  ]
+ },
+ {
+  "design": "P17",
+  "date": "2026-09-22",
+  "corpus_regex": "(peer review (time|duration|speed)|time to acceptance|acceptance (time|interval)|submission.to.acceptance).{0,80}(retract|misconduct|paper mill)",
+  "corpus_hits": 0,
+  "corpus_sample": [],
+  "pubmed_query": "(\"time to acceptance\"[tiab] OR \"submission to acceptance\"[tiab] OR \"peer review duration\"[tiab] OR \"review time\"[tiab] OR \"acceptance time\"[tiab]) AND (retract*[tiab] OR \"paper mill*\"[tiab] OR misconduct[tiab])",
+  "pubmed_total": 7,
+  "pubmed_top": [
+   {
+    "pmid": "35710654",
+    "year": "2022",
+    "title": "Temporal Associations Between EHR-Derived Workload, Burnout, and Errors: a Prospective Cohort Study.",
+    "journal": "J Gen Intern Med"
+   },
+   {
+    "pmid": "35125557",
+    "year": "2022",
+    "title": "Publishing of COVID-19 preprints in peer-reviewed journals, preprinting trends, public discussion and quality issues.",
+    "journal": "Scientometrics"
+   },
+   {
+    "pmid": "35432503",
+    "year": "2022",
+    "title": "Scientific publication speed and retractions of COVID-19 pandemic original articles.",
+    "journal": "Rev Panam Salud Publica"
+   },
+   {
+    "pmid": "37692206",
+    "year": "2023",
+    "title": "Analysis of Retracted Manuscripts in Chemistry: Errors vs Misconduct.",
+    "journal": "ACS Omega"
+   },
+   {
+    "pmid": "9357625",
+    "year": "1997",
+    "title": "Advanced alerting features: displaying new relevant data and retracting alerts.",
+    "journal": "Proc AMIA Annu Fall Symp"
+   },
+   {
+    "pmid": "41206416",
+    "year": "2025",
+    "title": "Comprehensive bibliometric analysis of characteristics, patterns, and causes of retractions in pediatric literature.",
+    "journal": "Eur J Pediatr"
+   },
+   {
+    "pmid": "41641004",
+    "year": "2025",
+    "title": "Artificial intelligence in the retraction spotlight: trends, causes and consequences of withdrawn AI literature through a systematic bibliometric review.",
+    "journal": "Front Res Metr Anal"
+   }
+  ]
+ },
+ {
+  "design": "P18",
+  "date": "2026-09-22",
+  "corpus_regex": "ORCID.{0,80}(retract|misconduct|integrity|paper mill)",
+  "corpus_hits": 0,
+  "corpus_sample": [],
+  "pubmed_query": "ORCID[tiab] AND (retract*[tiab] OR \"paper mill*\"[tiab] OR misconduct[tiab] OR \"research integrity\"[tiab])",
+  "pubmed_total": 7,
+  "pubmed_top": [
+   {
+    "pmid": "37103531",
+    "year": "2023",
+    "title": "How are authors' contributions verified in the ICMJE model?",
+    "journal": "Plant Cell Rep"
+   },
+   {
+    "pmid": "32968546",
+    "year": "2020",
+    "title": "MyCites: a proposal to mark and report inaccurate citations in scholarly publications.",
+    "journal": "Res Integr Peer Rev"
+   },
+   {
+    "pmid": "38704656",
+    "year": "2025",
+    "title": "Rethinking the author name ambiguity problem and beyond: The case of the Chinese context.",
+    "journal": "Account Res"
+   },
+   {
+    "pmid": "37767226",
+    "year": "2022",
+    "title": "The Embassy of Good Science - a community driven initiative to promote ethics and integrity in research.",
+    "journal": "Open Res Eur"
+   },
+   {
+    "pmid": "26236470",
+    "year": "2015",
+    "title": "Problematizing Digital Research Evaluation using DOIs\u00a0in Practice-Based Arts, Humanities and Social Science Research.",
+    "journal": "F1000Res"
+   },
+   {
+    "pmid": "38815635",
+    "year": "2024",
+    "title": "Promoting responsible scientific research: integrating retractions into the ORCID profile.",
+    "journal": "J Clin Epidemiol"
+   },
+   {
+    "pmid": "36238903",
+    "year": "2022",
+    "title": "[Authorship and Inappropriate Authorship from an Ethical Publication Perspective].",
+    "journal": "J Korean Soc Radiol"
+   }
+  ]
+ },
+ {
+  "design": "P19",
+  "date": "2026-09-22",
+  "corpus_regex": "(decline effect|diminish.{0,30}over time|attenuat.{0,40}(later|subsequent|over time)).{0,80}(meta-epidemiolog|bias|blinding|allocation concealment)",
+  "corpus_hits": 2,
+  "corpus_sample": [
+   {
+    "pmid": "37013585",
+    "year": "2023",
+    "title": "Publication bias impacts on effect size, statistical power, and magnitude (Type M) and sign (Type S) errors in ecology and evolutionary biology."
+   },
+   {
+    "pmid": "33023250",
+    "year": "2020",
+    "title": "Effect Sizes, Power, and Biases in Intelligence Research: A Meta-Meta-Analysis."
+   }
+  ],
+  "pubmed_query": "(\"meta-epidemiological\"[tiab] OR \"meta-epidemiology\"[tiab]) AND (\"decline effect\"[tiab] OR \"time trend*\"[tiab] OR \"over time\"[tiab]) AND (blinding[tiab] OR \"allocation concealment\"[tiab] OR \"ratio of odds ratios\"[tiab])",
+  "pubmed_total": 4,
+  "pubmed_top": [
+   {
+    "pmid": "41338635",
+    "year": "2025",
+    "title": "Patient and Public Involvement in randomised controlled trials in general and abdominal SURGery: a protocol for the PPISurg systematic review.",
+    "journal": "BMJ Open"
+   },
+   {
+    "pmid": "31150836",
+    "year": "2019",
+    "title": "Overall bias and sample sizes were unchanged in ICU trials over time: a\u00a0meta-epidemiological study.",
+    "journal": "J Clin Epidemiol"
+   },
+   {
+    "pmid": "35341627",
+    "year": "2022",
+    "title": "Bias in Hand Surgical Randomized Controlled Trials: Systematic Review and Meta-Epidemiological Study.",
+    "journal": "J Hand Surg Am"
+   },
+   {
+    "pmid": "42575673",
+    "year": "2026",
+    "title": "Blinding and quality of life endpoints in randomised trials of stable angina: a meta-epidemiological study.",
+    "journal": "Open Heart"
+   }
+  ]
+ },
+ {
+  "design": "P20",
+  "date": "2026-09-22",
+  "corpus_regex": "(hallucinat|fabricat|fake|nonexistent|non-existent).{0,40}(reference|citation)",
+  "corpus_hits": 2,
+  "corpus_sample": [
+   {
+    "pmid": "41847286",
+    "year": "2026",
+    "title": "MEDAI-LLM-SUMM: a reporting checklist for medical text summarization studies using large language models."
+   },
+   {
+    "pmid": "40437377",
+    "year": "2025",
+    "title": "Valsci: an open-source, self-hostable literature review utility for automated large-batch scientific claim verification using large language models."
+   }
+  ],
+  "pubmed_query": "(\"hallucinated\"[tiab] OR \"fabricated\"[tiab] OR \"nonexistent\"[tiab] OR \"non-existent\"[tiab] OR fake[tiab]) AND (reference*[tiab] OR citation*[tiab]) AND (\"large language model*\"[tiab] OR ChatGPT[tiab] OR \"generative AI\"[tiab])",
+  "pubmed_total": 176,
+  "pubmed_top": [
+   {
+    "pmid": "40251634",
+    "year": "2025",
+    "title": "Artificial intelligence-assisted academic writing: recommendations for ethical use.",
+    "journal": "Adv Simul (Lond)"
+   },
+   {
+    "pmid": "38776130",
+    "year": "2024",
+    "title": "Hallucination Rates and Reference Accuracy of ChatGPT and Bard for Systematic Reviews: Comparative Analysis.",
+    "journal": "J Med Internet Res"
+   },
+   {
+    "pmid": "38733640",
+    "year": "2024",
+    "title": "Generative artificial intelligence in healthcare: A scoping review on benefits, challenges and applications.",
+    "journal": "Int J Med Inform"
+   },
+   {
+    "pmid": "39188430",
+    "year": "2024",
+    "title": "ChatGPT-3.5 Versus Google Bard: Which Large Language Model Responds Best to Commonly Asked Pregnancy Questions?",
+    "journal": "Cureus"
+   },
+   {
+    "pmid": "40206627",
+    "year": "2023",
+    "title": "Learning to Fake It: Limited Responses and Fabricated References Provided by ChatGPT for Medical Questions.",
+    "journal": "Mayo Clin Proc Digit Health"
+   },
+   {
+    "pmid": "37337480",
+    "year": "2023",
+    "title": "High Rates of Fabricated and Inaccurate References in ChatGPT-Generated Medical Content.",
+    "journal": "Cureus"
+   },
+   {
+    "pmid": "37679532",
+    "year": "2023",
+    "title": "Assessing the accuracy of ChatGPT references in head and neck and ENT disciplines.",
+    "journal": "Eur Arch Otorhinolaryngol"
+   },
+   {
+    "pmid": "41725833",
+    "year": "2026",
+    "title": "Evolving Consultation: Enhancing Ophthalmic Diagnostic Performance Using Large Language Model.",
+    "journal": "Ophthalmol Sci"
+   },
+   {
+    "pmid": "37595113",
+    "year": "2024",
+    "title": "Accuracy of ChatGPT-Generated Information on Head and Neck and Oromaxillofacial Surgery: A Multicenter Collaborative Analysis.",
+    "journal": "Otolaryngol Head Neck Surg"
+   },
+   {
+    "pmid": "39397290",
+    "year": "2024",
+    "title": "AI-generated vs. student-crafted assignments and implications for evaluating student work in nursing: an exploratory reflection.",
+    "journal": "Int J Nurs Educ Scholarsh"
+   }
+  ]
+ },
+ {
+  "design": "P21",
+  "date": "2026-09-22",
+  "corpus_regex": "(disclos|declar).{0,40}(generative AI|ChatGPT|large language model|AI.assisted|use of AI)",
+  "corpus_hits": 1,
+  "corpus_sample": [
+   {
+    "pmid": "42624337",
+    "year": "2026",
+    "title": "Paper mill or paper mine? A tentative answer to the sharp increase in research papers based on the Global Burden of Disease database."
+   }
+  ],
+  "pubmed_query": "(disclos*[tiab] OR declaration*[tiab] OR undisclosed[tiab]) AND (\"generative AI\"[tiab] OR ChatGPT[tiab] OR \"large language model*\"[tiab]) AND (manuscript*[tiab] OR articles[tiab] OR \"scientific writing\"[tiab] OR publications[tiab])",
+  "pubmed_total": 90,
+  "pubmed_top": [
+   {
+    "pmid": "37541729",
+    "year": "2023",
+    "title": "Disclosure of Artificial Intelligence/ChatGPT-Generated Manuscripts.",
+    "journal": "J Obstet Gynaecol Can"
+   },
+   {
+    "pmid": "37307057",
+    "year": "2024",
+    "title": "Let's be fair. What about an AI editor?",
+    "journal": "Account Res"
+   },
+   {
+    "pmid": "40964145",
+    "year": "2025",
+    "title": "AI for scientific integrity: detecting ethical breaches, errors, and misconduct in manuscripts.",
+    "journal": "Front Artif Intell"
+   },
+   {
+    "pmid": "41248365",
+    "year": "2025",
+    "title": "Enhancing healthcare providers' advance care planning competence with large language models: protocol for the development of an AI chatbot and its evaluation in a randomised controlled trial.",
+    "journal": "BMJ Open"
+   },
+   {
+    "pmid": "40993649",
+    "year": "2025",
+    "title": "A large language model-based tool for identifying relationships to industry in research on the carcinogenicity of benzene, cobalt, and aspartame.",
+    "journal": "Environ Health"
+   },
+   {
+    "pmid": "41748337",
+    "year": "2026",
+    "title": "Responsible use of large language models in manuscript authorship, peer review, and editorial processes: a Delphi consensus among editors-in-chief of anaesthesia and pain medicine journals (RULE-AP).",
+    "journal": "Br J Anaesth"
+   },
+   {
+    "pmid": "41732775",
+    "year": "2026",
+    "title": "Exploration of Morphological Characteristics in Diabetic Macular Ischemia Utilizing a Large Language Model-Assisted Knowledge Graph.",
+    "journal": "Ophthalmol Sci"
+   },
+   {
+    "pmid": "41091144",
+    "year": "2025",
+    "title": "Generative AI: Opportunities, Risks, and Responsibilities for Oral Sciences.",
+    "journal": "J Dent Res"
+   },
+   {
+    "pmid": "41216259",
+    "year": "2025",
+    "title": "Artificial intelligence for manuscript writing: policies and implementation in cardiovascular journals.",
+    "journal": "Cardiovasc Diagn Ther"
+   },
+   {
+    "pmid": "39095324",
+    "year": "2024",
+    "title": "Addressing emerging issues in entomology: 2023 student debates.",
+    "journal": "J Insect Sci"
+   }
+  ]
+ },
+ {
+  "design": "P30",
+  "date": "2026-09-22",
+  "corpus_regex": "(anticipated|target|planned|estimated) (enrollment|sample size).{0,80}(change|revis|reduc|modif)",
+  "corpus_hits": 0,
+  "corpus_sample": [],
+  "pubmed_query": "(\"sample size\"[tiab] OR enrollment[tiab] OR enrolment[tiab]) AND (\"ClinicalTrials.gov\"[tiab] OR registry[tiab]) AND (\"history of changes\"[tiab] OR \"archived versions\"[tiab] OR \"registry changes\"[tiab] OR \"changes to registration\"[tiab] OR \"registration changes\"[tiab])",
+  "pubmed_total": 1,
+  "pubmed_top": [
+   {
+    "pmid": "21957485",
+    "year": "2011",
+    "title": "Completeness and changes in registered data and reporting bias of randomized controlled trials in ICMJE journals after trial registration policy.",
+    "journal": "PLoS One"
+   }
+  ]
+ },
+ {
+  "design": "dropped-registration-effect-size",
+  "date": "2026-09-22",
+  "corpus_regex": "(retrospective(ly)? regist|prospective(ly)? regist).{0,100}(effect size|treatment effect|odds ratio|exaggerat)",
+  "corpus_hits": 6,
+  "corpus_sample": [
+   {
+    "pmid": "41921890",
+    "year": "2026",
+    "title": "Association between trial registration and reporting large treatment effects in randomized controlled trials of infertility interventions: a meta-epidemiological study."
+   },
+   {
+    "pmid": "40334717",
+    "year": "2025",
+    "title": "Prospective registration was associated with a reduced risk of bias for randomized controlled trials: a meta-research study."
+   },
+   {
+    "pmid": "27377062",
+    "year": "2016",
+    "title": "Association between trial registration and treatment effect estimates: a meta-epidemiological study."
+   },
+   {
+    "pmid": "36245581",
+    "year": "2022",
+    "title": "Quality assessment and its influencing factors of lung cancer clinical research registration: a cross-sectional analysis."
+   },
+   {
+    "pmid": "36874515",
+    "year": "2023",
+    "title": "Publication of studies registered in Clinical Trials Registry of India: An audit of mood disorder research protocols from 2009-2019."
+   },
+   {
+    "pmid": "33777732",
+    "year": "2021",
+    "title": "Association Between NAT2 Polymorphism and Lung Cancer Risk: A Systematic Review and Meta-Analysis."
+   }
+  ],
+  "pubmed_query": "(\"retrospective registration\"[tiab] OR \"retrospectively registered\"[tiab] OR \"prospectively registered\"[tiab]) AND (\"effect size*\"[tiab] OR \"treatment effect*\"[tiab] OR exaggerat*[tiab] OR \"ratio of odds ratios\"[tiab])",
+  "pubmed_total": 586,
+  "pubmed_top": [
+   {
+    "pmid": "38805446",
+    "year": "2024",
+    "title": "Effects of pain education on disability, pain, quality of life, and self-efficacy in chronic low back pain: A randomized controlled trial.",
+    "journal": "PLoS One"
+   },
+   {
+    "pmid": "39482645",
+    "year": "2024",
+    "title": "The efficacy of combined physiotherapeutic scoliosis-specific exercises and manual therapy in adolescent idiopathic scoliosis.",
+    "journal": "BMC Musculoskelet Disord"
+   },
+   {
+    "pmid": "34831779",
+    "year": "2021",
+    "title": "Anxiety, Depression and Quality of Life-A Systematic Review of Evidence from Longitudinal Observational Studies.",
+    "journal": "Int J Environ Res Public Health"
+   },
+   {
+    "pmid": "41452424",
+    "year": "2025",
+    "title": "Association between COVID-19 and New-Onset Autoimmune Diseases: Updated Systematic Review and Meta-Analysis of 97\u00a0Million Individuals.",
+    "journal": "Clin Rev Allergy Immunol"
+   },
+   {
+    "pmid": "40049187",
+    "year": "2025",
+    "title": "Atosiban versus placebo for threatened preterm birth (APOSTEL 8): a multicentre, randomised controlled trial.",
+    "journal": "Lancet"
+   },
+   {
+    "pmid": "38986457",
+    "year": "2024",
+    "title": "The Effectiveness of Dialectical Behavior Therapy Compared to Schema Therapy for Borderline Personality Disorder: A Randomized Clinical Trial.",
+    "journal": "Psychother Psychosom"
+   },
+   {
+    "pmid": "33632268",
+    "year": "2021",
+    "title": "Effectiveness of pediatric integrative manual therapy in cervical movement limitation in infants with positional plagiocephaly: a randomized controlled trial.",
+    "journal": "Ital J Pediatr"
+   },
+   {
+    "pmid": "41094562",
+    "year": "2025",
+    "title": "The anti-inflammatory effects of three different dietary supplement interventions.",
+    "journal": "J Transl Med"
+   },
+   {
+    "pmid": "35751032",
+    "year": "2022",
+    "title": "Feasibility and acceptability of a remotely delivered, home-based, pragmatic resistance 'exercise snacking' intervention in community-dwelling older adults: a pilot randomised controlled trial.",
+    "journal": "BMC Geriatr"
+   },
+   {
+    "pmid": "30777064",
+    "year": "2019",
+    "title": "The effect of manual therapy and stabilizing exercises on forward head and rounded shoulder postures: a six-week intervention with a one-month follow-up study.",
+    "journal": "BMC Musculoskelet Disord"
+   }
+  ]
+ },
+ {
+  "design": "P24",
+  "date": "2026-09-22",
+  "corpus_regex": "preprint.{0,100}(null|negative|non.significant|positive) (result|finding)",
+  "corpus_hits": 1,
+  "corpus_sample": [
+   {
+    "pmid": "32141042",
+    "year": "2020",
+    "title": "Preprints: a Timely Counterbalance for Big Data-Driven Research."
+   }
+  ],
+  "pubmed_query": "preprint*[tiab] AND (\"null results\"[tiab] OR \"negative results\"[tiab] OR \"non-significant\"[tiab] OR \"positive results\"[tiab]) AND (publication[tiab] OR published[tiab])",
+  "pubmed_total": 16,
+  "pubmed_top": [
+   {
+    "pmid": "34874009",
+    "year": "2021",
+    "title": "Experiments from unfinished Registered Reports in the Reproducibility Project: Cancer Biology.",
+    "journal": "Elife"
+   },
+   {
+    "pmid": "39537906",
+    "year": "2024",
+    "title": "Does adjunctive phototherapy have better outcomes than adjunctive antibiotic therapy for the management of peri-implantitis?",
+    "journal": "Evid Based Dent"
+   },
+   {
+    "pmid": "40349410",
+    "year": "2025",
+    "title": "Finger pointing: Why bias against 2D:4D ratios doesn't add up.",
+    "journal": "Horm Behav"
+   },
+   {
+    "pmid": "33956811",
+    "year": "2021",
+    "title": "Web-based survey among animal researchers on publication practices and incentives for increasing publication rates.",
+    "journal": "PLoS One"
+   },
+   {
+    "pmid": "29710325",
+    "year": "2018",
+    "title": "Delays in the Publication of Important Clinical Trial Findings in Oncology.",
+    "journal": "JAMA Oncol"
+   },
+   {
+    "pmid": "33111948",
+    "year": "2020",
+    "title": "fiddle: a tool to combat publication bias by getting research out of the file drawer and into the scientific community.",
+    "journal": "Clin Sci (Lond)"
+   },
+   {
+    "pmid": "36688188",
+    "year": "2023",
+    "title": "Association of Single Nucleotide Polymorphisms in the PYGO2 and PRDM9 Genes with Idiopathic Azoospermia in Iranian Infertile Male Patients.",
+    "journal": "Iran J Med Sci"
+   },
+   {
+    "pmid": "32768466",
+    "year": "2020",
+    "title": "Multisystem Inflammatory Syndrome in Children Associated with Severe Acute Respiratory Syndrome Coronavirus 2: A\u00a0Systematic Review.",
+    "journal": "J Pediatr"
+   },
+   {
+    "pmid": "32468425",
+    "year": "2020",
+    "title": "An Updated Systematic Review of the Therapeutic Role of Hydroxychloroquine in Coronavirus Disease-19 (COVID-19).",
+    "journal": "Clin Drug Investig"
+   },
+   {
+    "pmid": "35047683",
+    "year": "2019",
+    "title": "Protocol for a systematic review and meta-analysis of data from preclinical studies employing forced swimming test: an update.",
+    "journal": "BMJ Open Sci"
+   }
+  ]
+ },
+ {
+  "design": "P25",
+  "date": "2026-09-22",
+  "corpus_regex": "(failed|unsuccessful|non.?replicat).{0,60}(cit(ed|ation))|(cit(ed|ation)).{0,60}(failed replication|non.?replicable)",
+  "corpus_hits": 1,
+  "corpus_sample": [
+   {
+    "pmid": "37428904",
+    "year": "2023",
+    "title": "Failing to replicate predicts citation declines in psychology."
+   }
+  ],
+  "pubmed_query": "(\"failed replication*\"[tiab] OR \"non-replicable\"[tiab] OR \"replication failure*\"[tiab] OR \"Reproducibility Project\"[tiab]) AND (citation*[tiab] OR cited[tiab])",
+  "pubmed_total": 27,
+  "pubmed_top": [
+   {
+    "pmid": "35713980",
+    "year": "2022",
+    "title": "Is Psychological Science Self-Correcting? Citations Before and After Successful and Failed Replications.",
+    "journal": "Perspect Psychol Sci"
+   },
+   {
+    "pmid": "36716367",
+    "year": "2023",
+    "title": "A discipline-wide investigation of the replicability of Psychology papers over the past two decades.",
+    "journal": "Proc Natl Acad Sci U S A"
+   },
+   {
+    "pmid": "32673044",
+    "year": "2020",
+    "title": "Subjective likelihood and the construal level of future events: A replication study of Wakslak, Trope, Liberman, and Alony (2006).",
+    "journal": "J Pers Soc Psychol"
+   },
+   {
+    "pmid": "26882501",
+    "year": "2016",
+    "title": "Registered report: Fusobacterium nucleatum infection is prevalent in human colorectal carcinoma.",
+    "journal": "Elife"
+   },
+   {
+    "pmid": "26905833",
+    "year": "2016",
+    "title": "Registered report: A chromatin-mediated reversible drug-tolerant state in cancer cell subpopulations.",
+    "journal": "Elife"
+   },
+   {
+    "pmid": "26231040",
+    "year": "2015",
+    "title": "Registered report: Oncometabolite 2-hydroxyglutarate is a competitive inhibitor of \u03b1-ketoglutarate-dependent dioxygenases.",
+    "journal": "Elife"
+   },
+   {
+    "pmid": "26943900",
+    "year": "2016",
+    "title": "Registered report: Coding-independent regulation of the tumor suppressor PTEN by competing endogenous mRNAs.",
+    "journal": "Elife"
+   },
+   {
+    "pmid": "26999821",
+    "year": "2016",
+    "title": "Registered Report: COT drives resistance to RAF inhibition through MAP kinase pathway reactivation.",
+    "journal": "Elife"
+   },
+   {
+    "pmid": "28575051",
+    "year": "2017",
+    "title": "Stability of infants' preference for prosocial others: Implications for research based on single-choice paradigms.",
+    "journal": "PLoS One"
+   },
+   {
+    "pmid": "26826285",
+    "year": "2016",
+    "title": "Registered report: Melanoma exosomes educate bone marrow progenitor cells toward a pro-metastatic phenotype through MET.",
+    "journal": "Elife"
+   }
+  ]
+ },
+ {
+  "design": "P26",
+  "date": "2026-09-22",
+  "corpus_regex": "(parachute|helicopter) research|(authorship|authors).{0,60}(low.and middle.income|LMIC).{0,80}(meta-research|systematic review)",
+  "corpus_hits": 0,
+  "corpus_sample": [],
+  "pubmed_query": "(\"parachute research\"[tiab] OR \"helicopter research\"[tiab] OR \"local authorship\"[tiab] OR \"local authors\"[tiab]) AND (\"low- and middle-income\"[tiab] OR LMIC*[tiab] OR \"global health\"[tiab])",
+  "pubmed_total": 20,
+  "pubmed_top": [
+   {
+    "pmid": "35696623",
+    "year": "2022",
+    "title": "Authorship Distribution and Under-Representation of Sub-Saharan African Authors in Global Oncology Publications.",
+    "journal": "JCO Glob Oncol"
+   },
+   {
+    "pmid": "34704921",
+    "year": "2021",
+    "title": "Addressing parachute research and removing barriers for LMIC researchers in Microbial Genomics.",
+    "journal": "Microb Genom"
+   },
+   {
+    "pmid": "38095575",
+    "year": "2024",
+    "title": "Geographic Representation of Authorship in Ophthalmic Research from Low- and Middle-Income Countries.",
+    "journal": "Ophthalmic Epidemiol"
+   },
+   {
+    "pmid": "38028376",
+    "year": "2023",
+    "title": "Authorship Patterns in the Orthopaedic Journals of Low-Income and Lower-Middle-Income Countries.",
+    "journal": "JB JS Open Access"
+   },
+   {
+    "pmid": "38089902",
+    "year": "2023",
+    "title": "Multidisciplinary approach to community engagement in global public health research.",
+    "journal": "Wellcome Open Res"
+   },
+   {
+    "pmid": "38461914",
+    "year": "2024",
+    "title": "Radiologists' Role in Decolonizing Global Health.",
+    "journal": "J Am Coll Radiol"
+   },
+   {
+    "pmid": "30103996",
+    "year": "2018",
+    "title": "Parasitic and parachute research in global health.",
+    "journal": "Lancet Glob Health"
+   },
+   {
+    "pmid": "30012264",
+    "year": "2018",
+    "title": "Parasitic and parachute research in global health.",
+    "journal": "Lancet Glob Health"
+   },
+   {
+    "pmid": "34742513",
+    "year": "2021",
+    "title": "Nursing research and responsible partnership in the global setting.",
+    "journal": "J Prof Nurs"
+   },
+   {
+    "pmid": "30012263",
+    "year": "2018",
+    "title": "Parasitic and parachute research in global health.",
+    "journal": "Lancet Glob Health"
+   }
+  ]
+ },
+ {
+  "design": "P27",
+  "date": "2026-09-22",
+  "corpus_regex": "(data availability statement|data sharing statement).{0,120}(privacy|confidential|ethic|restrict)",
+  "corpus_hits": 3,
+  "corpus_sample": [
+   {
+    "pmid": "42656875",
+    "year": "2026",
+    "title": "Changes in ethics and transparency reporting in dental journal articles between 2021 and 2025: a full-text cross-journal analysis."
+   },
+   {
+    "pmid": "41527313",
+    "year": "2026",
+    "title": "ChatGPT-4.0 as a Tool for Automated Review of Ethics and Transparency in Biomedical Literature."
+   },
+   {
+    "pmid": "33983972",
+    "year": "2021",
+    "title": "A descriptive analysis of the data availability statements accompanying medRxiv preprints and a comparison with their published counterparts."
+   }
+  ],
+  "pubmed_query": "(\"data availability statement*\"[tiab] OR \"data sharing statement*\"[tiab]) AND (privacy[tiab] OR confidentiality[tiab] OR restrict*[tiab] OR justification*[tiab])",
+  "pubmed_total": 20,
+  "pubmed_top": [
+   {
+    "pmid": "27038634",
+    "year": "2016",
+    "title": "Sharing all types of clinical data and harmonizing journal standards.",
+    "journal": "BMC Med"
+   },
+   {
+    "pmid": "30738169",
+    "year": "2019",
+    "title": "Authors of trials from high-ranking anesthesiology journals were not willing to share raw data.",
+    "journal": "J Clin Epidemiol"
+   },
+   {
+    "pmid": "32043031",
+    "year": "2020",
+    "title": "An Evaluation of Nephrology Literature for Transparency and Reproducibility Indicators: Cross-Sectional Review.",
+    "journal": "Kidney Int Rep"
+   },
+   {
+    "pmid": "36807924",
+    "year": "2023",
+    "title": "Embedding nurse-led supportive care in an outpatient service for patients with Chronic Obstructive Pulmonary Disease.",
+    "journal": "J Adv Nurs"
+   },
+   {
+    "pmid": "36339371",
+    "year": "2021",
+    "title": "Combining the Disease Risk Index and Hematopoietic Cell Transplant Co-Morbidity Index provides a comprehensive prognostic model for CD34(+)-selected allogeneic transplantation.",
+    "journal": "Adv Cell Gene Ther"
+   },
+   {
+    "pmid": "42116839",
+    "year": "2025",
+    "title": "Data-sharing practices in publications funded by the Canadian Institutes of Health Research: implications for health sciences librarians.",
+    "journal": "J Can Health Libr Assoc"
+   },
+   {
+    "pmid": "41112501",
+    "year": "2025",
+    "title": "The Safe Assessment Form to Evaluate Risks ('SAFER') chart - a clinical practice evaluation study following introduction of electronic risk identification in pregnancies in Scotland.",
+    "journal": "NIHR Open Res"
+   },
+   {
+    "pmid": "37625240",
+    "year": "2023",
+    "title": "Efficacy of PD-1 inhibitors for colorectal cancer and polyps in Lynch syndrome patients.",
+    "journal": "Eur J Cancer"
+   },
+   {
+    "pmid": "33507256",
+    "year": "2021",
+    "title": "Evaluation of Data Sharing After Implementation of the International Committee of Medical Journal Editors Data Sharing Statement Requirement.",
+    "journal": "JAMA Netw Open"
+   },
+   {
+    "pmid": "33983972",
+    "year": "2021",
+    "title": "A descriptive analysis of the data availability statements accompanying medRxiv preprints and a comparison with their published counterparts.",
+    "journal": "PLoS One"
+   }
+  ]
+ },
+ {
+  "design": "dropped-preprints-of-retracted",
+  "date": "2026-09-22",
+  "corpus_regex": "preprint.{0,80}retract|retract.{0,80}preprint",
+  "corpus_hits": 0,
+  "corpus_sample": [],
+  "pubmed_query": "preprint*[tiab] AND retract*[tiab]",
+  "pubmed_total": 37,
+  "pubmed_top": [
+   {
+    "pmid": "39532094",
+    "year": "2024",
+    "title": "RETRACTED: Transcriptome-scale RNA-targeting CRISPR screens reveal essential lncRNAs in human cells.",
+    "journal": "Cell"
+   },
+   {
+    "pmid": "35716878",
+    "year": "2022",
+    "title": "COVID-19 as a source of poor publications.",
+    "journal": "Joint Bone Spine"
+   },
+   {
+    "pmid": "31419421",
+    "year": "2020",
+    "title": "Scientific Authors in a Changing World of Scholarly Communication: What Does the Future Hold?",
+    "journal": "Am J Med"
+   },
+   {
+    "pmid": "33417084",
+    "year": "2021",
+    "title": "COVID-19: time to flatten the infodemic curve.",
+    "journal": "Clin Exp Med"
+   },
+   {
+    "pmid": "33581852",
+    "year": "2021",
+    "title": "Retracted papers on SARS-CoV-2 and COVID-19.",
+    "journal": "Br J Anaesth"
+   },
+   {
+    "pmid": "35272508",
+    "year": "2022",
+    "title": "The Pandemic Has Brought Too Much Change: Too Many Preprints; Too Many Retractions.",
+    "journal": "J Hum Lact"
+   },
+   {
+    "pmid": "33376175",
+    "year": "2020",
+    "title": "Systematic examination of preprint platforms for use in the medical and biomedical sciences setting.",
+    "journal": "BMJ Open"
+   },
+   {
+    "pmid": "35649522",
+    "year": "2022",
+    "title": "Continued Visibility of COVID-19 Article Removals.",
+    "journal": "South Med J"
+   },
+   {
+    "pmid": "15998612",
+    "year": "2005",
+    "title": "\"Is Cybermedicine Killing You?\"--The story of a Cochrane disaster.",
+    "journal": "J Med Internet Res"
+   },
+   {
+    "pmid": "35870876",
+    "year": "2022",
+    "title": "Systematic review and meta-analysis of ivermectin for treatment of COVID-19: evidence beyond the hype.",
+    "journal": "BMC Infect Dis"
+   }
+  ]
+ },
+ {
+  "design": "P29",
+  "date": "2026-09-22",
+  "corpus_regex": "(data (reuse|citation)|dataset citation|reuse of (shared|deposited) data)",
+  "corpus_hits": 42,
+  "corpus_sample": [
+   {
+    "pmid": "40976520",
+    "year": "2025",
+    "title": "Reusing clinical trial data to consolidate and advance medical knowledge."
+   },
+   {
+    "pmid": "33748432",
+    "year": "2021",
+    "title": "Principles of open, transparent and reproducible science in author guidelines of sleep research and chronobiology journals."
+   },
+   {
+    "pmid": "42550579",
+    "year": "2026",
+    "title": "Reusing Geospatial Data of Invasive Alien Insect Species From the Literature: Significance, Challenges, and Potential."
+   },
+   {
+    "pmid": "42082515",
+    "year": "2026",
+    "title": "A manually curated pig gut microbiome dataset for precision feeding."
+   },
+   {
+    "pmid": "41916768",
+    "year": "2026",
+    "title": "RETRACTION: Binding Affinity and In Vitro Cytotoxicity of Harmaline Targeting Different Motifs of Nucleic Acids: An Ultimate Drug Designing Approach."
+   },
+   {
+    "pmid": "41814967",
+    "year": "2026",
+    "title": "The Ethics of Leveraging Routinely Collected Patient Data for AI Development: Mixed Methods Study."
+   },
+   {
+    "pmid": "41813053",
+    "year": "2026",
+    "title": "How do we measure data sharing in the biomedical sciences? A measurement systematic review of biomedical data sharing-related knowledge, attitudes and practices across stakeholder groups, data types and geographies."
+   },
+   {
+    "pmid": "40926267",
+    "year": "2025",
+    "title": "The systematic assessment of completeness of public metadata accompanying omics studies in the Gene Expression Omnibus data repository."
+   },
+   {
+    "pmid": "40823805",
+    "year": "2025",
+    "title": "Tier-based standards for FAIR sequence data and metadata sharing in microbiome research."
+   },
+   {
+    "pmid": "40672350",
+    "year": "2025",
+    "title": "The systematic assessment of completeness of public metadata accompanying omics studies in the Gene Expression Omnibus."
+   }
+  ],
+  "pubmed_query": "(\"data reuse\"[tiab] OR \"dataset citation*\"[tiab] OR \"data citation*\"[tiab] OR \"reuse of shared data\"[tiab]) AND (repository[tiab] OR repositories[tiab] OR Zenodo[tiab] OR \"Open Science Framework\"[tiab] OR Dryad[tiab] OR figshare[tiab])",
+  "pubmed_total": 132,
+  "pubmed_top": [
+   {
+    "pmid": "35622339",
+    "year": "2022",
+    "title": "Data Sharing and Reuse: A Method by the AIRR Community.",
+    "journal": "Methods Mol Biol"
+   },
+   {
+    "pmid": "29664470",
+    "year": "2018",
+    "title": "Curated compendium of human transcriptional biomarker data.",
+    "journal": "Sci Data"
+   },
+   {
+    "pmid": "37065493",
+    "year": "2023",
+    "title": "Maximizing the utility of public data.",
+    "journal": "Front Genet"
+   },
+   {
+    "pmid": "30971690",
+    "year": "2019",
+    "title": "A data citation roadmap for scholarly data repositories.",
+    "journal": "Sci Data"
+   },
+   {
+    "pmid": "38635076",
+    "year": "2024",
+    "title": "State of open science in cancer research.",
+    "journal": "Clin Transl Oncol"
+   },
+   {
+    "pmid": "36246529",
+    "year": "2022",
+    "title": "How do properties of data, their curation, and their funding relate to reuse?",
+    "journal": "J Assoc Inf Sci Technol"
+   },
+   {
+    "pmid": "32160189",
+    "year": "2020",
+    "title": "Data sharing, management, use, and reuse: Practices and perceptions of scientists worldwide.",
+    "journal": "PLoS One"
+   },
+   {
+    "pmid": "36436113",
+    "year": "2022",
+    "title": "Critical assessment of chromatographic metadata in publicly available metabolomics data repositories.",
+    "journal": "Metabolomics"
+   },
+   {
+    "pmid": "37745378",
+    "year": "2023",
+    "title": "Bibliometric analysis of neuroscience publications quantifies the impact of data sharing.",
+    "journal": "bioRxiv"
+   },
+   {
+    "pmid": "27570508",
+    "year": "2016",
+    "title": "Data Citation in Neuroimaging: Proposed Best Practices for Data Identification and Attribution.",
+    "journal": "Front Neuroinform"
+   }
+  ]
+ },
+ {
+  "design": "P25",
+  "date": "2026-09-22",
+  "corpus_regex": "Reproducibility Project.{0,20}Cancer Biology",
+  "corpus_hits": 21,
+  "corpus_sample": [
+   {
+    "pmid": "38739437",
+    "year": "2024",
+    "title": "Replication of null results: Absence of evidence or evidence of absence?"
+   },
+   {
+    "pmid": "35759334",
+    "year": "2022",
+    "title": "Establishing Institutional Scores With the Rigor and Transparency Index: Large-scale Analysis of Scientific Reporting Quality."
+   },
+   {
+    "pmid": "33073769",
+    "year": "2020",
+    "title": "Replication Study: Coding-independent regulation of the tumor suppressor PTEN by competing endogenous mRNAs."
+   },
+   {
+    "pmid": "32314732",
+    "year": "2020",
+    "title": "Replication Study: A coding-independent function of gene and pseudogene mRNAs regulates tumour biology."
+   },
+   {
+    "pmid": "31845647",
+    "year": "2019",
+    "title": "Replication Study: Biomechanical remodeling of the microenvironment by stromal caveolin-1 favors tumor invasion and metastasis."
+   },
+   {
+    "pmid": "31215867",
+    "year": "2019",
+    "title": "Replication Study: Wnt activity defines colon cancer stem cells and is regulated by the microenvironment."
+   },
+   {
+    "pmid": "30860027",
+    "year": "2019",
+    "title": "Replication Study: The microRNA miR-34a inhibits prostate cancer stem cells and metastasis by directly repressing CD44."
+   },
+   {
+    "pmid": "30526855",
+    "year": "2018",
+    "title": "Replication study: Melanoma exosomes educate bone marrow progenitor cells toward a pro-metastatic phenotype through MET."
+   },
+   {
+    "pmid": "30295289",
+    "year": "2018",
+    "title": "Replication Study: Intestinal inflammation targets cancer-inducing activity of the microbiota."
+   },
+   {
+    "pmid": "29533182",
+    "year": "2018",
+    "title": "Replication Study: Fusobacterium nucleatum infection is prevalent in human colorectal carcinoma."
+   }
+  ],
+  "pubmed_query": "\"Reproducibility Project: Cancer Biology\"[tiab] AND (citation*[tiab] OR cited[tiab] OR \"citation trajector*\"[tiab])",
+  "pubmed_total": 16,
+  "pubmed_top": [
+   {
+    "pmid": "26882501",
+    "year": "2016",
+    "title": "Registered report: Fusobacterium nucleatum infection is prevalent in human colorectal carcinoma.",
+    "journal": "Elife"
+   },
+   {
+    "pmid": "26231040",
+    "year": "2015",
+    "title": "Registered report: Oncometabolite 2-hydroxyglutarate is a competitive inhibitor of \u03b1-ketoglutarate-dependent dioxygenases.",
+    "journal": "Elife"
+   },
+   {
+    "pmid": "26826285",
+    "year": "2016",
+    "title": "Registered report: Melanoma exosomes educate bone marrow progenitor cells toward a pro-metastatic phenotype through MET.",
+    "journal": "Elife"
+   },
+   {
+    "pmid": "26943900",
+    "year": "2016",
+    "title": "Registered report: Coding-independent regulation of the tumor suppressor PTEN by competing endogenous mRNAs.",
+    "journal": "Elife"
+   },
+   {
+    "pmid": "26999821",
+    "year": "2016",
+    "title": "Registered Report: COT drives resistance to RAF inhibition through MAP kinase pathway reactivation.",
+    "journal": "Elife"
+   },
+   {
+    "pmid": "26905833",
+    "year": "2016",
+    "title": "Registered report: A chromatin-mediated reversible drug-tolerant state in cancer cell subpopulations.",
+    "journal": "Elife"
+   },
+   {
+    "pmid": "26971564",
+    "year": "2016",
+    "title": "Registered report: IDH mutation impairs histone demethylation and results in a block to cell differentiation.",
+    "journal": "Elife"
+   },
+   {
+    "pmid": "26327698",
+    "year": "2015",
+    "title": "Registered report: Inhibition of BET recruitment to chromatin as an effective treatment for MLL-fusion leukemia.",
+    "journal": "Elife"
+   },
+   {
+    "pmid": "26894955",
+    "year": "2016",
+    "title": "Registered report: Diverse somatic mutation patterns and pathway alterations in human cancers.",
+    "journal": "Elife"
+   },
+   {
+    "pmid": "27336789",
+    "year": "2016",
+    "title": "Registered report: Systematic identification of genomic markers of drug sensitivity in cancer cells.",
+    "journal": "Elife"
+   }
+  ]
+ },
+ {
+  "design": "P19",
+  "date": "2026-09-22",
+  "corpus_regex": "MetaBLIND|(blinding|masking).{0,60}(no|little) (association|evidence).{0,60}(effect estimates|treatment effects)",
+  "corpus_hits": 4,
+  "corpus_sample": [
+   {
+    "pmid": "37038625",
+    "year": "2023",
+    "title": "Meta-epidemiology and the MetaBLIND study: Response to Tack."
+   },
+   {
+    "pmid": "34875934",
+    "year": "2021",
+    "title": "Problems with the MetaBLIND study: An examination of data on blinding patients in trials with patient-reported outcomes."
+   },
+   {
+    "pmid": "31964641",
+    "year": "2020",
+    "title": "Impact of blinding on estimated treatment effects in randomised clinical trials: meta-epidemiological study."
+   },
+   {
+    "pmid": "31851427",
+    "year": "2020",
+    "title": "Ten questions to consider when interpreting results of a meta-epidemiological study-the MetaBLIND study as a case."
+   }
+  ],
+  "pubmed_query": "(MetaBLIND[tiab] OR (\"blinding\"[tiab] AND \"meta-epidemiological\"[tiab] AND (\"no evidence\"[tiab] OR \"not associated\"[tiab])))",
+  "pubmed_total": 5,
+  "pubmed_top": [
+   {
+    "pmid": "37038625",
+    "year": "2023",
+    "title": "Meta-epidemiology and the MetaBLIND study: Response to Tack.",
+    "journal": "J Health Psychol"
+   },
+   {
+    "pmid": "31964641",
+    "year": "2020",
+    "title": "Impact of blinding on estimated treatment effects in randomised clinical trials: meta-epidemiological study.",
+    "journal": "BMJ"
+   },
+   {
+    "pmid": "34875934",
+    "year": "2023",
+    "title": "Problems with the MetaBLIND study: An examination of data on blinding patients in trials with patient-reported outcomes.",
+    "journal": "J Health Psychol"
+   },
+   {
+    "pmid": "37081403",
+    "year": "2023",
+    "title": "The relationship of publication language, study population, risk of bias, and treatment effects in acupuncture related systematic reviews: a meta-epidemiologic study.",
+    "journal": "BMC Med Res Methodol"
+   },
+   {
+    "pmid": "31851427",
+    "year": "2020",
+    "title": "Ten questions to consider when interpreting results of a meta-epidemiological study-the MetaBLIND study as a case.",
+    "journal": "Res Synth Methods"
+   }
+  ]
+ },
+ {
+  "design": "P13",
+  "date": "2026-09-22",
+  "corpus_regex": "(open access|PubMed Central|PMC).{0,80}(sampl|selection).{0,40}(bias|represent).{0,80}(transparen|disclos|sharing)",
+  "corpus_hits": 0,
+  "corpus_sample": [],
+  "pubmed_query": "(\"open access\"[tiab] OR \"PubMed Central\"[tiab]) AND (\"selection bias\"[tiab] OR representativeness[tiab] OR \"sampling bias\"[tiab]) AND (transparency[tiab] OR \"conflict of interest\"[tiab] OR \"data sharing\"[tiab] OR \"funding\"[tiab]) AND (meta-research[tiab] OR \"research on research\"[tiab] OR bibliometric*[tiab] OR \"text mining\"[tiab])",
+  "pubmed_total": 0,
+  "pubmed_top": []
+ },
+ {
+  "design": "P16",
+  "date": "2026-09-22",
+  "corpus_regex": "CRediT|contributor roles? taxonomy",
+  "corpus_hits": 26,
+  "corpus_sample": [
+   {
+    "pmid": "41265666",
+    "year": "2025",
+    "title": "Predictors of citation rates and the problem of citation bias: a scoping review."
+   },
+   {
+    "pmid": "39697129",
+    "year": "2024",
+    "title": "Recruitment Strategies Bias Sampling and Shape Replicability."
+   },
+   {
+    "pmid": "38715726",
+    "year": "2024",
+    "title": "Hidden citations obscure true impact in science."
+   },
+   {
+    "pmid": "38564513",
+    "year": "2024",
+    "title": "Shortcut citations in the methods section: Frequency, problems, and strategies for responsible reuse."
+   },
+   {
+    "pmid": "33926229",
+    "year": "2021",
+    "title": "Data Sharing in Biomedical Sciences: A Systematic Review of Incentives."
+   },
+   {
+    "pmid": "33734086",
+    "year": "2021",
+    "title": "Weak evidence of country- and institution-related status bias in the peer review of abstracts."
+   },
+   {
+    "pmid": "29608562",
+    "year": "2018",
+    "title": "Meta-research matters: Meta-spin cycles, the blindness of bias, and rebuilding trust."
+   },
+   {
+    "pmid": "29531061",
+    "year": "2018",
+    "title": "Measuring discursive influence across scholarship."
+   },
+   {
+    "pmid": "42478255",
+    "year": "2026",
+    "title": "Statistical Competence and Editorial Policies in Biomedical Publications."
+   },
+   {
+    "pmid": "41409385",
+    "year": "2025",
+    "title": "Optimizing Research Visibility: The Role of Investigators and Shared (Core) Research Resources in Publications Using RRIDs."
+   }
+  ],
+  "pubmed_query": "(\"CRediT\"[tiab] OR \"contributor roles taxonomy\"[tiab] OR \"contributor role taxonomy\"[tiab]) AND (authorship[tiab] OR \"gift authorship\"[tiab] OR \"honorary authorship\"[tiab] OR seniority[tiab])",
+  "pubmed_total": 280,
+  "pubmed_top": [
+   {
+    "pmid": "38472407",
+    "year": "2024",
+    "title": "Experimental credit.",
+    "journal": "EMBO Rep"
+   },
+   {
+    "pmid": "38953827",
+    "year": "2024",
+    "title": "Plagiarism and Authorship Credit.",
+    "journal": "Indian J Public Health"
+   },
+   {
+    "pmid": "34516891",
+    "year": "2021",
+    "title": "The gendered nature of authorship.",
+    "journal": "Sci Adv"
+   },
+   {
+    "pmid": "27359378",
+    "year": "2017",
+    "title": "The Ghost Collaborator.",
+    "journal": "Account Res"
+   },
+   {
+    "pmid": "31607826",
+    "year": "2019",
+    "title": "Shared first authorship.",
+    "journal": "J Med Libr Assoc"
+   },
+   {
+    "pmid": "35128303",
+    "year": "2021",
+    "title": "What Is Wrong With the Current Evaluative Bibliometrics?",
+    "journal": "Front Res Metr Anal"
+   },
+   {
+    "pmid": "24644440",
+    "year": "2011",
+    "title": "Authorship and contributorship.",
+    "journal": "Iran J Psychiatry Behav Sci"
+   },
+   {
+    "pmid": "26636372",
+    "year": "2016",
+    "title": "Aberration of the Citation.",
+    "journal": "Account Res"
+   },
+   {
+    "pmid": "32657620",
+    "year": "2021",
+    "title": "Authorship and justice: Credit and responsibility.",
+    "journal": "Account Res"
+   },
+   {
+    "pmid": "36734213",
+    "year": "2024",
+    "title": "Who Made This? Algorithms and Authorship Credit.",
+    "journal": "Pers Soc Psychol Bull"
+   }
+  ]
+ },
+ {
+  "design": "dropped-llm-screening-validation",
+  "date": "2026-09-22",
+  "corpus_regex": "(large language model|LLM|ChatGPT|GPT-4).{0,80}(screening|data extraction).{0,80}(systematic review|evidence synthes)",
+  "corpus_hits": 0,
+  "corpus_sample": [],
+  "pubmed_query": "(\"large language model*\"[tiab] OR ChatGPT[tiab] OR GPT-4[tiab]) AND (screening[tiab] OR \"data extraction\"[tiab]) AND (\"systematic review*\"[tiab] OR \"evidence synthes*\"[tiab]) AND (reporting[tiab] OR validation[tiab] OR \"meta-research\"[tiab] OR \"methodological review\"[tiab])",
+  "pubmed_total": 170,
+  "pubmed_top": [
+   {
+    "pmid": "40335969",
+    "year": "2025",
+    "title": "Impact of large language model (ChatGPT) in healthcare: an umbrella review and evidence synthesis.",
+    "journal": "J Biomed Sci"
+   },
+   {
+    "pmid": "39423368",
+    "year": "2024",
+    "title": "Large Language Models for Mental Health Applications: Systematic Review.",
+    "journal": "JMIR Ment Health"
+   },
+   {
+    "pmid": "39903463",
+    "year": "2025",
+    "title": "Large Language Models for Chatbot Health Advice Studies: A Systematic Review.",
+    "journal": "JAMA Netw Open"
+   },
+   {
+    "pmid": "39056432",
+    "year": "2024",
+    "title": "Using ChatGPT to perform a systematic review: a tutorial.",
+    "journal": "Minerva Cardiol Angiol"
+   },
+   {
+    "pmid": "39523628",
+    "year": "2024",
+    "title": "Use of generative artificial intelligence (AI) in psychiatry and mental health care: a systematic review.",
+    "journal": "Acta Neuropsychiatr"
+   },
+   {
+    "pmid": "40021099",
+    "year": "2025",
+    "title": "Large language models for conducting systematic reviews: on the rise, but not yet ready for use-a scoping review.",
+    "journal": "J Clin Epidemiol"
+   },
+   {
+    "pmid": "39546795",
+    "year": "2024",
+    "title": "Examining the Role of Large Language Models in Orthopedics: Systematic Review.",
+    "journal": "J Med Internet Res"
+   },
+   {
+    "pmid": "40577783",
+    "year": "2025",
+    "title": "The Application and Ethical Implication of Generative AI in Mental Health: Systematic Review.",
+    "journal": "JMIR Ment Health"
+   },
+   {
+    "pmid": "40489764",
+    "year": "2025",
+    "title": "Large Language Models in Medical Diagnostics: Scoping Review With Bibliometric Analysis.",
+    "journal": "J Med Internet Res"
+   },
+   {
+    "pmid": "40197098",
+    "year": "2025",
+    "title": "Deep Learning Applications in Imaging of Acute Ischemic Stroke: A Systematic Review and Narrative Summary.",
+    "journal": "Radiology"
+   }
+  ]
+ },
+ {
+  "design": "dropped-hype-citation",
+  "date": "2026-09-22",
+  "corpus_regex": "(novel|first|unprecedented|groundbreaking).{0,40}(hype|promotional|claims?).{0,80}(citation|cited)",
+  "corpus_hits": 0,
+  "corpus_sample": [],
+  "pubmed_query": "(\"promotional language\"[tiab] OR hype[tiab] OR \"novelty claims\"[tiab] OR \"claims of novelty\"[tiab] OR \"priority claims\"[tiab]) AND (citation*[tiab] OR cited[tiab] OR abstracts[tiab])",
+  "pubmed_total": 30,
+  "pubmed_top": [
+   {
+    "pmid": "40965126",
+    "year": "2025",
+    "title": "Assessment of the Artificial Intelligence- Generated Fibromyalgia Information: Beyond the Hype.",
+    "journal": "Arch Rheumatol"
+   },
+   {
+    "pmid": "33837146",
+    "year": "2021",
+    "title": "Misinformation in and about science.",
+    "journal": "Proc Natl Acad Sci U S A"
+   },
+   {
+    "pmid": "37250465",
+    "year": "2023",
+    "title": "Impact of hype on clinicians' evaluation of trials - a pilot study.",
+    "journal": "J Can Chiropr Assoc"
+   },
+   {
+    "pmid": "38373713",
+    "year": "2024",
+    "title": "Promotional language in radiology publications: increasing use of \"excellent\", \"favorable\", \"promising\", \"robust\", and \"unique\".",
+    "journal": "Rofo"
+   },
+   {
+    "pmid": "38127350",
+    "year": "2023",
+    "title": "Promotional Language (Hype) in Abstracts of Publications of National Institutes of Health-Funded Research, 1985-2020.",
+    "journal": "JAMA Netw Open"
+   },
+   {
+    "pmid": "38875597",
+    "year": "2024",
+    "title": "Beyond the Hype-The Actual Role and Risks of AI in Today's Medical Practice: Comparative-Approach Study.",
+    "journal": "JMIR AI"
+   },
+   {
+    "pmid": "38861605",
+    "year": "2024",
+    "title": "Promotional language and the adoption of innovative ideas in science.",
+    "journal": "Proc Natl Acad Sci U S A"
+   },
+   {
+    "pmid": "39791860",
+    "year": "2025",
+    "title": "Twelve tips on applying AI tools in HPE scholarship using Boyer's model.",
+    "journal": "Med Teach"
+   },
+   {
+    "pmid": "30613038",
+    "year": "2018",
+    "title": "Spinning the Genome: Why Science Hype Matters.",
+    "journal": "Perspect Biol Med"
+   },
+   {
+    "pmid": "38775596",
+    "year": "2024",
+    "title": "Increasing Use of Promotional Language in Orthopaedic Surgery Abstracts-An Analysis of 112,916 Abstracts 1985 to 2020.",
+    "journal": "J Am Acad Orthop Surg Glob Res Rev"
+   }
+  ]
+ },
+ {
+  "design": "P23",
+  "date": "2026-09-22",
+  "corpus_regex": "(meta-research|methodological).{0,80}(own|their) (conflict|funding|competing)",
+  "corpus_hits": 0,
+  "corpus_sample": [],
+  "pubmed_query": "(\"conflict of interest\"[tiab] OR \"conflicts of interest\"[tiab] OR \"competing interests\"[tiab]) AND (\"meta-research\"[tiab] OR \"research on research\"[tiab]) AND (disclosure[tiab] OR \"own\"[tiab] OR reflexive[tiab])",
+  "pubmed_total": 8,
+  "pubmed_top": [
+   {
+    "pmid": "37997809",
+    "year": "2024",
+    "title": "Cross-Sectional Evaluation of Open Science Practices at Imaging Journals: A Meta-Research Study.",
+    "journal": "Can Assoc Radiol J"
+   },
+   {
+    "pmid": "37494359",
+    "year": "2023",
+    "title": "Transparency of COVID-19-related research: A meta-research study.",
+    "journal": "PLoS One"
+   },
+   {
+    "pmid": "33682488",
+    "year": "2022",
+    "title": "Estimating the Prevalence of Transparency and Reproducibility-Related Research Practices in Psychology (2014-2017).",
+    "journal": "Perspect Psychol Sci"
+   },
+   {
+    "pmid": "36626363",
+    "year": "2023",
+    "title": "Cannabis companies and the sponsorship of scientific research: A cross-sectional Canadian case study.",
+    "journal": "PLoS One"
+   },
+   {
+    "pmid": "40976805",
+    "year": "2025",
+    "title": "Exploring ethical elements in reporting guidelines: results from a research-on-research study.",
+    "journal": "Res Integr Peer Rev"
+   },
+   {
+    "pmid": "38265048",
+    "year": "2025",
+    "title": "The definition of research misconduct should be stated in the abstract when reporting research on research misconduct.",
+    "journal": "Account Res"
+   },
+   {
+    "pmid": "41432059",
+    "year": "2025",
+    "title": "Are peer reviewers influenced by their work being cited?",
+    "journal": "Elife"
+   },
+   {
+    "pmid": "40361202",
+    "year": "2025",
+    "title": "Research on policy mechanisms to address funding bias and conflicts of interest in biomedical research: a scoping review.",
+    "journal": "Res Integr Peer Rev"
+   }
+  ]
+ },
+ {
+  "design": "P28",
+  "date": "2026-09-22",
+  "corpus_regex": "(individual (participant|patient) data|IPD).{0,60}(sharing (plan|statement)|plan to share).{0,120}(results (posting|reporting)|publication)",
+  "corpus_hits": 0,
+  "corpus_sample": [],
+  "pubmed_query": "(\"IPD sharing\"[tiab] OR \"individual participant data sharing\"[tiab] OR \"data sharing statement*\"[tiab] OR \"plan to share\"[tiab]) AND (\"ClinicalTrials.gov\"[tiab] OR registry[tiab]) AND (\"results reporting\"[tiab] OR \"results posting\"[tiab] OR \"results posted\"[tiab] OR publication[tiab] OR timely[tiab])",
+  "pubmed_total": 6,
+  "pubmed_top": [
+   {
+    "pmid": "37493649",
+    "year": "2023",
+    "title": "Data sharing implementation in top 10 ophthalmology journals in 2021.",
+    "journal": "BMJ Open Ophthalmol"
+   },
+   {
+    "pmid": "35182738",
+    "year": "2022",
+    "title": "COVID-19 interventional trials: Analysis of data sharing intentions during a time of pandemic.",
+    "journal": "Contemp Clin Trials"
+   },
+   {
+    "pmid": "35725421",
+    "year": "2022",
+    "title": "Optimizing knowledge and behavioral intention of women and their partners in the perinatal period in South Africa: a randomized control trial study protocol in the Tshwane district, Gauteng province, South Africa.",
+    "journal": "BMC Public Health"
+   },
+   {
+    "pmid": "33602275",
+    "year": "2021",
+    "title": "COVID-19 trials: declarations of data sharing intentions at trial registration and at publication.",
+    "journal": "Trials"
+   },
+   {
+    "pmid": "39822926",
+    "year": "2025",
+    "title": "Medical researchers' perception of sharing of metadata from case report forms.",
+    "journal": "Learn Health Syst"
+   },
+   {
+    "pmid": "41412623",
+    "year": "2025",
+    "title": "To assess the clinical utility of composite outcomes in studies examining outcomes of implantable neuromodulation therapies for pain: a systematic review.",
+    "journal": "BMJ Open"
+   }
+  ]
+ },
+ {
+  "design": "P22",
+  "date": "2026-09-22",
+  "corpus_regex": "(rtransparent|rtransparency|automated (detection|assessment)|text.mining).{0,80}(transparen|data sharing|indicator).{0,80}(valid|accura|sensitiv)",
+  "corpus_hits": 2,
+  "corpus_sample": [
+   {
+    "pmid": "38564591",
+    "year": "2024",
+    "title": "Assessment of transparency indicators in space medicine."
+   },
+   {
+    "pmid": "36206207",
+    "year": "2022",
+    "title": "A meta-epidemiological assessment of transparency indicators of infectious disease models."
+   }
+  ],
+  "pubmed_query": "(rtransparent[tiab] OR rtransparency[tiab] OR ODDPub[tiab] OR \"automated detection\"[tiab] OR \"text mining\"[tiab] OR \"natural language processing\"[tiab]) AND (\"data sharing\"[tiab] OR \"transparency indicators\"[tiab] OR \"open data\"[tiab]) AND (validation[tiab] OR accuracy[tiab] OR sensitivity[tiab])",
+  "pubmed_total": 36,
+  "pubmed_top": [
+   {
+    "pmid": "35998640",
+    "year": "2022",
+    "title": "OARD: Open annotations for rare diseases and their phenotypes based on real-world data.",
+    "journal": "Am J Hum Genet"
+   },
+   {
+    "pmid": "32365973",
+    "year": "2020",
+    "title": "Integrated Natural Language Processing and Machine Learning Models for Standardizing Radiotherapy Structure Names.",
+    "journal": "Healthcare (Basel)"
+   },
+   {
+    "pmid": "36206207",
+    "year": "2022",
+    "title": "A meta-epidemiological assessment of transparency indicators of infectious disease models.",
+    "journal": "PLoS One"
+   },
+   {
+    "pmid": "26793094",
+    "year": "2015",
+    "title": "The GAAIN Entity Mapper: An Active-Learning System for Medical Data Mapping.",
+    "journal": "Front Neuroinform"
+   },
+   {
+    "pmid": "38564591",
+    "year": "2024",
+    "title": "Assessment of transparency indicators in space medicine.",
+    "journal": "PLoS One"
+   },
+   {
+    "pmid": "38181649",
+    "year": "2024",
+    "title": "Construction and application of nasopharyngeal carcinoma-specific big data platform based on electronic health records.",
+    "journal": "Am J Otolaryngol"
+   },
+   {
+    "pmid": "37132475",
+    "year": "2023",
+    "title": "Transparency in Infectious Disease Research: Meta-research Survey of Specialty Journals.",
+    "journal": "J Infect Dis"
+   },
+   {
+    "pmid": "36310478",
+    "year": "2022",
+    "title": "[Research on three-dimensional skull repair by combining residual and informer attention].",
+    "journal": "Sheng Wu Yi Xue Gong Cheng Xue Za Zhi"
+   },
+   {
+    "pmid": "39282140",
+    "year": "2024",
+    "title": "Automated data collection tool for real-world cohort studies of chronic hepatitis B: Leveraging OCR and NLP technologies for improved efficiency.",
+    "journal": "New Microbes New Infect"
+   },
+   {
+    "pmid": "35916132",
+    "year": "2022",
+    "title": "Multinational Federated Learning Approach to Train ECG and Echocardiogram Models for Hypertrophic Cardiomyopathy Detection.",
+    "journal": "Circulation"
+   }
+  ]
+ },
+ {
+  "design": "AUTHOR",
+  "date": "2026-09-22",
+  "corpus_regex": "Sofi-Mahmudi",
+  "corpus_hits": 0,
+  "corpus_sample": [],
+  "pubmed_query": "Sofi-Mahmudi A[au]",
+  "pubmed_total": 47,
+  "pubmed_top": [
+   {
+    "pmid": "34967848",
+    "year": "2022",
+    "title": "Cancer Incidence, Mortality, Years of Life Lost, Years Lived With Disability, and Disability-Adjusted Life Years for 29 Cancer Groups From 2010 to 2019: A Systematic Analysis for the Global Burden of Disease Study 2019.",
+    "journal": "JAMA Oncol"
+   },
+   {
+    "pmid": "38777213",
+    "year": "2024",
+    "title": "Mesenchymal stem cells for chronic knee pain secondary to osteoarthritis: A systematic review and meta-analysis of randomized trials.",
+    "journal": "Osteoarthritis Cartilage"
+   },
+   {
+    "pmid": "37737329",
+    "year": "2023",
+    "title": "The importance of meta-research in dentistry.",
+    "journal": "Evid Based Dent"
+   },
+   {
+    "pmid": "42081823",
+    "year": "2026",
+    "title": "Effectiveness and Tolerability of Pharmacologic Prophylaxis for Chronic Migraine : A Systematic Review of Randomized Controlled Trials.",
+    "journal": "Ann Intern Med"
+   },
+   {
+    "pmid": "34686787",
+    "year": "2021",
+    "title": "Post-publication peer reviews.",
+    "journal": "Br Dent J"
+   },
+   {
+    "pmid": "33339973",
+    "year": "2020",
+    "title": "Is periodontitis associated with hypertension?",
+    "journal": "Evid Based Dent"
+   },
+   {
+    "pmid": "41394525",
+    "year": "2025",
+    "title": "Management of Amphetamine and Methamphetamine Use Disorders: A Systematic Review and Network Meta-analysis of Randomized Trials.",
+    "journal": "Int J Ment Health Addict"
+   },
+   {
+    "pmid": "32613789",
+    "year": "2020",
+    "title": "Achievements of the Cochrane Iran Associate Centre: Lessons Learned.",
+    "journal": "Int J Health Policy Manag"
+   },
+   {
+    "pmid": "39422586",
+    "year": "2024",
+    "title": "Publicly Available Dental Image Datasets for Artificial Intelligence.",
+    "journal": "J Dent Res"
+   },
+   {
+    "pmid": "34561569",
+    "year": "2021",
+    "title": "Halting 'research waste'.",
+    "journal": "Br Dent J"
+   },
+   {
+    "pmid": "32235486",
+    "year": "2020",
+    "title": "Novel Coronavirus Infection (COVID-19) in Humans: A Scoping Review and Meta-Analysis.",
+    "journal": "J Clin Med"
+   },
+   {
+    "pmid": "37494359",
+    "year": "2023",
+    "title": "Transparency of COVID-19-related research: A meta-research study.",
+    "journal": "PLoS One"
+   },
+   {
+    "pmid": "37284693",
+    "year": "2023",
+    "title": "Assessing Google Searches for Toothache during COVID-19 Lockdowns.",
+    "journal": "Med J Islam Repub Iran"
+   },
+   {
+    "pmid": "38586500",
+    "year": "2024",
+    "title": "Dental Caries among the Elderly in Iran: A Meta-analysis.",
+    "journal": "Med J Islam Repub Iran"
+   },
+   {
+    "pmid": "42011527",
+    "year": "2026",
+    "title": "Effectiveness and tolerability of pharmacological prophylaxis in migraine patients with prior preventive treatment failure: A systematic review and network meta-analysis of randomized controlled trials.",
+    "journal": "Cephalalgia"
+   },
+   {
+    "pmid": "37451899",
+    "year": "2023",
+    "title": "Marginal fit of monolithic versus layered zirconia crowns assessed with 2 marginal gap methods.",
+    "journal": "J Prosthet Dent"
+   },
+   {
+    "pmid": "36482006",
+    "year": "2023",
+    "title": "Research transparency in dental research: A programmatic analysis.",
+    "journal": "Eur J Oral Sci"
+   },
+   {
+    "pmid": "35656591",
+    "year": "2022",
+    "title": "Dental Research Data Availability and Quality According to the FAIR Principles.",
+    "journal": "J Dent Res"
+   },
+   {
+    "pmid": "39543399",
+    "year": "2024",
+    "title": "Reevaluating antibiotic prophylaxis: insights from a network meta-analysis on dry socket and surgical site infections.",
+    "journal": "Evid Based Dent"
+   },
+   {
+    "pmid": "40997109",
+    "year": "2025",
+    "title": "Effects of digital health counseling and behavioral interventions on weight management during pregnancy and postpartum: A systematic review and meta-analysis of randomized controlled trials.",
+    "journal": "PLoS One"
+   },
+   {
+    "pmid": "40475844",
+    "year": "2024",
+    "title": "Empowering the future of evidence-based healthcare: The Cochrane Early Career Professionals Network.",
+    "journal": "Cochrane Evid Synth Methods"
+   },
+   {
+    "pmid": "39556553",
+    "year": "2024",
+    "title": "COVID-19-related research data availability and quality according to the FAIR principles: A meta-research study.",
+    "journal": "PLoS One"
+   },
+   {
+    "pmid": "37574408",
+    "year": "2024",
+    "title": "National and Subnational Trend of Dental Caries of Permanent Teeth in Iran, 1990-2017.",
+    "journal": "Int Dent J"
+   },
+   {
+    "pmid": "38935641",
+    "year": "2024",
+    "title": "An investigation into gender distributions in scholarly publications among dental faculty members in Iran.",
+    "journal": "PLoS One"
+   },
+   {
+    "pmid": "37197075",
+    "year": "2023",
+    "title": "Nasopharyngeal Myiasis in Intensive Care Unit (ICU) Patients: Report of Two Cases.",
+    "journal": "Iran J Parasitol"
+   },
+   {
+    "pmid": "35943017",
+    "year": "2022",
+    "title": "Risk of Bias in Iranian Randomized Trials Included in Cochrane Reviews.",
+    "journal": "Arch Iran Med"
+   },
+   {
+    "pmid": "38950008",
+    "year": "2024",
+    "title": "The relationship between the source of oral health information and dental caries: Findings from Child Dental Health Survey 2013 in England.",
+    "journal": "PLoS One"
+   },
+   {
+    "pmid": "36564764",
+    "year": "2022",
+    "title": "Trends in dental caries of deciduous teeth in Iran: a systematic analysis of the national and sub-national data from 1990 to 2017.",
+    "journal": "BMC Oral Health"
+   },
+   {
+    "pmid": "34172912",
+    "year": "2021",
+    "title": "Orofacial adverse effects of COVID-19 vaccines exist but are rare.",
+    "journal": "Evid Based Dent"
+   },
+   {
+    "pmid": "38090613",
+    "year": "2023",
+    "title": "Nasopharyngeal Branchial Cyst and Thornwaldt Cyst in a Patient with Hearing Loss after Coronavirus Infection.",
+    "journal": "Iran J Otorhinolaryngol"
+   },
+   {
+    "pmid": "34154574",
+    "year": "2021",
+    "title": "Assessing research misconduct in Iran: a perspective from Iranian medical faculty members.",
+    "journal": "BMC Med Ethics"
+   },
+   {
+    "pmid": "35944050",
+    "year": "2022",
+    "title": "The use of the phrase \"data not shown\" in dental research.",
+    "journal": "PLoS One"
+   },
+   {
+    "pmid": "41080918",
+    "year": "2025",
+    "title": "Association Between Gestational Weight Gain and Obstetric Anal Sphincter Injury.",
+    "journal": "O G Open"
+   },
+   {
+    "pmid": "38243206",
+    "year": "2024",
+    "title": "Global, regional, and national burden and quality of care index (QCI) of oral disorders: a systematic analysis of the global burden of disease study 1990-2017.",
+    "journal": "BMC Oral Health"
+   },
+   {
+    "pmid": "39947447",
+    "year": "2025",
+    "title": "Cochrane reviews' authorship has become more gender-diverse but remains geographically concentrated: a meta-research study.",
+    "journal": "J Clin Epidemiol"
+   },
+   {
+    "pmid": "34360156",
+    "year": "2021",
+    "title": "COVID-19 Vaccines Safety Tracking (CoVaST): Protocol of a Multi-Center Prospective Cohort Study for Active Surveillance of COVID-19 Vaccines' Side Effects.",
+    "journal": "Int J Environ Res Public Health"
+   },
+   {
+    "pmid": "39774532",
+    "year": "2025",
+    "title": "Global, regional, and national survey on burden and Quality of Care Index (QCI) of orofacial clefts: Global burden of disease systematic analysis 1990-2019.",
+    "journal": "PLoS One"
+   },
+   {
+    "pmid": "35464778",
+    "year": "2022",
+    "title": "Transparency of COVID-19-Related Research in Dental Journals.",
+    "journal": "Front Oral Health"
+   },
+   {
+    "pmid": "38698369",
+    "year": "2024",
+    "title": "Correction: Global, regional, and national burden and quality of care index (QCI) of oral disorders: a systematic analysis of the global burden of disease study 1990-2017.",
+    "journal": "BMC Oral Health"
+   },
+   {
+    "pmid": "35928493",
+    "year": "2022",
+    "title": "Self-reported side effects of the Oxford AstraZeneca COVID-19 vaccine among healthcare workers in Ethiopia, Africa: A cross-sectional study.",
+    "journal": "Front Public Health"
+   }
+  ]
+ },
+ {
+  "design": "P25",
+  "date": "2026-09-22",
+  "corpus_regex": "Reproducibility Project.{0,20}Cancer Biology|replicability of preclinical cancer",
+  "corpus_hits": 21,
+  "corpus_sample": [
+   {
+    "pmid": "38739437",
+    "year": "2024",
+    "title": "Replication of null results: Absence of evidence or evidence of absence?"
+   },
+   {
+    "pmid": "35759334",
+    "year": "2022",
+    "title": "Establishing Institutional Scores With the Rigor and Transparency Index: Large-scale Analysis of Scientific Reporting Quality."
+   },
+   {
+    "pmid": "33073769",
+    "year": "2020",
+    "title": "Replication Study: Coding-independent regulation of the tumor suppressor PTEN by competing endogenous mRNAs."
+   },
+   {
+    "pmid": "32314732",
+    "year": "2020",
+    "title": "Replication Study: A coding-independent function of gene and pseudogene mRNAs regulates tumour biology."
+   },
+   {
+    "pmid": "31845647",
+    "year": "2019",
+    "title": "Replication Study: Biomechanical remodeling of the microenvironment by stromal caveolin-1 favors tumor invasion and metastasis."
+   },
+   {
+    "pmid": "31215867",
+    "year": "2019",
+    "title": "Replication Study: Wnt activity defines colon cancer stem cells and is regulated by the microenvironment."
+   },
+   {
+    "pmid": "30860027",
+    "year": "2019",
+    "title": "Replication Study: The microRNA miR-34a inhibits prostate cancer stem cells and metastasis by directly repressing CD44."
+   },
+   {
+    "pmid": "30526855",
+    "year": "2018",
+    "title": "Replication study: Melanoma exosomes educate bone marrow progenitor cells toward a pro-metastatic phenotype through MET."
+   },
+   {
+    "pmid": "30295289",
+    "year": "2018",
+    "title": "Replication Study: Intestinal inflammation targets cancer-inducing activity of the microbiota."
+   },
+   {
+    "pmid": "29533182",
+    "year": "2018",
+    "title": "Replication Study: Fusobacterium nucleatum infection is prevalent in human colorectal carcinoma."
+   }
+  ],
+  "pubmed_query": "(\"Reproducibility Project: Cancer Biology\"[tiab] OR \"replicability of preclinical cancer biology\"[tiab]) AND (Errington[au] OR replicability[ti] OR \"effect sizes\"[tiab])",
+  "pubmed_total": 4,
+  "pubmed_top": [
+   {
+    "pmid": "28100398",
+    "year": "2017",
+    "title": "Making sense of replications.",
+    "journal": "Elife"
+   },
+   {
+    "pmid": "34874008",
+    "year": "2021",
+    "title": "Challenges for assessing replicability in preclinical cancer biology.",
+    "journal": "Elife"
+   },
+   {
+    "pmid": "25490932",
+    "year": "2014",
+    "title": "An open investigation of the reproducibility of cancer biology research.",
+    "journal": "Elife"
+   },
+   {
+    "pmid": "34874005",
+    "year": "2021",
+    "title": "Investigating the replicability of preclinical cancer biology.",
+    "journal": "Elife"
+   }
+  ]
+ },
+ {
+  "design": "dropped-preprints-of-retracted",
+  "date": "2026-09-22",
+  "corpus_regex": "retracted.{0,60}pre.?prints?",
+  "corpus_hits": 0,
+  "corpus_sample": [],
+  "pubmed_query": "(\"retracted publications\"[tiab] OR \"retracted articles\"[tiab]) AND (preprint*[tiab]) AND (citation*[tiab] OR survey[tiab])",
+  "pubmed_total": 1,
+  "pubmed_top": [
+   {
+    "pmid": "37035368",
+    "year": "2023",
+    "title": "COVID-19 retracted publications on retraction watch: A systematic survey of their pre-prints and citations.",
+    "journal": "Heliyon"
+   }
+  ]
+ },
+ {
+  "design": "dropped-hype-citation",
+  "date": "2026-09-22",
+  "corpus_regex": "promotional language.{0,80}citation",
+  "corpus_hits": 0,
+  "corpus_sample": [],
+  "pubmed_query": "\"promotional language\"[tiab] AND (citation*[tiab] OR cited[tiab])",
+  "pubmed_total": 3,
+  "pubmed_top": [
+   {
+    "pmid": "38373713",
+    "year": "2024",
+    "title": "Promotional language in radiology publications: increasing use of \"excellent\", \"favorable\", \"promising\", \"robust\", and \"unique\".",
+    "journal": "Rofo"
+   },
+   {
+    "pmid": "38861605",
+    "year": "2024",
+    "title": "Promotional language and the adoption of innovative ideas in science.",
+    "journal": "Proc Natl Acad Sci U S A"
+   },
+   {
+    "pmid": "40764759",
+    "year": "2025",
+    "title": "Scientific publications that use promotional language in the abstract receive more citations and public attention.",
+    "journal": "Commun Psychol"
+   }
+  ]
+ }
+]

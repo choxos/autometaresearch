@@ -37,6 +37,11 @@ jobs:
           python3 build/render_site.py
           git diff --exit-code -- landscape.qmd corpus.qmd
 
+      # S11 of studies/DESIGN-STANDARD.md: every PMID a proposal cites must come from a
+      # recorded search or the harvested corpus. A citation from memory fails the build.
+      - name: Check proposal citations against recorded searches
+        run: python3 tools/check_citations.py
+
       - name: Set up Quarto
         # Pinned so a Quarto release cannot silently change listing behavior.
         uses: quarto-dev/quarto-actions/setup@v2

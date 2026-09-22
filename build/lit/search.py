@@ -203,11 +203,20 @@ def get(url, data=None, tries=5):
 CEILING = 9999  # NCBI will not return more than this many ids for one query
 
 
-def esearch(db, term, retmax=CEILING):
-    q = urllib.parse.urlencode(
-        {"db": db, "term": term, "retmax": retmax, "retmode": "json",
-         "email": EMAIL, "tool": TOOL}
-    )
+def esearch(db, term, retmax=CEILING, sort=None):
+    """Ids and total count for a term.
+
+    `sort` is None for harvesting, where order is irrelevant because every id is fetched. It
+    must be "relevance" for anything that reads only the top of the list: NCBI's default order
+    is by date, so an unsorted top ten is simply the ten newest matches. The novelty log was
+    first built on date-sorted top tens, which surfaced mostly irrelevant 2026 papers and would
+    have let a claim of "no prior work" rest on a list that never looked for it.
+    """
+    params = {"db": db, "term": term, "retmax": retmax, "retmode": "json",
+              "email": EMAIL, "tool": TOOL}
+    if sort:
+        params["sort"] = sort
+    q = urllib.parse.urlencode(params)
     # strict=False: NCBI echoes the query back with raw control characters,
     # which the default decoder rejects.
     d = json.loads(get(f"{EUTILS}/esearch.fcgi?{q}"), strict=False)["esearchresult"]

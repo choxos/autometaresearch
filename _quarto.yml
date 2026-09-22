@@ -7,6 +7,8 @@ project:
     - "/proposals/*.qmd"
     - "/results/*.qmd"
     - "/reviews/*.qmd"
+    # The design standard lives beside the studies it governs, and every proposal links to it.
+    - "/studies/DESIGN-STANDARD.md"
 
 website:
   title: "Automated meta-research"
