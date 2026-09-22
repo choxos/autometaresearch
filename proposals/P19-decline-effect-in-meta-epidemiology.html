@@ -79,9 +79,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-1861f82967d66f654154b492be169a53.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-d72254f1cca27c889edf43d9473ffb8d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-1861f82967d66f654154b492be169a53.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-5cc4517f93efc704f9e8f922f0fd1f56.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-8544745414cade1a69674f78a9fe5522.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-5cc4517f93efc704f9e8f922f0fd1f56.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": true,
@@ -434,8 +434,9 @@ PubMed:       (MetaBLIND[tiab] OR ("blinding"[tiab] AND "meta-epidemiological"[t
 <section id="hypothesis" class="level2">
 <h2 class="anchored" data-anchor-id="hypothesis">3. Hypothesis</h2>
 <p>For each trial characteristic, the log ratio of odds ratios moves toward zero with the publication year of the meta-epidemiological study that estimated it, after adjusting for the number of trials contributing.</p>
+<p>Log ratios of odds ratios below zero mean the flawed trials show larger benefit (section 7), so a decline toward the null is a positive slope on publication year.</p>
 <p><strong>Null.</strong> The slope of log ratio of odds ratios on publication year is 0.</p>
-<p><strong>What would falsify it.</strong> A slope at or away from zero. The field’s bias estimates would then be stable, which is the outcome its tools assume.</p>
+<p><strong>What would falsify it.</strong> A slope at or below 0: the estimates are stable over time, or grow more negative, meaning the estimated bias is not shrinking. Stability is the outcome the field’s risk of bias tools assume.</p>
 </section>
 <section id="design-and-unit" class="level2">
 <h2 class="anchored" data-anchor-id="design-and-unit">4. Design and unit</h2>

@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2026-09-19">
+<meta name="description" content="Independent adversarial review of P06. Verdict: blocked.">
+
+<title>Review of P06: blocked – Automated meta-research</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-5cc4517f93efc704f9e8f922f0fd1f56.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-8544745414cade1a69674f78a9fe5522.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-5cc4517f93efc704f9e8f922f0fd1f56.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": true,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Automated meta-research</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../agenda.html"> 
+<span class="menu-text">Agenda</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../results.html"> 
+<span class="menu-text">Results</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../reviews.html"> 
+<span class="menu-text">Reviews</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../landscape.html"> 
+<span class="menu-text">Landscape</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../corpus.html"> 
+<span class="menu-text">Corpus</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../methods.html"> 
+<span class="menu-text">How this was done</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/choxos/autometaresearch"> <i class="bi bi-github" role="img" aria-label="GitHub repository">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#votes" id="toc-votes" class="nav-link active" data-scroll-target="#votes">Votes</a></li>
+  <li><a href="#what-each-reviewer-said" id="toc-what-each-reviewer-said" class="nav-link" data-scroll-target="#what-each-reviewer-said">What each reviewer said</a>
+  <ul class="collapse">
+  <li><a href="#chatgpt" id="toc-chatgpt" class="nav-link" data-scroll-target="#chatgpt"><code>chatgpt</code></a></li>
+  <li><a href="#grok" id="toc-grok" class="nav-link" data-scroll-target="#grok"><code>grok</code></a></li>
+  </ul></li>
+  <li><a href="#fatal-findings" id="toc-fatal-findings" class="nav-link" data-scroll-target="#fatal-findings">Fatal findings</a>
+  <ul class="collapse">
+  <li><a href="#f1.-probe-does-not-establish-preprintjournal-pairs.-studies_sharedopenalex_probe.py8093-counts-any-matching-source-name" id="toc-f1.-probe-does-not-establish-preprintjournal-pairs.-studies_sharedopenalex_probe.py8093-counts-any-matching-source-name" class="nav-link" data-scroll-target="#f1.-probe-does-not-establish-preprintjournal-pairs.-studies_sharedopenalex_probe.py8093-counts-any-matching-source-name">F1. Probe does not establish preprint–journal pairs. studies/_shared/openalex_probe.py:80–93 counts any matching source name</a></li>
+  <li><a href="#f2.-the-unit-is-preprint-and-published-version-pairs-of-the-same-meta-research-article.-the-probe-does-not-identify-that-u" id="toc-f2.-the-unit-is-preprint-and-published-version-pairs-of-the-same-meta-research-article.-the-probe-does-not-identify-that-u" class="nav-link" data-scroll-target="#f2.-the-unit-is-preprint-and-published-version-pairs-of-the-same-meta-research-article.-the-probe-does-not-identify-that-u">F2. The unit is ‘preprint and published version pairs of the same meta-research article.’ The probe does not identify that u</a></li>
+  <li><a href="#f3.-reduced-protocol-status-is-locked-by-141-and-108.-141-is-6675.-the-frozen-openalex-files-share-3-preprint-flagged-pmids" id="toc-f3.-reduced-protocol-status-is-locked-by-141-and-108.-141-is-6675.-the-frozen-openalex-files-share-3-preprint-flagged-pmids" class="nav-link" data-scroll-target="#f3.-reduced-protocol-status-is-locked-by-141-and-108.-141-is-6675.-the-frozen-openalex-files-share-3-preprint-flagged-pmids">F3. Reduced-protocol status is locked by 141 and 108. 141 is 66+75. The frozen OpenAlex files share 3 preprint-flagged PMIDs</a></li>
+  </ul></li>
+  <li><a href="#major-findings" id="toc-major-findings" class="nav-link" data-scroll-target="#major-findings">Major findings</a>
+  <ul class="collapse">
+  <li><a href="#m1.-server-exclusion-does-not-establish-biomedical-meta-research-eligibility.-retained-candidates-include-a-social-science-t" id="toc-m1.-server-exclusion-does-not-establish-biomedical-meta-research-eligibility.-retained-candidates-include-a-social-science-t" class="nav-link" data-scroll-target="#m1.-server-exclusion-does-not-establish-biomedical-meta-research-eligibility.-retained-candidates-include-a-social-science-t">M1. Server exclusion does not establish biomedical meta-research eligibility. Retained candidates include a social-science t</a></li>
+  <li><a href="#m2.-combined-and-restricted-counts-are-wrong.-recomputing-datalitopenalex-records.jsonl-and-datalitopenalex-frame-p01v2." id="toc-m2.-combined-and-restricted-counts-are-wrong.-recomputing-datalitopenalex-records.jsonl-and-datalitopenalex-frame-p01v2." class="nav-link" data-scroll-target="#m2.-combined-and-restricted-counts-are-wrong.-recomputing-datalitopenalex-records.jsonl-and-datalitopenalex-frame-p01v2.">M2. Combined and restricted counts are wrong. Recomputing data/lit/openalex-records.jsonl and data/lit/openalex-frame-P01v2.</a></li>
+  <li><a href="#m3.-which-preprint-version-supplies-the-baseline-is-unspecified.-stored-locations-include-research-square-urls-ending-in-la" id="toc-m3.-which-preprint-version-supplies-the-baseline-is-unspecified.-stored-locations-include-research-square-urls-ending-in-la" class="nav-link" data-scroll-target="#m3.-which-preprint-version-supplies-the-baseline-is-unspecified.-stored-locations-include-research-square-urls-ending-in-la">M3. Which preprint version supplies the baseline is unspecified. Stored locations include Research Square URLs ending in /la</a></li>
+  <li><a href="#m4.-prose-and-code-define-different-outcomes.-a-pair-level-indicator-of-becoming-less-critical-cannot-directly-supply-prepri" id="toc-m4.-prose-and-code-define-different-outcomes.-a-pair-level-indicator-of-becoming-less-critical-cannot-directly-supply-prepri" class="nav-link" data-scroll-target="#m4.-prose-and-code-define-different-outcomes.-a-pair-level-indicator-of-becoming-less-critical-cannot-directly-supply-prepri">M4. Prose and code define different outcomes. A pair-level indicator of becoming less critical cannot directly supply prepri</a></li>
+  <li><a href="#m5.-single-version-agreement-does-not-validate-directional-change.-referenced-p03-uses-inadequateadequatemixednot-applica" id="toc-m5.-single-version-agreement-does-not-validate-directional-change.-referenced-p03-uses-inadequateadequatemixednot-applica" class="nav-link" data-scroll-target="#m5.-single-version-agreement-does-not-validate-directional-change.-referenced-p03-uses-inadequateadequatemixednot-applica">M5. Single-version agreement does not validate directional change. Referenced P03 uses inadequate/adequate/mixed/not-applica</a></li>
+  <li><a href="#m6.-total-pair-thresholds-do-not-establish-power-for-a-discordance-based-test.-no-minimum-meaningful-shift-discordance-assu" id="toc-m6.-total-pair-thresholds-do-not-establish-power-for-a-discordance-based-test.-no-minimum-meaningful-shift-discordance-assu" class="nav-link" data-scroll-target="#m6.-total-pair-thresholds-do-not-establish-power-for-a-discordance-based-test.-no-minimum-meaningful-shift-discordance-assu">M6. Total-pair thresholds do not establish power for a discordance-based test. No minimum meaningful shift, discordance assu</a></li>
+  <li><a href="#m7.-the-3.7-figure-measures-flagged-records-divided-by-all-resolved-tier-a-records.-it-does-not-measure-linkage-completenes" id="toc-m7.-the-3.7-figure-measures-flagged-records-divided-by-all-resolved-tier-a-records.-it-does-not-measure-linkage-completenes" class="nav-link" data-scroll-target="#m7.-the-3.7-figure-measures-flagged-records-divided-by-all-resolved-tier-a-records.-it-does-not-measure-linkage-completenes">M7. The 3.7% figure measures flagged records divided by all resolved tier A records. It does not measure linkage completenes</a></li>
+  <li><a href="#m8.-half-the-sample-is-the-unscreened-p01v2-qualified-tier-b-frame-7572-openalex-matches-from-7617-pmids.-that-frame-was-b" id="toc-m8.-half-the-sample-is-the-unscreened-p01v2-qualified-tier-b-frame-7572-openalex-matches-from-7617-pmids.-that-frame-was-b" class="nav-link" data-scroll-target="#m8.-half-the-sample-is-the-unscreened-p01v2-qualified-tier-b-frame-7572-openalex-matches-from-7617-pmids.-that-frame-was-b">M8. Half the sample is the unscreened P01v2 qualified tier B frame (7572 OpenAlex matches from 7617 PMIDs). That frame was b</a></li>
+  <li><a href="#m9.-the-hypothesis-is-that-the-published-conclusion-is-less-critical-than-the-preprint-conclusion.-section-5-still-scores-a" id="toc-m9.-the-hypothesis-is-that-the-published-conclusion-is-less-critical-than-the-preprint-conclusion.-section-5-still-scores-a" class="nav-link" data-scroll-target="#m9.-the-hypothesis-is-that-the-published-conclusion-is-less-critical-than-the-preprint-conclusion.-section-5-still-scores-a">M9. The hypothesis is that the published conclusion is less critical than the preprint conclusion. Section 5 still scores a</a></li>
+  <li><a href="#m10.-the-document-presents-preprint-versus-journal-conclusion-change-as-a-gap-this-design-can-newly-measure.-it-cites-no-prio" id="toc-m10.-the-document-presents-preprint-versus-journal-conclusion-change-as-a-gap-this-design-can-newly-measure.-it-cites-no-prio" class="nav-link" data-scroll-target="#m10.-the-document-presents-preprint-versus-journal-conclusion-change-as-a-gap-this-design-can-newly-measure.-it-cites-no-prio">M10. The document presents preprint-versus-journal conclusion change as a gap this design can newly measure. It cites no prio</a></li>
+  <li><a href="#m11.-the-description-and-section-1-frame-the-study-as-whether-peer-review-blunts-criticism.-section-7-then-says-the-design-at" id="toc-m11.-the-description-and-section-1-frame-the-study-as-whether-peer-review-blunts-criticism.-section-7-then-says-the-design-at" class="nav-link" data-scroll-target="#m11.-the-description-and-section-1-frame-the-study-as-whether-peer-review-blunts-criticism.-section-7-then-says-the-design-at">M11. The description and section 1 frame the study as whether peer review blunts criticism. Section 7 then says the design at</a></li>
+  <li><a href="#m12.-the-written-decision-rule-chooses-full-versus-reduced-versus-agenda-from-pair-count.-it-does-not-choose-the-primary-popu" id="toc-m12.-the-written-decision-rule-chooses-full-versus-reduced-versus-agenda-from-pair-count.-it-does-not-choose-the-primary-popu" class="nav-link" data-scroll-target="#m12.-the-written-decision-rule-chooses-full-versus-reduced-versus-agenda-from-pair-count.-it-does-not-choose-the-primary-popu">M12. The written decision rule chooses full versus reduced versus agenda from pair count. It does not choose the primary popu</a></li>
+  <li><a href="#m13.-the-outcome-is-the-direction-and-strength-of-the-concluding-claim-taken-from-the-abstract-conclusion-and-the-discussion" id="toc-m13.-the-outcome-is-the-direction-and-strength-of-the-concluding-claim-taken-from-the-abstract-conclusion-and-the-discussion" class="nav-link" data-scroll-target="#m13.-the-outcome-is-the-direction-and-strength-of-the-concluding-claim-taken-from-the-abstract-conclusion-and-the-discussion">M13. The outcome is the direction and strength of the concluding claim, taken from the abstract conclusion and the discussion</a></li>
+  </ul></li>
+  <li><a href="#minor-findings" id="toc-minor-findings" class="nav-link" data-scroll-target="#minor-findings">Minor findings</a>
+  <ul class="collapse">
+  <li><a href="#m1.-claimed-pre-probe-chronology-cannot-be-verified-from-available-history.-earliest-tracked-p06-and-both-probe-summaries-ap" id="toc-m1.-claimed-pre-probe-chronology-cannot-be-verified-from-available-history.-earliest-tracked-p06-and-both-probe-summaries-ap" class="nav-link" data-scroll-target="#m1.-claimed-pre-probe-chronology-cannot-be-verified-from-available-history.-earliest-tracked-p06-and-both-probe-summaries-ap">M1. Claimed pre-probe chronology cannot be verified from available history. Earliest tracked P06 and both probe summaries ap</a></li>
+  <li><a href="#m2.-relevant-methodological-precedent-is-absent.-brierley-et-al.-tracking-changes-between-preprint-posting-and-journal-pub" id="toc-m2.-relevant-methodological-precedent-is-absent.-brierley-et-al.-tracking-changes-between-preprint-posting-and-journal-pub" class="nav-link" data-scroll-target="#m2.-relevant-methodological-precedent-is-absent.-brierley-et-al.-tracking-changes-between-preprint-posting-and-journal-pub">M2. Relevant methodological precedent is absent. Brierley et al., ’Tracking changes between preprint posting and journal pub</a></li>
+  <li><a href="#m3.-invisibility-to-every-design-is-false.-archived-drafts-journal-submissions-reviewer-requests-and-author-revision-hist" id="toc-m3.-invisibility-to-every-design-is-false.-archived-drafts-journal-submissions-reviewer-requests-and-author-revision-hist" class="nav-link" data-scroll-target="#m3.-invisibility-to-every-design-is-false.-archived-drafts-journal-submissions-reviewer-requests-and-author-revision-hist">M3. Invisibility to every design is false. Archived drafts, journal submissions, reviewer requests, and author revision hist</a></li>
+  <li><a href="#m4.-scorer-knowledge-of-version-is-marked-removed.-stripping-dates-venue-and-version-labels-reduces-the-leak-it-does-not" id="toc-m4.-scorer-knowledge-of-version-is-marked-removed.-stripping-dates-venue-and-version-labels-reduces-the-leak-it-does-not" class="nav-link" data-scroll-target="#m4.-scorer-knowledge-of-version-is-marked-removed.-stripping-dates-venue-and-version-labels-reduces-the-leak-it-does-not">M4. Scorer knowledge of version is marked Removed. Stripping dates, venue, and version labels reduces the leak; it does not</a></li>
+  <li><a href="#m5.-data_source-lists-biorxiv-medrxiv-and-osf.-the-probe-and-the-server-tables-also-use-arxiv-ssrn-research-square-zeno" id="toc-m5.-data_source-lists-biorxiv-medrxiv-and-osf.-the-probe-and-the-server-tables-also-use-arxiv-ssrn-research-square-zeno" class="nav-link" data-scroll-target="#m5.-data_source-lists-biorxiv-medrxiv-and-osf.-the-probe-and-the-server-tables-also-use-arxiv-ssrn-research-square-zeno">M5. data_source lists bioRxiv, medRxiv, and OSF. The probe and the server tables also use arXiv, SSRN, Research Square, Zeno</a></li>
+  </ul></li>
+  <li><a href="#the-raw-verdicts" id="toc-the-raw-verdicts" class="nav-link" data-scroll-target="#the-raw-verdicts">The raw verdicts</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/choxos/autometaresearch/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Review of P06: blocked</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">review</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Independent adversarial review of P06. Verdict: blocked.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 19, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Review of <strong><a href="../proposals/P06-preprint-conclusion-drift.html">Do meta-research conclusions soften between preprint and journal?</a></strong>.</p>
+<div class="callout callout-style-simple callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Verdict: blocked
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A reviewer produced a fatal finding backed by a verbatim quote and no reviewer rebutted it. Under the rule, evidence outranks votes, so this outcome does not depend on the tally.</p>
+<p>Adjudicated by <code>build/audit/adjudicate.py</code> at rule version 1. Coverage is <strong>complete</strong>: chatgpt, grok returned a verdict out of a roster of chatgpt, grok.</p>
+<p>3 fatal, 13 major, 5 minor. 16 of the severe findings carry a verbatim quote.</p>
+</div>
+</div>
+<section id="votes" class="level2">
+<h2 class="anchored" data-anchor-id="votes">Votes</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>reviewer</th>
+<th>vote</th>
+<th>confidence</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>chatgpt</code></td>
+<td><strong>unsound</strong></td>
+<td>0.99</td>
+</tr>
+<tr class="even">
+<td><code>grok</code></td>
+<td><strong>unsound</strong></td>
+<td>0.91</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="what-each-reviewer-said" class="level2">
+<h2 class="anchored" data-anchor-id="what-each-reviewer-said">What each reviewer said</h2>
+<section id="chatgpt" class="level3">
+<h3 class="anchored" data-anchor-id="chatgpt"><code>chatgpt</code></h3>
+<p>Repository checks reproduce individual probe counts, but refute combined and restricted totals. More seriously, linkage code counts datasets and standalone preprints as publication pairs. Retained sample includes nonbiomedical research and ordinary clinical reviews. Outcome definition, statistical test, validation gate, and null interpretation also need repair. Published work already examines preprint conclusion changes; an exact predecessor studying criticism specifically within meta-research was not verified.</p>
+</section>
+<section id="grok" class="level3">
+<h3 class="anchored" data-anchor-id="grok"><code>grok</code></h3>
+<p>The printed linkage rates match the frozen summaries: 66 of 1790 in data/lit/openalex-records-summary.json and 75 of 7572 in data/lit/openalex-frame-P01v2-summary.json, rates 3.7 and 1.0 percent. The server tables match those files. The 200 / 80 / below-80 rule is written before the probes, and the document correctly discloses that version change is not peer review. Those parts hold. The sample is not preprint and published pairs of meta-research articles. studies/_shared/openalex_probe.py counts any location whose display_name contains a preprint-server substring, including the primary location. Concatenating 66 and 75 gives 141 only by not deduplicating; the two OpenAlex files share 3 preprint-flagged PMIDs because frame-P01v2.jsonl still contains the 205 tier A overlaps P01v2 later excluded, so unique flagged PMIDs are 138. Of those, 33 are OpenAlex type preprint with no journal location, and 17 independent-frame records are Zenodo-only, including Dataset deposits. Unique works with both a journal location and a named-server location: 105. After dropping exact arXiv and SSRN: 69. The 33 / 108 exclusion does not recompute from the printed server counts (24+10+3=37) or from the frozen files (37 unique exact arXiv/SSRN articles). Probe PC is outstanding, so scorable n is unknown. The document’s own rule sends n under 80 to the agenda. The reduced-form McNemar on preprint_critical by published_critical does not implement ‘became less critical, unchanged as no,’ and cannot see ordinal softening, which is the hypothesis and is the change Brierley et al.&nbsp;2022 already coded on 184 bioRxiv/medRxiv pairs. The unscreened P01v2 frame is not a meta-research corpus. Calling 141 a preregistered secondary after seeing the counts, and making ‘biomedical’ servers the primary after a draft that tried to keep arXiv because 108 was ‘below 80,’ is not preregistration.</p>
+</section>
+</section>
+<section id="fatal-findings" class="level2">
+<h2 class="anchored" data-anchor-id="fatal-findings">Fatal findings</h2>
+<section id="f1.-probe-does-not-establish-preprintjournal-pairs.-studies_sharedopenalex_probe.py8093-counts-any-matching-source-name" class="level3">
+<h3 class="anchored" data-anchor-id="f1.-probe-does-not-establish-preprintjournal-pairs.-studies_sharedopenalex_probe.py8093-counts-any-matching-source-name">F1. Probe does not establish preprint–journal pairs. studies/_shared/openalex_probe.py:80–93 counts any matching source name</h3>
+<p><strong>Reviewer</strong> <code>chatgpt</code> · <strong>Section</strong> 4. Sample; 8. Probes; Status callout</p>
+<p>Probe does not establish preprint–journal pairs. studies/_shared/openalex_probe.py:80–93 counts any matching source name, including primary locations, without verifying a journal counterpart or manuscript identity. Concrete false positive: W4383058151 links article DOI 10.7554/elife.84658 to Zenodo 10722193, which is the PHI-base dataset, not a preprint (<a href="https://zenodo.org/records/10722193">deposit</a>). After deduplication and arXiv/SSRN exclusion, 32 of 101 candidate works have no journal location in stored metadata; only 69 do. This does not prove counterparts cannot be found elsewhere, but the completed probes cannot establish the claimed minimum of 80 usable pairs. Full-text retrieval remains outstanding.</p>
+<blockquote class="blockquote">
+<p>Meta-research articles with both a preprint and a published version, identified from OpenAlex <code>locations</code> where a source is a named preprint server.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Build an auditable pair manifest containing distinct manuscript and journal identifiers, verified document identities, dates, and retrievable texts. Exclude datasets and repository copies lacking a verified prepublication manuscript. Reapply the decision rule to unique, eligible, scoreable pairs before declaring reduced-protocol feasibility.</p>
+</section>
+<section id="f2.-the-unit-is-preprint-and-published-version-pairs-of-the-same-meta-research-article.-the-probe-does-not-identify-that-u" class="level3">
+<h3 class="anchored" data-anchor-id="f2.-the-unit-is-preprint-and-published-version-pairs-of-the-same-meta-research-article.-the-probe-does-not-identify-that-u">F2. The unit is ‘preprint and published version pairs of the same meta-research article.’ The probe does not identify that u</h3>
+<p><strong>Reviewer</strong> <code>grok</code> · <strong>Section</strong> 4. Sample; studies/_shared/openalex_probe.py</p>
+<p>The unit is ‘preprint and published version pairs of the same meta-research article.’ The probe does not identify that unit. It flags a work if any OpenAlex location display_name contains biorxiv, medrxiv, arxiv, ssrn, osf, preprints.org, research square, zenodo, psyarxiv, or metarxiv. The comment says ‘other than the primary,’ but the loop never skips the primary location. Frozen consequence: of 138 unique flagged PMIDs, 33 are OpenAlex type preprint with no journal location (8 in tier A, 25 in the frame after removing tier A PMIDs), including PMID 41992899, a medRxiv record with no journal counterpart. Seventeen independent-frame records are Zenodo-only. PMID 37401199 (eLife) has raw_type Dataset at https://doi.org/10.5281/zenodo.10722193. PMID 32550247 is a Twitter chatter dataset whose primary location is PubMed. Those are not preprint-journal version pairs. The substring ‘arxiv’ also matches metarxiv and psyarxiv. A missed true pair may be missing at random; a Zenodo dataset or a preprint-only PubMed record counted as a pair is a false positive, and it is concentrated in the frame that supplies most of the 75.</p>
+<blockquote class="blockquote">
+<p>Meta-research articles with both a preprint and a published version, identified from OpenAlex <code>locations</code> where a source is a named preprint server.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Require a journal or publishedVersion location and a distinct preprint-server location that is not a data repository. Skip the primary location when it is the preprint. Drop OpenAlex type=preprint with no journal counterpart. Stop treating Zenodo, and any location with raw_type Dataset, as a preprint version. Re-run PA and PB under that rule and replace every pair count in this document.</p>
+</section>
+<section id="f3.-reduced-protocol-status-is-locked-by-141-and-108.-141-is-6675.-the-frozen-openalex-files-share-3-preprint-flagged-pmids" class="level3">
+<h3 class="anchored" data-anchor-id="f3.-reduced-protocol-status-is-locked-by-141-and-108.-141-is-6675.-the-frozen-openalex-files-share-3-preprint-flagged-pmids">F3. Reduced-protocol status is locked by 141 and 108. 141 is 66+75. The frozen OpenAlex files share 3 preprint-flagged PMIDs</h3>
+<p><strong>Reviewer</strong> <code>grok</code> · <strong>Section</strong> Status callout; 4. Sample; 8. Probes</p>
+<p>Reduced-protocol status is locked by 141 and 108. 141 is 66+75. The frozen OpenAlex files share 3 preprint-flagged PMIDs because the frame probe was run on all 7617 frame-P01v2 records, before the 205 tier A overlaps were removed, so unique flagged works are 138. Unique works with both a journal location and a named-server location: 105. Exact arXiv plus SSRN unique articles: 37, not 33; 141 minus 37 is 104, not 108; 138 minus 37 is 101. After that exclusion, journal-plus-server works are 69. Probe PC (both full texts retrievable) is still outstanding, so the n that can be scored is unknown and is the n the decision rule needs. Under the document’s own thresholds, a true pair count under 80 is an agenda item, not a reduced protocol. The 3.7 and 1.0 percent rates are correctly 66/1790 and 75/7572 under the probe’s definition; they are not rates of preprint-journal pairs.</p>
+<blockquote class="blockquote">
+<p>arXiv and SSRN contribute 33 of the 141 pairs and are mostly science-of-science rather than biomedical meta-research. Excluding them leaves 108, still within the 80 to 200 band, so the primary analysis is restricted to biomedical preprint servers</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Deduplicate the two frames by PMID before adding. Apply the tier A exclusion to the frame first. Count unique articles, not 66+75. Recompute the arXiv/SSRN cut from unique articles. Run PC. Apply the 200 / 80 / below-80 rule to the scorable pair count. If that n is under 80, reclassify the document as agenda.</p>
+</section>
+</section>
+<section id="major-findings" class="level2">
+<h2 class="anchored" data-anchor-id="major-findings">Major findings</h2>
+<section id="m1.-server-exclusion-does-not-establish-biomedical-meta-research-eligibility.-retained-candidates-include-a-social-science-t" class="level3">
+<h3 class="anchored" data-anchor-id="m1.-server-exclusion-does-not-establish-biomedical-meta-research-eligibility.-retained-candidates-include-a-social-science-t">M1. Server exclusion does not establish biomedical meta-research eligibility. Retained candidates include a social-science t</h3>
+<p><strong>Reviewer</strong> <code>chatgpt</code> · <strong>Section</strong> 4. Sample</p>
+<p>Server exclusion does not establish biomedical meta-research eligibility. Retained candidates include a social-science transparency study, DOI 10.1098/rsos.190806, and a butterfly-distribution data paper, DOI 10.3897/zookeys.585.8019. Their abstracts in data/lit/records.jsonl:1342 and data/lit/frame-P01v2.jsonl:688 confirm those populations. The tier B candidates also include clinical evidence syntheses. The borrowed frame is an unscreened keyword search, not a verified meta-research sample. Consequently, criticism of research practices could be mixed with conclusions about clinical effects, ecological data, or other disciplines.</p>
+<blockquote class="blockquote">
+<p>the primary analysis is restricted to biomedical preprint servers</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Define biomedical scope and empirical meta-research eligibility at article level. Screen all candidates before scoring, with explicit rules for clinical systematic reviews, protocols, commentaries, and nonbiomedical studies. Publish exclusions and recompute feasibility after screening.</p>
+</section>
+<section id="m2.-combined-and-restricted-counts-are-wrong.-recomputing-datalitopenalex-records.jsonl-and-datalitopenalex-frame-p01v2." class="level3">
+<h3 class="anchored" data-anchor-id="m2.-combined-and-restricted-counts-are-wrong.-recomputing-datalitopenalex-records.jsonl-and-datalitopenalex-frame-p01v2.">M2. Combined and restricted counts are wrong. Recomputing data/lit/openalex-records.jsonl and data/lit/openalex-frame-P01v2.</h3>
+<p><strong>Reviewer</strong> <code>chatgpt</code> · <strong>Section</strong> 4. Sample; Status callout</p>
+<p>Combined and restricted counts are wrong. Recomputing data/lit/openalex-records.jsonl and data/lit/openalex-frame-P01v2.jsonl gives 66 and 75 candidate rows, but three works occur in both: W2771978614, W2910487802, and W4413010120. Combined total is therefore 138 unique OpenAlex works, not 141. Canonical arXiv/SSRN sources identify 37 distinct candidates for exclusion, leaving 101 unique candidates, not 108. Individual rates of 3.7% and 1.0% reproduce; asserted totals 33 and 108 do not. These are candidate counts, still subject to the eligibility failures above.</p>
+<blockquote class="blockquote">
+<p>arXiv and SSRN contribute 33 of the 141 pairs and are mostly science-of-science rather than biomedical meta-research.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Deduplicate across frames using persistent identifiers, resolve multiple records representing the same article, and compute exclusions from the resulting manifest. Generate every reported count from code rather than adding marginal summaries.</p>
+</section>
+<section id="m3.-which-preprint-version-supplies-the-baseline-is-unspecified.-stored-locations-include-research-square-urls-ending-in-la" class="level3">
+<h3 class="anchored" data-anchor-id="m3.-which-preprint-version-supplies-the-baseline-is-unspecified.-stored-locations-include-research-square-urls-ending-in-la">M3. Which preprint version supplies the baseline is unspecified. Stored locations include Research Square URLs ending in /la</h3>
+<p><strong>Reviewer</strong> <code>chatgpt</code> · <strong>Section</strong> 4. Sample; 5. Exposure and outcome</p>
+<p>Which preprint version supplies the baseline is unspecified. Stored locations include Research Square URLs ending in /latest.pdf. Retrieving those can select a revision incorporating review or publication-stage changes, making real changes disappear. A server name also does not establish that posting preceded journal publication. Even correctly linked manuscripts therefore lack a reproducible before-and-after contrast.</p>
+<blockquote class="blockquote">
+<p>There is no exposure; the contrast is version.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Specify an immutable baseline, such as the earliest posted manuscript preceding journal publication, and a defined journal version. Record version identifiers, posting/publication dates, retrieval dates, and text hashes. Prespecify handling of postpublication deposits and ambiguous chronology.</p>
+</section>
+<section id="m4.-prose-and-code-define-different-outcomes.-a-pair-level-indicator-of-becoming-less-critical-cannot-directly-supply-prepri" class="level3">
+<h3 class="anchored" data-anchor-id="m4.-prose-and-code-define-different-outcomes.-a-pair-level-indicator-of-becoming-less-critical-cannot-directly-supply-prepri">M4. Prose and code define different outcomes. A pair-level indicator of becoming less critical cannot directly supply prepri</h3>
+<p><strong>Reviewer</strong> <code>chatgpt</code> · <strong>Section</strong> 2. Hypothesis; 5. Exposure and outcome; 6. Analysis, in the reduced form</p>
+<p>Prose and code define different outcomes. A pair-level indicator of becoming less critical cannot directly supply preprint_critical and published_critical. McNemar instead compares opposite transitions between two binary states (<a href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/mcnemar.test.html">R documentation</a>). No critical/not-critical threshold is specified. Strongly critical becoming moderately critical satisfies the hypothesis but remains invisible if both versions are classified critical. Conversely, collapsing strengthening and unchanged into one ‘no’ category cannot identify net directional change. McNemar’s null is balanced opposing transitions, not absence of changes within articles.</p>
+<blockquote class="blockquote">
+<p>The outcome is binary: did the concluding claim become less critical, yes or no, with unchanged pairs retained as “no”.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Choose one estimand and align labels, null, and code. For directional softening, record less critical, unchanged, and more critical; compare opposing directions and report their difference using all eligible pairs as denominator. Alternatively, define binary states and explicitly narrow the hypothesis to crossing that threshold.</p>
+</section>
+<section id="m5.-single-version-agreement-does-not-validate-directional-change.-referenced-p03-uses-inadequateadequatemixednot-applica" class="level3">
+<h3 class="anchored" data-anchor-id="m5.-single-version-agreement-does-not-validate-directional-change.-referenced-p03-uses-inadequateadequatemixednot-applica">M5. Single-version agreement does not validate directional change. Referenced P03 uses inadequate/adequate/mixed/not-applica</h3>
+<p><strong>Reviewer</strong> <code>chatgpt</code> · <strong>Section</strong> 5. Exposure and outcome; 7. Threats, and what happened to each</p>
+<p>Single-version agreement does not validate directional change. Referenced P03 uses inadequate/adequate/mixed/not-applicable abstract labels, whereas P06 requires a different instrument and supplies no rule for reconciling abstract and discussion conclusions. A computed counterexample demonstrates the gate’s weakness: among 100 truly unchanged pairs, with 50 critical and 50 noncritical, classify preprints perfectly but misclassify 15 critical published versions as noncritical. Published-version kappa is 0.70 and pooled kappa is 0.85, yet all 15 discordances falsely indicate softening; exact two-sided p=0.000061. Metadata stripping does not establish absence of such version-dependent errors, so calling that threat ‘Removed’ is unsupported.</p>
+<blockquote class="blockquote">
+<p>the study does not proceed unless a model reaches kappa 0.70 against the author.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Define a P06-specific claim-extraction and scoring rubric. Validate change direction on independently adjudicated, blinded pairs, with held-out validation, transition-specific errors, and sensitivity to asymmetric misclassification. Assess residual version recognition and describe blinding as a safeguard unless its effectiveness is demonstrated.</p>
+</section>
+<section id="m6.-total-pair-thresholds-do-not-establish-power-for-a-discordance-based-test.-no-minimum-meaningful-shift-discordance-assu" class="level3">
+<h3 class="anchored" data-anchor-id="m6.-total-pair-thresholds-do-not-establish-power-for-a-discordance-based-test.-no-minimum-meaningful-shift-discordance-assu">M6. Total-pair thresholds do not establish power for a discordance-based test. No minimum meaningful shift, discordance assu</h3>
+<p><strong>Reviewer</strong> <code>chatgpt</code> · <strong>Section</strong> 2. Hypothesis; 4. Sample decision rule; 6. Analysis, in the reduced form</p>
+<p>Total-pair thresholds do not establish power for a discordance-based test. No minimum meaningful shift, discordance assumption, power calculation, or equivalence margin supports 80 or 200. Illustrative exact calculations: with five discordant pairs, even five changes toward softening give two-sided p=0.0625; with ten discordant pairs and a true 3:1 softening-to-strengthening ratio, power at alpha=0.05 is only 24.4%. A nonsignificant result under this plan cannot establish the proposed falsifier of no net shift.</p>
+<blockquote class="blockquote">
+<p>What would falsify the hypothesis.** No net shift, or a shift toward more criticism.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Compute power and attainable precision across plausible discordance rates using the verified sample size. Prespecify a meaningful effect and confidence interval; use equivalence testing if absence of meaningful softening is intended as falsification. Otherwise label inconclusive null results accordingly.</p>
+</section>
+<section id="m7.-the-3.7-figure-measures-flagged-records-divided-by-all-resolved-tier-a-records.-it-does-not-measure-linkage-completenes" class="level3">
+<h3 class="anchored" data-anchor-id="m7.-the-3.7-figure-measures-flagged-records-divided-by-all-resolved-tier-a-records.-it-does-not-measure-linkage-completenes">M7. The 3.7% figure measures flagged records divided by all resolved tier A records. It does not measure linkage completenes</h3>
+<p><strong>Reviewer</strong> <code>chatgpt</code> · <strong>Section</strong> 7. Threats, and what happened to each</p>
+<p>The 3.7% figure measures flagged records divided by all resolved tier A records. It does not measure linkage completeness: the denominator of genuine preprint-bearing articles is unknown, and false positives are demonstrably present. Therefore neither missed-pair frequency nor selection bias has been measured. Changes in titles, identifiers, or hosting can affect linkage and could track manuscript revision. Complete-text availability adds another unassessed selection step.</p>
+<blockquote class="blockquote">
+<p>Measured, not assumed: 3.7 percent in tier A.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Distinguish observed detection yield from sensitivity and positive predictive value. Audit matched and unmatched records against independent server/publication links, report retrieval attrition, and assess selection sensitivity. Restrict generalization to verified linked and retrievable pairs unless broader representativeness is supported.</p>
+</section>
+<section id="m8.-half-the-sample-is-the-unscreened-p01v2-qualified-tier-b-frame-7572-openalex-matches-from-7617-pmids.-that-frame-was-b" class="level3">
+<h3 class="anchored" data-anchor-id="m8.-half-the-sample-is-the-unscreened-p01v2-qualified-tier-b-frame-7572-openalex-matches-from-7617-pmids.-that-frame-was-b">M8. Half the sample is the unscreened P01v2 qualified tier B frame (7572 OpenAlex matches from 7617 PMIDs). That frame was b</h3>
+<p><strong>Reviewer</strong> <code>grok</code> · <strong>Section</strong> 4. Sample</p>
+<p>Half the sample is the unscreened P01v2 qualified tier B frame (7572 OpenAlex matches from 7617 PMIDs). That frame was built to be screened because a subject-matter query returns trials, clinical reviews, and databases as well as meta-research. P06 never screens it. Frozen titles among the independent-frame ‘pairs’ include PMID 39011096, a sham-controlled photodynamic therapy trial; PMID 42282195, a platform clinical trial design; PMID 27199606, a butterfly distribution database; and PMID 34816577, a Mediterranean-diet review in children. Tier A is the only self-named meta-research corpus, and after dropping preprint-only records it has 58 journal-plus-server works, 24 of them arXiv. Pooling an unscreened frame with tier A does not produce ‘meta-research articles.’ Selection into preprint locations also differs by frame (3.7 percent versus 1.0 percent), so the combined 141 is not one sampling frame.</p>
+<blockquote class="blockquote">
+<p>Meta-research articles with both a preprint and a published version, identified from OpenAlex <code>locations</code> where a source is a named preprint server.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Do not call the P01v2 frame meta-research until it is screened with a rule frozen before conclusion scoring. Report tier A pairs separately. If a screened frame is used, publish the eligibility flow and the post-screen pair count, and only then apply the section 4 decision rule.</p>
+</section>
+<section id="m9.-the-hypothesis-is-that-the-published-conclusion-is-less-critical-than-the-preprint-conclusion.-section-5-still-scores-a" class="level3">
+<h3 class="anchored" data-anchor-id="m9.-the-hypothesis-is-that-the-published-conclusion-is-less-critical-than-the-preprint-conclusion.-section-5-still-scores-a">M9. The hypothesis is that the published conclusion is less critical than the preprint conclusion. Section 5 still scores a</h3>
+<p><strong>Reviewer</strong> <code>grok</code> · <strong>Section</strong> 2. Hypothesis; 5. Exposure and outcome; 6. Analysis, in the reduced form</p>
+<p>The hypothesis is that the published conclusion is less critical than the preprint conclusion. Section 5 still scores a five-point scale from strongly critical to endorsing. Section 6 then says that scale is not used, and defines a binary ‘became less critical, yes or no, with unchanged pairs retained as no.’ The code is McNemar on preprint_critical by published_critical, which tests equal marginal rates of being critical, plus an exact binomial on discordant pairs, which ignores unchanged pairs. Those three estimands are not the same. Dichotomizing each version as critical or not also misses the hypothesized effect: a move from strongly critical to moderately critical is softening and is invisible to McNemar on two ‘is critical’ flags. That is the change the five-point scale was built to see, and it is the change most pairs will show if they change at all. No expected discordant count or detectable effect is computed, so the claim that 141 (or 108) supports a reduced protocol rather than an agenda item is unsupported even if the pair count were right.</p>
+<blockquote class="blockquote">
+<p>The outcome is binary: did the concluding claim become less critical, yes or no, with unchanged pairs retained as “no”.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Define one estimand. If it is net directional shift among pairs that change, use McNemar or an exact binomial on discordant pairs and delete ‘unchanged pairs retained as no.’ If it is any softening on the five-point scale, keep the ordinal score at this n and do not dichotomize each version. State the smallest shift that counts and compute power from an expected discordant rate before locking the reduced form.</p>
+</section>
+<section id="m10.-the-document-presents-preprint-versus-journal-conclusion-change-as-a-gap-this-design-can-newly-measure.-it-cites-no-prio" class="level3">
+<h3 class="anchored" data-anchor-id="m10.-the-document-presents-preprint-versus-journal-conclusion-change-as-a-gap-this-design-can-newly-measure.-it-cites-no-prio">M10. The document presents preprint-versus-journal conclusion change as a gap this design can newly measure. It cites no prio</h3>
+<p><strong>Reviewer</strong> <code>grok</code> · <strong>Section</strong> 1. The question</p>
+<p>The document presents preprint-versus-journal conclusion change as a gap this design can newly measure. It cites no prior work. Brierley et al.&nbsp;2022 already compared 184 bioRxiv/medRxiv preprint-published pairs, coded abstract conclusion changes including softening, and asked whether conclusions change under peer review. Klein et al.&nbsp;2019 measured preprint-to-published textual change. Carneiro et al.&nbsp;2020 compared reporting quality in paired preprint and journal versions. Nicholson et al.&nbsp;2022 measured linguistic shifts in about 18,000 pairs. Bero et al.&nbsp;and Oikonomidi et al.&nbsp;compared conclusions in COVID-19 clinical preprint-journal pairs. The unoriginal piece is the pair comparison and the softening code. What would be new, and is not yet shown to be feasible, is restricting that comparison to meta-research conclusions about research practice.</p>
+<blockquote class="blockquote">
+<p>This is measurable because meta-research increasingly appears as a preprint first, and both versions persist.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Add a related-work section that cites Brierley et al.&nbsp;2022 (PLoS Biol 20:e3001285), Klein et al.&nbsp;2019, Carneiro et al.&nbsp;2020, and Nicholson et al.&nbsp;2022. State what is new: restriction to meta-research conclusions about research practice, not the preprint-versus-journal comparison. Either reuse a published softening code or justify a different scale.</p>
+</section>
+<section id="m11.-the-description-and-section-1-frame-the-study-as-whether-peer-review-blunts-criticism.-section-7-then-says-the-design-at" class="level3">
+<h3 class="anchored" data-anchor-id="m11.-the-description-and-section-1-frame-the-study-as-whether-peer-review-blunts-criticism.-section-7-then-says-the-design-at">M11. The description and section 1 frame the study as whether peer review blunts criticism. Section 7 then says the design at</h3>
+<p><strong>Reviewer</strong> <code>grok</code> · <strong>Section</strong> description; 1. The question; 7. Threats</p>
+<p>The description and section 1 frame the study as whether peer review blunts criticism. Section 7 then says the design attributes nothing to review specifically, and ‘What this cannot show’ repeats that time, new data, and author revision are not separated from review. Those two claims cannot both stand as the question the document answers. A paired version contrast measures change between two public texts. It does not measure review. Marking the threat ‘disclosed’ does not make the title or section 1 true.</p>
+<blockquote class="blockquote">
+<p>the design attributes nothing to review specifically</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Change the title, description, and section 1 so the question is version change, which is what the design measures. Keep peer review as a mechanism this design cannot isolate. Do not use ‘whether peer review blunts criticism’ as the document’s question.</p>
+</section>
+<section id="m12.-the-written-decision-rule-chooses-full-versus-reduced-versus-agenda-from-pair-count.-it-does-not-choose-the-primary-popu" class="level3">
+<h3 class="anchored" data-anchor-id="m12.-the-written-decision-rule-chooses-full-versus-reduced-versus-agenda-from-pair-count.-it-does-not-choose-the-primary-popu">M12. The written decision rule chooses full versus reduced versus agenda from pair count. It does not choose the primary popu</h3>
+<p><strong>Reviewer</strong> <code>grok</code> · <strong>Section</strong> Status callout; 4. Sample</p>
+<p>The written decision rule chooses full versus reduced versus agenda from pair count. It does not choose the primary population. After seeing the counts, a first draft kept arXiv in the primary analysis by claiming 108 was below 80. The published text reverses that and calls the biomedical cut ‘the primary analysis, not a subgroup’ and calls the full 141 a ‘preregistered secondary,’ because ‘both counts were known before either analysis was specified.’ Knowing the counts before specifying which sample is primary is looking at the data, not preregistration. Agenda.qmd also states that nothing here is registered. The restriction is ‘excluding arXiv and SSRN,’ not restriction to biomedical preprint servers: OSF Preprints, Zenodo, Research Square, and PsyArXiv remain. Those are not biomedical servers.</p>
+<blockquote class="blockquote">
+<p>the full 141 pairs are reported as a preregistered secondary. Neither is a subgroup fished for after the fact: both counts were known before either analysis was specified, and both are published.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Drop ‘preregistered.’ If biomedical servers are the population of interest, write that restriction into the decision rule without reference to whether 108 cleared 80. Name the servers that remain and justify each; do not call OSF, Zenodo, Research Square, or PsyArXiv biomedical preprint servers.</p>
+</section>
+<section id="m13.-the-outcome-is-the-direction-and-strength-of-the-concluding-claim-taken-from-the-abstract-conclusion-and-the-discussion" class="level3">
+<h3 class="anchored" data-anchor-id="m13.-the-outcome-is-the-direction-and-strength-of-the-concluding-claim-taken-from-the-abstract-conclusion-and-the-discussion">M13. The outcome is the direction and strength of the concluding claim, taken from the abstract conclusion and the discussion</h3>
+<p><strong>Reviewer</strong> <code>grok</code> · <strong>Section</strong> 5. Exposure and outcome</p>
+<p>The outcome is the direction and strength of the concluding claim, taken from the abstract conclusion and the discussion, on a five-point scale that section 6 then discards. There is no coding rule for what ‘critical of the practice it studied’ means, no rule when abstract and discussion disagree, and no stated size for the author-labeled reference sample. Copying P03’s kappa 0.70 gate does not supply those. P03 classifies one abstract per article into inadequate, adequate, mixed, or not applicable. This task is paired, version-blind, ordinal criticism. A model can pass overall kappa 0.70 while never detecting the ordinal softening the hypothesis cares about, especially after the reduced form collapses the scale. Version-blind presentation is necessary and does not stop journal copyediting, ‘this journal’ phrasing, or typesetting from identifying the published text.</p>
+<blockquote class="blockquote">
+<p>Scoring is by the same gated procedure as <a href="P03-bad-news-citation.qmd">P03</a>: the author labels a reference sample, two models label it blind, and the study does not proceed unless a model reaches kappa 0.70 against the author.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Freeze a coding manual for the scale that will actually be analyzed, with examples and a rule when abstract and discussion disagree. State the reference-sample size before labeling. Validate that reduced-form label, not a five-point score that is then thrown away. Report class-specific agreement for softening versus no change versus hardening.</p>
+</section>
+</section>
+<section id="minor-findings" class="level2">
+<h2 class="anchored" data-anchor-id="minor-findings">Minor findings</h2>
+<section id="m1.-claimed-pre-probe-chronology-cannot-be-verified-from-available-history.-earliest-tracked-p06-and-both-probe-summaries-ap" class="level3">
+<h3 class="anchored" data-anchor-id="m1.-claimed-pre-probe-chronology-cannot-be-verified-from-available-history.-earliest-tracked-p06-and-both-probe-summaries-ap">M1. Claimed pre-probe chronology cannot be verified from available history. Earliest tracked P06 and both probe summaries ap</h3>
+<p><strong>Reviewer</strong> <code>chatgpt</code> · <strong>Section</strong> Status callout; 4. Sample — The decision rule</p>
+<p>Claimed pre-probe chronology cannot be verified from available history. Earliest tracked P06 and both probe summaries appear together in commit ddc788dd25f3c3dece6f787e5fb767b53952dbaf. That establishes neither an earlier decision rule nor its timing relative to probe execution. This is not evidence of outcome-driven manipulation: feasibility-informed choices can still precede outcome analysis. It does leave the emphatic historical claim unsupported.</p>
+<blockquote class="blockquote">
+<p>The decision rule, written before either probe returned</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Link a timestamped pre-probe version or execution record establishing chronology. Otherwise remove the unverifiable claim and distinguish post-feasibility, outcome-blind specification from decisions demonstrably fixed before probing.</p>
+</section>
+<section id="m2.-relevant-methodological-precedent-is-absent.-brierley-et-al.-tracking-changes-between-preprint-posting-and-journal-pub" class="level3">
+<h3 class="anchored" data-anchor-id="m2.-relevant-methodological-precedent-is-absent.-brierley-et-al.-tracking-changes-between-preprint-posting-and-journal-pub">M2. Relevant methodological precedent is absent. Brierley et al., ’Tracking changes between preprint posting and journal pub</h3>
+<p><strong>Reviewer</strong> <code>chatgpt</code> · <strong>Section</strong> 1. The question</p>
+<p>Relevant methodological precedent is absent. Brierley et al., ‘Tracking changes between preprint posting and journal publication during a pandemic,’ PLOS Biology 2022, already compared 184 pairs and manually annotated strengthening and softening of conclusions (<a href="https://doi.org/10.1371/journal.pbio.3001285">article</a>). This does not establish that criticism specifically within meta-research has already been studied, but the general paired comparison and semantic-change instrument are established prior work.</p>
+<blockquote class="blockquote">
+<p>This is measurable because meta-research increasingly appears as a preprint first, and both versions persist.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Discuss existing preprint–publication comparisons, their scoring instruments and limitations, and define the narrower contribution concerning criticism of research practices.</p>
+</section>
+<section id="m3.-invisibility-to-every-design-is-false.-archived-drafts-journal-submissions-reviewer-requests-and-author-revision-hist" class="level3">
+<h3 class="anchored" data-anchor-id="m3.-invisibility-to-every-design-is-false.-archived-drafts-journal-submissions-reviewer-requests-and-author-revision-hist">M3. Invisibility to every design is false. Archived drafts, journal submissions, reviewer requests, and author revision hist</h3>
+<p><strong>Reviewer</strong> <code>chatgpt</code> · <strong>Section</strong> What this cannot show</p>
+<p>Invisibility to every design is false. Archived drafts, journal submissions, reviewer requests, and author revision histories can expose changes preceding public posting. Lazarus et al.&nbsp;studied submitted manuscripts and reviewer-requested changes to spin using a retrospective before-and-after design (<a href="https://doi.org/10.1016/j.jclinepi.2016.04.012">J Clin Epidemiol, 2016</a>). Calling preposting removal the censorship ‘most likely to matter’ also lacks supporting evidence.</p>
+<blockquote class="blockquote">
+<p>It cannot see criticism removed before the preprint was posted, which is the censorship most likely to matter and is invisible to every design.</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Limit the statement to what this public-version design cannot observe. Remove the unsupported ranking of censorship mechanisms and acknowledge designs using earlier manuscript histories.</p>
+</section>
+<section id="m4.-scorer-knowledge-of-version-is-marked-removed.-stripping-dates-venue-and-version-labels-reduces-the-leak-it-does-not" class="level3">
+<h3 class="anchored" data-anchor-id="m4.-scorer-knowledge-of-version-is-marked-removed.-stripping-dates-venue-and-version-labels-reduces-the-leak-it-does-not">M4. Scorer knowledge of version is marked Removed. Stripping dates, venue, and version labels reduces the leak; it does not</h3>
+<p><strong>Reviewer</strong> <code>grok</code> · <strong>Section</strong> 7. Threats, and what happened to each</p>
+<p>Scorer knowledge of version is marked Removed. Stripping dates, venue, and version labels reduces the leak; it does not remove it. Journal copyediting, reference lists, and layout still identify the published version, which is the version the hypothesis says should be less critical.</p>
+<blockquote class="blockquote">
+<p>Scorer knows which version is which | Version-blinded presentation, randomized order, stripped metadata | Removed</p>
+</blockquote>
+<p><strong>What would fix it.</strong> Mark the threat as reduced, not removed, and add a post-scoring check of whether models can still pick the published text.</p>
+</section>
+<section id="m5.-data_source-lists-biorxiv-medrxiv-and-osf.-the-probe-and-the-server-tables-also-use-arxiv-ssrn-research-square-zeno" class="level3">
+<h3 class="anchored" data-anchor-id="m5.-data_source-lists-biorxiv-medrxiv-and-osf.-the-probe-and-the-server-tables-also-use-arxiv-ssrn-research-square-zeno">M5. data_source lists bioRxiv, medRxiv, and OSF. The probe and the server tables also use arXiv, SSRN, Research Square, Zeno</h3>
+<p><strong>Reviewer</strong> <code>grok</code> · <strong>Section</strong> frontmatter data_source</p>
+<p>data_source lists bioRxiv, medRxiv, and OSF. The probe and the server tables also use arXiv, SSRN, Research Square, Zenodo, PsyArXiv, and MetaRXiv. Readers who trust the YAML will not find the sample they think they are reading.</p>
+<blockquote class="blockquote">
+<p>data_source: “OpenAlex locations; bioRxiv, medRxiv and OSF preprint servers”</p>
+</blockquote>
+<p><strong>What would fix it.</strong> List every server the probe actually matches, or restrict the probe to the servers named in data_source.</p>
+</section>
+</section>
+<section id="the-raw-verdicts" class="level2">
+<h2 class="anchored" data-anchor-id="the-raw-verdicts">The raw verdicts</h2>
+<p><code>data/audit/P06/</code> holds each reviewer’s verdict as returned, the prompt both were given, and <code>adjudicated.json</code>. Nothing on this page is summarized from anything the repository does not also carry in full.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/choxos\.github\.io\/autometaresearch\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Ahmad Sofi-Mahmudi</p>
+</div>   
+    <div class="nav-footer-center">
+<p>Every number is derived by a script. See <a href="../methods.html">How this was done</a>.</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/choxos/autometaresearch/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p><a href="https://github.com/choxos/autometaresearch">Source</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

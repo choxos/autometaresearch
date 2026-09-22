@@ -79,9 +79,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-1861f82967d66f654154b492be169a53.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-d72254f1cca27c889edf43d9473ffb8d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-1861f82967d66f654154b492be169a53.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-5cc4517f93efc704f9e8f922f0fd1f56.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-8544745414cade1a69674f78a9fe5522.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-5cc4517f93efc704f9e8f922f0fd1f56.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": true,
@@ -426,7 +426,13 @@ PubMed:       ("open access"[tiab] OR "PubMed Central"[tiab]) AND ("selection bi
               OR "conflict of interest"[tiab] OR "data sharing"[tiab] OR funding[tiab])
               AND (meta-research[tiab] OR "research on research"[tiab] OR bibliometric*[tiab]
               OR "text mining"[tiab])</code></pre>
-<p><strong>Zero</strong> PubMed records and zero corpus records.</p>
+<p><strong>Zero</strong> PubMed records and zero corpus records. A zero from a conjunction of four clauses is weak evidence of absence, so a looser search, logged under the same key, drops the fourth clause:</p>
+<pre><code>corpus regex: (open access|PubMed Central|PMC).{0,120}(selection bias|representativ
+              |sampling bias).{0,120}(transparen|data sharing|conflict of interest)
+PubMed:       ("open access"[tiab] OR "PubMed Central"[tiab]) AND ("selection bias"[tiab]
+              OR representativeness[tiab] OR "sampling bias"[tiab]) AND (transparency[tiab]
+              OR "data sharing"[tiab] OR "conflict of interest"[tiab])</code></pre>
+<p>Three PubMed records and zero corpus records, none about open-access sampling in research on research: they concern reproducibility in genome-wide association studies, representation in Indonesian politics, and Medicare data for comparative effectiveness research. The claim rests on both searches, and it is still a claim about what two searches did not find.</p>
 </section>
 <section id="hypothesis" class="level2">
 <h2 class="anchored" data-anchor-id="hypothesis">3. Hypothesis</h2>
@@ -459,7 +465,7 @@ PubMed:       ("open access"[tiab] OR "PubMed Central"[tiab]) AND ("selection bi
 <section id="analysis" class="level2">
 <h2 class="anchored" data-anchor-id="analysis">9. Analysis</h2>
 <p>In R.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">clogit</span>(indicator <span class="sc">~</span> in_pmc_oa <span class="sc">+</span> <span class="fu">strata</span>(journal_year), <span class="at">data =</span> d)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">clogit</span>(indicator <span class="sc">~</span> in_pmc_oa <span class="sc">+</span> <span class="fu">strata</span>(journal_year), <span class="at">data =</span> d)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>One model per indicator. Preregistered alongside: a probabilistic bias analysis for tier 2 using the section 8 accuracies, and the implied inflation of a PMC-only prevalence estimate, computed as the difference between the PMC-only and the reweighted all-access prevalence.</p>
 </section>
 <section id="threats" class="level2">
@@ -505,7 +511,7 @@ PubMed:       ("open access"[tiab] OR "PubMed Central"[tiab]) AND ("selection bi
 <td>S9</td>
 </tr>
 <tr class="odd">
-<td>The author maintains the instrument and his own results are at stake</td>
+<td>The author maintains the instrument and the author’s own results are at stake</td>
 <td>Stated at the top; the gate’s coding is blind to detector output</td>
 <td>Disclosed</td>
 <td></td>

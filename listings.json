@@ -1,8 +1,12 @@
 [
   {
-    "listing": "/results.html",
+    "listing": "/reviews.html",
     "items": [
-      "/results/R01-advocacy-and-practice.html"
+      "/reviews/P01v2.html",
+      "/reviews/P02.html",
+      "/reviews/P03.html",
+      "/reviews/P05.html",
+      "/reviews/P06.html"
     ]
   },
   {
@@ -42,10 +46,9 @@
     ]
   },
   {
-    "listing": "/reviews.html",
+    "listing": "/results.html",
     "items": [
-      "/reviews/P01v2.html",
-      "/reviews/P02.html"
+      "/results/R01-advocacy-and-practice.html"
     ]
   }
 ]
