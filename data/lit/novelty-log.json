@@ -2551,5 +2551,34 @@
     "journal": "Commun Psychol"
    }
   ]
+ },
+ {
+  "design": "P13",
+  "date": "2026-09-22",
+  "corpus_regex": "(open access|PubMed Central|PMC).{0,120}(selection bias|representativ|sampling bias).{0,120}(transparen|data sharing|conflict of interest)",
+  "corpus_hits": 0,
+  "corpus_sample": [],
+  "pubmed_query": "(\"open access\"[tiab] OR \"PubMed Central\"[tiab]) AND (\"selection bias\"[tiab] OR representativeness[tiab] OR \"sampling bias\"[tiab]) AND (transparency[tiab] OR \"data sharing\"[tiab] OR \"conflict of interest\"[tiab])",
+  "pubmed_total": 3,
+  "pubmed_top": [
+   {
+    "pmid": "38362534",
+    "year": "2020",
+    "title": "Learning Lessons on Reproducibility and Replicability in Large Scale Genome-Wide Association Studies.",
+    "journal": "Harv Data Sci Rev"
+   },
+   {
+    "pmid": "35036606",
+    "year": "2022",
+    "title": "Not just about representative: When democracy needs females and their competency to run Indonesian government public relations to management level.",
+    "journal": "Heliyon"
+   },
+   {
+    "pmid": "21819169",
+    "year": "2011",
+    "title": "Using medicare data for comparative effectiveness research: opportunities and challenges.",
+    "journal": "Am J Manag Care"
+   }
+  ]
  }
 ]

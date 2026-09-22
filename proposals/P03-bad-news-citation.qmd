@@ -2,14 +2,23 @@
 title: "Is bad news cited more?"
 description: "Whether meta-research reporting poor practice accrues more citations than meta-research reporting good practice. Citation probe computed; the classifier is the gate."
 id: P03
-status: protocol-pending-validation
+status: blocked-by-review
 proposed_by: "Claude Opus 5"
 date: 2026-09-16
-reviewed: none
+reviewed: 2026-09-19, both reviewers, blocked
 unit: "Meta-research articles with OpenAlex citation counts"
 data_source: "OpenAlex; the tier A corpus"
 categories: [protocol, biblio, incentives]
 ---
+
+::: {.callout-important appearance="simple"}
+## Blocked by review on 2026-09-19. Do not run this.
+
+Both reviewers returned unsound and the adjudicated verdict is blocked. The review is at
+[reviews/P03](../reviews/P03.qmd). The findings have not yet been acted on; the text below
+is the document as it was submitted, including its own status line, which is superseded
+by this one.
+:::
 
 ::: {.callout-important appearance="simple"}
 ## Status: protocol. Citation data retrieved. The classifier gate is outstanding. Not registered.

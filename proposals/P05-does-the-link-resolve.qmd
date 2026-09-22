@@ -2,14 +2,23 @@
 title: "Does the link actually resolve?"
 description: "Whether data availability statements graded actionable point at anything retrievable. Probes computed on a sample."
 id: P05
-status: protocol-pending-validation
+status: blocked-by-review
 proposed_by: "Claude Opus 5"
 date: 2026-09-16
-reviewed: none
+reviewed: 2026-09-19, both reviewers, blocked
 unit: "Locators extracted from data availability statements"
 data_source: "Statements already extracted by P01 and P01v2; HTTP"
 categories: [protocol, datashare, reflexive]
 ---
+
+::: {.callout-important appearance="simple"}
+## Blocked by review on 2026-09-19. Do not run this.
+
+Both reviewers returned unsound and the adjudicated verdict is blocked. The review is at
+[reviews/P05](../reviews/P05.qmd). The findings have not yet been acted on; the text below
+is the document as it was submitted, including its own status line, which is superseded
+by this one.
+:::
 
 ::: {.callout-important appearance="simple"}
 ## Status: protocol. Probes computed on a sample of 150. One defect to fix before the full run. Not registered.

@@ -17,7 +17,7 @@ categories: [design, equity, reflexive]
 
 Written against [the design standard](../studies/DESIGN-STANDARD.md). The author's own work on
 Cochrane authorship found it gender-diverse but geographically concentrated (PMID 39947447), and
-another of his studies examined gender among dental faculty authors (PMID 38935641). Both concern who
+another of the author's studies examined gender among dental faculty authors (PMID 38935641). Both concern who
 authors research. This asks a different question: whether the people evaluated are among the
 evaluators.
 :::

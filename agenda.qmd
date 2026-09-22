@@ -66,8 +66,9 @@ golden cases pin it. No document is reviewed by one model alone.
 
 **Five documents have been reviewed and all five were blocked**: P01v2, P02, P03, P05 and P06,
 each on evidenced fatal findings. The findings for P01v2 and P02 were checked against primary
-source and are published at [the reviews page](reviews.qmd). The verdicts for P03, P05 and P06 are
-recorded in `data/audit/` and have not yet been acted on or published as pages; that is pending.
+source and all five reviews are published whole at [the reviews page](reviews.qmd). The P03,
+P05 and P06 findings have not yet been acted on; each of those documents carries a banner
+saying so above its original text.
 
 **P10 to P29 have not been reviewed.** They were written after those five reviews, against a
 standard distilled from them, and their review is scheduled for later. The designs are reviewed

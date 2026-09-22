@@ -2,14 +2,23 @@
 title: "Do meta-research conclusions soften between preprint and journal?"
 description: "Whether peer review blunts criticism of the literature. Preprint linkage probe computed; the answer constrains the design."
 id: P06
-status: protocol-reduced
+status: blocked-by-review
 proposed_by: "Claude Opus 5"
 date: 2026-09-16
-reviewed: none
+reviewed: 2026-09-19, both reviewers, blocked
 unit: "Preprint and published version pairs of the same meta-research article"
 data_source: "OpenAlex locations; bioRxiv, medRxiv and OSF preprint servers"
 categories: [protocol, oa, peerrev]
 ---
+
+::: {.callout-important appearance="simple"}
+## Blocked by review on 2026-09-19. Do not run this.
+
+Both reviewers returned unsound and the adjudicated verdict is blocked. The review is at
+[reviews/P06](../reviews/P06.qmd). The findings have not yet been acted on; the text below
+is the document as it was submitted, including its own status line, which is superseded
+by this one.
+:::
 
 ::: {.callout-important appearance="simple"}
 ## Status: reduced protocol, by the decision rule this document wrote before the number was known.

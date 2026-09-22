@@ -64,10 +64,14 @@ For each trial characteristic, the log ratio of odds ratios moves toward zero wi
 year of the meta-epidemiological study that estimated it, after adjusting for the number of trials
 contributing.
 
+Log ratios of odds ratios below zero mean the flawed trials show larger benefit (section 7), so a
+decline toward the null is a positive slope on publication year.
+
 **Null.** The slope of log ratio of odds ratios on publication year is 0.
 
-**What would falsify it.** A slope at or away from zero. The field's bias estimates would then be
-stable, which is the outcome its tools assume.
+**What would falsify it.** A slope at or below 0: the estimates are stable over time, or grow more
+negative, meaning the estimated bias is not shrinking. Stability is the outcome the field's risk of
+bias tools assume.
 
 ## 4. Design and unit
 

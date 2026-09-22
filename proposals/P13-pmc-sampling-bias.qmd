@@ -49,7 +49,21 @@ PubMed:       ("open access"[tiab] OR "PubMed Central"[tiab]) AND ("selection bi
               OR "text mining"[tiab])
 ```
 
-**Zero** PubMed records and zero corpus records.
+**Zero** PubMed records and zero corpus records. A zero from a conjunction of four clauses is weak
+evidence of absence, so a looser search, logged under the same key, drops the fourth clause:
+
+```
+corpus regex: (open access|PubMed Central|PMC).{0,120}(selection bias|representativ
+              |sampling bias).{0,120}(transparen|data sharing|conflict of interest)
+PubMed:       ("open access"[tiab] OR "PubMed Central"[tiab]) AND ("selection bias"[tiab]
+              OR representativeness[tiab] OR "sampling bias"[tiab]) AND (transparency[tiab]
+              OR "data sharing"[tiab] OR "conflict of interest"[tiab])
+```
+
+Three PubMed records and zero corpus records, none about open-access sampling in research on
+research: they concern reproducibility in genome-wide association studies, representation in
+Indonesian politics, and Medicare data for comparative effectiveness research. The claim rests on
+both searches, and it is still a claim about what two searches did not find.
 
 ## 3. Hypothesis
 
@@ -118,7 +132,7 @@ computed as the difference between the PMC-only and the reweighted all-access pr
 | PDF text degrades detection | Accuracy measured per input type; corrected estimates when they differ | Disclosed | S3 |
 | Non-PMC full text that is obtainable is itself selected | Tier 2 compares PMC against the obtainable part of non-PMC, which is a lower bound on the gap | Disclosed | |
 | Journal and year confound access and practice | Matched and conditioned on journal-year | Removed | S9 |
-| The author maintains the instrument and his own results are at stake | Stated at the top; the gate's coding is blind to detector output | Disclosed | |
+| The author maintains the instrument and the author's own results are at stake | Stated at the top; the gate's coding is blind to detector output | Disclosed | |
 
 ## 11. Probes
 

@@ -1,0 +1,271 @@
+---
+title: "Review of P06: blocked"
+description: "Independent adversarial review of P06. Verdict: blocked."
+document: P06
+verdict: blocked
+coverage: complete
+rule_version: 1
+date: 2026-09-19
+categories: [review]
+---
+
+Review of **[Do meta-research conclusions soften between preprint and journal?](../proposals/P06-preprint-conclusion-drift.qmd)**.
+
+::: {.callout-important appearance="simple"}
+## Verdict: blocked
+
+A reviewer produced a fatal finding backed by a verbatim quote and no reviewer rebutted it. Under the rule, evidence outranks votes, so this outcome does not depend on the tally.
+
+Adjudicated by `build/audit/adjudicate.py` at rule version 1. Coverage is **complete**: chatgpt, grok returned a verdict out of a roster of chatgpt, grok.
+
+3 fatal, 13 major, 5 minor. 16 of the severe findings carry a verbatim quote.
+:::
+
+
+## Votes
+
+| reviewer | vote | confidence |
+|---|---|---|
+| `chatgpt` | **unsound** | 0.99 |
+| `grok` | **unsound** | 0.91 |
+
+## What each reviewer said
+
+### `chatgpt`
+
+Repository checks reproduce individual probe counts, but refute combined and restricted totals. More seriously, linkage code counts datasets and standalone preprints as publication pairs. Retained sample includes nonbiomedical research and ordinary clinical reviews. Outcome definition, statistical test, validation gate, and null interpretation also need repair. Published work already examines preprint conclusion changes; an exact predecessor studying criticism specifically within meta-research was not verified.
+
+### `grok`
+
+The printed linkage rates match the frozen summaries: 66 of 1790 in data/lit/openalex-records-summary.json and 75 of 7572 in data/lit/openalex-frame-P01v2-summary.json, rates 3.7 and 1.0 percent. The server tables match those files. The 200 / 80 / below-80 rule is written before the probes, and the document correctly discloses that version change is not peer review. Those parts hold. The sample is not preprint and published pairs of meta-research articles. studies/_shared/openalex_probe.py counts any location whose display_name contains a preprint-server substring, including the primary location. Concatenating 66 and 75 gives 141 only by not deduplicating; the two OpenAlex files share 3 preprint-flagged PMIDs because frame-P01v2.jsonl still contains the 205 tier A overlaps P01v2 later excluded, so unique flagged PMIDs are 138. Of those, 33 are OpenAlex type preprint with no journal location, and 17 independent-frame records are Zenodo-only, including Dataset deposits. Unique works with both a journal location and a named-server location: 105. After dropping exact arXiv and SSRN: 69. The 33 / 108 exclusion does not recompute from the printed server counts (24+10+3=37) or from the frozen files (37 unique exact arXiv/SSRN articles). Probe PC is outstanding, so scorable n is unknown. The document's own rule sends n under 80 to the agenda. The reduced-form McNemar on preprint_critical by published_critical does not implement 'became less critical, unchanged as no,' and cannot see ordinal softening, which is the hypothesis and is the change Brierley et al. 2022 already coded on 184 bioRxiv/medRxiv pairs. The unscreened P01v2 frame is not a meta-research corpus. Calling 141 a preregistered secondary after seeing the counts, and making 'biomedical' servers the primary after a draft that tried to keep arXiv because 108 was 'below 80,' is not preregistration.
+
+
+## Fatal findings
+
+### F1. Probe does not establish preprint–journal pairs. studies/_shared/openalex_probe.py:80–93 counts any matching source name
+
+**Reviewer** `chatgpt` &middot; **Section** 4. Sample; 8. Probes; Status callout
+
+Probe does not establish preprint–journal pairs. studies/_shared/openalex_probe.py:80–93 counts any matching source name, including primary locations, without verifying a journal counterpart or manuscript identity. Concrete false positive: W4383058151 links article DOI 10.7554/elife.84658 to Zenodo 10722193, which is the PHI-base dataset, not a preprint ([deposit](https://zenodo.org/records/10722193)). After deduplication and arXiv/SSRN exclusion, 32 of 101 candidate works have no journal location in stored metadata; only 69 do. This does not prove counterparts cannot be found elsewhere, but the completed probes cannot establish the claimed minimum of 80 usable pairs. Full-text retrieval remains outstanding.
+
+> Meta-research articles with both a preprint and a published version, identified from OpenAlex
+> `locations` where a source is a named preprint server.
+
+**What would fix it.** Build an auditable pair manifest containing distinct manuscript and journal identifiers, verified document identities, dates, and retrievable texts. Exclude datasets and repository copies lacking a verified prepublication manuscript. Reapply the decision rule to unique, eligible, scoreable pairs before declaring reduced-protocol feasibility.
+
+### F2. The unit is 'preprint and published version pairs of the same meta-research article.' The probe does not identify that u
+
+**Reviewer** `grok` &middot; **Section** 4. Sample; studies/_shared/openalex_probe.py
+
+The unit is 'preprint and published version pairs of the same meta-research article.' The probe does not identify that unit. It flags a work if any OpenAlex location display_name contains biorxiv, medrxiv, arxiv, ssrn, osf, preprints.org, research square, zenodo, psyarxiv, or metarxiv. The comment says 'other than the primary,' but the loop never skips the primary location. Frozen consequence: of 138 unique flagged PMIDs, 33 are OpenAlex type preprint with no journal location (8 in tier A, 25 in the frame after removing tier A PMIDs), including PMID 41992899, a medRxiv record with no journal counterpart. Seventeen independent-frame records are Zenodo-only. PMID 37401199 (eLife) has raw_type Dataset at https://doi.org/10.5281/zenodo.10722193. PMID 32550247 is a Twitter chatter dataset whose primary location is PubMed. Those are not preprint-journal version pairs. The substring 'arxiv' also matches metarxiv and psyarxiv. A missed true pair may be missing at random; a Zenodo dataset or a preprint-only PubMed record counted as a pair is a false positive, and it is concentrated in the frame that supplies most of the 75.
+
+> Meta-research articles with both a preprint and a published version, identified from OpenAlex `locations` where a source is a named preprint server.
+
+**What would fix it.** Require a journal or publishedVersion location and a distinct preprint-server location that is not a data repository. Skip the primary location when it is the preprint. Drop OpenAlex type=preprint with no journal counterpart. Stop treating Zenodo, and any location with raw_type Dataset, as a preprint version. Re-run PA and PB under that rule and replace every pair count in this document.
+
+### F3. Reduced-protocol status is locked by 141 and 108. 141 is 66+75. The frozen OpenAlex files share 3 preprint-flagged PMIDs
+
+**Reviewer** `grok` &middot; **Section** Status callout; 4. Sample; 8. Probes
+
+Reduced-protocol status is locked by 141 and 108. 141 is 66+75. The frozen OpenAlex files share 3 preprint-flagged PMIDs because the frame probe was run on all 7617 frame-P01v2 records, before the 205 tier A overlaps were removed, so unique flagged works are 138. Unique works with both a journal location and a named-server location: 105. Exact arXiv plus SSRN unique articles: 37, not 33; 141 minus 37 is 104, not 108; 138 minus 37 is 101. After that exclusion, journal-plus-server works are 69. Probe PC (both full texts retrievable) is still outstanding, so the n that can be scored is unknown and is the n the decision rule needs. Under the document's own thresholds, a true pair count under 80 is an agenda item, not a reduced protocol. The 3.7 and 1.0 percent rates are correctly 66/1790 and 75/7572 under the probe's definition; they are not rates of preprint-journal pairs.
+
+> arXiv and SSRN contribute 33 of the 141 pairs and are mostly science-of-science rather than biomedical meta-research. Excluding them leaves 108, still within the 80 to 200 band, so the primary analysis is restricted to biomedical preprint servers
+
+**What would fix it.** Deduplicate the two frames by PMID before adding. Apply the tier A exclusion to the frame first. Count unique articles, not 66+75. Recompute the arXiv/SSRN cut from unique articles. Run PC. Apply the 200 / 80 / below-80 rule to the scorable pair count. If that n is under 80, reclassify the document as agenda.
+
+
+## Major findings
+
+### M1. Server exclusion does not establish biomedical meta-research eligibility. Retained candidates include a social-science t
+
+**Reviewer** `chatgpt` &middot; **Section** 4. Sample
+
+Server exclusion does not establish biomedical meta-research eligibility. Retained candidates include a social-science transparency study, DOI 10.1098/rsos.190806, and a butterfly-distribution data paper, DOI 10.3897/zookeys.585.8019. Their abstracts in data/lit/records.jsonl:1342 and data/lit/frame-P01v2.jsonl:688 confirm those populations. The tier B candidates also include clinical evidence syntheses. The borrowed frame is an unscreened keyword search, not a verified meta-research sample. Consequently, criticism of research practices could be mixed with conclusions about clinical effects, ecological data, or other disciplines.
+
+> the primary analysis is restricted to biomedical preprint servers
+
+**What would fix it.** Define biomedical scope and empirical meta-research eligibility at article level. Screen all candidates before scoring, with explicit rules for clinical systematic reviews, protocols, commentaries, and nonbiomedical studies. Publish exclusions and recompute feasibility after screening.
+
+### M2. Combined and restricted counts are wrong. Recomputing data/lit/openalex-records.jsonl and data/lit/openalex-frame-P01v2.
+
+**Reviewer** `chatgpt` &middot; **Section** 4. Sample; Status callout
+
+Combined and restricted counts are wrong. Recomputing data/lit/openalex-records.jsonl and data/lit/openalex-frame-P01v2.jsonl gives 66 and 75 candidate rows, but three works occur in both: W2771978614, W2910487802, and W4413010120. Combined total is therefore 138 unique OpenAlex works, not 141. Canonical arXiv/SSRN sources identify 37 distinct candidates for exclusion, leaving 101 unique candidates, not 108. Individual rates of 3.7% and 1.0% reproduce; asserted totals 33 and 108 do not. These are candidate counts, still subject to the eligibility failures above.
+
+> arXiv and SSRN contribute 33 of the 141 pairs and are mostly science-of-science
+> rather than biomedical meta-research.
+
+**What would fix it.** Deduplicate across frames using persistent identifiers, resolve multiple records representing the same article, and compute exclusions from the resulting manifest. Generate every reported count from code rather than adding marginal summaries.
+
+### M3. Which preprint version supplies the baseline is unspecified. Stored locations include Research Square URLs ending in /la
+
+**Reviewer** `chatgpt` &middot; **Section** 4. Sample; 5. Exposure and outcome
+
+Which preprint version supplies the baseline is unspecified. Stored locations include Research Square URLs ending in /latest.pdf. Retrieving those can select a revision incorporating review or publication-stage changes, making real changes disappear. A server name also does not establish that posting preceded journal publication. Even correctly linked manuscripts therefore lack a reproducible before-and-after contrast.
+
+> There is no exposure; the contrast is version.
+
+**What would fix it.** Specify an immutable baseline, such as the earliest posted manuscript preceding journal publication, and a defined journal version. Record version identifiers, posting/publication dates, retrieval dates, and text hashes. Prespecify handling of postpublication deposits and ambiguous chronology.
+
+### M4. Prose and code define different outcomes. A pair-level indicator of becoming less critical cannot directly supply prepri
+
+**Reviewer** `chatgpt` &middot; **Section** 2. Hypothesis; 5. Exposure and outcome; 6. Analysis, in the reduced form
+
+Prose and code define different outcomes. A pair-level indicator of becoming less critical cannot directly supply preprint_critical and published_critical. McNemar instead compares opposite transitions between two binary states ([R documentation](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/mcnemar.test.html)). No critical/not-critical threshold is specified. Strongly critical becoming moderately critical satisfies the hypothesis but remains invisible if both versions are classified critical. Conversely, collapsing strengthening and unchanged into one 'no' category cannot identify net directional change. McNemar's null is balanced opposing transitions, not absence of changes within articles.
+
+> The outcome is binary: did the concluding claim become less
+> critical, yes or no, with unchanged pairs retained as "no".
+
+**What would fix it.** Choose one estimand and align labels, null, and code. For directional softening, record less critical, unchanged, and more critical; compare opposing directions and report their difference using all eligible pairs as denominator. Alternatively, define binary states and explicitly narrow the hypothesis to crossing that threshold.
+
+### M5. Single-version agreement does not validate directional change. Referenced P03 uses inadequate/adequate/mixed/not-applica
+
+**Reviewer** `chatgpt` &middot; **Section** 5. Exposure and outcome; 7. Threats, and what happened to each
+
+Single-version agreement does not validate directional change. Referenced P03 uses inadequate/adequate/mixed/not-applicable abstract labels, whereas P06 requires a different instrument and supplies no rule for reconciling abstract and discussion conclusions. A computed counterexample demonstrates the gate's weakness: among 100 truly unchanged pairs, with 50 critical and 50 noncritical, classify preprints perfectly but misclassify 15 critical published versions as noncritical. Published-version kappa is 0.70 and pooled kappa is 0.85, yet all 15 discordances falsely indicate softening; exact two-sided p=0.000061. Metadata stripping does not establish absence of such version-dependent errors, so calling that threat 'Removed' is unsupported.
+
+> the study does not proceed unless a model
+> reaches kappa 0.70 against the author.
+
+**What would fix it.** Define a P06-specific claim-extraction and scoring rubric. Validate change direction on independently adjudicated, blinded pairs, with held-out validation, transition-specific errors, and sensitivity to asymmetric misclassification. Assess residual version recognition and describe blinding as a safeguard unless its effectiveness is demonstrated.
+
+### M6. Total-pair thresholds do not establish power for a discordance-based test. No minimum meaningful shift, discordance assu
+
+**Reviewer** `chatgpt` &middot; **Section** 2. Hypothesis; 4. Sample decision rule; 6. Analysis, in the reduced form
+
+Total-pair thresholds do not establish power for a discordance-based test. No minimum meaningful shift, discordance assumption, power calculation, or equivalence margin supports 80 or 200. Illustrative exact calculations: with five discordant pairs, even five changes toward softening give two-sided p=0.0625; with ten discordant pairs and a true 3:1 softening-to-strengthening ratio, power at alpha=0.05 is only 24.4%. A nonsignificant result under this plan cannot establish the proposed falsifier of no net shift.
+
+> What would falsify the hypothesis.** No net shift, or a shift toward more criticism.
+
+**What would fix it.** Compute power and attainable precision across plausible discordance rates using the verified sample size. Prespecify a meaningful effect and confidence interval; use equivalence testing if absence of meaningful softening is intended as falsification. Otherwise label inconclusive null results accordingly.
+
+### M7. The 3.7% figure measures flagged records divided by all resolved tier A records. It does not measure linkage completenes
+
+**Reviewer** `chatgpt` &middot; **Section** 7. Threats, and what happened to each
+
+The 3.7% figure measures flagged records divided by all resolved tier A records. It does not measure linkage completeness: the denominator of genuine preprint-bearing articles is unknown, and false positives are demonstrably present. Therefore neither missed-pair frequency nor selection bias has been measured. Changes in titles, identifiers, or hosting can affect linkage and could track manuscript revision. Complete-text availability adds another unassessed selection step.
+
+> Measured, not assumed: 3.7 percent in tier A.
+
+**What would fix it.** Distinguish observed detection yield from sensitivity and positive predictive value. Audit matched and unmatched records against independent server/publication links, report retrieval attrition, and assess selection sensitivity. Restrict generalization to verified linked and retrievable pairs unless broader representativeness is supported.
+
+### M8. Half the sample is the unscreened P01v2 qualified tier B frame (7572 OpenAlex matches from 7617 PMIDs). That frame was b
+
+**Reviewer** `grok` &middot; **Section** 4. Sample
+
+Half the sample is the unscreened P01v2 qualified tier B frame (7572 OpenAlex matches from 7617 PMIDs). That frame was built to be screened because a subject-matter query returns trials, clinical reviews, and databases as well as meta-research. P06 never screens it. Frozen titles among the independent-frame 'pairs' include PMID 39011096, a sham-controlled photodynamic therapy trial; PMID 42282195, a platform clinical trial design; PMID 27199606, a butterfly distribution database; and PMID 34816577, a Mediterranean-diet review in children. Tier A is the only self-named meta-research corpus, and after dropping preprint-only records it has 58 journal-plus-server works, 24 of them arXiv. Pooling an unscreened frame with tier A does not produce 'meta-research articles.' Selection into preprint locations also differs by frame (3.7 percent versus 1.0 percent), so the combined 141 is not one sampling frame.
+
+> Meta-research articles with both a preprint and a published version, identified from OpenAlex `locations` where a source is a named preprint server.
+
+**What would fix it.** Do not call the P01v2 frame meta-research until it is screened with a rule frozen before conclusion scoring. Report tier A pairs separately. If a screened frame is used, publish the eligibility flow and the post-screen pair count, and only then apply the section 4 decision rule.
+
+### M9. The hypothesis is that the published conclusion is less critical than the preprint conclusion. Section 5 still scores a 
+
+**Reviewer** `grok` &middot; **Section** 2. Hypothesis; 5. Exposure and outcome; 6. Analysis, in the reduced form
+
+The hypothesis is that the published conclusion is less critical than the preprint conclusion. Section 5 still scores a five-point scale from strongly critical to endorsing. Section 6 then says that scale is not used, and defines a binary 'became less critical, yes or no, with unchanged pairs retained as no.' The code is McNemar on preprint_critical by published_critical, which tests equal marginal rates of being critical, plus an exact binomial on discordant pairs, which ignores unchanged pairs. Those three estimands are not the same. Dichotomizing each version as critical or not also misses the hypothesized effect: a move from strongly critical to moderately critical is softening and is invisible to McNemar on two 'is critical' flags. That is the change the five-point scale was built to see, and it is the change most pairs will show if they change at all. No expected discordant count or detectable effect is computed, so the claim that 141 (or 108) supports a reduced protocol rather than an agenda item is unsupported even if the pair count were right.
+
+> The outcome is binary: did the concluding claim become less critical, yes or no, with unchanged pairs retained as "no".
+
+**What would fix it.** Define one estimand. If it is net directional shift among pairs that change, use McNemar or an exact binomial on discordant pairs and delete 'unchanged pairs retained as no.' If it is any softening on the five-point scale, keep the ordinal score at this n and do not dichotomize each version. State the smallest shift that counts and compute power from an expected discordant rate before locking the reduced form.
+
+### M10. The document presents preprint-versus-journal conclusion change as a gap this design can newly measure. It cites no prio
+
+**Reviewer** `grok` &middot; **Section** 1. The question
+
+The document presents preprint-versus-journal conclusion change as a gap this design can newly measure. It cites no prior work. Brierley et al. 2022 already compared 184 bioRxiv/medRxiv preprint-published pairs, coded abstract conclusion changes including softening, and asked whether conclusions change under peer review. Klein et al. 2019 measured preprint-to-published textual change. Carneiro et al. 2020 compared reporting quality in paired preprint and journal versions. Nicholson et al. 2022 measured linguistic shifts in about 18,000 pairs. Bero et al. and Oikonomidi et al. compared conclusions in COVID-19 clinical preprint-journal pairs. The unoriginal piece is the pair comparison and the softening code. What would be new, and is not yet shown to be feasible, is restricting that comparison to meta-research conclusions about research practice.
+
+> This is measurable because meta-research increasingly appears as a preprint first, and both versions persist.
+
+**What would fix it.** Add a related-work section that cites Brierley et al. 2022 (PLoS Biol 20:e3001285), Klein et al. 2019, Carneiro et al. 2020, and Nicholson et al. 2022. State what is new: restriction to meta-research conclusions about research practice, not the preprint-versus-journal comparison. Either reuse a published softening code or justify a different scale.
+
+### M11. The description and section 1 frame the study as whether peer review blunts criticism. Section 7 then says the design at
+
+**Reviewer** `grok` &middot; **Section** description; 1. The question; 7. Threats
+
+The description and section 1 frame the study as whether peer review blunts criticism. Section 7 then says the design attributes nothing to review specifically, and 'What this cannot show' repeats that time, new data, and author revision are not separated from review. Those two claims cannot both stand as the question the document answers. A paired version contrast measures change between two public texts. It does not measure review. Marking the threat 'disclosed' does not make the title or section 1 true.
+
+> the design attributes nothing to review specifically
+
+**What would fix it.** Change the title, description, and section 1 so the question is version change, which is what the design measures. Keep peer review as a mechanism this design cannot isolate. Do not use 'whether peer review blunts criticism' as the document's question.
+
+### M12. The written decision rule chooses full versus reduced versus agenda from pair count. It does not choose the primary popu
+
+**Reviewer** `grok` &middot; **Section** Status callout; 4. Sample
+
+The written decision rule chooses full versus reduced versus agenda from pair count. It does not choose the primary population. After seeing the counts, a first draft kept arXiv in the primary analysis by claiming 108 was below 80. The published text reverses that and calls the biomedical cut 'the primary analysis, not a subgroup' and calls the full 141 a 'preregistered secondary,' because 'both counts were known before either analysis was specified.' Knowing the counts before specifying which sample is primary is looking at the data, not preregistration. Agenda.qmd also states that nothing here is registered. The restriction is 'excluding arXiv and SSRN,' not restriction to biomedical preprint servers: OSF Preprints, Zenodo, Research Square, and PsyArXiv remain. Those are not biomedical servers.
+
+> the full 141 pairs are reported as a preregistered secondary. Neither is a subgroup fished for after the fact: both counts were known before either analysis was specified, and both are published.
+
+**What would fix it.** Drop 'preregistered.' If biomedical servers are the population of interest, write that restriction into the decision rule without reference to whether 108 cleared 80. Name the servers that remain and justify each; do not call OSF, Zenodo, Research Square, or PsyArXiv biomedical preprint servers.
+
+### M13. The outcome is the direction and strength of the concluding claim, taken from the abstract conclusion and the discussion
+
+**Reviewer** `grok` &middot; **Section** 5. Exposure and outcome
+
+The outcome is the direction and strength of the concluding claim, taken from the abstract conclusion and the discussion, on a five-point scale that section 6 then discards. There is no coding rule for what 'critical of the practice it studied' means, no rule when abstract and discussion disagree, and no stated size for the author-labeled reference sample. Copying P03's kappa 0.70 gate does not supply those. P03 classifies one abstract per article into inadequate, adequate, mixed, or not applicable. This task is paired, version-blind, ordinal criticism. A model can pass overall kappa 0.70 while never detecting the ordinal softening the hypothesis cares about, especially after the reduced form collapses the scale. Version-blind presentation is necessary and does not stop journal copyediting, 'this journal' phrasing, or typesetting from identifying the published text.
+
+> Scoring is by the same gated procedure as [P03](P03-bad-news-citation.qmd): the author labels a reference sample, two models label it blind, and the study does not proceed unless a model reaches kappa 0.70 against the author.
+
+**What would fix it.** Freeze a coding manual for the scale that will actually be analyzed, with examples and a rule when abstract and discussion disagree. State the reference-sample size before labeling. Validate that reduced-form label, not a five-point score that is then thrown away. Report class-specific agreement for softening versus no change versus hardening.
+
+
+## Minor findings
+
+### M1. Claimed pre-probe chronology cannot be verified from available history. Earliest tracked P06 and both probe summaries ap
+
+**Reviewer** `chatgpt` &middot; **Section** Status callout; 4. Sample — The decision rule
+
+Claimed pre-probe chronology cannot be verified from available history. Earliest tracked P06 and both probe summaries appear together in commit ddc788dd25f3c3dece6f787e5fb767b53952dbaf. That establishes neither an earlier decision rule nor its timing relative to probe execution. This is not evidence of outcome-driven manipulation: feasibility-informed choices can still precede outcome analysis. It does leave the emphatic historical claim unsupported.
+
+> The decision rule, written before either probe returned
+
+**What would fix it.** Link a timestamped pre-probe version or execution record establishing chronology. Otherwise remove the unverifiable claim and distinguish post-feasibility, outcome-blind specification from decisions demonstrably fixed before probing.
+
+### M2. Relevant methodological precedent is absent. Brierley et al., 'Tracking changes between preprint posting and journal pub
+
+**Reviewer** `chatgpt` &middot; **Section** 1. The question
+
+Relevant methodological precedent is absent. Brierley et al., 'Tracking changes between preprint posting and journal publication during a pandemic,' PLOS Biology 2022, already compared 184 pairs and manually annotated strengthening and softening of conclusions ([article](https://doi.org/10.1371/journal.pbio.3001285)). This does not establish that criticism specifically within meta-research has already been studied, but the general paired comparison and semantic-change instrument are established prior work.
+
+> This is measurable because meta-research increasingly appears as a preprint first, and both
+> versions persist.
+
+**What would fix it.** Discuss existing preprint–publication comparisons, their scoring instruments and limitations, and define the narrower contribution concerning criticism of research practices.
+
+### M3. Invisibility to every design is false. Archived drafts, journal submissions, reviewer requests, and author revision hist
+
+**Reviewer** `chatgpt` &middot; **Section** What this cannot show
+
+Invisibility to every design is false. Archived drafts, journal submissions, reviewer requests, and author revision histories can expose changes preceding public posting. Lazarus et al. studied submitted manuscripts and reviewer-requested changes to spin using a retrospective before-and-after design ([J Clin Epidemiol, 2016](https://doi.org/10.1016/j.jclinepi.2016.04.012)). Calling preposting removal the censorship 'most likely to matter' also lacks supporting evidence.
+
+> It cannot see criticism removed before the preprint was posted, which is the censorship most
+>   likely to matter and is invisible to every design.
+
+**What would fix it.** Limit the statement to what this public-version design cannot observe. Remove the unsupported ranking of censorship mechanisms and acknowledge designs using earlier manuscript histories.
+
+### M4. Scorer knowledge of version is marked Removed. Stripping dates, venue, and version labels reduces the leak; it does not 
+
+**Reviewer** `grok` &middot; **Section** 7. Threats, and what happened to each
+
+Scorer knowledge of version is marked Removed. Stripping dates, venue, and version labels reduces the leak; it does not remove it. Journal copyediting, reference lists, and layout still identify the published version, which is the version the hypothesis says should be less critical.
+
+> Scorer knows which version is which | Version-blinded presentation, randomized order, stripped metadata | Removed
+
+**What would fix it.** Mark the threat as reduced, not removed, and add a post-scoring check of whether models can still pick the published text.
+
+### M5. data_source lists bioRxiv, medRxiv, and OSF. The probe and the server tables also use arXiv, SSRN, Research Square, Zeno
+
+**Reviewer** `grok` &middot; **Section** frontmatter data_source
+
+data_source lists bioRxiv, medRxiv, and OSF. The probe and the server tables also use arXiv, SSRN, Research Square, Zenodo, PsyArXiv, and MetaRXiv. Readers who trust the YAML will not find the sample they think they are reading.
+
+> data_source: "OpenAlex locations; bioRxiv, medRxiv and OSF preprint servers"
+
+**What would fix it.** List every server the probe actually matches, or restrict the probe to the servers named in data_source.
+
+
+## The raw verdicts
+
+`data/audit/P06/` holds each reviewer's verdict as returned, the prompt both were given, and `adjudicated.json`. Nothing on this page is summarized from anything the repository does not also carry in full.
+

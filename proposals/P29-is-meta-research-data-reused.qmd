@@ -16,7 +16,7 @@ categories: [design, datashare, reflexive]
 ## Status: design. No probe has run.
 
 Written against [the design standard](../studies/DESIGN-STANDARD.md). The FAIR instrument, `rfair`,
-is maintained by the author. His published work measured FAIRness of shared data in dental research
+is maintained by the author. The author's published work measured FAIRness of shared data in dental research
 (PMID 35656591) and COVID-19 research (PMID 39556553) as a prevalence; this asks whether FAIRness is
 associated with use.
 :::
