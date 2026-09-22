@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-09-16">
-<meta name="description" content="Whether the field that studies research integrity is better than average at not citing retracted papers. Probes computed.">
 
-<title>Does meta-research cite retracted work? – Automated meta-research</title>
+<title>design-standard – Automated meta-research</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,41 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -343,353 +306,106 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#the-question" id="toc-the-question" class="nav-link active" data-scroll-target="#the-question">1. The question</a></li>
-  <li><a href="#hypothesis" id="toc-hypothesis" class="nav-link" data-scroll-target="#hypothesis">2. Hypothesis</a></li>
-  <li><a href="#design" id="toc-design" class="nav-link" data-scroll-target="#design">3. Design</a></li>
-  <li><a href="#sample" id="toc-sample" class="nav-link" data-scroll-target="#sample">4. Sample</a></li>
-  <li><a href="#measurement" id="toc-measurement" class="nav-link" data-scroll-target="#measurement">5. Measurement</a>
+  <li><a href="#what-a-design-document-here-must-satisfy" id="toc-what-a-design-document-here-must-satisfy" class="nav-link active" data-scroll-target="#what-a-design-document-here-must-satisfy">What a design document here must satisfy</a>
   <ul class="collapse">
-  <li><a href="#the-classification-that-decides-the-result" id="toc-the-classification-that-decides-the-result" class="nav-link" data-scroll-target="#the-classification-that-decides-the-result">The classification that decides the result</a></li>
+  <li><a href="#s1.-never-look-at-the-outcome-by-the-exposure-before-registration" id="toc-s1.-never-look-at-the-outcome-by-the-exposure-before-registration" class="nav-link" data-scroll-target="#s1.-never-look-at-the-outcome-by-the-exposure-before-registration">S1. Never look at the outcome by the exposure before registration</a></li>
+  <li><a href="#s2.-use-a-validated-instrument-and-read-identifiers-from-markup" id="toc-s2.-use-a-validated-instrument-and-read-identifiers-from-markup" class="nav-link" data-scroll-target="#s2.-use-a-validated-instrument-and-read-identifiers-from-markup">S2. Use a validated instrument, and read identifiers from markup</a></li>
+  <li><a href="#s3.-carry-the-instruments-error-into-the-analysis" id="toc-s3.-carry-the-instruments-error-into-the-analysis" class="nav-link" data-scroll-target="#s3.-carry-the-instruments-error-into-the-analysis">S3. Carry the instrument’s error into the analysis</a></li>
+  <li><a href="#s4.-identify-the-unit-before-counting-it" id="toc-s4.-identify-the-unit-before-counting-it" class="nav-link" data-scroll-target="#s4.-identify-the-unit-before-counting-it">S4. Identify the unit before counting it</a></li>
+  <li><a href="#s5.-the-probe-population-is-the-study-population" id="toc-s5.-the-probe-population-is-the-study-population" class="nav-link" data-scroll-target="#s5.-the-probe-population-is-the-study-population">S5. The probe population is the study population</a></li>
+  <li><a href="#s6.-every-number-is-emitted-and-prose-about-a-number-is-checked-against-it" id="toc-s6.-every-number-is-emitted-and-prose-about-a-number-is-checked-against-it" class="nav-link" data-scroll-target="#s6.-every-number-is-emitted-and-prose-about-a-number-is-checked-against-it">S6. Every number is emitted, and prose about a number is checked against it</a></li>
+  <li><a href="#s7.-dates-not-years-and-a-cross-section-cannot-show-a-trajectory" id="toc-s7.-dates-not-years-and-a-cross-section-cannot-show-a-trajectory" class="nav-link" data-scroll-target="#s7.-dates-not-years-and-a-cross-section-cannot-show-a-trajectory">S7. Dates, not years; and a cross-section cannot show a trajectory</a></li>
+  <li><a href="#s8.-validate-the-contrast-that-is-analyzed-against-a-written-rubric" id="toc-s8.-validate-the-contrast-that-is-analyzed-against-a-written-rubric" class="nav-link" data-scroll-target="#s8.-validate-the-contrast-that-is-analyzed-against-a-written-rubric">S8. Validate the contrast that is analyzed, against a written rubric</a></li>
+  <li><a href="#s9.-make-the-comparison-arm-concrete" id="toc-s9.-make-the-comparison-arm-concrete" class="nav-link" data-scroll-target="#s9.-make-the-comparison-arm-concrete">S9. Make the comparison arm concrete</a></li>
+  <li><a href="#s10.-account-for-time-at-risk" id="toc-s10.-account-for-time-at-risk" class="nav-link" data-scroll-target="#s10.-account-for-time-at-risk">S10. Account for time at risk</a></li>
+  <li><a href="#s11.-novelty-is-a-search-result-relevance-ordered" id="toc-s11.-novelty-is-a-search-result-relevance-ordered" class="nav-link" data-scroll-target="#s11.-novelty-is-a-search-result-relevance-ordered">S11. Novelty is a search result, relevance-ordered</a></li>
+  <li><a href="#s12.-power-for-the-model-that-will-be-fitted" id="toc-s12.-power-for-the-model-that-will-be-fitted" class="nav-link" data-scroll-target="#s12.-power-for-the-model-that-will-be-fitted">S12. Power for the model that will be fitted</a></li>
+  <li><a href="#two-operational-rules" id="toc-two-operational-rules" class="nav-link" data-scroll-target="#two-operational-rules">Two operational rules</a></li>
   </ul></li>
-  <li><a href="#outcome" id="toc-outcome" class="nav-link" data-scroll-target="#outcome">6. Outcome</a></li>
-  <li><a href="#feasibility-computed" id="toc-feasibility-computed" class="nav-link" data-scroll-target="#feasibility-computed">7. Feasibility, computed</a>
-  <ul class="collapse">
-  <li><a href="#a-defect-the-probe-caught" id="toc-a-defect-the-probe-caught" class="nav-link" data-scroll-target="#a-defect-the-probe-caught">A defect the probe caught</a></li>
-  </ul></li>
-  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis">8. Analysis</a></li>
-  <li><a href="#threats-and-what-happened-to-each" id="toc-threats-and-what-happened-to-each" class="nav-link" data-scroll-target="#threats-and-what-happened-to-each">9. Threats, and what happened to each</a></li>
-  <li><a href="#probes" id="toc-probes" class="nav-link" data-scroll-target="#probes">10. Probes</a></li>
-  <li><a href="#deviations" id="toc-deviations" class="nav-link" data-scroll-target="#deviations">11. Deviations</a></li>
-  <li><a href="#what-this-cannot-show" id="toc-what-this-cannot-show" class="nav-link" data-scroll-target="#what-this-cannot-show">12. What this cannot show</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/choxos/autometaresearch/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Does meta-research cite retracted work?</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">protocol</div>
-    <div class="quarto-category">retract</div>
-    <div class="quarto-category">reflexive</div>
-  </div>
-  </div>
-
-<div>
-  <div class="description">
-    Whether the field that studies research integrity is better than average at not citing retracted papers. Probes computed.
-  </div>
-</div>
 
 
-<div class="quarto-title-meta">
 
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">September 16, 2026</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<div class="callout callout-style-simple callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Status: BLOCKED BY REVIEW on 2026-09-19. Do not run this.
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Both reviewers returned <strong>unsound</strong>: three fatal findings and eleven major. Full review at <a href="../reviews/P02.html">reviews/P02</a>.</p>
-<p>The most concrete finding is verified and correct. <strong>The temporal classification is wrong.</strong> <code>probes.py</code> compares calendar years, so every same-year match falls into pre-retraction by default. Recounting: 83 strictly post, 66 strictly pre, and <strong>41 same-year that the probe reported as pre-retraction and which are actually undetermined</strong>. Section 5 of the document below presents 107 pre-retraction as a finding that justifies the whole design, and 41 of those 107 are an artifact of comparing years. Retraction Watch carries full dates; PubMed often carries only a year, so the honest fix produces three classes and not two.</p>
-<p>The reviewers also found, independently of each other, that the comparison arm does not exist: the document promises articles matched on journal and year, and what it actually specifies is whatever screening excludes, with no matching ratio, no replacement rule and no weighting. And that section 7’s feasibility numbers were computed over both caches without applying this study’s own eligibility criteria, so they describe a different population from the one the protocol defines.</p>
-<p>Left exactly as submitted. A successor will be a new document.</p>
-</div>
-</div>
-<div class="callout callout-style-simple callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>What the document claimed when it was submitted
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Probes PA to PC ran on 2026-09-16 against full text already cached by P01 and P01v2, so they cost nothing to NCBI. Section 7 is written from <code>studies/P02-citing-retracted/out/probes.json</code>.</p>
-<p>The screening gate is shared with <a href="../proposals/P01v2-advocacy-and-practice-protocol.html">P01v2</a>: both studies draw their comparison arm from the same frame and neither runs until screening agreement is measured against the author’s labels.</p>
-<p>No exposure-by-outcome model has been fitted. Awaiting review by two models; the second is quota-blocked until 2026-09-20.</p>
-</div>
-</div>
-<section id="the-question" class="level2">
-<h2 class="anchored" data-anchor-id="the-question">1. The question</h2>
-<p>Citing a retracted paper as though it still stands is a documented failure of the literature, and meta-research is the field that documents it. Retracted randomized trials have been shown to go on being cited uncorrected in systematic reviews and clinical guidelines (PMID 35779825), and guidelines for low back pain have been shown to cite retracted and predatory work (PMID 40156953).</p>
-<p>Nobody has turned that instrument on meta-research itself. A field with domain expertise in this exact failure, failing at the same rate as everyone else, would say something about how far knowing a problem gets you toward avoiding it.</p>
+<section id="what-a-design-document-here-must-satisfy" class="level1">
+<h1>What a design document here must satisfy</h1>
+<p>Five documents have been through adversarial review in this project. All five were blocked: P01v2, P02, P03, P05 and P06, each by two reviewers from different providers, each on evidenced fatal findings that were checked against primary source and found correct. The findings are not evenly spread. The same mistakes recur under different names, and every item below names the document that produced it.</p>
+<p>This follows the sibling project <code>ITC-open-problems/studies/DESIGN-STANDARD.md</code>, whose governing rule is kept unchanged: <strong>the difference between a design and a protocol is a set of computed numbers.</strong> That standard was written after its program repeated its own mistakes. This one is written for the same reason, at the point where outcome peeking had happened twice and extraction artifacts three times.</p>
+<p>A design that satisfies this list is still a design. It becomes a protocol when its probes have run and their numbers are written in, and it is registered only when the probes are complete, the validation gates have passed, and two reviews are attached.</p>
+<hr>
+<section id="s1.-never-look-at-the-outcome-by-the-exposure-before-registration" class="level2">
+<h2 class="anchored" data-anchor-id="s1.-never-look-at-the-outcome-by-the-exposure-before-registration">S1. Never look at the outcome by the exposure before registration</h2>
+<p>R01 fitted its model against a one-page proposal. P01v2 was written to fix that and then its own probe P4 tabulated the primary outcome by arm on the confirmatory sample, a crude odds ratio of 5.6, before the document called itself confirmatory. Both reviewers found it independently.</p>
+<p><strong>Required.</strong> Probes measure the frame and the instruments only. A probe that cross-tabulates the primary outcome by the primary exposure on the analysis sample is forbidden. If an instrument must be piloted on real outcomes, the pilot draws a slice that is removed from the analysis sample before the probe runs, and the removal is recorded.</p>
 </section>
-<section id="hypothesis" class="level2">
-<h2 class="anchored" data-anchor-id="hypothesis">2. Hypothesis</h2>
-<p>Meta-research articles cite retracted work, after retraction, at a lower rate than a matched comparison of articles in the same journals and years.</p>
-<p><strong>Primary null.</strong> The rate ratio is 1.</p>
-<p><strong>What would falsify it.</strong> A rate ratio at or above 1. The direction is stated because the alternative is the interesting one.</p>
-<p><strong>Prior expectation.</strong> Nothing in the corpus estimates this, so the design has no anchor and does not pretend to one.</p>
+<section id="s2.-use-a-validated-instrument-and-read-identifiers-from-markup" class="level2">
+<h2 class="anchored" data-anchor-id="s2.-use-a-validated-instrument-and-read-identifiers-from-markup">S2. Use a validated instrument, and read identifiers from markup</h2>
+<p>P01v2’s extractor missed statements that sat in <code>&lt;body&gt;</code> and discarded <code>xlink:href</code>, so a real GitHub deposit graded as declarative. Five of P05’s seven “hard 404s” were URLs cut short by a regex over flattened text; the deposits were fine.</p>
+<p><strong>Required.</strong> Where a validated tool exists, use it: <code>rtransparency</code> for transparency indicators, <code>rfair</code> for FAIR assessment and identifier parsing. Both are maintained by this project’s author and that is disclosed in every design that uses them. Identifiers come from structured markup (<code>ext-link/@xlink:href</code>, <code>pub-id[@pub-id-type='doi']</code>) or from <code>rfair::id_parse</code>, never from a regex over text with the markup stripped. A hand-written extractor needs an audit in both directions before use: what it misses and what it invents.</p>
 </section>
-<section id="design" class="level2">
-<h2 class="anchored" data-anchor-id="design">3. Design</h2>
-<p>Cross-sectional study of reference lists. The unit of analysis is one reference; the unit of modeling is one article, with its matchable reference count as the offset.</p>
+<section id="s3.-carry-the-instruments-error-into-the-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="s3.-carry-the-instruments-error-into-the-analysis">S3. Carry the instrument’s error into the analysis</h2>
+<p><code>rtransparency::rt_accuracy</code> reports sensitivity 0.765 and specificity 0.990 for data sharing. A quarter of real sharing is missed. That is a design fact, not a footnote.</p>
+<p><strong>Required.</strong> Any design using a detector with known sensitivity and specificity states them and specifies a misclassification analysis (probabilistic bias analysis or a corrected estimator) as a preregistered sensitivity analysis. A detector with no published accuracy on the target literature, such as <code>rt_ai_pmc</code>, needs its own validation gate.</p>
 </section>
-<section id="sample" class="level2">
-<h2 class="anchored" data-anchor-id="sample">4. Sample</h2>
-<p>The same frame as P01v2: the qualified tier B blocks with every tier A PMID removed, screened to meta-research, restricted to PMC full text. Reusing it rather than building a third population means one screening effort, one independence argument, and one set of exclusions.</p>
-<p><strong>Exposed arm</strong>: screened meta-research articles. <strong>Comparison arm</strong>: articles from the same journals and years that screening excluded, which is to say articles that are not meta-research. This is a better comparison than a fresh PubMed sample because it is drawn from the same query frame and differs on exactly the axis of interest.</p>
-<p>Both arms require a reference list in PMC. Probe PA found 4948 of the cached articles carry one.</p>
+<section id="s4.-identify-the-unit-before-counting-it" class="level2">
+<h2 class="anchored" data-anchor-id="s4.-identify-the-unit-before-counting-it">S4. Identify the unit before counting it</h2>
+<p>P06’s unit was a preprint paired with its journal version. Its probe counted any record with a repository location, primary locations included, and never established a single pair. P05’s hypothesis was about statements graded actionable; its probe sampled every non-empty statement.</p>
+<p><strong>Required.</strong> The probe that sizes the sample must construct the unit of analysis as defined, and report how many candidates failed construction and why.</p>
 </section>
-<section id="measurement" class="level2">
-<h2 class="anchored" data-anchor-id="measurement">5. Measurement</h2>
-<p>Retraction Watch is retrieved as an open CSV through Crossref Labs. Probe PB found 60972 distinct DOIs whose <code>RetractionNature</code> is <code>Retraction</code>; expressions of concern and corrections are excluded because they are not retractions and counting them would inflate every arm.</p>
-<p>A cited DOI counts as a citation of retracted work when it appears in <code>OriginalPaperDOI</code>.</p>
-<section id="the-classification-that-decides-the-result" class="level3">
-<h3 class="anchored" data-anchor-id="the-classification-that-decides-the-result">The classification that decides the result</h3>
-<p>A reference is only a failure if the retraction preceded the citing article. Every match is classified:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>class</th>
-<th>meaning</th>
-<th>probe count</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>post-retraction</td>
-<td>the retraction predates the citing article</td>
-<td>83</td>
-</tr>
-<tr class="even">
-<td>pre-retraction</td>
-<td>the citing article came first</td>
-<td>107</td>
-</tr>
-<tr class="odd">
-<td>undated</td>
-<td>no usable retraction date</td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
-<p><strong>The pre-retraction class is the majority.</strong> 107 of 190 matches are citations of work that had not yet been retracted, and a study that counted those as failures would report more than twice the true rate. The probe is what establishes that; it was not assumed.</p>
-<p>A third class, an article citing a retracted paper deliberately as an example, is separated by the <code>retract</code> topic label and by the citation context from the surrounding sentence, and every article carrying that label is additionally reported separately.</p>
+<section id="s5.-the-probe-population-is-the-study-population" class="level2">
+<h2 class="anchored" data-anchor-id="s5.-the-probe-population-is-the-study-population">S5. The probe population is the study population</h2>
+<p>P02 computed feasibility across two caches without applying its own eligibility criteria. P06 added 66 and 75 when three PMIDs were in both, because the frame file still held the tier A overlaps that the P01v2 probe had excluded in memory.</p>
+<p><strong>Required.</strong> Eligibility is applied before any feasibility number is computed. Each record is counted once, by a stated identifier, after deduplication across every source that feeds it.</p>
 </section>
+<section id="s6.-every-number-is-emitted-and-prose-about-a-number-is-checked-against-it" class="level2">
+<h2 class="anchored" data-anchor-id="s6.-every-number-is-emitted-and-prose-about-a-number-is-checked-against-it">S6. Every number is emitted, and prose about a number is checked against it</h2>
+<p>P03 said excluding 2025 and 2026 would drop 76 percent of its sample; that was false for the window it named. P06 said 108 was below 80. The agenda miscounted its own documents. A probe comment asserted the unscreened rate was an upper bound when it was a lower one.</p>
+<p><strong>Required.</strong> Any number that appears in both code and prose is written from the code’s output. A sentence that reasons about a computed number (above, below, larger, most) is checked against the number before the document is committed.</p>
 </section>
-<section id="outcome" class="level2">
-<h2 class="anchored" data-anchor-id="outcome">6. Outcome</h2>
-<p>Count of post-retraction citations per article, with the article’s DOI-matchable reference count as the offset.</p>
+<section id="s7.-dates-not-years-and-a-cross-section-cannot-show-a-trajectory" class="level2">
+<h2 class="anchored" data-anchor-id="s7.-dates-not-years-and-a-cross-section-cannot-show-a-trajectory">S7. Dates, not years; and a cross-section cannot show a trajectory</h2>
+<p>P02 compared calendar years, so 41 same-year citations defaulted to pre-retraction. P05 read an age slope off a single cross-section and treated it as decay.</p>
+<p><strong>Required.</strong> Temporal ordering uses full dates, with an explicit third class for pairs that cannot be ordered. A claim about change over time needs repeated measurement of the same units or a design that identifies the slope; otherwise it is stated as a cohort difference.</p>
 </section>
-<section id="feasibility-computed" class="level2">
-<h2 class="anchored" data-anchor-id="feasibility-computed">7. Feasibility, computed</h2>
-<p><strong>Every number here is emitted by <code>out/probes.json</code>.</strong></p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>quantity</th>
-<th>value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>articles with a reference list in cache</td>
-<td>4948</td>
-</tr>
-<tr class="even">
-<td>total references</td>
-<td>268290</td>
-</tr>
-<tr class="odd">
-<td>references carrying a DOI</td>
-<td>222730</td>
-</tr>
-<tr class="even">
-<td><strong>DOI coverage</strong></td>
-<td><strong>83.0 percent</strong></td>
-</tr>
-<tr class="odd">
-<td>median references per article</td>
-<td>46</td>
-</tr>
-<tr class="even">
-<td>citations of retracted work, any timing</td>
-<td>190</td>
-</tr>
-<tr class="odd">
-<td>articles citing at least one</td>
-<td>152</td>
-</tr>
-<tr class="even">
-<td><strong>post-retraction citations</strong></td>
-<td><strong>83</strong></td>
-</tr>
-<tr class="odd">
-<td>articles with at least one post-retraction citation</td>
-<td>70</td>
-</tr>
-</tbody>
-</table>
-<p>DOI coverage is 83.0 percent, not the 62 percent the original one-page proposal estimated from three articles. The earlier figure came from a sample too small to estimate anything and is superseded.</p>
-<p><strong>70 articles carry the outcome.</strong> That is enough to fit a count model and not enough to slice finely; the design commits to one primary comparison and no subgroup analyses.</p>
-<section id="a-defect-the-probe-caught" class="level3">
-<h3 class="anchored" data-anchor-id="a-defect-the-probe-caught">A defect the probe caught</h3>
-<p>A first version computed DOI coverage as distinct DOI-like strings per article divided by the reference count and reported <strong>1.41</strong>. A rate above 1 is impossible and is the only reason it was noticed: the plain-text fallback regex matches several times inside one reference, so the numerator was not a subset of the denominator. Coverage is now counted per reference.</p>
+<section id="s8.-validate-the-contrast-that-is-analyzed-against-a-written-rubric" class="level2">
+<h2 class="anchored" data-anchor-id="s8.-validate-the-contrast-that-is-analyzed-against-a-written-rubric">S8. Validate the contrast that is analyzed, against a written rubric</h2>
+<p>P03 gated a four-category classifier on overall kappa, which does not validate the binary comparison its model uses, against a human reference standard that had no coding rubric.</p>
+<p><strong>Required.</strong> The validation gate is computed on the contrast that enters the model. The human reference standard has a written rubric with decision rules and worked examples, published with the design, and it is produced by the author rather than by a model.</p>
 </section>
+<section id="s9.-make-the-comparison-arm-concrete" class="level2">
+<h2 class="anchored" data-anchor-id="s9.-make-the-comparison-arm-concrete">S9. Make the comparison arm concrete</h2>
+<p>P02 promised articles matched on journal and year and specified no ratio, no replacement rule and no handling of unmatched strata.</p>
+<p><strong>Required.</strong> Matching variables, ratio, with or without replacement, the treatment of unmatched units, and the weighting that follows are all stated.</p>
 </section>
-<section id="analysis" class="level2">
-<h2 class="anchored" data-anchor-id="analysis">8. Analysis</h2>
-<p>In R.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glm.nb</span>(n_post_retraction <span class="sc">~</span> arm <span class="sc">+</span> year_c <span class="sc">+</span> <span class="fu">offset</span>(<span class="fu">log</span>(n_matchable_refs)), <span class="at">data =</span> d)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Negative binomial rather than Poisson, with the dispersion parameter reported rather than assumed. Preregistered sensitivity analyses:</p>
-<ol type="1">
-<li>Excluding every article carrying the <code>retract</code> topic label from both arms.</li>
-<li>Poisson with robust standard errors, to show the distributional choice is not carrying the result.</li>
-<li>Restricted to articles published from 2015, when Retraction Watch coverage is densest.</li>
-<li>Counting expressions of concern alongside retractions.</li>
-</ol>
+<section id="s10.-account-for-time-at-risk" class="level2">
+<h2 class="anchored" data-anchor-id="s10.-account-for-time-at-risk">S10. Account for time at risk</h2>
+<p>P03 read zero citations as “nobody used it” when most of its 2026 zeros were articles too new to have been cited.</p>
+<p><strong>Required.</strong> Count outcomes that accrue over time carry exposure time or a censoring rule, and a fixed follow-up window is preferred to raw totals.</p>
 </section>
-<section id="threats-and-what-happened-to-each" class="level2">
-<h2 class="anchored" data-anchor-id="threats-and-what-happened-to-each">9. Threats, and what happened to each</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>threat</th>
-<th>what was done</th>
-<th>removed or disclosed</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Pre-retraction citations counted as failures</td>
-<td>Classified by date; the probe shows they are the majority</td>
-<td>Removed</td>
-</tr>
-<tr class="even">
-<td>Papers about retraction cite retracted work deliberately</td>
-<td>Separated by topic label and reported separately</td>
-<td>Disclosed</td>
-</tr>
-<tr class="odd">
-<td>DOI coverage may differ between arms</td>
-<td>Measured per arm before the model is fitted; the offset is biased if it differs</td>
-<td>Disclosed</td>
-</tr>
-<tr class="even">
-<td>Retraction Watch is incomplete</td>
-<td>A missing retraction biases both arms toward the null equally</td>
-<td>Disclosed</td>
-</tr>
-<tr class="odd">
-<td>Retraction dates are the database’s, not always the publisher’s</td>
-<td>A late date misclassifies post as pre, in both arms</td>
-<td>Disclosed</td>
-</tr>
-<tr class="even">
-<td>Comparison arm is defined by screening exclusion</td>
-<td>Depends entirely on the screening gate; the study cannot run before it</td>
-<td>Disclosed</td>
-</tr>
-<tr class="odd">
-<td>Reference lists in <code>&lt;back&gt;</code> only</td>
-<td>Articles whose references PMC does not structure are absent, not zero</td>
-<td>Disclosed</td>
-</tr>
-</tbody>
-</table>
+<section id="s11.-novelty-is-a-search-result-relevance-ordered" class="level2">
+<h2 class="anchored" data-anchor-id="s11.-novelty-is-a-search-result-relevance-ordered">S11. Novelty is a search result, relevance-ordered</h2>
+<p>P05 claimed a gap that Federer and colleagues had already filled. A candidate for this round tested a hypothesis that PMID 36109655 had already tested in its title. The novelty log was first built on NCBI’s default date ordering, so each “top ten” was the ten newest hits.</p>
+<p><strong>Required.</strong> Every claim that something has not been studied shows its corpus regex and its PubMed query verbatim, run through <code>build/lit/novelty.py</code> with relevance ordering, and cites the log entry. A PMID cited as prior work must appear in <code>data/lit/novelty-log.json</code> or in the harvested corpus; <code>tools/check_citations.py</code> enforces this in CI and fails the build on any PMID that came from neither. The author’s own repositories and papers are checked first: a design that re-runs the author’s work with a new population is not a new design.</p>
 </section>
-<section id="probes" class="level2">
-<h2 class="anchored" data-anchor-id="probes">10. Probes</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>probe</th>
-<th>computes</th>
-<th>goes to</th>
-<th>what would change the design</th>
-<th>status</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>PA</strong></td>
-<td>reference counts and DOI coverage</td>
-<td>7</td>
-<td>coverage below about 50 percent makes the offset unreliable</td>
-<td>done</td>
-</tr>
-<tr class="even">
-<td><strong>PB</strong></td>
-<td>raw Retraction Watch matches</td>
-<td>7</td>
-<td>fewer than about 30 matches makes the study unpowered</td>
-<td>done</td>
-</tr>
-<tr class="odd">
-<td><strong>PC</strong></td>
-<td>the post and pre retraction split</td>
-<td>5, 7</td>
-<td>a post-retraction count under about 20 ends the study</td>
-<td>done</td>
-</tr>
-<tr class="even">
-<td><strong>PD</strong></td>
-<td>DOI coverage separately per arm, after screening</td>
-<td>9</td>
-<td>a differential in coverage biases the offset and needs adjustment</td>
-<td>outstanding, needs screening</td>
-</tr>
-<tr class="odd">
-<td><strong>PE</strong></td>
-<td>screening agreement, shared with P01v2 probe P6</td>
-<td>4</td>
-<td>below kappa 0.75 triggers the hand-screening fallback</td>
-<td>outstanding, needs the author</td>
-</tr>
-</tbody>
-</table>
+<section id="s12.-power-for-the-model-that-will-be-fitted" class="level2">
+<h2 class="anchored" data-anchor-id="s12.-power-for-the-model-that-will-be-fitted">S12. Power for the model that will be fitted</h2>
+<p>P01v2 computed power from a two-proportion normal approximation for a mixed model with a journal random effect, and read a confidence interval containing 1 as evidence of absence.</p>
+<p><strong>Required.</strong> Power or precision is computed for the specified model, by simulation where no closed form fits. A design that wants to claim absence of an effect states the equivalence margin or precision target that would license the claim.</p>
+<hr>
 </section>
-<section id="deviations" class="level2">
-<h2 class="anchored" data-anchor-id="deviations">11. Deviations</h2>
-<p>Recorded in a <code>DEVIATIONS</code> section on the result page: what changed, when, why, and the estimate before and after where computable.</p>
-</section>
-<section id="what-this-cannot-show" class="level2">
-<h2 class="anchored" data-anchor-id="what-this-cannot-show">12. What this cannot show</h2>
-<ul>
-<li><strong>It is not causal.</strong> Meta-research authors may differ from other authors in ways unrelated to their expertise in retraction.</li>
-<li><strong>A citation is not an endorsement.</strong> The design counts post-retraction citations and does not read what each one says about the work it cites. A citation flagging a paper as retracted is counted as a failure unless the <code>retract</code> label catches it.</li>
-<li><strong>Retraction Watch is the ground truth and it is not.</strong> Coverage is best for recent, English-language, indexed work.</li>
-</ul>
+<section id="two-operational-rules" class="level2">
+<h2 class="anchored" data-anchor-id="two-operational-rules">Two operational rules</h2>
+<p><strong>Pin by hash.</strong> An instrument is pinned by a commit hash written into the document together with the <code>git show</code> command that resolves it. A prose pin (“the commit this was published in”) is not a pin.</p>
+<p><strong>Status says what it is.</strong> <code>design</code> until the probes run; <code>protocol</code> once their numbers are written in; <code>blocked-by-review</code> when review finds an unrebutted evidenced fatal flaw; <code>agenda</code> when public data cannot answer the question. A document is never labeled for the stage it is hoping to reach.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

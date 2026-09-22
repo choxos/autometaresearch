@@ -44,9 +44,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5cc4517f93efc704f9e8f922f0fd1f56.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-8544745414cade1a69674f78a9fe5522.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-5cc4517f93efc704f9e8f922f0fd1f56.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-1861f82967d66f654154b492be169a53.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-d72254f1cca27c889edf43d9473ffb8d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-1861f82967d66f654154b492be169a53.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": true,
@@ -84,7 +84,8 @@ ul.task-list li input[type="checkbox"] {
 
     const options = {
       valueNames: ['listing-title','listing-id','listing-status','listing-date','listing-reviewed',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
+      page: 30,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
       searchColumns: ["listing-date","listing-title","listing-author"],
     };
 
@@ -370,6 +371,7 @@ window.Quarto = {
   <li><a href="#where-each-one-stands" id="toc-where-each-one-stands" class="nav-link" data-scroll-target="#where-each-one-stands">Where each one stands</a></li>
   <li><a href="#review" id="toc-review" class="nav-link" data-scroll-target="#review">Review</a></li>
   <li><a href="#how-these-were-chosen" id="toc-how-these-were-chosen" class="nav-link" data-scroll-target="#how-these-were-chosen">How these were chosen</a></li>
+  <li><a href="#candidates-dropped-for-lack-of-novelty" id="toc-candidates-dropped-for-lack-of-novelty" class="nav-link" data-scroll-target="#candidates-dropped-for-lack-of-novelty">Candidates dropped for lack of novelty</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/choxos/autometaresearch/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -401,7 +403,8 @@ window.Quarto = {
 <p>The order matters and it is deliberate. A protocol written after the result is known is not a protocol, and a project that criticizes selective reporting cannot itself decide what its question was once it has seen the answer. Every proposal therefore carries a date and a status, and a result page will link back to the protocol as it stood.</p>
 <section id="status-values" class="level2">
 <h2 class="anchored" data-anchor-id="status-values">Status values</h2>
-<p>The distinction between a design and a protocol is not cosmetic. It comes from the sibling project’s <code>studies/DESIGN-STANDARD.md</code> and it is the rule this project now works to: <strong>the difference between a design and a protocol is a set of computed numbers.</strong> A document that asserts its sample size, its power or its feasibility rather than measuring them is a design, whatever it calls itself.</p>
+<p>The distinction between a design and a protocol is not cosmetic. It comes from the sibling project’s design standard and it is the rule this project works to: <strong>the difference between a design and a protocol is a set of computed numbers.</strong> A document that asserts its sample size, its power or its feasibility rather than measuring them is a design, whatever it calls itself.</p>
+<p>Every document from P10 onward is written against this project’s own <a href="./studies/DESIGN-STANDARD.html">design standard</a>, twelve requirements each traced to the review finding that produced it.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -427,10 +430,14 @@ window.Quarto = {
 <td>probes computed, and they came back small enough that a pre-written rule cut the analysis down</td>
 </tr>
 <tr class="even">
+<td><code>blocked-by-review</code></td>
+<td>two reviewers found an evidenced fatal flaw that stands unrebutted. Left as submitted</td>
+</tr>
+<tr class="odd">
 <td><code>agenda</code></td>
 <td>a real gap that public data cannot answer, recorded rather than skipped</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>reported</code></td>
 <td>result published with the protocol and, when they exist, the reviews</td>
 </tr>
@@ -440,91 +447,75 @@ window.Quarto = {
 </section>
 <section id="where-each-one-stands" class="level2">
 <h2 class="anchored" data-anchor-id="where-each-one-stands">Where each one stands</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
-<thead>
-<tr class="header">
-<th></th>
-<th>question</th>
-<th>status</th>
-<th>what is blocking it</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>P01v2</strong></td>
-<td>Does advocating transparency predict practicing it?</td>
-<td>protocol</td>
-<td>screening and grading labels, then review</td>
-</tr>
-<tr class="even">
-<td><strong>P02</strong></td>
-<td>Does meta-research cite retracted work?</td>
-<td>protocol</td>
-<td>shares P01v2’s screening gate</td>
-</tr>
-<tr class="odd">
-<td><strong>P03</strong></td>
-<td>Is bad news cited more?</td>
-<td>protocol</td>
-<td>300 abstracts classified by the author</td>
-</tr>
-<tr class="even">
-<td><strong>P05</strong></td>
-<td>Do the links actually resolve?</td>
-<td>protocol</td>
-<td>a requester bug, then 100 hand checks</td>
-</tr>
-<tr class="odd">
-<td><strong>P06</strong></td>
-<td>Do conclusions soften between preprint and journal?</td>
-<td>protocol, reduced</td>
-<td>141 pairs found, so the ordinal outcome was cut to binary by a pre-written rule</td>
-</tr>
-<tr class="even">
-<td><strong>P07</strong></td>
-<td>When two studies measure the same thing, do they agree?</td>
-<td>design</td>
-<td>nobody has counted the pairs yet</td>
-</tr>
-<tr class="odd">
-<td><strong>P08</strong></td>
-<td>Do meta-research studies follow the guidelines they audit by?</td>
-<td>design</td>
-<td>scoring STROBE needs a human reading 150 articles</td>
-</tr>
-<tr class="even">
-<td><strong>P09</strong></td>
-<td>Does meta-research change the practice it documents?</td>
-<td>design</td>
-<td>the author must choose which documented problems count</td>
-</tr>
-<tr class="odd">
-<td><strong>P04</strong></td>
-<td>The field is observational about itself</td>
-<td>agenda</td>
-<td>needs a journal or funder willing to randomize</td>
-</tr>
-</tbody>
-</table>
+<p>The table at the top of this page is the only status table, and it is read from each document’s front matter when the site is built. An earlier version of this page also kept a hand-written table; it drifted from the documents twice, once miscounting them and once still listing blocked protocols as ready, so it was removed rather than maintained.</p>
 </section>
 <section id="review" class="level2">
 <h2 class="anchored" data-anchor-id="review">Review</h2>
-<p>Nothing here has been reviewed. Review is by two models from different providers, each given the document and instructed to refute it, with output validated against a schema and adjudicated by the fixed rule in <code>build/audit/adjudicate.py</code>. That rule downgrades an unsubstantiated severe finding rather than counting it, lets a lone reviewer holding a verbatim quote block a document two others called sound, and publishes a contested document as contested rather than picking a winner. Twelve golden cases pin it.</p>
-<p>No document is reviewed by one model alone. The Codex account’s usage limit was exhausted on 2026-09-16 and resets on 2026-09-20, so reviews begin then.</p>
-<p>The five documents at protocol stage go first. The three designs are reviewed when their probes complete, because a reviewer asked to assess feasibility numbers that do not exist yet is being asked to review a wish.</p>
+<p>Review is by two models from different providers, each given the document and instructed to refute it, with output validated against a schema and adjudicated by the fixed rule in <code>build/audit/adjudicate.py</code>. That rule downgrades an unsubstantiated severe finding rather than counting it, lets a lone reviewer holding a verbatim quote block a document two others called sound, and publishes a contested document as contested rather than picking a winner. Twelve golden cases pin it. No document is reviewed by one model alone.</p>
+<p><strong>Five documents have been reviewed and all five were blocked</strong>: P01v2, P02, P03, P05 and P06, each on evidenced fatal findings. The findings for P01v2 and P02 were checked against primary source and are published at <a href="./reviews.html">the reviews page</a>. The verdicts for P03, P05 and P06 are recorded in <code>data/audit/</code> and have not yet been acted on or published as pages; that is pending.</p>
+<p><strong>P10 to P29 have not been reviewed.</strong> They were written after those five reviews, against a standard distilled from them, and their review is scheduled for later. The designs are reviewed when their probes have run, because a reviewer asked to assess feasibility numbers that do not exist yet is being asked to review a wish.</p>
 </section>
 <section id="how-these-were-chosen" class="level2">
 <h2 class="anchored" data-anchor-id="how-these-were-chosen">How these were chosen</h2>
 <p>The selection rule was to turn the field’s own instrument on the field. Meta-research measures whether others share data, cite retracted work, follow checklists, replicate, and report inconvenient findings. Those questions had not been asked about meta-research itself, and most are answerable from data already harvested or openly available.</p>
 <p>The rule also kept out the obvious alternative. A study measuring transparency, or FAIRness, in one more specialty is a rate in a new population, and rates in new populations are what this corpus already holds in quantity. Every document here has an exposure, an outcome and a direction, and every one can come out the other way.</p>
-<p>One candidate was dropped for lack of novelty rather than lack of interest: a study relating a journal’s transparency policy score to the transparency of the meta-research it publishes. The corpus search found PMID 37433624, a systematic review with individual participant data meta-analysis of predictors of data and code sharing, which covers it. It is recorded here because a dropped idea and the reason it was dropped are part of the trail.</p>
-<p>P04 is not runnable and says so. P09 is the most important question of the set and is the least far along, which is a fact about difficulty rather than about priority.</p>
+<p>The second round, P10 to P29, kept that rule where it applied and widened it where the author’s own tools made a sharper question possible: <code>rtransparency</code> and <code>rfair</code> are validated instruments, and several designs exist because a validated instrument turns a vague question into a measurable one. Candidates were dropped when a relevance-ordered search found the question already answered; the table below lists them.</p>
+<p>P04 and P30 are not runnable and say so. P09 is the most important question of the set and is the least far along, which is a fact about difficulty rather than about priority.</p>
+</section>
+<section id="candidates-dropped-for-lack-of-novelty" class="level2">
+<h2 class="anchored" data-anchor-id="candidates-dropped-for-lack-of-novelty">Candidates dropped for lack of novelty</h2>
+<p>A dropped idea and the reason it was dropped are part of the trail. Each reason below is a record in <code>data/lit/novelty-log.json</code>.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>candidate</th>
+<th>why it was dropped</th>
+<th>log key</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Journal transparency policy against the transparency of the meta-research it publishes</td>
+<td>An individual participant data meta-analysis of predictors of data and code sharing covers it (PMID 37433624)</td>
+<td>earlier round</td>
+</tr>
+<tr class="even">
+<td>Articles that share data are corrected more often</td>
+<td>Tested at policy level and titled with its answer: “No evidence that mandatory open data policies increase error correction” (PMID 36109655)</td>
+<td><code>dropped-open-data-corrections</code></td>
+</tr>
+<tr class="odd">
+<td>Articles that share data or code contain fewer numerical errors</td>
+<td>The data-sharing and reporting-error relation is established in psychology, including a replication (PMID 37053137); the numeric checks it relies on also fit biomedical reporting poorly</td>
+<td><code>dropped-sharing-numeric-consistency</code></td>
+</tr>
+<tr class="even">
+<td>Retrospectively registered trials report larger effects</td>
+<td>Three corpus studies test it (PMIDs 27377062, 41921890, 40334717)</td>
+<td><code>dropped-registration-effect-size</code></td>
+</tr>
+<tr class="odd">
+<td>Preprint versions of retracted articles go unflagged</td>
+<td>Surveyed for COVID-19 (PMID 37035368), and inside the author’s own retraction-tracking work</td>
+<td><code>dropped-preprints-of-retracted</code></td>
+</tr>
+<tr class="even">
+<td>Novelty claims and promotional language earn citations</td>
+<td>“Scientific publications that use promotional language in the abstract receive more citations” (PMID 40764759)</td>
+<td><code>dropped-hype-citation</code></td>
+</tr>
+<tr class="odd">
+<td>Whether reviews using language models report their validation</td>
+<td>The literature is too crowded to claim novelty from a top-ten search</td>
+<td><code>dropped-llm-screening-validation</code></td>
+</tr>
+</tbody>
+</table>
 
 
 
@@ -559,7 +550,7 @@ Reviewed
 </thead>
 <tbody class="list">
 
-<tr data-index="0" data-categories="cnVubmFibGUlMkNkYXRhc2hhcmUlMkNyZWZsZXhpdmU=" data-listing-date-sort="1789516800000" data-listing-file-modified-sort="1789841612937" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="748" data-listing-title-sort="Does advocating transparency predict practicing it?" data-listing-filename-sort="P01-advocacy-and-practice.qmd">
+<tr data-index="0" data-categories="cnVubmFibGUlMkNkYXRhc2hhcmUlMkNyZWZsZXhpdmU=" data-listing-date-sort="1789516800000" data-listing-file-modified-sort="1790102791264" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="748" data-listing-title-sort="Does advocating transparency predict practicing it?" data-listing-filename-sort="P01-advocacy-and-practice.qmd">
 <td>
 <a href="./proposals/P01-advocacy-and-practice.html" class="title listing-title">Does advocating transparency predict practicing it?</a>
 </td>
@@ -578,7 +569,7 @@ Reviewed
 
 </tr>
 
-<tr data-index="1" data-categories="cHJvdG9jb2wlMkNkYXRhc2hhcmUlMkNjb25maXJtYXRvcnk=" data-listing-date-sort="1789516800000" data-listing-file-modified-sort="1789841612939" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="18" data-listing-word-count-sort="3542" data-listing-title-sort="Advocacy and practice in meta-research: protocol" data-listing-filename-sort="P01v2-advocacy-and-practice-protocol.qmd">
+<tr data-index="1" data-categories="cHJvdG9jb2wlMkNkYXRhc2hhcmUlMkNjb25maXJtYXRvcnk=" data-listing-date-sort="1789516800000" data-listing-file-modified-sort="1790102791265" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="18" data-listing-word-count-sort="3542" data-listing-title-sort="Advocacy and practice in meta-research: protocol" data-listing-filename-sort="P01v2-advocacy-and-practice-protocol.qmd">
 <td>
 <a href="./proposals/P01v2-advocacy-and-practice-protocol.html" class="title listing-title">Advocacy and practice in meta-research: protocol</a>
 </td>
@@ -597,7 +588,7 @@ Reviewed
 
 </tr>
 
-<tr data-index="2" data-categories="cHJvdG9jb2wlMkNyZXRyYWN0JTJDcmVmbGV4aXZl" data-listing-date-sort="1789516800000" data-listing-file-modified-sort="1789841612939" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1434" data-listing-title-sort="Does meta-research cite retracted work?" data-listing-filename-sort="P02-citing-retracted-work.qmd">
+<tr data-index="2" data-categories="cHJvdG9jb2wlMkNyZXRyYWN0JTJDcmVmbGV4aXZl" data-listing-date-sort="1789516800000" data-listing-file-modified-sort="1790102791265" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1434" data-listing-title-sort="Does meta-research cite retracted work?" data-listing-filename-sort="P02-citing-retracted-work.qmd">
 <td>
 <a href="./proposals/P02-citing-retracted-work.html" class="title listing-title">Does meta-research cite retracted work?</a>
 </td>
@@ -616,7 +607,7 @@ Reviewed
 
 </tr>
 
-<tr data-index="3" data-categories="cHJvdG9jb2wlMkNiaWJsaW8lMkNpbmNlbnRpdmVz" data-listing-date-sort="1789516800000" data-listing-file-modified-sort="1789841612939" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="973" data-listing-title-sort="Is bad news cited more?" data-listing-filename-sort="P03-bad-news-citation.qmd">
+<tr data-index="3" data-categories="cHJvdG9jb2wlMkNiaWJsaW8lMkNpbmNlbnRpdmVz" data-listing-date-sort="1789516800000" data-listing-file-modified-sort="1790102791265" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="973" data-listing-title-sort="Is bad news cited more?" data-listing-filename-sort="P03-bad-news-citation.qmd">
 <td>
 <a href="./proposals/P03-bad-news-citation.html" class="title listing-title">Is bad news cited more?</a>
 </td>
@@ -635,7 +626,7 @@ Reviewed
 
 </tr>
 
-<tr data-index="4" data-categories="YWdlbmRhJTJDcGVlcnJldiUyQ25vdC1ydW5uYWJsZQ==" data-listing-date-sort="1789516800000" data-listing-file-modified-sort="1789841612939" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="477" data-listing-title-sort="The field is observational about itself" data-listing-filename-sort="P04-observational-about-itself.qmd">
+<tr data-index="4" data-categories="YWdlbmRhJTJDcGVlcnJldiUyQ25vdC1ydW5uYWJsZQ==" data-listing-date-sort="1789516800000" data-listing-file-modified-sort="1790102791265" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="477" data-listing-title-sort="The field is observational about itself" data-listing-filename-sort="P04-observational-about-itself.qmd">
 <td>
 <a href="./proposals/P04-observational-about-itself.html" class="title listing-title">The field is observational about itself</a>
 </td>
@@ -654,7 +645,7 @@ Reviewed
 
 </tr>
 
-<tr data-index="5" data-categories="cHJvdG9jb2wlMkNkYXRhc2hhcmUlMkNyZWZsZXhpdmU=" data-listing-date-sort="1789516800000" data-listing-file-modified-sort="1789841612939" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1048" data-listing-title-sort="Does the link actually resolve?" data-listing-filename-sort="P05-does-the-link-resolve.qmd">
+<tr data-index="5" data-categories="cHJvdG9jb2wlMkNkYXRhc2hhcmUlMkNyZWZsZXhpdmU=" data-listing-date-sort="1789516800000" data-listing-file-modified-sort="1790102791265" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1048" data-listing-title-sort="Does the link actually resolve?" data-listing-filename-sort="P05-does-the-link-resolve.qmd">
 <td>
 <a href="./proposals/P05-does-the-link-resolve.html" class="title listing-title">Does the link actually resolve?</a>
 </td>
@@ -673,7 +664,7 @@ Reviewed
 
 </tr>
 
-<tr data-index="6" data-categories="cHJvdG9jb2wlMkNvYSUyQ3BlZXJyZXY=" data-listing-date-sort="1789516800000" data-listing-file-modified-sort="1789841612939" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1185" data-listing-title-sort="Do meta-research conclusions soften between preprint and journal?" data-listing-filename-sort="P06-preprint-conclusion-drift.qmd">
+<tr data-index="6" data-categories="cHJvdG9jb2wlMkNvYSUyQ3BlZXJyZXY=" data-listing-date-sort="1789516800000" data-listing-file-modified-sort="1790102791265" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1185" data-listing-title-sort="Do meta-research conclusions soften between preprint and journal?" data-listing-filename-sort="P06-preprint-conclusion-drift.qmd">
 <td>
 <a href="./proposals/P06-preprint-conclusion-drift.html" class="title listing-title">Do meta-research conclusions soften between preprint and journal?</a>
 </td>
@@ -692,7 +683,7 @@ Reviewed
 
 </tr>
 
-<tr data-index="7" data-categories="ZGVzaWduJTJDcmVwcm8lMkNyZWZsZXhpdmU=" data-listing-date-sort="1789516800000" data-listing-file-modified-sort="1789841612939" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="783" data-listing-title-sort="When two meta-research studies measure the same thing, do they agree?" data-listing-filename-sort="P07-do-two-studies-agree.qmd">
+<tr data-index="7" data-categories="ZGVzaWduJTJDcmVwcm8lMkNyZWZsZXhpdmU=" data-listing-date-sort="1789516800000" data-listing-file-modified-sort="1790102791265" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="783" data-listing-title-sort="When two meta-research studies measure the same thing, do they agree?" data-listing-filename-sort="P07-do-two-studies-agree.qmd">
 <td>
 <a href="./proposals/P07-do-two-studies-agree.html" class="title listing-title">When two meta-research studies measure the same thing, do they agree?</a>
 </td>
@@ -711,7 +702,7 @@ Reviewed
 
 </tr>
 
-<tr data-index="8" data-categories="ZGVzaWduJTJDcmVwb3J0JTJDcmVmbGV4aXZl" data-listing-date-sort="1789516800000" data-listing-file-modified-sort="1789841612939" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="773" data-listing-title-sort="Do meta-research studies follow the guidelines they audit others by?" data-listing-filename-sort="P08-guidelines-it-audits-by.qmd">
+<tr data-index="8" data-categories="ZGVzaWduJTJDcmVwb3J0JTJDcmVmbGV4aXZl" data-listing-date-sort="1789516800000" data-listing-file-modified-sort="1790102791265" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="773" data-listing-title-sort="Do meta-research studies follow the guidelines they audit others by?" data-listing-filename-sort="P08-guidelines-it-audits-by.qmd">
 <td>
 <a href="./proposals/P08-guidelines-it-audits-by.html" class="title listing-title">Do meta-research studies follow the guidelines they audit others by?</a>
 </td>
@@ -730,7 +721,7 @@ Reviewed
 
 </tr>
 
-<tr data-index="9" data-categories="ZGVzaWduJTJDd2FzdGUlMkNpbXBhY3Q=" data-listing-date-sort="1789516800000" data-listing-file-modified-sort="1789841612939" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="859" data-listing-title-sort="Does meta-research change the practice it documents?" data-listing-filename-sort="P09-does-meta-research-change-practice.qmd">
+<tr data-index="9" data-categories="ZGVzaWduJTJDd2FzdGUlMkNpbXBhY3Q=" data-listing-date-sort="1789516800000" data-listing-file-modified-sort="1790102791265" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="859" data-listing-title-sort="Does meta-research change the practice it documents?" data-listing-filename-sort="P09-does-meta-research-change-practice.qmd">
 <td>
 <a href="./proposals/P09-does-meta-research-change-practice.html" class="title listing-title">Does meta-research change the practice it documents?</a>
 </td>
@@ -749,9 +740,411 @@ Reviewed
 
 </tr>
 
+<tr data-index="10" data-categories="ZGVzaWduJTJDcmVnJTJDcmVmbGV4aXZl" data-listing-date-sort="1790035200000" data-listing-file-modified-sort="1790102791265" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="966" data-listing-title-sort="Does meta-research have a file drawer?" data-listing-filename-sort="P10-meta-research-file-drawer.qmd">
+<td>
+<a href="./proposals/P10-meta-research-file-drawer.html" class="title listing-title">Does meta-research have a file drawer?</a>
+</td>
+<td>
+<span class="listing-id">P10</span>
+</td>
+<td>
+<span class="listing-status">design</span>
+</td>
+<td>
+<span class="listing-date">Sep 22, 2026</span>
+</td>
+<td>
+<span class="listing-reviewed">none</span>
+</td>
+
+</tr>
+
+<tr data-index="11" data-categories="ZGVzaWduJTJDcmVnJTJDcmVmbGV4aXZl" data-listing-date-sort="1790035200000" data-listing-file-modified-sort="1790102791265" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="759" data-listing-title-sort="Does meta-research switch its own outcomes?" data-listing-filename-sort="P11-outcome-switching-in-meta-research.qmd">
+<td>
+<a href="./proposals/P11-outcome-switching-in-meta-research.html" class="title listing-title">Does meta-research switch its own outcomes?</a>
+</td>
+<td>
+<span class="listing-id">P11</span>
+</td>
+<td>
+<span class="listing-status">design</span>
+</td>
+<td>
+<span class="listing-date">Sep 22, 2026</span>
+</td>
+<td>
+<span class="listing-reviewed">none</span>
+</td>
+
+</tr>
+
+<tr data-index="12" data-categories="ZGVzaWduJTJDYmlibGlvJTJDcmVmbGV4aXZl" data-listing-date-sort="1790035200000" data-listing-file-modified-sort="1790102791265" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="845" data-listing-title-sort="Are old prevalence estimates cited as if they were current?" data-listing-filename-sort="P12-stale-prevalence.qmd">
+<td>
+<a href="./proposals/P12-stale-prevalence.html" class="title listing-title">Are old prevalence estimates cited as if they were current?</a>
+</td>
+<td>
+<span class="listing-id">P12</span>
+</td>
+<td>
+<span class="listing-status">design</span>
+</td>
+<td>
+<span class="listing-date">Sep 22, 2026</span>
+</td>
+<td>
+<span class="listing-reviewed">none</span>
+</td>
+
+</tr>
+
+<tr data-index="13" data-categories="ZGVzaWduJTJDZGF0YXNoYXJlJTJDbWV0aG9kcw==" data-listing-date-sort="1790035200000" data-listing-file-modified-sort="1790102791265" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="960" data-listing-title-sort="Does sampling PubMed Central inflate transparency estimates?" data-listing-filename-sort="P13-pmc-sampling-bias.qmd">
+<td>
+<a href="./proposals/P13-pmc-sampling-bias.html" class="title listing-title">Does sampling PubMed Central inflate transparency estimates?</a>
+</td>
+<td>
+<span class="listing-id">P13</span>
+</td>
+<td>
+<span class="listing-status">design</span>
+</td>
+<td>
+<span class="listing-date">Sep 22, 2026</span>
+</td>
+<td>
+<span class="listing-reviewed">none</span>
+</td>
+
+</tr>
+
+<tr data-index="14" data-categories="ZGVzaWduJTJDZGF0YXNoYXJlJTJDcG9saWN5" data-listing-date-sort="1790035200000" data-listing-file-modified-sort="1790102791265" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="852" data-listing-title-sort="Did the NIH data sharing policy change what papers share?" data-listing-filename-sort="P14-nih-dms-policy.qmd">
+<td>
+<a href="./proposals/P14-nih-dms-policy.html" class="title listing-title">Did the NIH data sharing policy change what papers share?</a>
+</td>
+<td>
+<span class="listing-id">P14</span>
+</td>
+<td>
+<span class="listing-status">design</span>
+</td>
+<td>
+<span class="listing-date">Sep 22, 2026</span>
+</td>
+<td>
+<span class="listing-reviewed">none</span>
+</td>
+
+</tr>
+
+<tr data-index="15" data-categories="ZGVzaWduJTJDcGVlcnJldg==" data-listing-date-sort="1790035200000" data-listing-file-modified-sort="1790102791265" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="747" data-listing-title-sort="Do authors who publish their peer review get corrected less?" data-listing-filename-sort="P15-transparent-peer-review-opt-in.qmd">
+<td>
+<a href="./proposals/P15-transparent-peer-review-opt-in.html" class="title listing-title">Do authors who publish their peer review get corrected less?</a>
+</td>
+<td>
+<span class="listing-id">P15</span>
+</td>
+<td>
+<span class="listing-status">design</span>
+</td>
+<td>
+<span class="listing-date">Sep 22, 2026</span>
+</td>
+<td>
+<span class="listing-reviewed">none</span>
+</td>
+
+</tr>
+
+<tr data-index="16" data-categories="ZGVzaWduJTJDYmlibGlv" data-listing-date-sort="1790035200000" data-listing-file-modified-sort="1790102791265" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="768" data-listing-title-sort="Do senior authors get listed for reviewing rather than doing?" data-listing-filename-sort="P16-credit-roles-and-seniority.qmd">
+<td>
+<a href="./proposals/P16-credit-roles-and-seniority.html" class="title listing-title">Do senior authors get listed for reviewing rather than doing?</a>
+</td>
+<td>
+<span class="listing-id">P16</span>
+</td>
+<td>
+<span class="listing-status">design</span>
+</td>
+<td>
+<span class="listing-date">Sep 22, 2026</span>
+</td>
+<td>
+<span class="listing-reviewed">none</span>
+</td>
+
+</tr>
+
+<tr data-index="17" data-categories="ZGVzaWduJTJDcmV0cmFjdCUyQ2ludGVncml0eQ==" data-listing-date-sort="1790035200000" data-listing-file-modified-sort="1790102791265" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="780" data-listing-title-sort="Does a fast acceptance predict retraction for misconduct?" data-listing-filename-sort="P17-fast-acceptance-and-retraction.qmd">
+<td>
+<a href="./proposals/P17-fast-acceptance-and-retraction.html" class="title listing-title">Does a fast acceptance predict retraction for misconduct?</a>
+</td>
+<td>
+<span class="listing-id">P17</span>
+</td>
+<td>
+<span class="listing-status">design</span>
+</td>
+<td>
+<span class="listing-date">Sep 22, 2026</span>
+</td>
+<td>
+<span class="listing-reviewed">none</span>
+</td>
+
+</tr>
+
+<tr data-index="18" data-categories="ZGVzaWduJTJDcmV0cmFjdCUyQ2ludGVncml0eQ==" data-listing-date-sort="1790035200000" data-listing-file-modified-sort="1790102791265" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="625" data-listing-title-sort="Do misconduct retractions have fewer verified authors?" data-listing-filename-sort="P18-orcid-and-retraction.qmd">
+<td>
+<a href="./proposals/P18-orcid-and-retraction.html" class="title listing-title">Do misconduct retractions have fewer verified authors?</a>
+</td>
+<td>
+<span class="listing-id">P18</span>
+</td>
+<td>
+<span class="listing-status">design</span>
+</td>
+<td>
+<span class="listing-date">Sep 22, 2026</span>
+</td>
+<td>
+<span class="listing-reviewed">none</span>
+</td>
+
+</tr>
+
+<tr data-index="19" data-categories="ZGVzaWduJTJDcmVwcm8lMkNyZWZsZXhpdmU=" data-listing-date-sort="1790035200000" data-listing-file-modified-sort="1790102791265" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="972" data-listing-title-sort="Do meta-epidemiology's bias estimates shrink over time?" data-listing-filename-sort="P19-decline-effect-in-meta-epidemiology.qmd">
+<td>
+<a href="./proposals/P19-decline-effect-in-meta-epidemiology.html" class="title listing-title">Do meta-epidemiology’s bias estimates shrink over time?</a>
+</td>
+<td>
+<span class="listing-id">P19</span>
+</td>
+<td>
+<span class="listing-status">design</span>
+</td>
+<td>
+<span class="listing-date">Sep 22, 2026</span>
+</td>
+<td>
+<span class="listing-reviewed">none</span>
+</td>
+
+</tr>
+
+<tr data-index="20" data-categories="ZGVzaWduJTJDYWl0ZXh0JTJDaW50ZWdyaXR5" data-listing-date-sort="1790035200000" data-listing-file-modified-sort="1790102791265" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="840" data-listing-title-sort="Do papers that read like a language model cite references that do not exist?" data-listing-filename-sort="P20-llm-vocabulary-and-unresolvable-references.qmd">
+<td>
+<a href="./proposals/P20-llm-vocabulary-and-unresolvable-references.html" class="title listing-title">Do papers that read like a language model cite references that do not exist?</a>
+</td>
+<td>
+<span class="listing-id">P20</span>
+</td>
+<td>
+<span class="listing-status">design</span>
+</td>
+<td>
+<span class="listing-date">Sep 22, 2026</span>
+</td>
+<td>
+<span class="listing-reviewed">none</span>
+</td>
+
+</tr>
+
+<tr data-index="21" data-categories="ZGVzaWduJTJDYWl0ZXh0JTJDaW50ZWdyaXR5" data-listing-date-sort="1790035200000" data-listing-file-modified-sort="1790102791265" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="737" data-listing-title-sort="How much generative AI use goes undisclosed?" data-listing-filename-sort="P21-undisclosed-ai-use.qmd">
+<td>
+<a href="./proposals/P21-undisclosed-ai-use.html" class="title listing-title">How much generative AI use goes undisclosed?</a>
+</td>
+<td>
+<span class="listing-id">P21</span>
+</td>
+<td>
+<span class="listing-status">design</span>
+</td>
+<td>
+<span class="listing-date">Sep 22, 2026</span>
+</td>
+<td>
+<span class="listing-reviewed">none</span>
+</td>
+
+</tr>
+
+<tr data-index="22" data-categories="ZGVzaWduJTJDZGF0YXNoYXJlJTJDbWV0aG9kcw==" data-listing-date-sort="1790035200000" data-listing-file-modified-sort="1790102791265" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="826" data-listing-title-sort="Does rtransparency see what a person sees in meta-research articles?" data-listing-filename-sort="P22-does-rtransparency-see-what-a-person-sees.qmd">
+<td>
+<a href="./proposals/P22-does-rtransparency-see-what-a-person-sees.html" class="title listing-title">Does rtransparency see what a person sees in meta-research articles?</a>
+</td>
+<td>
+<span class="listing-id">P22</span>
+</td>
+<td>
+<span class="listing-status">design</span>
+</td>
+<td>
+<span class="listing-date">Sep 22, 2026</span>
+</td>
+<td>
+<span class="listing-reviewed">none</span>
+</td>
+
+</tr>
+
+<tr data-index="23" data-categories="ZGVzaWduJTJDY29pJTJDcmVmbGV4aXZl" data-listing-date-sort="1790035200000" data-listing-file-modified-sort="1790102791265" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="815" data-listing-title-sort="Does meta-research on conflicts of interest disclose its own?" data-listing-filename-sort="P23-meta-research-own-conflicts.qmd">
+<td>
+<a href="./proposals/P23-meta-research-own-conflicts.html" class="title listing-title">Does meta-research on conflicts of interest disclose its own?</a>
+</td>
+<td>
+<span class="listing-id">P23</span>
+</td>
+<td>
+<span class="listing-status">design</span>
+</td>
+<td>
+<span class="listing-date">Sep 22, 2026</span>
+</td>
+<td>
+<span class="listing-reviewed">none</span>
+</td>
+
+</tr>
+
+<tr data-index="24" data-categories="ZGVzaWduJTJDb2ElMkNyZWc=" data-listing-date-sort="1790035200000" data-listing-file-modified-sort="1790102791265" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="711" data-listing-title-sort="Do null results stay preprints?" data-listing-filename-sort="P24-null-results-stay-preprints.qmd">
+<td>
+<a href="./proposals/P24-null-results-stay-preprints.html" class="title listing-title">Do null results stay preprints?</a>
+</td>
+<td>
+<span class="listing-id">P24</span>
+</td>
+<td>
+<span class="listing-status">design</span>
+</td>
+<td>
+<span class="listing-date">Sep 22, 2026</span>
+</td>
+<td>
+<span class="listing-reviewed">none</span>
+</td>
+
+</tr>
+
+<tr data-index="25" data-categories="ZGVzaWduJTJDcmVwcm8lMkNyZXBsaWNhdGlvbg==" data-listing-date-sort="1790035200000" data-listing-file-modified-sort="1790102791265" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="850" data-listing-title-sort="Did cancer biology stop citing what failed to replicate?" data-listing-filename-sort="P25-failed-replications-and-citations.qmd">
+<td>
+<a href="./proposals/P25-failed-replications-and-citations.html" class="title listing-title">Did cancer biology stop citing what failed to replicate?</a>
+</td>
+<td>
+<span class="listing-id">P25</span>
+</td>
+<td>
+<span class="listing-status">design</span>
+</td>
+<td>
+<span class="listing-date">Sep 22, 2026</span>
+</td>
+<td>
+<span class="listing-reviewed">none</span>
+</td>
+
+</tr>
+
+<tr data-index="26" data-categories="ZGVzaWduJTJDZXF1aXR5JTJDcmVmbGV4aXZl" data-listing-date-sort="1790035200000" data-listing-file-modified-sort="1790102791265" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="701" data-listing-title-sort="Does meta-research do parachute research?" data-listing-filename-sort="P26-parachute-meta-research.qmd">
+<td>
+<a href="./proposals/P26-parachute-meta-research.html" class="title listing-title">Does meta-research do parachute research?</a>
+</td>
+<td>
+<span class="listing-id">P26</span>
+</td>
+<td>
+<span class="listing-status">design</span>
+</td>
+<td>
+<span class="listing-date">Sep 22, 2026</span>
+</td>
+<td>
+<span class="listing-reviewed">none</span>
+</td>
+
+</tr>
+
+<tr data-index="27" data-categories="ZGVzaWduJTJDZGF0YXNoYXJlJTJDaW50ZWdyaXR5" data-listing-date-sort="1790035200000" data-listing-file-modified-sort="1790102791265" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="825" data-listing-title-sort="Is privacy invoked to withhold data that involve no people?" data-listing-filename-sort="P27-privacy-as-pretext.qmd">
+<td>
+<a href="./proposals/P27-privacy-as-pretext.html" class="title listing-title">Is privacy invoked to withhold data that involve no people?</a>
+</td>
+<td>
+<span class="listing-id">P27</span>
+</td>
+<td>
+<span class="listing-status">design</span>
+</td>
+<td>
+<span class="listing-date">Sep 22, 2026</span>
+</td>
+<td>
+<span class="listing-reviewed">none</span>
+</td>
+
+</tr>
+
+<tr data-index="28" data-categories="ZGVzaWduJTJDZGF0YXNoYXJlJTJDcmVn" data-listing-date-sort="1790035200000" data-listing-file-modified-sort="1790102791265" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="728" data-listing-title-sort="Do trials that pledge to share data report their results?" data-listing-filename-sort="P28-ipd-pledge-and-results-reporting.qmd">
+<td>
+<a href="./proposals/P28-ipd-pledge-and-results-reporting.html" class="title listing-title">Do trials that pledge to share data report their results?</a>
+</td>
+<td>
+<span class="listing-id">P28</span>
+</td>
+<td>
+<span class="listing-status">design</span>
+</td>
+<td>
+<span class="listing-date">Sep 22, 2026</span>
+</td>
+<td>
+<span class="listing-reviewed">none</span>
+</td>
+
+</tr>
+
+<tr data-index="29" data-categories="ZGVzaWduJTJDZGF0YXNoYXJlJTJDcmVmbGV4aXZl" data-listing-date-sort="1790035200000" data-listing-file-modified-sort="1790102791265" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="756" data-listing-title-sort="Is the data meta-research deposits ever reused?" data-listing-filename-sort="P29-is-meta-research-data-reused.qmd">
+<td>
+<a href="./proposals/P29-is-meta-research-data-reused.html" class="title listing-title">Is the data meta-research deposits ever reused?</a>
+</td>
+<td>
+<span class="listing-id">P29</span>
+</td>
+<td>
+<span class="listing-status">design</span>
+</td>
+<td>
+<span class="listing-date">Sep 22, 2026</span>
+</td>
+<td>
+<span class="listing-reviewed">none</span>
+</td>
+
+</tr>
+
+<tr data-index="30" data-categories="YWdlbmRhJTJDcmVn" data-listing-date-sort="1790035200000" data-listing-file-modified-sort="1790102791266" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="321" data-listing-title-sort="Do trials quietly cut their enrollment target?" data-listing-filename-sort="P30-registry-change-history.qmd">
+<td>
+<a href="./proposals/P30-registry-change-history.html" class="title listing-title">Do trials quietly cut their enrollment target?</a>
+</td>
+<td>
+<span class="listing-id">P30</span>
+</td>
+<td>
+<span class="listing-status">agenda</span>
+</td>
+<td>
+<span class="listing-date">Sep 22, 2026</span>
+</td>
+<td>
+<span class="listing-reviewed">none</span>
+</td>
+
+</tr>
+
 </tbody>
 </table>
 <div class="listing-no-matching d-none">No matching items</div>
+<nav id="listing-pagination" class="listing-pagination" aria-label="Page Navigation">
+  <ul class="pagination"></ul>
+</nav>
 </div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
